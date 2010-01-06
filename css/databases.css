@@ -1,0 +1,186 @@
+.trialText {
+	color: red;
+}
+
+
+h3 {
+	font-size: 120%;
+}
+
+#rssIcon {
+	float: right;
+}
+
+.subjectDiv {
+	float: left;
+	width: 275px;
+	
+	padding-left: 25px;
+
+}
+
+.subjectLetterHeading {
+	border: none;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #d4d4d4;
+	
+	width: 90%;
+}
+
+.subjectDivList {
+	margin: 0;
+	padding: 0;
+	padding-left: 15px;
+	/* list-style-position: inside; */
+	
+	list-style-image: url(/databases/images/square.gif);
+}
+
+.subjectDivList li {
+	margin-top: 5px;
+}
+
+#subjectsContainer {
+	float: left;
+	width: 600px;
+	padding-left: 25px;
+}
+
+#subjectsContainer h3 {
+	width: 90%;
+	border: none;
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+	border-bottom-color: #000000;
+}
+
+#rightNav {
+	float: right;
+	width: 250px;
+	
+	margin-right: 10px;
+}
+
+#rightNav h4 {
+	width: 100%;
+	
+	border: none;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #000000;
+	
+	font-weight: bold;
+	font-size: 90%;
+	
+}
+
+.rtUL {
+	float: left;
+	
+	margin: 0;
+	padding: 0;
+	padding-left: 10px;
+	
+	width: 115px;
+	
+	/* list-style-position: inside; */ 
+	list-style-image: url(/databases/images/square.gif);
+	
+}
+
+#newsUL {
+	
+/*	border-style: solid;
+	border-width: 1px;*/
+	
+	margin: 0;
+	padding: 0;
+	padding-left: 10px;
+	
+	list-style-image: url(/databases/images/square.gif);
+}
+
+#newsUL li {
+	padding-bottom: 8px;
+}
+
+.dbLetter {
+	margin: none;
+	padding: none;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.dbListing {
+	margin-top: 25px;
+}
+
+.dbListing p {
+	margin: 0;
+	padding: 0;
+}
+
+.dbListing #dbName {
+	font-weight: bold;
+}
+
+.dbListing hr {
+	width: 33%;
+	height: 1px;
+	color: #A8A8A8;
+	
+	margin-top: 25px;
+}
+
+#popularDBList {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	padding-left: 10px;
+}
+
+#rightNavSubLink {
+	padding-left: 10px;
+}
+
+#subjectGuideLink {
+	width: 90%;
+	
+	border: none;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #A8A8A8;
+	
+	margin-top: 20px;
+	padding-bottom: 10px;
+}
+
+.infoBlock {
+	margin-bottom: 20px;
+}
+
+.labelTD {
+	vertical-align: top;
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+.clearfix {
+	display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+* html .clearfix {
+	height: 1%;
+}

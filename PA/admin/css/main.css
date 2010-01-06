@@ -1,0 +1,56 @@
+#headerImageMap	#headerLibaryHome {
+	text-decoration: none}
+	
+#footer {
+	height: 75px}
+
+#type-b #mainDiv #content #rightScroll textarea, input {
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif}
+	
+/* Sidebar Items */
+#left a {
+	font-size: 80%}
+	
+#left table {
+	padding-top: 10px;}
+	
+#left td.itemTitle {
+	padding-left: 10px;
+	text-align: right}
+	
+#left td.itemDescription {
+	text-align: left}
+
+#submitButton {
+	text-align: center}
+
+b {
+	color: red}
+
+#rightScroll td {
+	padding: 10px;
+	padding-top: 3px;
+	padding-bottom: 3px}
+	
+#rightScroll tr.tableTitle {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 80%;
+	font-weight: bold;
+	text-align: center;
+	color: #ffffff;
+	background-color: #16325C}
+	
+#rightScroll tr.odd {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 80%;
+	font-weight: bold;
+	text-align: right;
+	background-color: #eef3fc}
+
+#rightScroll tr.even {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 80%;
+	text-align: right;
+	font-weight: bold}
+	

@@ -1,0 +1,23 @@
+#headerImageMap {
+	font-size: 80%;}
+
+#mainDiv #content #left {
+	padding-top: 2px;
+	padding-bottom: 2px;
+	font-size: 80%;}
+
+#left p.logonTitle {
+	padding-left: 10px;}
+	
+#left p.logonDescription {
+	padding-left: 10px;}
+
+#left .f-submit-wrap {
+	padding-left: 10px;}
+	
+#left td.itemTitle {
+	padding-top: 5px;
+	vertical-align: top;}
+	
+#left td.itemDescription {
+	vertical-align: top;}
