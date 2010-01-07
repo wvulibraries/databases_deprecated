@@ -1,16 +1,17 @@
 <?php
 
-$engineDir = "/home/library/phpincludes/engineCMS/engine";
+$engineDir = "/home/library/phpincludes/engineAPI/engine";
+include($engineDir ."/engine.php");
+$engine = new EngineCMS();
 
-$localVars = array(); //Do not delete this line
+$engine->localVars('pageTitle',"WVU Libraries: Databases");
+$engine->eTemplate("load","1col");
 
-$localVars['pageTitle']      = "WVU Libraries: Databases";
-$localVars['engineTemplate'] = "1col";
-
-$accessControl = array(); //Do not delete this line
+recurseInsert("dbTables.php","php");
+$engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
 
 // Fire up the Engine
-include($engineDir ."/engineHeader.php");
+$engine->eTemplate("include","header");
 
 ?>
 
@@ -23,8 +24,8 @@ $sqlResult = $engineVars['openDB']->query($sql);
 //
 
 $localVars['status'] = 1;
-if(!empty($cleanGet['HTML']['status'])) {
-	$localVars['status'] = $cleanGet['HTML']['status'];
+if(!empty($engine->cleanGet['HTML']['status'])) {
+	$localVars['status'] = $engine->cleanGet['HTML']['status'];
 }
 
 ?>
@@ -58,5 +59,5 @@ $subjects = buildSubjectList();
 <script type="text/javascript" src="http://s3.amazonaws.com/new.cetrk.com/pages/scripts/0008/8415.js"> </script>
 
 <?php
-include($engineDir ."/engineFooter.php");
+$engine->eTemplate("include","footer");
 ?>

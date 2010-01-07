@@ -1,24 +1,25 @@
 <?php
 
-$engineDir = "/home/library/phpincludes/engineCMS/engine";
+$engineDir = "/home/library/phpincludes/engineAPI/engine";
+include($engineDir ."/engine.php");
+$engine = new EngineCMS();
 
-$localVars = array(); //Do not delete this line
+$engine->localVars('pageTitle',"Database Management: Subjects");
 
-$localVars['pageTitle']       = "Database Managemet: Subjects";
+recurseInsert("dbTables.php","php");
+$engine->dbConnect("database","databases",TRUE);
 
-$accessControl = array(); //Do not delete this line
+recurseInsert("acl.php","php");
+$engine->accessControl("build");
 
-$accessControl['AD']['Groups']['webDatabaseAdmin'] = 1;
-
-// Fire up the Engine
-include($engineDir ."/engineHeader.php");
+$engine->eTemplate("include","header");
 ?>
 
 <?php
-global $dbTables;
+$dbTables = $engine->dbTablesExport();
 
-$localVars['listAddLabel'] = "Subjects";
-$localVars['listAddTable'] = $dbTables["subjects"]["prod"];
+$engine->localVars('listAddLabel', "Subjects");
+$engine->localVars('listAddTable', $dbTables["subjects"]["prod"]);
 
 $cols = array();
 $cols[1]["table"] = "name";
@@ -26,6 +27,8 @@ $cols[1]["label"] = "Subject";
 
 $cols[2]["table"] = "url";
 $cols[2]["label"] = "URL";
+
+$localVars = $engine->localVarsExport();
 
 ?>
 
@@ -37,15 +40,15 @@ $cols[2]["label"] = "URL";
 <?php
 //Submit the form
 
-if(isset($cleanPost['MYSQL']['newSubmit'])) {
+if(isset($engine->cleanPost['MYSQL']['newSubmit'])) {
 	
-	$output = webHelper_listMultiInsert($localVars['listAddTable'],$localVars['listAddLabel'],$cols);
+	$output = webHelper_listMultiInsert($localVars['listAddTable'],$localVars['listAddLabel'],$cols,$engine);
 
 	echo $output;
 
 }
-else if (isset($cleanPost['MYSQL']['updateSubmit'])) {
-	$output = webhelper_listMultiUpdate($localVars['listAddTable'],$cols);
+else if (isset($engine->cleanPost['MYSQL']['updateSubmit'])) {
+	$output = webhelper_listMultiUpdate($localVars['listAddTable'],$cols,$engine);
 	
 	echo $output;
 }
@@ -69,5 +72,5 @@ foreach ($cols as $I=>$col) {
 <!-- Page Content Goes Above This Line -->
 
 <?php
-include($engineDir ."/engineFooter.php");
+$engine->eTemplate("include","footer");
 ?>

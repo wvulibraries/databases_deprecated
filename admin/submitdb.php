@@ -1,20 +1,20 @@
 <?php
 
-global $cleanPost;
-global $localVars;
-global $dbTables;
+global $engine;
+
+$dbTables  = $engine->dbTablesExport();
 
 $error   = "";
 
-buildDBArray($cleanPost);
+buildDBArray($engine->cleanPost);
 
-if (empty($cleanPost['MYSQL']['dbName'])) {
+if (empty($engine->cleanPost['MYSQL']['dbName'])) {
 	$error .= webHelper_errorMsg("Database Name is Required.");
 }
-if (empty($cleanPost['MYSQL']['dbURL'])) {
+if (empty($engine->cleanPost['MYSQL']['dbURL'])) {
 	$error .= webHelper_errorMsg("Database URL is Required.");
 }
-if (isnull($cleanPost['MYSQL']['dbStatus'])) {
+if (isnull($engine->cleanPost['MYSQL']['dbStatus'])) {
 	$error .= webHelper_errorMsg("Database Status is Required.");
 }
 
@@ -29,8 +29,10 @@ else {
 	echo "</pre>";
 	*/
 		
-	$dbID = $cleanPost['MYSQL']['newEntry'];
-	$localVars['dbID'] = $dbID;
+	$dbID = $engine->cleanPost['MYSQL']['newEntry'];
+	$engine->localVars('dbID', $dbID);
+	
+	$localVars = $engine->localVarsExport();
 		
 	$localtime = time();
 	$updateDate = $localtime;
@@ -39,27 +41,27 @@ else {
 	$error = FALSE;
 	
 	$sql = "";
-	if ($cleanPost['MYSQL']['newEntry'] == "null") {
+	if ($engine->cleanPost['MYSQL']['newEntry'] == "null") {
 		$sql = sprintf("INSERT INTO %s (name,status,yearsOfCoverage,vendor,url,offCampusURL,updated,accessType,fullTextDB,newDatabase,trialDatabase,access,help,helpURL,description,createDate,updateDate,URLID,popular,trialExpireDate) VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",
 			$dbTables['databases']['prod'],
-			$engineVars['openDB']->escape($localVars['dbName']),
-			$engineVars['openDB']->escape($localVars['dbStatus']),
-			$engineVars['openDB']->escape($localVars['yearsOfCoverage']),
-			$engineVars['openDB']->escape($localVars['vendors']),
+			$engine->openDB->escape($localVars['dbName']),
+			$engine->openDB->escape($localVars['dbStatus']),
+			$engine->openDB->escape($localVars['yearsOfCoverage']),
+			$engine->openDB->escape($localVars['vendors']),
 			$localVars['dbURL'],
 			$localVars['dbURLOffCampus'],
-			$engineVars['openDB']->escape($localVars['updateText']),
-			$engineVars['openDB']->escape($localVars['accessType']),
+			$engine->openDB->escape($localVars['updateText']),
+			$engine->openDB->escape($localVars['accessType']),
 			(empty($localVars['fullTextDB'])?"0":"1"),
 			(empty($localVars['newDB'])?"0":"1"),
 			(empty($localVars['trialDB'])?"0":"1"),
-			$engineVars['openDB']->escape($localVars['accessPlainText']),
-			$engineVars['openDB']->escape($localVars['helpText']),
-			$engineVars['openDB']->escape($localVars['helpURL']),
-			$engineVars['openDB']->escape($localVars['dbDesc']),
-			$engineVars['openDB']->escape($createDate),
-			$engineVars['openDB']->escape($updateDate),
-			$engineVars['openDB']->escape($localtime),
+			$engine->openDB->escape($localVars['accessPlainText']),
+			$engine->openDB->escape($localVars['helpText']),
+			$engine->openDB->escape($localVars['helpURL']),
+			$engine->openDB->escape($localVars['dbDesc']),
+			$engine->openDB->escape($createDate),
+			$engine->openDB->escape($updateDate),
+			$engine->openDB->escape($localtime),
 			(empty($localVars['popular'])?"0":"1"),
 			$localVars['trialExpireDate']
 			);
@@ -67,30 +69,30 @@ else {
 	else {
 		$sql = sprintf("UPDATE %s SET name='%s', status='%s', yearsOfCoverage='%s', vendor='%s', url='%s', offCampusURL='%s', updated='%s', accessType='%s', fullTextDB='%s', newDatabase='%s', trialDatabase='%s', access='%s', help='%s', helpURL='%s', description='%s', updateDate='%s', popular='%s', trialExpireDate='%s' WHERE ID=%s",
 		$dbTables['databases']['prod'],
-		$engineVars['openDB']->escape($localVars['dbName']),
-		$engineVars['openDB']->escape($localVars['dbStatus']),
-		$engineVars['openDB']->escape($localVars['yearsOfCoverage']),
-		$engineVars['openDB']->escape($localVars['vendors']),
+		$engine->openDB->escape($localVars['dbName']),
+		$engine->openDB->escape($localVars['dbStatus']),
+		$engine->openDB->escape($localVars['yearsOfCoverage']),
+		$engine->openDB->escape($localVars['vendors']),
 		$localVars['dbURL'],
 		$localVars['dbURLOffCampus'],
-		$engineVars['openDB']->escape($localVars['updateText']),
-		$engineVars['openDB']->escape($localVars['accessType']),
+		$engine->openDB->escape($localVars['updateText']),
+		$engine->openDB->escape($localVars['accessType']),
 		(empty($localVars['fullTextDB'])?"0":"1"),
 		(empty($localVars['newDB'])?"0":"1"),
 		(empty($localVars['trialDB'])?"0":"1"),
-		$engineVars['openDB']->escape($localVars['accessPlainText']),
-		$engineVars['openDB']->escape($localVars['helpText']),
-		$engineVars['openDB']->escape($localVars['helpURL']),
-		$engineVars['openDB']->escape($localVars['dbDesc']),
-		$engineVars['openDB']->escape($updateDate),
+		$engine->openDB->escape($localVars['accessPlainText']),
+		$engine->openDB->escape($localVars['helpText']),
+		$engine->openDB->escape($localVars['helpURL']),
+		$engine->openDB->escape($localVars['dbDesc']),
+		$engine->openDB->escape($updateDate),
 		(empty($localVars['popular'])?"0":"1"),
 		$localVars['trialExpireDate'],
-		$engineVars['openDB']->escape($dbID)
+		$engine->openDB->escape($dbID)
 		);
 	}
 	
-	$engineVars['openDB']->sanitize = FALSE;
-	$sqlResult = $engineVars['openDB']->query($sql);
+	$engine->openDB->sanitize = FALSE;
+	$sqlResult = $engine->openDB->query($sql);
 	
 	if (!$sqlResult['result']) {
 		$error = TRUE;
@@ -99,34 +101,34 @@ else {
 	
 	if ($dbID == "null") {
 		$dbID = $sqlResult['id'];
-		$localVars['dbID'] = $dbID;
+		$engine->localVars('dbID', $dbID);
 	}
 	
 	if ($error == FALSE) {
 
-		if ($cleanPost['MYSQL']['newEntry'] != "null") {
+		if ($engine->cleanPost['MYSQL']['newEntry'] != "null") {
 			$sql = sprintf("DELETE from databases_subjects WHERE dbID= %s",
-				$engineVars['openDB']->escape($dbID)
+				$engine->openDB->escape($dbID)
 				);
 
-			$engineVars['openDB']->sanitize = FALSE;
-			$sqlResult = $engineVars['openDB']->query($sql);
+			$engine->openDB->sanitize = FALSE;
+			$sqlResult = $engine->openDB->query($sql);
 
 			if (!$sqlResult['result']) {
 				$error = TRUE;
 				print webHelper_errorMsg("SQL Error, subjects Delete:".$sqlResult['error']);
 			}
 		}
-		if(!empty($cleanPost['HTML']['subjects'])) {
-			foreach ($cleanPost['HTML']['subjects'] as $value) {
+		if(!empty($engine->cleanPost['HTML']['subjects'])) {
+			foreach ($engine->cleanPost['HTML']['subjects'] as $value) {
 
 				$sql = sprintf("INSERT INTO databases_subjects (dbID,subjectID) values(%s,%s)",
-					$engineVars['openDB']->escape($dbID),
-					$engineVars['openDB']->escape($value)
+					$engine->openDB->escape($dbID),
+					$engine->openDB->escape($value)
 					);
 
-				$engineVars['openDB']->sanitize = FALSE;
-				$sqlResult = $engineVars['openDB']->query($sql);
+				$engine->openDB->sanitize = FALSE;
+				$sqlResult = $engine->openDB->query($sql);
 
 				if (!$sqlResult['result']) {
 					$error = TRUE;
@@ -136,29 +138,29 @@ else {
 			}
 		}
 
-		if ($cleanPost['MYSQL']['newEntry'] != "null") {
+		if ($engine->cleanPost['MYSQL']['newEntry'] != "null") {
 			$sql = sprintf("DELETE from databases_resourceTypes WHERE dbID= %s",
-				$engineVars['openDB']->escape($dbID)
+				$engine->openDB->escape($dbID)
 				);
 
-			$engineVars['openDB']->sanitize = FALSE;
-			$sqlResult = $engineVars['openDB']->query($sql);
+			$engine->openDB->sanitize = FALSE;
+			$sqlResult = $engine->openDB->query($sql);
 
 			if (!$sqlResult['result']) {
 				$error = TRUE;
 				print webHelper_errorMsg("SQL Error, resourceTypes Delete:".$sqlResult['error']);
 			}
 		}
-		if(!empty($cleanPost['HTML']['resourceTypes'])) {
-			foreach ($cleanPost['HTML']['resourceTypes'] as $value) {
+		if(!empty($engine->cleanPost['HTML']['resourceTypes'])) {
+			foreach ($engine->cleanPost['HTML']['resourceTypes'] as $value) {
 
 				$sql = sprintf("INSERT INTO databases_resourceTypes (dbID,resourceID) values(%s,%s)",
-					$engineVars['openDB']->escape($dbID),
-					$engineVars['openDB']->escape($value)
+					$engine->openDB->escape($dbID),
+					$engine->openDB->escape($value)
 					);
 
-				$engineVars['openDB']->sanitize = FALSE;
-				$sqlResult = $engineVars['openDB']->query($sql);
+				$engine->openDB->sanitize = FALSE;
+				$sqlResult = $engine->openDB->query($sql);
 
 				if (!$sqlResult['result']) {
 					$error = TRUE;
@@ -170,7 +172,7 @@ else {
 	}
 	
 	if($error == FALSE) {
-		if ($cleanPost['MYSQL']['newEntry'] == "null") {
+		if ($engine->cleanPost['MYSQL']['newEntry'] == "null") {
 			print webHelper_successMsg("Successfully added new database.");
 		}
 		else {

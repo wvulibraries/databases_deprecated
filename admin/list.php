@@ -1,16 +1,18 @@
 <?php
 
-$engineDir = "/home/library/phpincludes/engineCMS/engine";
+$engineDir = "/home/library/phpincludes/engineAPI/engine";
+include($engineDir ."/engine.php");
+$engine = new EngineCMS();
 
-$localVars = array(); //Do not delete this line
+$engine->localVars('pageTitle',"Database Management: Add Database");
 
-$localVars['pageTitle']       = "Database Managemet: Add Database";
+recurseInsert("dbTables.php","php");
+$engine->dbConnect("database","databases",TRUE);
 
-$accessControl = array(); //Do not delete this line
-$accessControl['AD']['Groups']['webDatabaseAdmin'] = 1;
+recurseInsert("acl.php","php");
+$engine->accessControl("build");
 
-// Fire up the Engine
-include($engineDir ."/engineHeader.php");
+$engine->eTemplate("include","header");
 ?>
 
 <!-- Page Content Goes Below This Line -->
@@ -19,16 +21,16 @@ include($engineDir ."/engineHeader.php");
 
 // Check for and expire trial databases
 $sql = "UPDATE dbList set status='2' WHERE trialDatabase=1 AND trialExpireDate<".time();
-$engineVars['openDB']->sanitize = FALSE;
-$sqlResult = $engineVars['openDB']->query($sql);
+$engine->openDB->sanitize = FALSE;
+$sqlResult = $engine->openDB->query($sql);
 //
 
 $error = FALSE;
 
 $sql = "SELECT * FROM dbList ORDER BY name";
 
-$engineVars['openDB']->sanitize = FALSE;
-$sqlResult = $engineVars['openDB']->query($sql);
+$engine->openDB->sanitize = FALSE;
+$sqlResult = $engine->openDB->query($sql);
 
 if (!$sqlResult['result']) {
 	$error = TRUE;
@@ -114,5 +116,5 @@ $color = (++$count%2 == 0)?$engineVars['oddColor']:$engineVars['evenColor'];
 <!-- Page Content Goes Above This Line -->
 
 <?php
-include($engineDir ."/engineFooter.php");
+$engine->eTemplate("include","footer");
 ?>

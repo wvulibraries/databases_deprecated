@@ -1,10 +1,12 @@
 <?php
 
-$engineDir = "/home/library/phpincludes/engineCMS/engine";
+$engineDir = "/home/library/phpincludes/engineAPI/engine";
+include($engineDir ."/engine.php");
+$engine = new EngineCMS();
 
-$localVars = array(); //Do not delete this line
 
-$localVars['pageTitle']      = "WVU Libraries: Databases";
+
+$engine->localVars('pageTitle',"WVU Libraries: Databases");
 
 
 if (isset($_GET['type'])) {
@@ -12,13 +14,14 @@ if (isset($_GET['type'])) {
 	header('Content-type: application/xml');
 }
 else {
-	$localVars['engineTemplate'] = "1col";
+	$engine->eTemplate("load","1col");
 }
 
-$accessControl = array(); //Do not delete this line
+recurseInsert("dbTables.php","php");
+$engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
 
 // Fire up the Engine
-include($engineDir ."/engineHeader.php");
+$engine->eTemplate("include","header");
 
 recurseInsert("buildLists.php","php");
 ?>
@@ -60,7 +63,7 @@ if (!empty($cleanGet)) {
 	$rss->lastBuildDate = gmdate("D, j M Y G:i:s T");
 	
 
-	if($cleanGet['HTML']['type'] == "newdb") {
+	if($engine->cleanGet['HTML']['type'] == "newdb") {
 		
 		$rss->title .= "New and Trial Databases";
 		$rss->description = "WVU Libraries New and Trial databases.";
@@ -84,7 +87,7 @@ if (!empty($cleanGet)) {
 		
 		$xml = $rss->buildRSS();
 	}
-	else if ($cleanGet['HTML']['type'] == "news") {
+	else if ($engine->cleanGet['HTML']['type'] == "news") {
 		$rss->title .= "News and Announcements";
 		$rss->description = "WVU Libraries Database News and Announcements.";
 		
@@ -104,7 +107,7 @@ if (!empty($cleanGet)) {
 		$xml = $rss->buildRSS();
 		
 	}
-	else if ($cleanGet['HTML']['type'] == "combined") {
+	else if ($engine->cleanGet['HTML']['type'] == "combined") {
 		$rss->title .= "Combined RSS Feed.";
 		$rss->description = "WVU Libraries Database combined RSS feed. News and Announcements, New Databases, Trial Databases.";
 		
@@ -147,5 +150,5 @@ print $xml;
 
 ?>
 <?php
-include($engineDir ."/engineFooter.php");
+$engine->eTemplate("include","footer");
 ?>

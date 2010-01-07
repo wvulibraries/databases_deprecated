@@ -1,16 +1,14 @@
 <?php
 
-$engineDir = "/home/library/phpincludes/engineCMS/engine";
+$engineDir = "/home/library/phpincludes/engineAPI/engine";
+include($engineDir ."/engine.php");
+$engine = new EngineCMS();
 
-$localVars = array(); //Do not delete this line
+$engine->localVars('pageTitle',"WVU Libraries: Databases");
+$engine->eTemplate("load","1col");
 
-$localVars['pageTitle']        = "WVU Libraries: Databases";
-$localVars['exclude_template'] = TRUE;
-
-$accessControl = array(); //Do not delete this line
-
-// Fire up the Engine
-include($engineDir ."/engineHeader.php");
+recurseInsert("dbTables.php","php");
+$engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
 ?>
 
 <!-- Page Content Goes Below This Line -->
@@ -19,12 +17,12 @@ include($engineDir ."/engineHeader.php");
 
 $proxyURL  = "http://www.libproxy.wvu.edu/login?url=";
 
-if(empty($cleanGet['MYSQL'])) {
+if(empty($engine->cleanGet['MYSQL'])) {
 	echo "error";
 	exit;
 }
 
-foreach ($cleanGet['MYSQL'] as $db=>$invs) {
+foreach ($engine->cleanGet['MYSQL'] as $db=>$invs) {
 
 	// Determine Location
 	$location = 0;
@@ -39,7 +37,7 @@ foreach ($cleanGet['MYSQL'] as $db=>$invs) {
 	if (mysql_num_rows($sqlResult['result']) != 1) {
 		echo "Error with database selection.";
 		echo "<pre>";
-		print_r($cleanGet['MYSQL']);
+		print_r($engine->cleanGet['MYSQL']);
 		echo "</pre>";
 		break;
 	}
@@ -81,5 +79,5 @@ foreach ($cleanGet['MYSQL'] as $db=>$invs) {
 <!-- Page Content Goes Above This Line -->
 
 <?php
-include($engineDir ."/engineFooter.php");
+
 ?>

@@ -1,16 +1,19 @@
 <?php
 
-$engineDir = "/home/library/phpincludes/engineCMS/engine";
+$engineDir = "/home/library/phpincludes/engineAPI/engine";
+include($engineDir ."/engine.php");
+$engine = new EngineCMS();
 
-$localVars = array(); //Do not delete this line
 
-$localVars['pageTitle']      = "WVU Libraries: Databases";
-$localVars['engineTemplate'] = "1col";
 
-$accessControl = array(); //Do not delete this line
+$engine->localVars('pageTitle',"WVU Libraries: Databases");
+$engine->eTemplate("load","1col");
+
+recurseInsert("dbTables.php","php");
+$engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
 
 // Fire up the Engine
-include($engineDir ."/engineHeader.php");
+$engine->eTemplate("include","header");
 ?>
 
 <?php
@@ -21,7 +24,7 @@ include("buildStatus.php");
 
 recurseInsert("buildLists.php","php");
 
-$sql = "SELECT * FROM subjects WHERE ID=".$cleanGet['MYSQL']['id'];
+$sql = "SELECT * FROM subjects WHERE ID=".$engine->cleanGet['MYSQL']['id'];
 $engineVars['openDB']->sanitize = FALSE;
 $sqlResult = $engineVars['openDB']->query($sql);
 
@@ -47,7 +50,7 @@ else {
 
 <?php
 
-$sql = "select * from dbList JOIN databases_subjects where databases_subjects.subjectID='".$cleanGet['MYSQL']['id']."' AND dbList.ID=databases_subjects.dbID AND (".$status.") ORDER BY dbList.name";
+$sql = "select * from dbList JOIN databases_subjects where databases_subjects.subjectID='".$engine->cleanGet['MYSQL']['id']."' AND dbList.ID=databases_subjects.dbID AND (".$status.") ORDER BY dbList.name";
 $engineVars['openDB']->sanitize = FALSE;
 $sqlResult = $engineVars['openDB']->query($sql);
 
@@ -72,5 +75,5 @@ if (!$sqlResult['result']) {
 <!-- Page Content Goes Above This Line -->
 
 <?php
-include($engineDir ."/engineFooter.php");
+$engine->eTemplate("include","footer");
 ?>

@@ -1,16 +1,19 @@
 <?php
 
-$engineDir = "/home/library/phpincludes/engineCMS/engine";
+$engineDir = "/home/library/phpincludes/engineAPI/engine";
+include($engineDir ."/engine.php");
+$engine = new EngineCMS();
 
-$localVars = array(); //Do not delete this line
+$engine->localVars('pageTitle',"Database Management");
 
-$localVars['pageTitle']       = "Database Managemet: Add Database";
+recurseInsert("dbTables.php","php");
+$engine->dbConnect("database","databases",TRUE);
+$dbTables = $engine->dbTablesExport();
 
-$accessControl = array(); //Do not delete this line
-$accessControl['AD']['Groups']['webDatabaseAdmin'] = 1;
+recurseInsert("acl.php","php");
+$engine->accessControl("build");
 
-// Fire up the Engine
-include($engineDir ."/engineHeader.php");
+$engine->eTemplate("include","header");
 ?>
 
 <!-- Page Content Goes Below This Line -->
@@ -19,7 +22,7 @@ include($engineDir ."/engineHeader.php");
 
 recurseInsert("buildDBArray.php","php");
 
-if(isset($cleanPost['MYSQL']['deleteDB'])) {
+if(isset($engine->cleanPost['MYSQL']['deleteDB'])) {
 
 	recurseInsert("deletedb.php","php");
 	
@@ -27,28 +30,30 @@ if(isset($cleanPost['MYSQL']['deleteDB'])) {
 
 }
 
-$localVars['dbID'] = "null";
-if(!empty($cleanGet['HTML']['id'])) {
-	$localVars['dbID'] = $cleanGet['HTML']['id'];
+$engine->localVars('dbID', "null");
+if(!empty($engine->cleanGet['HTML']['id'])) {
+	$engine->localVars('dbID', $engine->cleanGet['HTML']['id']);
 	
 	$sql = sprintf("SELECT * FROM dbList WHERE ID='%s'",
-		$engineVars['openDB']->escape($localVars['dbID'])
+		$engine->openDB->escape($engine->cleanGet['HTML']['id'])
 		);
-	$engineVars['openDB']->sanitize = FALSE;
-	$sqlResult = $engineVars['openDB']->query($sql);
+	$engine->openDB->sanitize = FALSE;
+	$sqlResult = $engine->openDB->query($sql);
 	
 	$row = mysql_fetch_array($sqlResult['result'], MYSQL_NUM);
 	buildDBArray($row);
 	
 	if(!$row[0]) {
 		print webHelper_errorMsg("Database ID not Found.");
-		include($engineDir ."/engineFooter.php");
+		$engine->eTemplate("include","footer");
 		die;
 	}
 	
 }
 
-if(isset($cleanPost['MYSQL']['submitDB'])) {
+$localVars = $engine->localVarsExport();
+
+if(isset($engine->cleanPost['MYSQL']['submitDB'])) {
 
 	recurseInsert("submitdb.php","php");
 
@@ -265,5 +270,5 @@ switch($localVars['dbID']) {
 <!-- Page Content Goes Above This Line -->
 
 <?php
-include($engineDir ."/engineFooter.php");
+$engine->eTemplate("include","footer");
 ?>

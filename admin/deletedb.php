@@ -1,14 +1,14 @@
 <?php
 
-global $cleanPost;
-global $localVars;
-global $dbTables;
+global $engine;
 
-if (isset($cleanPost['MYSQL']['deleteDB']) && isset($cleanPost['MYSQL']['id'])) {
-	$sql = sprintf("DELETE FROM %s WHERE ID=%s", $dbTables['databases']['prod'], $cleanPost['MYSQL']['id']);
+$dbTables = $engine->dbTablesExport();
+
+if (isset($engine->cleanPost['MYSQL']['deleteDB']) && isset($engine->cleanPost['MYSQL']['id'])) {
+	$sql = sprintf("DELETE FROM %s WHERE ID=%s", $dbTables['databases']['prod'], $engine->cleanPost['MYSQL']['id']);
 	
-	$engineVars['openDB']->sanitize = FALSE;
-	$sqlResult = $engineVars['openDB']->query($sql);
+	$engine->openDB->sanitize = FALSE;
+	$sqlResult = $engine->openDB->query($sql);
 
 }
 ?>

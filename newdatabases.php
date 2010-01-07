@@ -1,22 +1,25 @@
 <?php
 
-$engineDir = "/home/library/phpincludes/engineCMS/engine";
+$engineDir = "/home/library/phpincludes/engineAPI/engine";
+include($engineDir ."/engine.php");
+$engine = new EngineCMS();
 
-$localVars = array(); //Do not delete this line
 
-$localVars['pageTitle']      = "WVU Libraries: Databases";
-$localVars['engineTemplate'] = "1col";
 
-$accessControl = array(); //Do not delete this line
+$engine->localVars('pageTitle',"WVU Libraries: Databases");
+$engine->eTemplate("load","1col");
+
+recurseInsert("dbTables.php","php");
+$engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
 
 // Fire up the Engine
-include($engineDir ."/engineHeader.php");
+$engine->eTemplate("include","header");
 ?>
 
 <?php
 include("buildStatus.php");
 
-switch($cleanGet['HTML']['type']) {
+switch($engine->cleanGet['HTML']['type']) {
 	case "new":
 	$pageHeader = "New";
 	$searchType = "newDatabase";
@@ -76,5 +79,5 @@ if (!$sqlResult['result']) {
 <!-- Page Content Goes Above This Line -->
 
 <?php
-include($engineDir ."/engineFooter.php");
+$engine->eTemplate("include","footer");
 ?>

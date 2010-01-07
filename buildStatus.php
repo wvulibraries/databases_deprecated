@@ -1,8 +1,8 @@
 <?php
 
 $localVars['status'] = 1;
-if(!empty($cleanGet['HTML']['status'])) {
-	$localVars['status'] = $cleanGet['HTML']['status'];
+if(!empty($engine->cleanGet['HTML']['status'])) {
+	$localVars['status'] = $engine->cleanGet['HTML']['status'];
 }
 
 $status = "";

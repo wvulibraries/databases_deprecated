@@ -3,9 +3,9 @@
 function buildSubjectList() {
 	
 	global $engineVars;
-	global $cleanGet;
+	global $engine;
 	
-	$currentStatus = (empty($cleanGet['HTML']['status']))?"":"&amp;status=".$cleanGet['HTML']['status'];
+	$currentStatus = (empty($engine->cleanGet['HTML']['status']))?"":"&amp;status=".$engine->cleanGet['HTML']['status'];
 	
 	$sql = "SELECT * FROM subjects ORDER BY name";
 	$engineVars['openDB']->sanitize = FALSE;
@@ -80,9 +80,9 @@ function buildTitleLetter() {
 	
 	global $engineVars;
 	global $localVars;
-	global $cleanGet;
+	global $engine;
 	
-	$currentStatus = (empty($cleanGet['HTML']['status']))?"":"&amp;status=".$cleanGet['HTML']['status'];
+	$currentStatus = (empty($engine->cleanGet['HTML']['status']))?"":"&amp;status=".$engine->cleanGet['HTML']['status'];
 	
 	$status = "";
 	switch((!empty($localVars['status']))?$localVars['status']:"") {
@@ -149,9 +149,9 @@ function buildTitleLetter() {
 function buildResourceTypes() {
 	
 	global $engineVars;
-	global $cleanGet;
+	global $engine;
 	
-	$currentStatus = (empty($cleanGet['HTML']['status']))?"":"&amp;status=".$cleanGet['HTML']['status'];
+	$currentStatus = (empty($engine->cleanGet['HTML']['status']))?"":"&amp;status=".$engine->cleanGet['HTML']['status'];
 	
 	$sql = "SELECT * FROM resourceTypes ORDER BY name";
 	$engineVars['openDB']->sanitize = FALSE;

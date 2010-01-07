@@ -1,45 +1,48 @@
 <?php
 
-$engineDir = "/home/library/phpincludes/engineCMS/engine";
+$engineDir = "/home/library/phpincludes/engineAPI/engine";
+include($engineDir ."/engine.php");
+$engine = &new EngineCMS();
 
-$localVars = array(); //Do not delete this line
+$engine->localVars('pageTitle',"Database Management: List Management");
 
-$localVars['pageTitle']       = "Database Managemet";
+recurseInsert("dbTables.php","php");
+$engine->dbConnect("database","databases",TRUE);
 
-$accessControl = array(); //Do not delete this line
+recurseInsert("acl.php","php");
+$engine->accessControl("build");
 
-$accessControl['AD']['Groups']['webDatabaseAdmin'] = 1;
-
-// Fire up the Engine
-include($engineDir ."/engineHeader.php");
+$engine->eTemplate("include","header");
 ?>
 
 <?php
 //global $cleanGet;
-global $dbTables;
+$dbTables = $engine->dbTablesExport();
 
-$localVars['listAddLabel'] = $cleanGet['MYSQL']['type'];
-$localVars['listAddTable'] = $dbTables[$cleanGet['MYSQL']['type']]["prod"];
+$engine->localVars('listAddLabel', $engine->cleanGet['MYSQL']['type']);
+$engine->localVars('listAddTable', $dbTables[$engine->cleanGet['MYSQL']['type']]["prod"]);
 
-switch ($cleanGet['MYSQL']['type']) {
+switch ($engine->cleanGet['MYSQL']['type']) {
     case "accessType":
-        $localVars['listAddLabel'] = "Access Type";
+        $engine->localVars('listAddLabel', "Access Type");
         break;
 	case "accessPlainText":
-	    $localVars['listAddLabel'] = "Access Plain Text";
+	    $engine->localVars('listAddLabel', "Access Plain Text");
 	    break;
 	case "resourceTypes":
-	    $localVars['listAddLabel'] = "Resource Types";
+	    $engine->localVars('listAddLabel', "Resource Types");
 		break;
 	case "updateText":
-	    $localVars['listAddLabel'] = "Update Text";
+	    $engine->localVars('listAddLabel', "Update Text");
 	    break;
 	case "news":
-	    $localVars['listAddLabel'] = "News";
+	    $engine->localVars('listAddLabel', "News");
 		break;
 	default:
-	    $localVars['listAddLabel'] = "Error";
+	    $engine->localVars('listAddLabel', "Error");
 }
+
+$localVars = $engine->localVarsExport();
 
 ?>
 
@@ -51,15 +54,15 @@ switch ($cleanGet['MYSQL']['type']) {
 <?php
 //Submit the form
 
-if(isset($cleanPost['MYSQL']['newSubmit'])) {
+if(isset($engine->cleanPost['MYSQL']['newSubmit'])) {
 	
-	$output = webHelper_listInsert($localVars['listAddTable'],$localVars['listAddLabel']);
+	$output = webHelper_listInsert($localVars['listAddTable'],$localVars['listAddLabel'],$engine);
 
 	echo $output;
 
 }
-else if (isset($cleanPost['MYSQL']['updateSubmit'])) {
-	$output = webhelper_listUpdate($localVars['listAddTable']);
+else if (isset($engine->cleanPost['MYSQL']['updateSubmit'])) {
+	$output = webhelper_listUpdate($localVars['listAddTable'],$engine);
 	
 	echo $output;
 }
@@ -77,5 +80,5 @@ else if (isset($cleanPost['MYSQL']['updateSubmit'])) {
 <!-- Page Content Goes Above This Line -->
 
 <?php
-include($engineDir ."/engineFooter.php");
+$engine->eTemplate("include","footer");
 ?>

@@ -1,25 +1,28 @@
 <?php
 
-$engineDir = "/home/library/phpincludes/engineCMS/engine";
+$engineDir = "/home/library/phpincludes/engineAPI/engine";
+include($engineDir ."/engine.php");
+$engine = new EngineCMS();
 
-$localVars = array(); //Do not delete this line
 
-$localVars['pageTitle']      = "WVU Libraries: Databases";
-$localVars['engineTemplate'] = "1col";
 
-$accessControl = array(); //Do not delete this line
+$engine->localVars('pageTitle',"WVU Libraries: Databases");
+$engine->eTemplate("load","1col");
+
+recurseInsert("dbTables.php","php");
+$engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
 
 // Fire up the Engine
-include($engineDir ."/engineHeader.php");
+$engine->eTemplate("include","header");
 ?>
 
 <?php
 include("buildStatus.php");
 
-$pageHeader = (!empty($cleanGet['HTML']['id']))?$cleanGet['HTML']['id']:"";
+$pageHeader = (!empty($engine->cleanGet['HTML']['id']))?$engine->cleanGet['HTML']['id']:"";
 
-if($cleanGet['HTML']['id'] == "num") {
-	$cleanGet['HTML']['id'] = "1' OR name REGEXP '^2' OR name REGEXP '^3' OR name REGEXP '^4' OR name REGEXP '^5' OR name REGEXP '^6' OR name REGEXP '^7' OR name REGEXP '^8' OR name REGEXP '^9' OR name REGEXP '^0";
+if($engine->cleanGet['HTML']['id'] == "num") {
+	$engine->cleanGet['HTML']['id'] = "1' OR name REGEXP '^2' OR name REGEXP '^3' OR name REGEXP '^4' OR name REGEXP '^5' OR name REGEXP '^6' OR name REGEXP '^7' OR name REGEXP '^8' OR name REGEXP '^9' OR name REGEXP '^0";
 }
 
 if ($pageHeader == "num") {
@@ -43,7 +46,7 @@ recurseInsert("buildLists.php","php");
 
 <?php
 
-$sql = "select * from dbList WHERE (name REGEXP '^".$cleanGet['HTML']['id']."') AND (".$status.") ORDER BY name";
+$sql = "select * from dbList WHERE (name REGEXP '^".$engine->cleanGet['HTML']['id']."') AND (".$status.") ORDER BY name";
 $engineVars['openDB']->sanitize = FALSE;
 $sqlResult = $engineVars['openDB']->query($sql);
 
@@ -68,5 +71,5 @@ if (!$sqlResult['result']) {
 <!-- Page Content Goes Above This Line -->
 
 <?php
-include($engineDir ."/engineFooter.php");
+$engine->eTemplate("include","footer");
 ?>

@@ -1,8 +1,8 @@
 <?php
 
-global $cleanGet;
+global $engine;
 
-$currentStatus = (empty($cleanGet['HTML']['status']))?"":"status=".$cleanGet['HTML']['status'];
+$currentStatus = (empty($engine->cleanGet['HTML']['status']))?"":"status=".$engine->cleanGet['HTML']['status'];
 
 $popular  = buildPopularDB();
 $letters  = buildTitleLetter();

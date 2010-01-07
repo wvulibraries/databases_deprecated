@@ -1,21 +1,23 @@
 <?php
 
-$engineDir = "/home/library/phpincludes/engineCMS/engine";
+$engineDir = "/home/library/phpincludes/engineAPI/engine";
+include($engineDir ."/engine.php");
+$engine = new EngineCMS();
 
-$localVars = array(); //Do not delete this line
+$engine->localVars('pageTitle',"WVU Libraries: Databases");
 
-$localVars['pageTitle']      = "WVU Libraries: Databases";
-$localVars['engineTemplate'] = "1col";
+$engine->eTemplate("load","1col");
 
-$accessControl = array(); //Do not delete this line
+recurseInsert("dbTables.php","php");
+$engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
 
 // Fire up the Engine
-include($engineDir ."/engineHeader.php");
+$engine->eTemplate("include","header");
 ?>
 
 <?php
 
-$sql = "SELECT * FROM dbList WHERE ID=".$cleanGet['MYSQL']['id'];
+$sql = "SELECT * FROM dbList WHERE ID=".$engine->cleanGet['MYSQL']['id'];
 $engineVars['openDB']->sanitize = FALSE;
 $sqlResult = $engineVars['openDB']->query($sql);
 
@@ -246,5 +248,5 @@ recurseInsert("buildLists.php","php");
 <!-- Page Content Goes Above This Line -->
 
 <?php
-include($engineDir ."/engineFooter.php");
+$engine->eTemplate("include","footer");
 ?>
