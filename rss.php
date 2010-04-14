@@ -36,8 +36,9 @@ if(empty($_GET)) {
 <br />
 <a href="rss.php?type=news">Database News and Announcements</a>
 <br />
-<a href="rss.php?type=combined">Combined</a>
-
+<a href="rss.php?type=combined">Combined, New Databases and Announcements</a>
+<br />
+<a href="http://www.libraries.wvu.edu/databases/rss.php?type=popular">Popular Databases</a>
 </div>
 
 <div id="rightNav">
@@ -89,6 +90,26 @@ if (!empty($engine->cleanGet)) {
 		$rss->description = "WVU Libraries Database News and Announcements.";
 		
 		$sql = "SELECT * FROM news ORDER BY ID DESC LIMIT 10";
+		$engineVars['openDB']->sanitize = FALSE;
+		$sqlResult = $engineVars['openDB']->query($sql);
+		
+		while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC)) {
+			
+			$dbURL = $engineVars['WVULSERVER']."/dbtest/database.php?id=".$row['ID'];
+			
+			$dbDesc = "";
+			
+			$rss->addItem($row['name'],$dbURL,$dbURL,gmdate("D, j M Y G:i:s T"),$dbDesc);
+		}
+		
+		$xml = $rss->buildRSS();
+		
+	}
+	else if ($engine->cleanGet['HTML']['type'] == "popular") {
+		$rss->title      .= "Popular Databases";
+		$rss->description = "WVU Libraries Popular Databases RSS feed.";
+		
+		$sql = "SELECT * FROM dbList WHERE popular='1' ORDER BY name";
 		$engineVars['openDB']->sanitize = FALSE;
 		$sqlResult = $engineVars['openDB']->query($sql);
 		
