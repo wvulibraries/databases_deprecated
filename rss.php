@@ -1,6 +1,6 @@
 <?php
 
-$engineDir = "/home/library/phpincludes/engineAPI/engine";
+$engineDir = "/home/library/phpincludes/engineAPI/engine2.0";
 include($engineDir ."/engine.php");
 $engine = new EngineCMS();
 
@@ -11,7 +11,7 @@ $engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
 
 
 
-if (isset($_GET['type'])) {
+if (isset($engine->cleanGet['HTML']['type'])) {
 	$localVars['exclude_template'] = TRUE;
 	header('Content-type: application/xml');
 }
@@ -23,7 +23,7 @@ else {
 recurseInsert("buildLists.php","php");
 ?>
 <?php
-if(empty($_GET)) {
+if(empty($engine->cleanGet['HTML']['type'])) {
 ?>
 
 <!-- Page Content Goes Below This Line -->
@@ -57,7 +57,7 @@ if (!empty($engine->cleanGet)) {
 
 	$rss                = new rss();
 	$rss->title         = "WVU Libraries Databases: ";
-	$rss->link          = "http://www.libraries.wvu.edu/dbtest/";
+	$rss->link          = "http://www.libraries.wvu.edu/databases/";
 	$rss->lastBuildDate = gmdate("D, j M Y G:i:s T");
 	
 
@@ -72,11 +72,11 @@ if (!empty($engine->cleanGet)) {
 		
 		while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC)) {
 			
-			$dbURL = $engineVars['WVULSERVER']."/dbtest/database.php?id=".$row['ID'];
+			$dbURL = $engineVars['WVULSERVER']."/databases/database.php?id=".$row['ID'];
 			
 			$dbDesc = "";
-			$dbDesc .= ($row['newDatabase'] == 1)?"<img src=\"".$engineVars['WVULSERVER']."/dbtest/images/new.gif\" />&nbsp;":"";
-			$dbDesc .= ($row['trialDatabase'] == 1)?"<img src=\"".$engineVars['WVULSERVER']."/dbtest/images/trial.gif\" />&nbsp;":"";
+			$dbDesc .= ($row['newDatabase'] == 1)?"<img src=\"".$engineVars['WVULSERVER']."/databases/images/new.gif\" />&nbsp;":"";
+			$dbDesc .= ($row['trialDatabase'] == 1)?"<img src=\"".$engineVars['WVULSERVER']."/databases/images/trial.gif\" />&nbsp;":"";
 			$dbDesc .= $row['description'];
 			
 			$rss->addItem($row['name'],$dbURL,$dbURL,gmdate("D, j M Y G:i:s T",$row['createDate']),$dbDesc);
@@ -95,7 +95,7 @@ if (!empty($engine->cleanGet)) {
 		
 		while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC)) {
 			
-			$dbURL = $engineVars['WVULSERVER']."/dbtest/database.php?id=".$row['ID'];
+			$dbURL = $engineVars['WVULSERVER']."/databases/database.php?id=".$row['ID'];
 			
 			$dbDesc = "";
 			
@@ -115,7 +115,7 @@ if (!empty($engine->cleanGet)) {
 		
 		while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC)) {
 			
-			$dbURL = $engineVars['WVULSERVER']."/dbtest/database.php?id=".$row['ID'];
+			$dbURL = $engineVars['WVULSERVER']."/databases/database.php?id=".$row['ID'];
 			
 			$dbDesc = "";
 			
@@ -135,11 +135,11 @@ if (!empty($engine->cleanGet)) {
 		
 		while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC)) {
 			
-			$dbURL = $engineVars['WVULSERVER']."/dbtest/database.php?id=".$row['ID'];
+			$dbURL = $engineVars['WVULSERVER']."/databases/database.php?id=".$row['ID'];
 			
 			$dbDesc = "";
-			$dbDesc .= ($row['newDatabase'] == 1)?"<img src=\"".$engineVars['WVULSERVER']."/dbtest/images/new.gif\" />&nbsp;":"";
-			$dbDesc .= ($row['trialDatabase'] == 1)?"<img src=\"".$engineVars['WVULSERVER']."/dbtest/images/trial.gif\" />&nbsp;":"";
+			$dbDesc .= ($row['newDatabase'] == 1)?"<img src=\"".$engineVars['WVULSERVER']."/databases/images/new.gif\" />&nbsp;":"";
+			$dbDesc .= ($row['trialDatabase'] == 1)?"<img src=\"".$engineVars['WVULSERVER']."/databases/images/trial.gif\" />&nbsp;":"";
 			$dbDesc .= $row['description'];
 			
 			$rss->addItem($row['name'],$dbURL,$dbURL,gmdate("D, j M Y G:i:s T",$row['createDate']),$dbDesc);
@@ -151,7 +151,7 @@ if (!empty($engine->cleanGet)) {
 		
 		while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC)) {
 			
-			$dbURL = $engineVars['WVULSERVER']."/dbtest/database.php?id=".$row['ID'];
+			$dbURL = $engineVars['WVULSERVER']."/databases/database.php?id=".$row['ID'];
 			
 			$dbDesc = "";
 			
@@ -168,7 +168,7 @@ print $xml;
 
 ?>
 <?php
-if (!isset($_GET['type'])) {
+if (!isset($engine->cleanGet['HTML']['type'])) {
 	$engine->eTemplate("include","footer");
 }
 ?>

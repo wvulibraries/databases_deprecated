@@ -5,11 +5,11 @@ function buildDBArray($data) {
 	global $engineVars;
 	global $engine;
 	
-	/*
-	echo "<pre>";
-	var_dump($data);
-	echo "</pre>";
-	*/
+	
+	// echo "<pre>";
+	// var_dump($data);
+	// echo "</pre>";
+	
 	
 	if(is_array($data) && isset($data['HTML'])) {
 		

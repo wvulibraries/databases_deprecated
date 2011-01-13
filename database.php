@@ -1,6 +1,6 @@
 <?php
 
-$engineDir = "/home/library/phpincludes/engineAPI/engine";
+$engineDir = "/home/library/phpincludes/engineAPI/engine2.0";
 include($engineDir ."/engine.php");
 $engine = new EngineCMS();
 

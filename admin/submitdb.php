@@ -23,16 +23,20 @@ if (!empty($error)) {
 }
 else {
 		
-	/*
-	echo "<pre>";
-	var_dump($localVars);
-	echo "</pre>";
-	*/
+	
+	// echo "<pre>";
+	// var_dump($localVars);
+	// echo "</pre>";
+	
 		
 	$dbID = $engine->cleanPost['MYSQL']['newEntry'];
 	$engine->localVars('dbID', $dbID);
 	
 	$localVars = $engine->localVarsExport();
+		
+	// echo "<pre>";
+	// var_dump($localVars);
+	// echo "</pre>";
 		
 	$localtime = time();
 	$updateDate = $localtime;
@@ -41,7 +45,7 @@ else {
 	$error = FALSE;
 	
 	$sql = "";
-	if ($engine->cleanPost['MYSQL']['newEntry'] == "null") {
+	if ($engine->cleanPost['MYSQL']['newEntry'] == "null.") {
 		$sql = sprintf("INSERT INTO %s (name,status,yearsOfCoverage,vendor,url,offCampusURL,updated,accessType,fullTextDB,newDatabase,trialDatabase,access,help,helpURL,description,createDate,updateDate,URLID,popular,trialExpireDate) VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",
 			$dbTables['databases']['prod'],
 			$engine->openDB->escape($localVars['dbName']),
@@ -99,14 +103,14 @@ else {
 		print webHelper_errorMsg("SQL Error, databases Insert:".$sqlResult['error']."<br /> SQL:".$sql);
 	}
 	
-	if ($dbID == "null") {
+	if ($dbID == "null.") {
 		$dbID = $sqlResult['id'];
 		$engine->localVars('dbID', $dbID);
 	}
 	
 	if ($error == FALSE) {
 
-		if ($engine->cleanPost['MYSQL']['newEntry'] != "null") {
+		if ($engine->cleanPost['MYSQL']['newEntry'] != "null.") {
 			$sql = sprintf("DELETE from databases_subjects WHERE dbID= %s",
 				$engine->openDB->escape($dbID)
 				);
@@ -138,7 +142,7 @@ else {
 			}
 		}
 
-		if ($engine->cleanPost['MYSQL']['newEntry'] != "null") {
+		if ($engine->cleanPost['MYSQL']['newEntry'] != "null.") {
 			$sql = sprintf("DELETE from databases_resourceTypes WHERE dbID= %s",
 				$engine->openDB->escape($dbID)
 				);
@@ -172,7 +176,7 @@ else {
 	}
 	
 	if($error == FALSE) {
-		if ($engine->cleanPost['MYSQL']['newEntry'] == "null") {
+		if ($engine->cleanPost['MYSQL']['newEntry'] == "null.") {
 			print webHelper_successMsg("Successfully added new database.");
 		}
 		else {

@@ -2,6 +2,6 @@
 
 global $engine;
 
-$engine->accessControl("ADgroup","webDatabaseAdmin",TRUE);
+$engine->accessControl("ADgroup","libraryWeb_databases",TRUE);
 $engine->accessControl("denyAll",null,null);
 ?>

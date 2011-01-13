@@ -30,7 +30,7 @@ if(isset($engine->cleanPost['MYSQL']['deleteDB'])) {
 
 }
 
-$engine->localVars('dbID', "null");
+$engine->localVars('dbID', "null.");
 if(!empty($engine->cleanGet['HTML']['id'])) {
 	$engine->localVars('dbID', $engine->cleanGet['HTML']['id']);
 	
@@ -56,14 +56,17 @@ $localVars = $engine->localVarsExport();
 if(isset($engine->cleanPost['MYSQL']['submitDB'])) {
 
 	recurseInsert("submitdb.php","php");
+	$localVars = $engine->localVarsExport();
 
 }
 ?>
 
 <?php
 
+print "-= ".$localVars['dbID']." =-";
+
 switch($localVars['dbID']) {
-	case "null":
+	case "null.":
     	print "<h2>New Database</h2>";
 	    break;
 	default:

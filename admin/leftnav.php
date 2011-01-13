@@ -3,7 +3,11 @@
 		<a href="newdatabase.php">New Database</a>
 	</li>
 	<li>
-		<a href="list.php">List Databases</a>
+		List Databases
+		<ul>
+			<li><a href="list.php">Alphabetical</a></li>
+			<li><a href="listbyvendor.php">By Vendor</a></li>
+		</ul>
 	</li>
 	<li>
 		<a href="dblinks.php">Database Links</a>
