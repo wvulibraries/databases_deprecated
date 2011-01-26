@@ -1,0 +1,103 @@
+    h1{
+        font-size:25px;
+        padding:8px 0;
+        margin:0;
+    }
+    h2{
+        font-size:18px;
+    }
+    thead th{
+        text-align:left;
+    }
+    #content{
+        background:none;
+    }
+    #adminHeader{
+        width:100%;
+        text-align:center;
+    }
+    #adminHeader span{
+        padding:0 10px;
+    }
+    #userAlert{
+        position:absolute;
+        overflow:hidden;
+        margin-left:35px;
+        z-index:999;
+        width:800px;
+        top:-1000px;
+        padding:8px;
+        background-color:#E0E0E0;
+        -moz-border-radius: 0 0 10px 10px;
+        border-radius: 0 0 10px 10px;
+        border:2px solid black;
+        border-top:none;
+        text-align:center;
+        font-size:25px;
+    }
+    #userAlert p{
+        margin:0;
+        padding:0;
+        display:inline;
+    }
+    #issueBrowser{
+        display:inline;
+    }
+    #browse-yearMenu{
+        float:left;
+        width:150px;
+        margin:0 10px;
+    }
+    #snippet-menu{
+        float:left;
+        width:200px;
+        margin:0 10px;
+    }
+
+    #browse-yearMenu ul li, #snippet-menu ul li{
+        list-style:none;
+        cursor:pointer;
+    }
+    #snippet-menu ul{
+        padding:5px;
+    }
+
+
+
+    .issueRow:hover{
+        background-color:#f0f8ff;
+    }
+
+    .issueDetails, .issueEdit{
+        margin:20px 0;
+    }
+
+
+    #snippetEditor, #newIssue, #issueBrowser{
+        margin:auto;
+        margin-bottom:50px;
+    }
+
+    sup.req{
+        color:red;
+    }
+
+    #snippetMenu{
+        margin:auto;
+        text-align:center;
+    }
+    #snippetMenu table{
+        margin:auto auto 25px auto;
+    }
+    #snippetEditorArea{
+        text-align:center;
+    }
+    #snippetEditorArea table{
+        text-align:left;
+    }
+    #snippetEditorArea table tr td:first-child{
+        vertical-align:top;
+    }
+    .engineListInsertTable{
+        margin:auto auto 25px auto;
+    }
