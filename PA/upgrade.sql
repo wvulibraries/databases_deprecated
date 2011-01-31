@@ -18,7 +18,7 @@ ALTER TABLE `paFiles` DROP COLUMN `year` ;
 DELETE FROM `paFiles` WHERE `ID` IN (48,330);
 
 -- Manualy set the 1 PDF that's in the seed database
-UPDATE `paFiles` SET `issueDate`='2007-2-3', `issueYear`=2007 WHER `id`=337;
+UPDATE `paFiles` SET `issueDate`='2007-2-3', `issueYear`=2007 WHERE `ID`=337;
 
 -- Create the 'snippets' table
 CREATE  TABLE `snippets` (
