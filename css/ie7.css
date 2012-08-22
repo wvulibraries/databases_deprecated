@@ -1,0 +1,16 @@
+.rtUL {
+	float: left;
+	
+	margin: 0;
+	padding: 0;
+	padding-left: 15px;
+	
+	width: 110px;
+	
+}
+
+#newsUL {
+	padding-left: 20px;
+	width: 220px;
+
+}
