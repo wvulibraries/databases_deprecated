@@ -1,13 +1,10 @@
 <?php
 
-$engineDir = "/home/library/phpincludes/engineAPI/engine2.0";
-include($engineDir ."/engine.php");
-$engine = new EngineCMS();
-
-
+require_once("/home/library/public_html/includes/engineHeader.php");
 
 $engine->localVars('pageTitle',"WVU Libraries: Databases");
-$engine->eTemplate("load","1col");
+
+$engine->eTemplate("load","library2012.2col.right");
 
 recurseInsert("dbTables.php","php");
 $engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
@@ -24,15 +21,26 @@ include("buildStatus.php");
 
 recurseInsert("buildLists.php","php");
 
-$sql = "SELECT * FROM resourceTypes WHERE ID=".$engine->cleanGet['MYSQL']['id'];
-$engineVars['openDB']->sanitize = FALSE;
-$sqlResult = $engineVars['openDB']->query($sql);
-
-if (!$sqlResult['result']) {
-	print webHelper_errorMsg("SQL Error: ".$sqlResult['error']);
+$badError = FALSE;
+if (!isint($engine->cleanGet['MYSQL']['id'])) {
+	print webHelper_errorMsg("Invalid Resource Type Provided");
+	$badError = TRUE;
 }
 else {
-	$rtInfo = mysql_fetch_array($sqlResult['result'], MYSQL_NUM);
+
+	$sql = sprintf("SELECT * FROM resourceTypes WHERE ID='%s'",
+		$engine->cleanGet['MYSQL']['id']
+		);
+	$engineVars['openDB']->sanitize = FALSE;
+	$sqlResult = $engineVars['openDB']->query($sql);
+
+	if (!$sqlResult['result']) {
+		// print webHelper_errorMsg("SQL Error: ".$sqlResult['error']);
+		print webHelper_errorMsg("Error Retrieving database");
+	}
+	else {
+		$rtInfo = mysql_fetch_array($sqlResult['result'], MYSQL_NUM);
+	}
 }
 ?>
 
@@ -40,7 +48,9 @@ else {
 
 <div class="clearfix" id="subjectsContainer">
 
-<h3><?php print (!empty($rtInfo[1]))?$rtInfo[1]:"SQL Error"; ?> Databases</h3>
+<?php if ($badError === FALSE) { ?>
+
+<h3><?php print (!empty($rtInfo[1]))?$rtInfo[1]:"Invalid Resource Type"; ?> Databases</h3>
 
 <?php
 
@@ -56,6 +66,8 @@ if (!$sqlResult['result']) {
 <?php
 	include("buildDBListing.php");
 ?>
+
+<?php }?>
 
 </div>
 

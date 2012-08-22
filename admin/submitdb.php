@@ -46,7 +46,7 @@ else {
 	
 	$sql = "";
 	if ($engine->cleanPost['MYSQL']['newEntry'] == "null.") {
-		$sql = sprintf("INSERT INTO %s (name,status,yearsOfCoverage,vendor,url,offCampusURL,updated,accessType,fullTextDB,newDatabase,trialDatabase,access,help,helpURL,description,createDate,updateDate,URLID,popular,trialExpireDate) VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",
+		$sql = sprintf("INSERT INTO %s (name,status,yearsOfCoverage,vendor,url,offCampusURL,updated,accessType,fullTextDB,newDatabase,trialDatabase,access,help,helpURL,description,createDate,updateDate,URLID,popular,trialExpireDate,alumni) VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",
 			$dbTables['databases']['prod'],
 			$engine->openDB->escape($localVars['dbName']),
 			$engine->openDB->escape($localVars['dbStatus']),
@@ -67,11 +67,17 @@ else {
 			$engine->openDB->escape($updateDate),
 			$engine->openDB->escape($localtime),
 			(empty($localVars['popular'])?"0":"1"),
-			$localVars['trialExpireDate']
+			$localVars['trialExpireDate'],
+			(empty($localVars['alumniDB'])?"0":"1")
 			);
 	}
 	else {
-		$sql = sprintf("UPDATE %s SET name='%s', status='%s', yearsOfCoverage='%s', vendor='%s', url='%s', offCampusURL='%s', updated='%s', accessType='%s', fullTextDB='%s', newDatabase='%s', trialDatabase='%s', access='%s', help='%s', helpURL='%s', description='%s', updateDate='%s', popular='%s', trialExpireDate='%s' WHERE ID=%s",
+		
+		// print "<pre>";
+		// 		var_dump($localVars);
+		// 		print "</pre>";
+		
+		$sql = sprintf("UPDATE %s SET name='%s', status='%s', yearsOfCoverage='%s', vendor='%s', url='%s', offCampusURL='%s', updated='%s', accessType='%s', fullTextDB='%s', newDatabase='%s', trialDatabase='%s', access='%s', help='%s', helpURL='%s', description='%s', updateDate='%s', popular='%s', trialExpireDate='%s', alumni='%s' WHERE ID=%s",
 		$dbTables['databases']['prod'],
 		$engine->openDB->escape($localVars['dbName']),
 		$engine->openDB->escape($localVars['dbStatus']),
@@ -91,9 +97,12 @@ else {
 		$engine->openDB->escape($updateDate),
 		(empty($localVars['popular'])?"0":"1"),
 		$localVars['trialExpireDate'],
+		(empty($localVars['alumniDB'])?"0":"1"),
 		$engine->openDB->escape($dbID)
 		);
 	}
+	
+	//print "<br /><br />$sql";
 	
 	$engine->openDB->sanitize = FALSE;
 	$sqlResult = $engine->openDB->query($sql);
@@ -182,6 +191,16 @@ else {
 		else {
 			print webHelper_successMsg("Successfully updated new database.");
 		}
+		
+	// For debugging	
+	// $sql = sprintf("SELECT * FROM dbList WHERE ID='324'");
+	// 
+	// $engine->openDB->sanitize = FALSE;
+	// $sqlResult                = $engine->openDB->query($sql);
+	// $row                      = mysql_fetch_array($sqlResult['result'],  MYSQL_NUM);
+	// 	print "<pre>";
+	// 	var_dump($row);
+	// 	print "</pre>";
 	}
 	
 }

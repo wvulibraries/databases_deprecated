@@ -1,13 +1,10 @@
 <?php
 
-$engineDir = "/home/library/phpincludes/engineAPI/engine2.0";
-include($engineDir ."/engine.php");
-$engine = new EngineCMS();
-
-
+require_once("/home/library/public_html/includes/engineHeader.php");
 
 $engine->localVars('pageTitle',"WVU Libraries: Databases");
-$engine->eTemplate("load","1col");
+
+$engine->eTemplate("load","library2012.2col.right");
 
 recurseInsert("dbTables.php","php");
 $engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
@@ -19,7 +16,7 @@ $engine->eTemplate("include","header");
 <?php
 include("buildStatus.php");
 
-$pageHeader = (!empty($engine->cleanGet['HTML']['id']))?$engine->cleanGet['HTML']['id']:"";
+$pageHeader = (!empty($engine->cleanGet['HTML']['id']) && (preg_match('/^\w$/',$engine->cleanGet['HTML']['id']) == 1))?$engine->cleanGet['HTML']['id']:"";
 
 if($engine->cleanGet['HTML']['id'] == "num") {
 	$engine->cleanGet['HTML']['id'] = "1' OR name REGEXP '^2' OR name REGEXP '^3' OR name REGEXP '^4' OR name REGEXP '^5' OR name REGEXP '^6' OR name REGEXP '^7' OR name REGEXP '^8' OR name REGEXP '^9' OR name REGEXP '^0";
@@ -46,13 +43,22 @@ recurseInsert("buildLists.php","php");
 
 <?php
 
+if (preg_match('/^\w$/',$engine->cleanGet['HTML']['id']) == 1) {
+
 $sql = "select * from dbList WHERE (name REGEXP '^".$engine->cleanGet['HTML']['id']."') AND (".$status.") ORDER BY name";
 $engineVars['openDB']->sanitize = FALSE;
 $sqlResult = $engineVars['openDB']->query($sql);
 
 if (!$sqlResult['result']) {
-	print webHelper_errorMsg("SQL Error: ".$sqlResult['error']);
+	// print webHelper_errorMsg("SQL Error: ".$sqlResult['error']);
+	print webHelper_errorMsg("Error retrieving database.");
 }
+
+}
+else {
+	print webHelper_errorMsg("Invalid Letter Provided.");
+}
+
 ?>
 
 <?php

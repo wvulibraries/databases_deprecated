@@ -11,6 +11,11 @@ function buildSubjectList() {
 	$engineVars['openDB']->sanitize = FALSE;
 	$sqlResult = $engineVars['openDB']->query($sql);
 	
+	if (!$sqlResult['result']) {
+		errorHandle::newError("buildSubjectList - ".$sqlResult['error'], errorHandle::DEBUG);
+		return(FALSE);
+	}
+
 	$sArray = array();
 	
 	$countTotal = mysql_num_rows($sqlResult['result']);
@@ -65,6 +70,7 @@ function buildPopularDB() {
 	$sArray = array();
 	
 	$output = "<ul id=\"popularDBList\">";
+	$output .= '<li class="rightNavListHeader">Popular Databases</li>';
 	while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_BOTH)) {
 		
 		$output .= "<li><a href=\"/databases/connect.php?".$row['URLID']."=INVS\">".htmlentities($row[1])."</a></li>";
@@ -128,7 +134,8 @@ function buildTitleLetter() {
 	
 	$count = 0;
 	
-	$output = "<div id=\"letterLineDiv\">";
+	$output = "<section id=\"letterLineDiv\">";
+	$output .= "<header><h1>Databases By Title</h1></header>";
 	$output .= "<p class=\"dbLetterLine\">";
 	foreach ($sArray as $letter => $value) {
 		
@@ -140,7 +147,7 @@ function buildTitleLetter() {
 
 	}
 	$output .= "</p>";
-	$output .= "</div>";
+	$output .= "</section>";
 	
 	return($output);
 	
@@ -161,7 +168,8 @@ function buildResourceTypes() {
 	$count      = 0;
 	$ul2        = FALSE;
 	
-	$output  = "<div id=\"resourceTypesULDiv\" class=\"clearfix\">";
+	$output  = "<section id=\"resourceTypesULDiv\">"; // class=\"clearfix\"
+	$output .= "<header><h1>Databases by Resource Type</h1></header>";
 	$output .= "<ul class=\"rtUL\" id=\"rtUL1\">";
 	
 	while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_NUM)) {
@@ -175,7 +183,7 @@ function buildResourceTypes() {
 		
 	}
 	$output .= "</ul>";
-	$output .= "</div>";
+	$output .= "</section>";
 
 	return($output);
 	
@@ -190,7 +198,7 @@ function buildNews() {
 	$sqlResult = $engineVars['openDB']->query($sql);
 	
 	$output = "<ul id=\"newsUL\">";
-	
+	$output .= '<li class="rightNavListHeader">News</li>';
 	while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_NUM)) {
 		
 		$newsText = htmlentities($row[1]);

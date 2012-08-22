@@ -1,13 +1,12 @@
 <?php
-$engineDir = "/home/library/phpincludes/engineAPI/engine";
-include($engineDir ."/engine.php");
-$engine = new EngineCMS();
+require "/home/library/phpincludes/engine/engineAPI/3.0/engine.php";
+$engine = engineAPI::singleton();
 
 // Connect to the database
 $engine->dbConnect("database","pa",TRUE);
 
 // Instantiate the snippets class
-$GLOBALS['snippetObject'] = $snippets = new Snippet($engine,'snippets','value');
+$GLOBALS['snippetObject'] = $snippets = new Snippet('snippets','value');
 
 if(array_key_exists('id', $engine->cleanGet['MYSQL']) and is_numeric($engine->cleanGet['MYSQL']['id'])){
     // Get all years that are available in the database
@@ -19,6 +18,8 @@ if(array_key_exists('id', $engine->cleanGet['MYSQL']) and is_numeric($engine->cl
 // Display the file
 if(isset($sql) and $sqlFile['affectedRows']){
     list($name, $type, $size, $content) = mysql_fetch_array($sqlFile['result']);
+
+    $engine->obCallback = FALSE;
     header("Content-length: $size");
     header("Content-type: $type");
     header("Content-Disposition: inline; filename=$name");

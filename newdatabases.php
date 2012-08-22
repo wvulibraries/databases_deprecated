@@ -1,13 +1,10 @@
 <?php
 
-$engineDir = "/home/library/phpincludes/engineAPI/engine2.0";
-include($engineDir ."/engine.php");
-$engine = new EngineCMS();
-
-
+require_once("/home/library/public_html/includes/engineHeader.php");
 
 $engine->localVars('pageTitle',"WVU Libraries: Databases");
-$engine->eTemplate("load","1col");
+
+$engine->eTemplate("load","library2012.2col.right");
 
 recurseInsert("dbTables.php","php");
 $engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
@@ -31,6 +28,10 @@ switch($engine->cleanGet['HTML']['type']) {
 	case "full":
 	$pageHeader = "Full Text";
 	$searchType = "fullTextDB";
+	break;
+	case "alumni":
+	$pageHeader = "Alumni";
+	$searchType = "alumni";
 	break;
 	default:
 	$pageHeader = "Error (Defaulting to Full Text)";
@@ -59,7 +60,8 @@ $engineVars['openDB']->sanitize = FALSE;
 $sqlResult = $engineVars['openDB']->query($sql);
 
 if (!$sqlResult['result']) {
-	print webHelper_errorMsg("SQL Error: ".$sqlResult['error']);
+	// print webHelper_errorMsg("SQL Error: ".$sqlResult['error']);
+	print webHelper_errorMsg("Error Retrieving database");
 }
 ?>
 

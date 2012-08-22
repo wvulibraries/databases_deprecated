@@ -1,11 +1,10 @@
 <?php
 
-$engineDir = "/home/library/phpincludes/engineAPI/engine2.0";
-include($engineDir ."/engine.php");
-$engine = new EngineCMS();
+require_once("/home/library/public_html/includes/engineHeader.php");
 
 $engine->localVars('pageTitle',"WVU Libraries: Databases");
-$engine->eTemplate("load","1col");
+
+$engine->eTemplate("load","library2012.2col.right");
 
 recurseInsert("dbTables.php","php");
 $engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
@@ -23,6 +22,11 @@ if(empty($engine->cleanGet['MYSQL'])) {
 }
 
 foreach ($engine->cleanGet['MYSQL'] as $db=>$invs) {
+
+	if (!isint($db) && strlen($db) > 10) {
+		print "invalid database requested.";
+		exit;
+	}
 
 	// Determine Location
 	$location = 0;

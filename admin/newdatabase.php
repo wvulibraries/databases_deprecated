@@ -14,6 +14,12 @@ recurseInsert("acl.php","php");
 $engine->accessControl("build");
 
 $engine->eTemplate("include","header");
+
+if (isset($engine->cleanGet['HTML']['id']) && !isint($engine->cleanGet['HTML']['id'])) {
+	print "Invalid Database requested";
+	exit;
+}
+
 ?>
 
 <!-- Page Content Goes Below This Line -->
@@ -41,6 +47,11 @@ if(!empty($engine->cleanGet['HTML']['id'])) {
 	$sqlResult = $engine->openDB->query($sql);
 	
 	$row = mysql_fetch_array($sqlResult['result'], MYSQL_NUM);
+	
+	// print "<pre>";
+	// var_dump($row);
+	// print "</pre>";
+	
 	buildDBArray($row);
 	
 	if(!$row[0]) {
@@ -63,7 +74,7 @@ if(isset($engine->cleanPost['MYSQL']['submitDB'])) {
 
 <?php
 
-print "-= ".$localVars['dbID']." =-";
+// print "-= ".$localVars['dbID']." =-";
 
 switch($localVars['dbID']) {
 	case "null.":
@@ -197,6 +208,15 @@ switch($localVars['dbID']) {
 			<label for="trialDB">Trial Database</label>
 		</td>
 	</tr>
+	<tr>
+		<td>
+			<input type="checkbox" name="alumniDB" id="alumniDB" value="1" {local var="alumniDB"} />
+		</td>
+		<td class="labelTD">
+			<label for="alumniDB">Alumni Database</label>
+		</td>
+	</tr>
+
 	
 	<tr>
 		<td class="labelTD">

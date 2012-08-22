@@ -4,36 +4,36 @@ global $engine;
 
 $currentStatus = (empty($engine->cleanGet['HTML']['status']))?"":"status=".$engine->cleanGet['HTML']['status'];
 
-$popular  = buildPopularDB();
-$letters  = buildTitleLetter();
-$resourceTypes = buildResourceTypes();
-$news = buildNews();
+localvars::add("popular",buildPopularDB());
+localvars::add("letters",buildTitleLetter());
+localvars::add("resourceTypes",buildResourceTypes());
+localvars::add("news",buildNews());
 
 ?>
 
-<h4>Popular Databases</h4>
+<br /><a href="/services/ask/database/" title="Help Accessing Databases">Help Accessing Databases</a><br />
 
-<?= $popular ?>
+{local var="popular"}
 
-<h4>Databases By Subject</h4>
+<ul>
 
-<a href="/databases/index.php?<?= $currentStatus ?>" id="rightNavSubLink">Subjects</a>
-<br /><br />
-<a href="/databases/newdatabases.php?type=full&amp;<?= $currentStatus ?>" id="rightNavSubLink">Full Text</a>
-<br />
-<a href="/databases/newdatabases.php?type=new&amp;<?= $currentStatus ?>" id="rightNavSubLink">New Databases</a>
-<br />
-<a href="/databases/newdatabases.php?type=trial&amp;<?= $currentStatus ?>" id="rightNavSubLink">Trial Databases</a>
+<li class="rightNavListHeader">Databases By Subject</li>
+
+<li><a href="/databases/index.php?<?= $currentStatus ?>" id="rightNavSubLink">Subjects</a></li>
+<li class="noBorder"></li>
+<li class="noBorder"></li>
+<li><a href="/databases/newdatabases.php?type=full&amp;<?= $currentStatus ?>" id="rightNavSubLink">Full Text</a></li>
+<li><a href="/databases/newdatabases.php?type=alumni&amp;<?= $currentStatus ?>" id="rightNavSubLink">Alumni Databases</a></li>
+<li><a href="/databases/newdatabases.php?type=new&amp;<?= $currentStatus ?>" id="rightNavSubLink">New Databases</a></li>
+<li><a href="/databases/newdatabases.php?type=trial&amp;<?= $currentStatus ?>" id="rightNavSubLink">Trial Databases</a></li>
+</ul>
+
+{local var="letters"}
 
 
-<h4>Databases By Title</h4>
-<?= $letters ?>
+{local var="resourceTypes"}
 
-<h4>Databases by Resource Type</h4>
-<?= $resourceTypes ?>
-
-<h4>News</h4>
-<?= $news ?>
+{local var="news"}
 
 <br /><br />
 <a href="/databases/rss.php" id="rssIcon"><img src="/databases/images/rss.gif" /></a>

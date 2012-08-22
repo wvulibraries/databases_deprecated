@@ -1,13 +1,10 @@
 <?php
 
-$engineDir = "/home/library/phpincludes/engineAPI/engine2.0";
-include($engineDir ."/engine.php");
-$engine = new EngineCMS();
-
-
+require_once("/home/library/public_html/includes/engineHeader.php");
 
 $engine->localVars('pageTitle',"WVU Libraries: Databases");
-$engine->eTemplate("load","1col");
+
+$engine->eTemplate("load","library2012.2col.right");
 
 recurseInsert("dbTables.php","php");
 $engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
@@ -24,15 +21,25 @@ include("buildStatus.php");
 
 recurseInsert("buildLists.php","php");
 
-$sql = "SELECT * FROM subjects WHERE ID=".$engine->cleanGet['MYSQL']['id'];
-$engineVars['openDB']->sanitize = FALSE;
-$sqlResult = $engineVars['openDB']->query($sql);
-
-if (!$sqlResult['result']) {
-	print webHelper_errorMsg("SQL Error: ".$sqlResult['error']);
+$badError = FALSE;
+if (!isint($engine->cleanGet['MYSQL']['id'])) {
+	print webHelper_errorMsg("Invalid Subject Provided");
+	$badError = TRUE;
 }
 else {
-	$subjectInfo = mysql_fetch_array($sqlResult['result'], MYSQL_NUM);
+	$sql = sprintf("SELECT * FROM subjects WHERE ID='%s'",
+		$engine->cleanGet['MYSQL']['id']
+		);
+	$engineVars['openDB']->sanitize = FALSE;
+	$sqlResult = $engineVars['openDB']->query($sql);
+
+	if (!$sqlResult['result']) {
+		// print webHelper_errorMsg("SQL Error: ".$sqlResult['error']);
+		print webHelper_errorMsg("Error Retrieving database");
+	}
+	else {
+		$subjectInfo = mysql_fetch_array($sqlResult['result'], MYSQL_NUM);
+	}
 }
 ?>
 
@@ -40,7 +47,9 @@ else {
 
 <div class="clearfix" id="subjectsContainer">
 
-<h3><?php print (!empty($subjectInfo[1]))?$subjectInfo[1]:"SQL Error"; ?> Databases</h3>
+<?php if ($badError === FALSE) { ?>
+
+<h3><?php print (!empty($subjectInfo[1]))?$subjectInfo[1]:"Invalid Subject"; ?> Databases</h3>
 
 <?php if(!empty($subjectInfo[2])) { ?>
 	<p id="subjectGuideLink">For a subject guide on this topic:<br />
@@ -62,6 +71,8 @@ if (!$sqlResult['result']) {
 <?php
 	include("buildDBListing.php");
 ?>
+
+<?php } ?>
 
 </div>
 

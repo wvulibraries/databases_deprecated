@@ -1,7 +1,7 @@
 <?php
 
 $localVars['status'] = 1;
-if(!empty($engine->cleanGet['HTML']['status'])) {
+if(!empty($engine->cleanGet['HTML']['status']) && isint($engine->cleanGet['HTML']['status'])) {
 	$localVars['status'] = $engine->cleanGet['HTML']['status'];
 }
 

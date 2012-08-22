@@ -55,8 +55,20 @@ if(array_key_exists('issueFile', $_FILES)){
             break;
 
     }
-    if($_FILES['issueFile']['error'] == UPLOAD_ERR_OK and array_search($fManager->getMimeType($_FILES['issueFile']['tmp_name']), $allowedFileTypes) === false)
+    if($_FILES['issueFile']['error'] == UPLOAD_ERR_OK and isset($allowedFileTypes[$fManager->getMimeType($_FILES['issueFile']['tmp_name'])])){
         $errors[] = "Invalid file type!";
+        /*
+         * We're going to be denied, the only way to allow this file is if there's no MIME checking util available, 
+         * and the file extention maps to an allowed type. This is a bit of a security hole, as it effectivly is only checking
+         * the file's extention which can be spoofed.
+         */
+        if(!class_exists('finfo') and !function_exists('mime_content_type')){
+            $newName = uniqid()."_".$_FILES['issueFile']['name'];
+            if(rename($_FILES['issueFile']['tmp_name'], $newName) and isset($allowedFileTypes[$fManager->getMimeType($newName)])){
+                array_pop();
+            }
+        }
+    }
 }else{
     $errors[] = "No file was uploaded!";
 }

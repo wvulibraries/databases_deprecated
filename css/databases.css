@@ -1,3 +1,10 @@
+#contentContainerMiddle {
+	width: 340px;	
+}
+#contentContainerRight {
+width: 250px;
+}
+
 .trialText {
 	color: red;
 }
@@ -24,7 +31,8 @@ h3 {
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 	border-bottom-color: #d4d4d4;
-	
+	margin-bottom: 20px;
+	margin-top: 30px;
 	width: 90%;
 }
 
@@ -53,6 +61,7 @@ h3 {
 	border-bottom-style: solid;
 	border-bottom-width: 2px;
 	border-bottom-color: #000000;
+	/*margin-bottom: 20px;*/
 }
 
 #rightNav {
@@ -75,13 +84,13 @@ h3 {
 	
 }
 
-.rtUL {
-	float: left;
-	
+#contentContainerRight ul.rtUL {
+	/*float: left;*/
+	display: inline-block;
 	margin: 0;
 	padding: 0;
 	padding-left: 10px;
-	
+	border-top-width: 0px;
 	width: 115px;
 	
 	/* list-style-position: inside; */ 
@@ -89,7 +98,7 @@ h3 {
 	
 }
 
-#newsUL {
+#contentContainerRight #newsUL {
 	
 /*	border-style: solid;
 	border-width: 1px;*/

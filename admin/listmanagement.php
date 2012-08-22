@@ -40,6 +40,8 @@ switch ($engine->cleanGet['MYSQL']['type']) {
 		break;
 	default:
 	    $engine->localVars('listAddLabel', "Error");
+		print "Invalid List Requested.";
+		exit;
 }
 
 $localVars = $engine->localVarsExport();

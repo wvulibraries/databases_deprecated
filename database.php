@@ -1,12 +1,10 @@
 <?php
 
-$engineDir = "/home/library/phpincludes/engineAPI/engine2.0";
-include($engineDir ."/engine.php");
-$engine = new EngineCMS();
+require_once("/home/library/public_html/includes/engineHeader.php");
 
 $engine->localVars('pageTitle',"WVU Libraries: Databases");
 
-$engine->eTemplate("load","1col");
+$engine->eTemplate("load","library2012.2col.right");
 
 recurseInsert("dbTables.php","php");
 $engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
@@ -17,17 +15,24 @@ $engine->eTemplate("include","header");
 
 <?php
 
-$sql = "SELECT * FROM dbList WHERE ID=".$engine->cleanGet['MYSQL']['id'];
+if (!isint($engine->cleanGet['MYSQL']['id'])) {
+	print webHelper_errorMsg("Invalid Database Requested");
+}
+else {
+$sql = sprintf("SELECT * FROM dbList WHERE ID='%s'",
+	$engine->cleanGet['MYSQL']['id']
+	);
 $engineVars['openDB']->sanitize = FALSE;
 $sqlResult = $engineVars['openDB']->query($sql);
 
 if (!$sqlResult['result']) {
-	print webHelper_errorMsg("SQL Error: ".$sqlResult['error']);
+	// print webHelper_errorMsg("SQL Error: ".$sqlResult['error']);
+	print webHelper_errorMsg("Error retrieving database.");
 }
 else {
 	$dbInfo = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC);
 }
-
+}
 include("buildStatus.php");
 recurseInsert("buildLists.php","php");
 
