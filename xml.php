@@ -18,7 +18,7 @@ $sql = sprintf("SELECT * FROM dbList WHERE %s",
 	);
 
 if (isset($engine->cleanGet['MYSQL']['subjects']) && validate::integer($engine->cleanGet['MYSQL']['subjects'])) {
-	$sql = sprintf("select * from dbList JOIN databases_subjects where databases_subjects.subjectID='%s' AND dbList.ID=databases_subjects.dbID AND (%s) ORDER BY dbList.name",
+	$sql = sprintf("select dbList.* from dbList JOIN databases_subjects where databases_subjects.subjectID='%s' AND dbList.ID=databases_subjects.dbID AND (%s) ORDER BY dbList.name",
 		$engine->cleanGet['MYSQL']['subjects'],
 		$status
 		);
@@ -88,7 +88,7 @@ while($row = mysql_fetch_array($sqlResult['result'],  MYSQL_ASSOC)) {
 	$item = array();
 
 	$item['title']           = $row['name'];
-	$item['link']            = $row['url'];
+	$item['link']            = "http://www.libraries.wvu.edu/databases/connect.php?".$row['URLID']."=INVS";
 	$item['moreInfo']        = "http://www.libraries.wvu.edu/databases/database.php?id=".$row['ID'];
 	$item['status']          = $row['status'];
 	$item['years']           = $row['yearsOfCoverage'];
