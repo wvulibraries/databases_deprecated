@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<collections>
+	<title>{xml name="title"}</title>
+	<link>{xml name="link"}</link>
+	<description>{xml name="description"}</description>
+
+	{xml repeat="start"}
+
+	<item>
+		<title><![CDATA[{xml name="title"}]]></title>
+		<link>{xml name="link"}</link>
+		<moreinfo>{xml name="moreInfo"}</moreinfo>
+		<status>{xml name="status"}</status>
+		<years>{xml name="years"}</years>
+		<description><![CDATA[ {xml name="description"} ]]></description>
+		<vendor><![CDATA[ {xml name="vendor"} ]]></vendor>
+		<offcampusurl>{xml name="offCampusURL"}</offcampusurl>
+		<updated>{xml name="updated"}</updated>
+		<accesstype>{xml name="accessType"}</accesstype>
+		<fulltextdb>{xml name="fullTextDB"}</fulltextdb>
+		<newdatabase>{xml name="newDatabase"}</newdatabase>
+		<trialdatabase>{xml name="trialDatabase"}</trialdatabase>
+		<access>{xml name="access"}</access>
+		<help>{xml name="help"}</help>
+		<helpurl>{xml name="helpURL"}</helpurl>
+		<createdate>{xml name="createDate"}</createdate>
+		<updatedate>{xml name="updateDate"}</updatedate>
+		<urlid>{xml name="urlID"}</urlid>
+		<popular>{xml name="popular"}</popular>
+		<trialexpiredate>{xml name="trialExpireDate"}</trialexpiredate>
+		<alumni>{xml name="alumni"}</alumni>
+	</item>
+
+	{xml repeat="end"}
+
+</collections>
