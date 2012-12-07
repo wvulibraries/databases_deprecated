@@ -7,6 +7,7 @@ $engine->localVars('pageTitle',"WVU Libraries: Databases");
 $engine->eTemplate("load","library2012.2col.right");
 
 recurseInsert("dbTables.php","php");
+require_once("/home/library/phpincludes/databaseConnectors/database.lib.wvu.edu.remote.php");
 $engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
 
 // Fire up the Engine
@@ -43,9 +44,9 @@ recurseInsert("buildLists.php","php");
 
 <div class="clearfix" id="subjectsContainer">
 
-	<h3><?= $dbInfo['name'] ?></h3>
+	<h3><?php print $dbInfo['name']; ?></h3>
 
-	<p><a href="/databases/connect.php?<?= $dbInfo['URLID'] ?>=INVS">Connect to Database</a></p>
+	<p><a href="/databases/connect.php?<?php print $dbInfo['URLID'] ?>=INVS">Connect to Database</a></p>
 
 	<?php if ($dbInfo['fullTextDB'] == 1 || $dbInfo['newDatabase'] == 1 || $dbInfo['trialDatabase'] == 1) { ?>
 		<p id="fullTextRow">
@@ -90,7 +91,7 @@ recurseInsert("buildLists.php","php");
 		</div>
 
 		<div class="infoKeyInfo">
-			<?= $dbInfo['yearsOfCoverage'] ?>
+			<php print $dbInfo['yearsOfCoverage'] ?>
 		</div>
 	</div>
 	<?php } ?>
@@ -152,7 +153,7 @@ recurseInsert("buildLists.php","php");
 		</div>
 
 		<div class="infoKeyInfo">
-			<?= $help ?>
+			<?php print $help; ?>
 		</div>
 	</div>
 	<?php } ?>
@@ -197,7 +198,7 @@ recurseInsert("buildLists.php","php");
 		</div>
 
 		<div class="infoKeyInfo">
-			<?= $access ?>
+			<?php print $access; ?>
 		</div>
 	</div>
 	<?php } ?>
@@ -209,7 +210,7 @@ recurseInsert("buildLists.php","php");
 		</div>
 
 		<div class="infoKeyInfo">
-			<?= $dbInfo[''] ?>
+			<?php print $dbInfo['']; ?>
 		</div>
 	</div>
 	
@@ -222,7 +223,7 @@ recurseInsert("buildLists.php","php");
 		</div>
 
 		<div class="infoKeyInfo">
-			<?= $dbInfo[''] ?>
+			<?php print $dbInfo['']; ?>
 		</div>
 	</div>
 	<?php } ?>
@@ -235,7 +236,7 @@ recurseInsert("buildLists.php","php");
 		</div>
 
 		<div class="infoKeyInfo">
-			<?= $dbInfo[''] ?>
+			<?php print $dbInfo['']; ?>
 		</div>
 	</div>
 	<?php } ?>

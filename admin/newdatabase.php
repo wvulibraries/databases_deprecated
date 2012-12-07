@@ -93,7 +93,7 @@ switch($localVars['dbID']) {
 		print "</p>";
 		?>
 	
-		<form action="<?= $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return confirmDelete();">
+		<form action="<?php print $_SERVER['PHP_SELF']; ?>" method="post" onsubmit="return confirmDelete();">
 			{engine name="insertCSRF"}
 			<input type="hidden" name="id" value="{local var="dbID"}">
 			<input type="submit" name="deleteDB" value="Delete Database" />
@@ -106,7 +106,7 @@ switch($localVars['dbID']) {
 
 <br />
 
-<form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+<form action="<?php print $_SERVER['PHP_SELF'] ?>" method="post">
 
 {engine name="insertCSRF"}
 

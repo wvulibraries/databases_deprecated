@@ -7,6 +7,7 @@ $engine->localVars('pageTitle',"WVU Libraries: Databases");
 $engine->eTemplate("load","library2012.2col.right");
 
 recurseInsert("dbTables.php","php");
+require_once("/home/library/phpincludes/databaseConnectors/database.lib.wvu.edu.remote.php");
 $engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
 
 // Fire up the Engine

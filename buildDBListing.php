@@ -1,7 +1,7 @@
 <?php while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC)) {?>
 	
 	<div class="dbListing">
-		<p id="dbName"><a href="/databases/connect.php?<?= $row['URLID'] ?>=INVS"><?= str2TitleCase($row['name'])?></a></p>
+		<p id="dbName"><a href="/databases/connect.php?<?php print $row['URLID']; ?>=INVS"><?php print str2TitleCase($row['name']); ?></a></p>
 	
 		<?php if ($row['fullTextDB'] == 1 || $row['newDatabase'] == 1 || $row['trialDatabase'] == 1) { ?>
 			<p id="fullTextRow">
@@ -35,7 +35,7 @@
 		<?php } ?>
 		
 		<p id="moreInfo">
-			<a href="database.php?id=<?= (!empty($row['dbID']))?$row['dbID']:$row['ID']; ?>">(More Info)</a>
+			<a href="database.php?id=<?php print (!empty($row['dbID']))?$row['dbID']:$row['ID']; ?>">(More Info)</a>
 		</p>
 		
 		<hr noshade="noshade" size="1"/>

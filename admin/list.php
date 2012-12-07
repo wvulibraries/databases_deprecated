@@ -67,12 +67,12 @@ $color = (++$count%2 == 0)?$engineVars['oddColor']:$engineVars['evenColor'];
 
 ?>
 
-<tr style="background-color: <?= $color ?>;">
+<tr style="background-color: <?php print $color; ?>;">
 	<td>
-		<a href="newdatabase.php?id=<?= $row['ID'] ?>">Edit</a>
+		<a href="newdatabase.php?id=<?php print $row['ID'] ?>">Edit</a>
 	</td>
 	<td>
-		<?= $row['name'] ?>
+		<?php print $row['name'] ?>
 	</td>
 	<td>
 		<?php

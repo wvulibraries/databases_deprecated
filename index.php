@@ -6,6 +6,7 @@ $engine->localVars('pageTitle',"WVU Libraries: Databases");
 $engine->eTemplate("load","library2012.2col.right");
 
 recurseInsert("dbTables.php","php");
+require_once("/home/library/phpincludes/databaseConnectors/database.lib.wvu.edu.remote.php");
 $engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
 
 // Fire up the Engine
@@ -32,6 +33,7 @@ if(!empty($engine->cleanGet['HTML']['status']) && isint($engine->cleanGet['HTML'
 
 recurseInsert("buildLists.php","php");
 $subjects = buildSubjectList();
+localVars::add("subjects",$subjects);
 
 ?>
 
@@ -41,14 +43,14 @@ $subjects = buildSubjectList();
 
 <h3>Databases by Subject</h3>
 
-<?= $subjects ?>
+{local var="subjects"}
 
 </div>
 
 <div id="rightNav">
 
 <?php
-	// recurseInsert("rightNav.php","php");
+	recurseInsert("rightNav.php","php");
 ?>
 
 </div>

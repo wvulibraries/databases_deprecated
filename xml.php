@@ -4,6 +4,7 @@ $engine = EngineAPI::singleton();
 $xml    = new syndication();
 
 recurseInsert("dbTables.php","php");
+require_once("/home/library/phpincludes/databaseConnectors/database.lib.wvu.edu.remote.php");
 $engine->dbConnect("database","databases",TRUE);
 
 include("buildStatus.php");

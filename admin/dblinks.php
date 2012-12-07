@@ -55,12 +55,12 @@ $color = (++$count%2 == 0)?$engineVars['oddColor']:$engineVars['evenColor'];
 
 ?>
 
-<tr style="background-color: <?= $color ?>;font-size:smaller;">
+<tr style="background-color: <?php print $color; ?>;font-size:smaller;">
 	<td>
-		<?= $row['name'] ?>
+		<?php print $row['name']; ?>
 	</td>
 	<td>
-		<a href="http://www.libraries.wvu.edu/databases/connect.php?<?= $row['URLID'] ?>=INVS">http://www.libraries.wvu.edu/databases/connect.php?<?= $row['URLID'] ?>=INVS</a>
+		<a href="http://www.libraries.wvu.edu/databases/connect.php?<?php print $row['URLID']; ?>=INVS">http://www.libraries.wvu.edu/databases/connect.php?<?php print $row['URLID']; ?>=INVS</a>
 	</td>
 </tr>
 

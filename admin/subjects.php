@@ -67,7 +67,7 @@ foreach ($cols as $I=>$col) {
 
 <hr />
 
-{engine name="function" function="webHelper_listMultiEditList" table="{local var="listAddTable"}" cols="2" col1="<?= $cols[1]["table"] ?>" col2="<?= $cols[2]["table"] ?>" col1label="<?= $cols[1]["label"] ?>" col2label="<?= $cols[2]["label"] ?>"}
+{engine name="function" function="webHelper_listMultiEditList" table="{local var="listAddTable"}" cols="2" col1="<?php print $cols[1]["table"]; ?>" col2="<?php print $cols[2]["table"]; ?>" col1label="<?php print $cols[1]["label"]; ?>" col2label="<?php print $cols[2]["label"]; ?>"}
 
 <!-- Page Content Goes Above This Line -->
 

@@ -70,13 +70,13 @@ $color = (++$count%2 == 0)?$engineVars['oddColor']:$engineVars['evenColor'];
 
 ?>
 
-<tr style="background-color: <?= $color ?>;">
+<tr style="background-color: <?php print $color; ?>;">
 	<td>
-		<a href="newdatabase.php?id=<?= $row['ID'] ?>">Edit</a>
+		<a href="newdatabase.php?id=<?php print $row['ID']; ?>">Edit</a>
 	</td>
 	<td>
 		<?php if (!is_empty($row['vendorURL'])) { ?>
-			<a href="<?= $row['vendorURL']?> ">
+			<a href="<?php print $row['vendorURL']; ?> ">
 		<?}?>
 		
 		<?php print (is_empty($row['vendorName']))?"none":$row['vendorName'];  ?>
@@ -86,7 +86,7 @@ $color = (++$count%2 == 0)?$engineVars['oddColor']:$engineVars['evenColor'];
 		<?}?>
 	</td>
 	<td>
-		<?= $row['name'] ?>
+		<?php print $row['name']; ?>
 	</td>
 	<td>
 		<?php

@@ -7,6 +7,7 @@ $engine->localVars('pageTitle',"WVU Libraries: Databases");
 $engine->eTemplate("load","library2012.2col.right");
 
 recurseInsert("dbTables.php","php");
+require_once("/home/library/phpincludes/databaseConnectors/database.lib.wvu.edu.remote.php");
 $engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
 
 // Fire up the Engine
@@ -53,7 +54,7 @@ else {
 
 <?php if(!empty($subjectInfo[2])) { ?>
 	<p id="subjectGuideLink">For a subject guide on this topic:<br />
-	<a href="<?= $subjectInfo[2]?>"><?= $subjectInfo[2]?></a>
+	<a href="<?php print $subjectInfo[2]; ?>"><?php print $subjectInfo[2]; ?></a>
 	</p>
 <?php }?>
 
