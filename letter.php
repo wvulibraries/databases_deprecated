@@ -19,10 +19,6 @@ include("buildStatus.php");
 
 $pageHeader = (!empty($engine->cleanGet['HTML']['id']) && (preg_match('/^\w$/',$engine->cleanGet['HTML']['id']) == 1))?$engine->cleanGet['HTML']['id']:"";
 
-if($engine->cleanGet['HTML']['id'] == "num") {
-	$engine->cleanGet['HTML']['id'] = "1' OR name REGEXP '^2' OR name REGEXP '^3' OR name REGEXP '^4' OR name REGEXP '^5' OR name REGEXP '^6' OR name REGEXP '^7' OR name REGEXP '^8' OR name REGEXP '^9' OR name REGEXP '^0";
-}
-
 if ($pageHeader == "num") {
 	$pageHeader = "Number";
 }
@@ -44,16 +40,20 @@ recurseInsert("buildLists.php","php");
 
 <?php
 
-if (preg_match('/^\w$/',$engine->cleanGet['HTML']['id']) == 1) {
+if ($engine->cleanGet['HTML']['id'] == "num" || preg_match('/^\w$/',$engine->cleanGet['HTML']['id']) == 1) {
 
-$sql = "select * from dbList WHERE (name REGEXP '^".$engine->cleanGet['HTML']['id']."') AND (".$status.") ORDER BY name";
-$engineVars['openDB']->sanitize = FALSE;
-$sqlResult = $engineVars['openDB']->query($sql);
+	if($engine->cleanGet['HTML']['id'] == "num") {
+		$engine->cleanGet['HTML']['id'] = "1' OR name REGEXP '^2' OR name REGEXP '^3' OR name REGEXP '^4' OR name REGEXP '^5' OR name REGEXP '^6' OR name REGEXP '^7' OR name REGEXP '^8' OR name REGEXP '^9' OR name REGEXP '^0";
+	}
 
-if (!$sqlResult['result']) {
+	$sql = "select * from dbList WHERE (name REGEXP '^".$engine->cleanGet['HTML']['id']."') AND (".$status.") ORDER BY name";
+	$engineVars['openDB']->sanitize = FALSE;
+	$sqlResult = $engineVars['openDB']->query($sql);
+
+	if (!$sqlResult['result']) {
 	// print webHelper_errorMsg("SQL Error: ".$sqlResult['error']);
-	print webHelper_errorMsg("Error retrieving database.");
-}
+		print webHelper_errorMsg("Error retrieving database.");
+	}
 
 }
 else {
