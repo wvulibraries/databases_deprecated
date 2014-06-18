@@ -33,6 +33,9 @@ switch($engine->cleanGet['HTML']['type']) {
 	case "alumni":
 	$pageHeader = "Alumni";
 	$searchType = "alumni";
+	case "mobile":
+	$pageHeader = "Mobile";
+	$searchType = "mobile";
 	break;
 	default:
 	$pageHeader = "Error (Defaulting to Full Text)";

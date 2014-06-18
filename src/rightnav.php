@@ -26,6 +26,7 @@ localvars::add("news",buildNews());
 <li class="noBorder"></li>
 <li><a href="/databases/newdatabases.php?type=full&amp;{local var="currentStatus"}" id="rightNavSubLink">Full Text</a></li>
 <li><a href="/databases/newdatabases.php?type=alumni&amp;{local var="currentStatus"}" id="rightNavSubLink">Alumni Databases</a></li>
+<li><a href="/databases/newdatabases.php?type=mobile&amp;{local var="currentStatus"}" id="rightNavSubLink">Mobile Databases</a></li>
 <li><a href="/databases/newdatabases.php?type=new&amp;{local var="currentStatus"}" id="rightNavSubLink">New Databases</a></li>
 <li><a href="/databases/newdatabases.php?type=trial&amp;{local var="currentStatus"}" id="rightNavSubLink">Trial Databases</a></li>
 </ul>
