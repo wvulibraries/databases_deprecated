@@ -7,6 +7,7 @@ $engine = new EngineCMS();
 $engine->localVars('pageTitle',"Database Management");
 
 recurseInsert("dbTables.php","php");
+require_once("/home/library/phpincludes/databaseConnectors/database.lib.wvu.edu.remote.php");
 $engine->dbConnect("database","databases",TRUE);
 $dbTables = $engine->dbTablesExport();
 
@@ -217,6 +218,14 @@ switch($localVars['dbID']) {
 		</td>
 	</tr>
 
+	<tr>
+		<td>
+			<input type="checkbox" name="mobileDB" id="mobileDB" value="1" {local var="mobileDB"} />
+		</td>
+		<td class="labelTD">
+			<label for="mobileDB">Mobile Database</label>
+		</td>
+	</tr>
 	
 	<tr>
 		<td class="labelTD">

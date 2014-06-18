@@ -44,6 +44,7 @@ function buildDBArray($data) {
 		$engine->localVars('trialDB', (!empty($data['HTML']['trialDB']))?"checked=\"checked\"":"");
 		$engine->localVars('popular', (!empty($data['HTML']['popular']))?"checked=\"checked\"":"");
 		$engine->localVars('alumniDB',(!empty($data['HTML']['alumniDB']))?"checked=\"checked\"":"");
+		$engine->localVars('mobileDB',(!empty($data['HTML']['mobileDB']))?"checked=\"checked\"":"");
 
 		//Drop down, managed
 		$engine->localVars('dbStatus', (!empty($data['HTML']['dbStatus']))?buildECMSArray($data['HTML']['dbStatus']):"");
@@ -85,6 +86,7 @@ function buildDBArray($data) {
 		$engine->localVars('trialDB', (!empty($data[11]) && $data[11] == "1")?"checked=\"checked\"":"");
 		$engine->localVars('popular', (!empty($data[19]) && $data[19] == "1")?"checked=\"checked\"":"");
 		$engine->localVars('alumniDB', (!empty($data[21]) && $data[21] == "1")?"checked=\"checked\"":"");
+		$engine->localVars('mobileDB', (!empty($data[22]) && $data[22] == "1")?"checked=\"checked\"":"");
 
 		//Drop down, managed
 		$engine->localVars('dbStatus', (!empty($data[2]))?$data[2]:"");

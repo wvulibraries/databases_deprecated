@@ -46,7 +46,7 @@ else {
 	
 	$sql = "";
 	if ($engine->cleanPost['MYSQL']['newEntry'] == "null.") {
-		$sql = sprintf("INSERT INTO %s (name,status,yearsOfCoverage,vendor,url,offCampusURL,updated,accessType,fullTextDB,newDatabase,trialDatabase,access,help,helpURL,description,createDate,updateDate,URLID,popular,trialExpireDate,alumni) VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",
+		$sql = sprintf("INSERT INTO %s (name,status,yearsOfCoverage,vendor,url,offCampusURL,updated,accessType,fullTextDB,newDatabase,trialDatabase,access,help,helpURL,description,createDate,updateDate,URLID,popular,trialExpireDate,alumni,mobile) VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",
 			$dbTables['databases']['prod'],
 			$engine->openDB->escape($localVars['dbName']),
 			$engine->openDB->escape($localVars['dbStatus']),
@@ -68,7 +68,8 @@ else {
 			$engine->openDB->escape($localtime),
 			(empty($localVars['popular'])?"0":"1"),
 			$localVars['trialExpireDate'],
-			(empty($localVars['alumniDB'])?"0":"1")
+			(empty($localVars['alumniDB'])?"0":"1"),
+			(empty($localVars['mobileDB'])?"0":"1")
 			);
 	}
 	else {
@@ -77,7 +78,7 @@ else {
 		// 		var_dump($localVars);
 		// 		print "</pre>";
 		
-		$sql = sprintf("UPDATE %s SET name='%s', status='%s', yearsOfCoverage='%s', vendor='%s', url='%s', offCampusURL='%s', updated='%s', accessType='%s', fullTextDB='%s', newDatabase='%s', trialDatabase='%s', access='%s', help='%s', helpURL='%s', description='%s', updateDate='%s', popular='%s', trialExpireDate='%s', alumni='%s' WHERE ID=%s",
+		$sql = sprintf("UPDATE %s SET name='%s', status='%s', yearsOfCoverage='%s', vendor='%s', url='%s', offCampusURL='%s', updated='%s', accessType='%s', fullTextDB='%s', newDatabase='%s', trialDatabase='%s', access='%s', help='%s', helpURL='%s', description='%s', updateDate='%s', popular='%s', trialExpireDate='%s', alumni='%s', mobile='%s' WHERE ID=%s",
 		$dbTables['databases']['prod'],
 		$engine->openDB->escape($localVars['dbName']),
 		$engine->openDB->escape($localVars['dbStatus']),
@@ -98,6 +99,7 @@ else {
 		(empty($localVars['popular'])?"0":"1"),
 		$localVars['trialExpireDate'],
 		(empty($localVars['alumniDB'])?"0":"1"),
+		(empty($localVars['mobileDB'])?"0":"1"),
 		$engine->openDB->escape($dbID)
 		);
 	}
