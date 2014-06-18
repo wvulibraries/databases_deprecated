@@ -39,6 +39,8 @@ if(empty($engine->cleanGet['HTML']['type'])) {
 <br />
 <a href="rss.php?type=combined">Combined, New Databases and Announcements</a>
 <br />
+<a href="rss.php?type=mobile">Mobile Databases</a>
+<br />
 <a href="http://www.libraries.wvu.edu/databases/rss.php?type=popular">Popular Databases</a>
 </div>
 
@@ -68,6 +70,29 @@ if (!empty($engine->cleanGet)) {
 		$rss->description = "WVU Libraries New and Trial databases.";
 	
 		$sql = "SELECT * FROM dbList WHERE newDatabase='1' OR trialDatabase='1' ORDER BY createDate DESC LIMIT 10";
+		$engineVars['openDB']->sanitize = FALSE;
+		$sqlResult = $engineVars['openDB']->query($sql);
+		
+		while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC)) {
+			
+			$dbURL = $engineVars['WVULSERVER']."/databases/database.php?id=".$row['ID'];
+			
+			$dbDesc = "";
+			$dbDesc .= ($row['newDatabase'] == 1)?"<img src=\"".$engineVars['WVULSERVER']."/databases/images/new.gif\" />&nbsp;":"";
+			$dbDesc .= ($row['trialDatabase'] == 1)?"<img src=\"".$engineVars['WVULSERVER']."/databases/images/trial.gif\" />&nbsp;":"";
+			$dbDesc .= $row['description'];
+			
+			$rss->addItem($row['name'],$dbURL,$dbURL,gmdate("D, j M Y G:i:s T",$row['createDate']),$dbDesc);
+		}
+		
+		
+		$xml = $rss->buildRSS();
+	}
+	else if ($engine->cleanGet['HTML']['type'] == "mobile") {
+		$rss->title .= "Mobile Databases";
+		$rss->description = "WVU Libraries Mobile Databases.";
+
+			$sql = "SELECT * FROM dbList WHERE mobile='1' ORDER BY name DESC";
 		$engineVars['openDB']->sanitize = FALSE;
 		$sqlResult = $engineVars['openDB']->query($sql);
 		
