@@ -1,0 +1,1 @@
+ALTER TABLE  `dbList` ADD  `mobile` tinyint(1) unsigned DEFAULT 0;
