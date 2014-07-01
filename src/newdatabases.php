@@ -33,6 +33,7 @@ switch($engine->cleanGet['HTML']['type']) {
 	case "alumni":
 	$pageHeader = "Alumni";
 	$searchType = "alumni";
+	break;
 	case "mobile":
 	$pageHeader = "Mobile";
 	$searchType = "mobile";
