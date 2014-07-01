@@ -60,7 +60,7 @@ else {
 
 <?php
 
-$sql = "select * from dbList JOIN databases_subjects where databases_subjects.subjectID='".$engine->cleanGet['MYSQL']['id']."' AND dbList.ID=databases_subjects.dbID AND (".$status.") ORDER BY dbList.name";
+$sql = "select * from dbList JOIN databases_subjects where databases_subjects.subjectID='".$engine->cleanGet['MYSQL']['id']."' AND dbList.ID=databases_subjects.dbID AND (".$status.") AND `dbList`.`mobile`='0' AND `dbList`.`alumni`='0' ORDER BY dbList.name";
 $engineVars['openDB']->sanitize = FALSE;
 $sqlResult = $engineVars['openDB']->query($sql);
 

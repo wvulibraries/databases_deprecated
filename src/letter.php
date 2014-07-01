@@ -46,7 +46,7 @@ if ($engine->cleanGet['HTML']['id'] == "num" || preg_match('/^\w$/',$engine->cle
 		$engine->cleanGet['HTML']['id'] = "1' OR name REGEXP '^2' OR name REGEXP '^3' OR name REGEXP '^4' OR name REGEXP '^5' OR name REGEXP '^6' OR name REGEXP '^7' OR name REGEXP '^8' OR name REGEXP '^9' OR name REGEXP '^0";
 	}
 
-	$sql = "select * from dbList WHERE (name REGEXP '^".$engine->cleanGet['HTML']['id']."') AND (".$status.") ORDER BY name";
+	$sql = "select * from dbList WHERE (name REGEXP '^".$engine->cleanGet['HTML']['id']."') AND (".$status.") AND `mobile`='0' AND `alumni`='0' ORDER BY name";
 	$engineVars['openDB']->sanitize = FALSE;
 	$sqlResult = $engineVars['openDB']->query($sql);
 
