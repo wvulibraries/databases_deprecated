@@ -46,7 +46,7 @@ else {
 	
 	$sql = "";
 	if ($engine->cleanPost['MYSQL']['newEntry'] == "null.") {
-		$sql = sprintf("INSERT INTO %s (name,status,yearsOfCoverage,vendor,url,offCampusURL,updated,accessType,fullTextDB,newDatabase,trialDatabase,access,help,helpURL,description,createDate,updateDate,URLID,popular,trialExpireDate,alumni,mobile) VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",
+		$sql = sprintf("INSERT INTO %s (name,status,yearsOfCoverage,vendor,url,offCampusURL,updated,accessType,fullTextDB,newDatabase,trialDatabase,access,help,helpURL,description,createDate,updateDate,URLID,popular,trialExpireDate,alumni,mobile) VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",
 			$dbTables['databases']['prod'],
 			$engine->openDB->escape($localVars['dbName']),
 			$engine->openDB->escape($localVars['dbStatus']),
