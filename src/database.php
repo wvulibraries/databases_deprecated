@@ -91,7 +91,7 @@ recurseInsert("buildLists.php","php");
 		</div>
 
 		<div class="infoKeyInfo">
-			<php print $dbInfo['yearsOfCoverage'] ?>
+			<?php print $dbInfo['yearsOfCoverage'] ?>
 		</div>
 	</div>
 	<?php } ?>
