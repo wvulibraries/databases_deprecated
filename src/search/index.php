@@ -24,6 +24,9 @@ if(!empty($engine->cleanGet['HTML']['status']) && isint($engine->cleanGet['HTML'
 	$localVars['status'] = $engine->cleanGet['HTML']['status'];
 }
 
+$engine->cleanGet['MYSQL']['q'] = urldecode($engine->cleanGet['MYSQL']['q']);
+$engine->cleanGet['MYSQL']['q'] = str_replace("&", "&amp;", $engine->cleanGet['MYSQL']['q']);
+
 $sqlResult = array();
 if ($engine->cleanGet['MYSQL']['q'] && !isempty($engine->cleanGet['MYSQL']['q'])) {
 	$sql       = sprintf('SELECT * FROM `dbList` WHERE `name` LIKE "%%%s%%"',
