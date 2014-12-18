@@ -69,8 +69,9 @@ function buildPopularDB() {
 	
 	$sArray = array();
 	
-	$output = "<ul id=\"popularDBList\">";
-	$output .= '<li class="rightNavListHeader">Popular Databases</li>';
+	$output = '<span class="rightNavListHeader">Popular Databases</span>';
+	$output .= "<ul id=\"popularDBList\">";
+    
 	while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_BOTH)) {
 		
 		$output .= "<li><a href=\"/databases/connect.php?".$row['URLID']."=INVS\">".htmlentities($row[1])."</a></li>";
@@ -134,20 +135,18 @@ function buildTitleLetter() {
 	
 	$count = 0;
 	
-	$output = "<section id=\"letterLineDiv\">";
-	$output .= "<header><h1>Databases By Title</h1></header>";
-	$output .= "<p class=\"dbLetterLine\">";
+	$output = '<span class="rightNavListHeader">Databases By Title</span>';
+	$output .= "<ul>";
 	foreach ($sArray as $letter => $value) {
 		
 		if ($countTotal > 8 && $count++%8 == 0) {
 			$output .= "</p><p class=\"dbLetterLine\">";
 		}
 		
-		$output .= "<span class=\"dbLetter\"><a href=\"letter.php?id=".(($letter == "#")?"num":$letter)."$currentStatus\">$letter</a></span>";
+		$output .= "<li><a href=\"letter.php?id=".(($letter == "#")?"num":$letter)."$currentStatus\">$letter</a></li>";
 
 	}
-	$output .= "</p>";
-	$output .= "</section>";
+	$output .= "</ul>";
 	
 	return($output);
 	
@@ -167,9 +166,8 @@ function buildResourceTypes() {
 	$countTotal = mysql_num_rows($sqlResult['result']);
 	$count      = 0;
 	$ul2        = FALSE;
-	
-	$output  = "<section id=\"resourceTypesULDiv\">"; // class=\"clearfix\"
-	$output .= "<header><h1>Databases by Resource Type</h1></header>";
+
+	$output = '<span class="rightNavListHeader">Databases by Resource Type</span>';
 	$output .= "<ul class=\"rtUL\" id=\"rtUL1\">";
 	
 	while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_NUM)) {
@@ -183,7 +181,6 @@ function buildResourceTypes() {
 		
 	}
 	$output .= "</ul>";
-	$output .= "</section>";
 
 	return($output);
 	
@@ -196,9 +193,10 @@ function buildNews() {
 	$sql = "SELECT * FROM news ORDER BY ID DESC LIMIT 5";
 	$engineVars['openDB']->sanitize = FALSE;
 	$sqlResult = $engineVars['openDB']->query($sql);
-	
-	$output = "<ul id=\"newsUL\">";
-	$output .= '<li class="rightNavListHeader">News</li>';
+    
+	$output = '<span class="rightNavListHeader">News</span>';
+	$output .= "<ul id=\"newsUL\">";
+
 	while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_NUM)) {
 		
 		$newsText = htmlentities($row[1]);

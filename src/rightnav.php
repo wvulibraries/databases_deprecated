@@ -12,15 +12,14 @@ localvars::add("resourceTypes",buildResourceTypes());
 localvars::add("news",buildNews());
 
 ?>
-
-<br /><a href="/services/ask/database/" title="Help Accessing Databases">Help Accessing Databases</a><br />
+<ul>
+    <li><a href="/services/ask/database/" title="Help Accessing Databases">Help Accessing Databases</a></li>
+</ul>
 
 {local var="popular"}
 
+<span class="rightNavListHeader">Databases By Subject</span>
 <ul>
-
-<li class="rightNavListHeader">Databases By Subject</li>
-
 <li><a href="/databases/index.php?{local var="currentStatus"}" id="rightNavSubLink">Subjects</a></li>
 <li class="noBorder"></li>
 <li class="noBorder"></li>
@@ -38,5 +37,6 @@ localvars::add("news",buildNews());
 
 {local var="news"}
 
-<br /><br />
-<a href="/databases/rss.php" id="rssIcon"><img src="/databases/images/rss.gif" /></a>
+<ul>
+    <li><a href="/databases/rss.php" id="rssIcon"><img src="/databases/images/rss.gif" /></a></li>
+</ul>
