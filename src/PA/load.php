@@ -3,6 +3,7 @@ require "/home/library/phpincludes/engine/engineAPI/3.0/engine.php";
 $engine = engineAPI::singleton();
 
 // Connect to the database
+require_once("/home/library/phpincludes/databaseConnectors/database.lib.wvu.edu.remote.php");
 $engine->dbConnect("database","pa",TRUE);
 
 // Instantiate the snippets class

@@ -7,6 +7,7 @@ $engine = new EngineCMS();
 recurseInsert("acl.php","php");
 
 // Connect to the database
+require_once("/home/library/phpincludes/databaseConnectors/database.lib.wvu.edu.remote.php");
 $engine->dbConnect("database","pa",TRUE);
 
 // Instantiate the snippets class

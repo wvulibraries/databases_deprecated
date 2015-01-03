@@ -6,6 +6,7 @@ $engine = new EngineCMS();
 $engine->localVars('pageTitle',"Database Management: Vendors");
 
 recurseInsert("dbTables.php","php");
+require_once("/home/library/phpincludes/databaseConnectors/database.lib.wvu.edu.remote.php");
 $engine->dbConnect("database","databases",TRUE);
 
 recurseInsert("acl.php","php");

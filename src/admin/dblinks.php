@@ -7,6 +7,7 @@ $engine = new EngineCMS();
 $engine->localVars('pageTitle',"Database Management: Add Database");
 
 recurseInsert("dbTableList.php","php");
+require_once("/home/library/phpincludes/databaseConnectors/database.lib.wvu.edu.remote.php");
 $engine->dbConnect("database","databases",TRUE);
 
 $engine->accessControl("ADgroup","Domain Users",TRUE);

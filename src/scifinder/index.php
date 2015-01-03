@@ -79,7 +79,7 @@ $engine->eTemplate("include","header");
 			      <p class="normal">
 				Linda Blake <br />
 				Downtown Library Reference Department <br />
-				293-4040 x4462 <br />
+				(304) 293-0328 <br />
 				<a href="mailto:linda.blake@mail.wvu.edu">linda.blake@mail.wvu.edu</a>
 			      </p>
 			    </div>

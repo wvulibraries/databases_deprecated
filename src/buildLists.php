@@ -143,7 +143,11 @@ function buildTitleLetter() {
 			$output .= "</p><p class=\"dbLetterLine\">";
 		}
 		
-		$output .= "<li><a href=\"letter.php?id=".(($letter == "#")?"num":$letter)."$currentStatus\">$letter</a></li>";
+		$output .= sprintf('<li><a href="/databases/letter.php?id=%s%s">%s</a></li>',
+			(($letter == "#")?"num":$letter),
+			$currentStatus,
+			$letter
+			);
 
 	}
 	$output .= "</ul>";
