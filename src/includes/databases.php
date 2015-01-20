@@ -2,6 +2,8 @@
 
 class databases {
 
+	private static $approot = "/databases"; 
+
 	public static function buildDBListing($sqlResult) {
 
 		$output = "";
@@ -44,7 +46,8 @@ class databases {
 			} 
 
 			$output .= '<p id="moreInfo">';
-			$output .= sprintf('<a href="database.php?id=%s">(More Info)</a>',
+			$output .= sprintf('<a href="%s/database.php?id=%s">(More Info)</a>',
+				self::$approot,
 				(!empty($row['dbID']))?$row['dbID']:$row['ID']
 				);
 			$output .= '</p>';
