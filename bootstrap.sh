@@ -41,6 +41,9 @@ ln -s /vagrant/serverConfiguration/docroot_index.php $SERVERURL/$DOCUMENTROOT/in
 ln -s /vagrant/src $SERVERURL/$SITEROOT
 ln -s $SERVERURL/phpincludes/engine/engineAPI/latest $SERVERURL/phpincludes/engine/engineAPI/4.0
 
+rm -f $GITDIR/engineAPI/engine/engineAPI/latest/config/defaultPrivate.php
+ln -s /vagrant/serverConfiguration/defaultPrivate.php $GITDIR/engineAPI/engine/engineAPI/latest/config/defaultPrivate.php
+
 rm -f /etc/hosts
 ln -s /vagrant/serverConfiguration/hosts /etc/hosts
 
