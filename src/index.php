@@ -1,6 +1,6 @@
 <?php
 
-require_once("/home/www.libraries.wvu.edu/public_html/includes/2014/engineHeader.php");
+require_once "/home/www.libraries.wvu.edu/public_html/includes/2014/engineHeader.php";
 
 $engine->localVars('pageTitle',"WVU Libraries: Databases");
 // $engine->eTemplate("load","library2012.2col.right");
