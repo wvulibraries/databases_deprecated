@@ -16,8 +16,6 @@ recurseInsert("includes/vars.php","php");
 
 // Setup the database connection
 recurseInsert("dbTables.php","php");
-require("/home/library/phpincludes/databaseConnectors/database.lib.wvu.edu.remote.php");
-$engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
 $databaseOptions = array(
 	'username' => 'username',
 	'password' => 'password'
@@ -29,8 +27,6 @@ $db                        = db::create('mysql', $databaseOptions, $localvars->g
 
 recurseInsert("includes/class_databases.php");
 recurseInsert("includes/class_status.php");
-
-$engine->localVars('pageTitle',"WVU Libraries: Databases");
 
 status::set();
 databases::expireTrials();
