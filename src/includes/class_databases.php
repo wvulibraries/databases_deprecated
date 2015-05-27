@@ -60,6 +60,15 @@ class databases {
 
 		return $output;
 	}
+
+	public static function expireTrials() {
+		
+		$sql                            = "UPDATE dbList set status='2' WHERE trialDatabase=1 AND trialExpireDate<".time();
+		$engineVars['openDB']->sanitize = FALSE;
+		$sqlResult                      = $engineVars['openDB']->query($sql);
+
+		return TRUE;
+	}
 }
 
 ?>
