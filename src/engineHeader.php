@@ -18,6 +18,13 @@ recurseInsert("includes/vars.php","php");
 recurseInsert("dbTables.php","php");
 require("/home/library/phpincludes/databaseConnectors/database.lib.wvu.edu.remote.php");
 $engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
+$databaseOptions = array(
+	'username' => 'username',
+	'password' => 'password'
+);
+require_once('/home/www.libraries.wvu.edu/phpincludes/databaseConnectors/database.lib.wvu.edu.remote.php');
+$databaseOptions['dbName'] = 'databases';
+$db                        = db::create('mysql', $databaseOptions, $localvars->get("dbConnectionName"));
 
 
 recurseInsert("includes/class_databases.php");
