@@ -5,7 +5,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 # The name we are giving this project
-PROJECT_NAME = "eReserves"
+PROJECT_NAME = "databases"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.define PROJECT_NAME, primary: true do |config|
