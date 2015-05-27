@@ -20,6 +20,8 @@
 --
 DROP DATABASE IF EXISTS `databases`;
 CREATE DATABASE IF NOT EXISTS `databases`;
+GRANT ALL PRIVILEGES ON `databases`.* TO 'username'@'localhost';
+
 USE `databases`;
 
 DROP TABLE IF EXISTS `accessPlainText`;
