@@ -70,6 +70,13 @@ ln -s $GITDIR/engineAPITemplates/distribution/public_html/js/* $SERVERURL/$DOCUM
 ln -s $SERVERURL $ENGINEAPIHOME
 ln -s $GITDIR/engineAPI/public_html/engineIncludes/ $SERVERURL/$DOCUMENTROOT/engineIncludes
 
+ln -s $GITDIR/engineAPITemplates/library2014-backpage/includes $SERVERURL/$DOCUMENTROOT/includes
+ln -s $GITDIR/engineAPITemplates/library2014-backpage/templateIncludes $SERVERURL/$DOCUMENTROOT/templateIncludes
+
+chmod a+rx /etc/httpd/logs -R
+sudo ln -s /etc/httpd/logs/error_log /vagrant/serverConfiguration/serverlogs/error_log
+sudo ln -s /etc/httpd/logs/access_log /vagrant/serverConfiguration/serverlogs/access_log
+
 ## Setup the EngineAPI Database
 
 /etc/init.d/mysqld start
