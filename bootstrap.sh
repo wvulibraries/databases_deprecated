@@ -39,7 +39,7 @@ mkdir -p $SERVERURL/$DOCUMENTROOT
 
 ln -s /vagrant/serverConfiguration/docroot_index.php $SERVERURL/$DOCUMENTROOT/index.php
 ln -s /vagrant/src $SERVERURL/$SITEROOT
-ln -s $SERVERURL/phpincludes/engine/engineAPI/3.1 $SERVERURL/phpincludes/engine/engineAPI/3.2
+ln -s $SERVERURL/phpincludes/engine/engineAPI/latest $SERVERURL/phpincludes/engine/engineAPI/4.0
 
 rm -f /etc/hosts
 ln -s /vagrant/serverConfiguration/hosts /etc/hosts
