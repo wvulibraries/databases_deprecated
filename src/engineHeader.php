@@ -27,9 +27,15 @@ $db                        = db::create('mysql', $databaseOptions, $localvars->g
 
 recurseInsert("includes/class_databases.php");
 recurseInsert("includes/class_status.php");
+recurseInsert("includes/class_lists.php");
+recurseInsert("includes/class_resourceTypes.php");
+recurseInsert("includes/class_subjects.php");
+recurseInsert("includes/class_topPickDBs");
+ 
+$databases = new databases;
 
 status::set();
-databases::expireTrials();
+$databases->expireTrials();
 
 templates::load("library2014-backpage");
 

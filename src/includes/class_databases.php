@@ -4,6 +4,16 @@ class databases {
 
 	private static $approot = "/databases"; 
 
+	private $localvars;
+	private $engine;
+	private $db;
+
+	function __construct() {
+		$this->localvars = localvars::getInstance();
+		$this->engine    = EngineAPI::singleton();
+		$this->db        = db::get($this->localvars->get('dbConnectionName'));
+	}
+
 	public static function buildDBListing($sqlResult) {
 
 		$output = "";
@@ -61,11 +71,10 @@ class databases {
 		return $output;
 	}
 
-	public static function expireTrials() {
+	public function expireTrials() {
 		
-		$sql                            = "UPDATE dbList set status='2' WHERE trialDatabase=1 AND trialExpireDate<".time();
-		$engineVars['openDB']->sanitize = FALSE;
-		$sqlResult                      = $engineVars['openDB']->query($sql);
+		$sql       = "UPDATE dbList set status='2' WHERE trialDatabase=1 AND trialExpireDate<?";
+		$sqlResult = $this->db->query($sql,array(time()));
 
 		return TRUE;
 	}
