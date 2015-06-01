@@ -16,11 +16,6 @@ class status {
 		return TRUE;
 	}
 
-	public static function current() {
-
-		
-		
-	}
 
 }
 
