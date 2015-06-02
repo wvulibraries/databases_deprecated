@@ -2,3 +2,4 @@
 /serverConfiguration/serverLogs/
 /serverConfiguration/includes/
 sessionLogin.php
+databases.sql
