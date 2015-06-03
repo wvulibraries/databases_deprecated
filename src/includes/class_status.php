@@ -18,13 +18,19 @@ class status {
 
 	public static function current() {
 
-		
-		
 		if (isset($_GET['HTML']['status']) && !is_empty($_GET['HTML']['status'])) {
 			return $_GET['HTML']['status'];
 		}
 
 		return "";
+
+	}
+
+	public static function build() {
+
+		$status = self::current();
+
+		return (is_empty($status))?"":"status=".htmlSanitize($status);
 
 	}
 
