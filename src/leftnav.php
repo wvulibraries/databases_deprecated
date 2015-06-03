@@ -1,15 +1,12 @@
 <?php
 
-global $engine;
+$localvars = localvars::getInstance();
+$localvars->set("currentStatus",status::build());
 
-$currentStatus = (empty($engine->cleanGet['HTML']['status']))?"":"status=".$engine->cleanGet['HTML']['status'];
-
-localvars::add("currentStatus",$currentStatus);
-
-localvars::add("popular",buildPopularDB());
-localvars::add("letters",buildTitleLetter());
-localvars::add("resourceTypes",buildResourceTypes());
-localvars::add("news",buildNews());
+// $localvars->set("popular",buildPopularDB());
+// $localvars->set("letters",buildTitleLetter());
+// $localvars->set("resourceTypes",buildResourceTypes());
+// $localvars->set("news",buildNews());
 
 ?>
 <ul>
