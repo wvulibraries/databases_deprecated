@@ -20,6 +20,12 @@ class status {
 
 		
 		
+		if (isset($_GET['HTML']['status']) && !is_empty($_GET['HTML']['status'])) {
+			return $_GET['HTML']['status'];
+		}
+
+		return "";
+
 	}
 
 }
