@@ -6,7 +6,7 @@ class lists {
 
 		// @todo do we want this to be static? would caching the results be 
 		// benificial
-		$subjects      = subjects::getSubjects();
+		$subjects      = subjects::get();
 		$totalSubjects = count($subjects);
 		$divisions     = 2; // @TODO this needs to be configurable somewhere
 
@@ -14,15 +14,16 @@ class lists {
 
 		$output        = "";
 
-		foreach ($subjects as $subject) {
+		$count = 0;
+		foreach ($subjects as $subject=>$subjectInfo) {
 
-			if ($I % ($totalSubjects/$divisions) == 0 && $div<$divisions ) {
+			if ($count++ % ($totalSubjects/$divisions) == 0 && $div<$divisions ) {
 				$output .= sprintf("%s<div class=\"subjectDiv\" id=\"subjectDiv_%s\">",
 					($div > 0)?"</div>":"",
 					$div++);
 			}
 
-			if (($curLetter = strtoupper($subject['name'][0])) != $prevLetter) {
+			if (($curLetter = strtoupper($subject[0])) != $prevLetter) {
 
 				$output     .= (!isnull($prevLetter))?"</ul>":"";
 				$output     .= sprintf("<h4 class=\"subjectLetterHeading\">%s</h4>\n",$curLetter);
@@ -31,26 +32,25 @@ class lists {
 			}
 
 			
-			foreach ($item as $subject) {
 				$output .= "<li>";
 				$output .= sprintf("<a href=\"subjects.php?id=%s&status=%s\">%s</a>",
-					htmlentities($subject['ID']),
+					htmlentities($subjectInfo['ID']),
 					status::current(),
-					htmlentities($subject['name'])
+					htmlentities($subject)
 					);
-				$output .= "<a href=\"subjects.php?id=".htmlentities($subject['ID'])."$currentStatus\">".htmlentities($subject['name'])."</a>";
 				$output .= "</li>\n";
 
 				$count++;
-			}
-			$output .= "</ul>\n";
+			
 
 		}
 		$output .= "</div>"; // closes the last division
 
+		return $output;
+
 	}
 
-	return $output;
+	
 
 }
 
