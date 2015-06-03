@@ -3,7 +3,7 @@
 require "engineHeader.php";
 
 recurseInsert("buildLists.php","php");
-$localvars->set("subjects",buildSubjectList());
+$localvars->set("subjects",lists::subjects());
 
 templates::display('header'); 
 
