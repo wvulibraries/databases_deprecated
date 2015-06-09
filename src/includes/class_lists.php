@@ -63,7 +63,51 @@ class lists {
 			);
 
 	}
+
+	// expects $databases to be a database array
+	public static function databases($databases) {
+
+		$localvars = localvars::getInstance();
+
+		$output = "";
+
+		foreach ($databases as $database) {
+
+			$output .= '<div class="dbListing">';
+			$output .= sprintf('<p id="dbName"><a href="%s?%s=INVS">%s</a></p>',
+				"/databases/connect.php", // @TODO this needs to be configurable
+				$database['URLID'],
+				str2TitleCase($database['name'])
+				);
+
+			$output .= sprintf('<p id="fullTextRow"></p>',
+				($database['fullTextDB']    == 1)?self::helper_dbType("fulltext"):"",
+				($database['trialDatabase'] == 1)?self::helper_dbType("trial"):"",
+				($database['newDatabase']   == 1)?self::helper_dbType("new"):""
+				);
+
+			$output .= '<p id="shortDesc">';
+			if ($database['trialDatabase'] == 1) {
+				$output .= sptrinf('<span class="trialText">Trial ends on %s &ndash; </span>',
+					date("M d, Y",$database['trialExpireDate'])
+					);
+			}
+			$output .= ((!is_empty($database['description']) && list($shortDesc) = explode(".",$database['description']))?$shortDesc."....\n":"");
+			$output .= '</p>';
 	
+			$output .= sprintf('<p id="moreInfo"><a href="%s/database/?id=%s">(More Info)</a></p>',
+				$localvars->get("databaseHome"),
+				(!empty($database['dbID']))?$database['dbID']:$database['ID']
+				);
+
+			$output .= '<hr noshade="noshade" size="1"/>';
+			$output .= '</div>';
+
+		}
+
+		return $output;
+
+	}
 
 }
 
