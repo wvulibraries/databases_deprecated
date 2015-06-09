@@ -20,6 +20,11 @@ class subjects {
 		$sql       = sprintf("SELECT * FROM `subjects` %s ORDER BY `name`", $whereClause);
 		$sqlResult = $db->query($sql);
 
+		if ($sqlResult->error()) {
+			errorHandle::newError($sqlResult->errorMsg(), errorHandle::DEBUG);
+			return FALSE;
+		}
+
 		$subjects = array();
 		while ($row = $sqlResult->fetch()) {
 			$subjects[$row['name']] = array("ID" => $row['ID'], "URL" => $row['url'], "name"=>$row['name']);
