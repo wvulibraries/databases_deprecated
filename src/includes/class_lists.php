@@ -54,6 +54,15 @@ class lists {
 
 	}
 
+	private static function helper_dbType($type) {
+
+		return sprintf('<img src="%s/%s.gif" alt="Full Text" />',
+			"/databases/images", // @TODO make configurable
+			htmlSanitize($type),
+			"gif" // @TODO make configurable
+			);
+
+	}
 	
 
 }
