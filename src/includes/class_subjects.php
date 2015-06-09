@@ -7,9 +7,10 @@ class subjects {
 	public static function get($ID=NULL) {
 
 		$localvars = localvars::getInstance();
-		$db       = db::get($localvars->get('dbConnectionName'));
+		$db        = db::get($localvars->get('dbConnectionName'));
+		$validate  = validate::getInstance();
 
-		if (!isnull($ID) && validate::integer($ID)) {
+		if (!isnull($ID) && $validate->integer($ID)) {
 			$whereClause = sprintf("WHERE `ID`=%s", $ID);
 		}
 		else {
