@@ -14,61 +14,32 @@ class databases {
 		$this->db        = db::get($this->localvars->get('dbConnectionName'));
 	}
 
-	public static function buildDBListing($sqlResult) {
+	public function getBySubject() {
 
-		$output = "";
+		$sql       = sprintf("select * from dbList JOIN databases_subjects where databases_subjects.subjectID=? AND dbList.ID=databases_subjects.dbID AND (%s) AND `dbList`.`mobile`='0' AND `dbList`.`alumni`='0' ORDER BY dbList.name",
+			status::buildSQLStatus()
+			);
+		$sqlResult = $this->db->query($sql,array($_GET['MYSQL']['id']));
 
-		while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC)) {
-
-			$output .= '<div class="dbListing">';
-			$output .= sprintf('<p id="dbName"><a href="/databases/connect.php?%s=INVS">%s</a></p>',
-				$row['URLID'],
-				str2TitleCase($row['name'])
-				);
-
-			if ($row['fullTextDB'] == 1 || $row['newDatabase'] == 1 || $row['trialDatabase'] == 1) {
-				$output .= '<p id="fullTextRow">';
-				if ($row['fullTextDB'] == 1) {
-					$output .= '<img src="/databases/images/fulltext.gif" alt="Full Text" />';
-				}
-				if ($row['trialDatabase'] == 1) {
-					$output .= '<img src="/databases/images/trial.gif" alt="Trial" />';
-				}
-				if ($row['newDatabase'] == 1) {
-					$output .= '<img src="/databases/images/new.gif" alt="New" />';
-				}
-				$output .= '</p>';
-			}
-
-			if (!empty($row['description'])) {
-
-				$output .= '<p id="shortDesc">';
-				
-				if ($row['trialDatabase'] == 1) {
-					$output .= "<span class=\"trialText\">Trial ends on ".date("M d, Y",$row['trialExpireDate'])." &ndash; </span>";
-				}
-				
-				list($shortDesc) = explode(".",$row['description']);
-				$output .= $shortDesc."...."; 
-
-				$output .= "</p>";
-
-			} 
-
-			$output .= '<p id="moreInfo">';
-			$output .= sprintf('<a href="%s/database.php?id=%s">(More Info)</a>',
-				self::$approot,
-				(!empty($row['dbID']))?$row['dbID']:$row['ID']
-				);
-			$output .= '</p>';
-
-			$output .= '<hr noshade="noshade" size="1"/>';
-
-			$output .= '</div>';
-
+		if ($sqlResult->error()) {
+			errorHandle::newError($sqlResult->errorMsg(), errorHandle::DEBUG);
+			errorHandle::newError($sqlResult->sql(), errorHandle::DEBUG);
+			return FALSE;
 		}
 
-		return $output;
+		$databases = array();
+		while($row = $sqlResult->fetch()) {
+			$databases[] = $row;
+		}
+
+		return $databases;
+
+	}
+
+	public static function buildDBListing($sqlResult) {
+
+		return lists::databases($sqlResult);
+
 	}
 
 	public function expireTrials() {
