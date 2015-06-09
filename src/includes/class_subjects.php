@@ -21,7 +21,7 @@ class subjects {
 
 		$subjects = array();
 		while ($row = $sqlResult->fetch()) {
-			$subjects[$row['name']] = array("ID" => $row['ID'], "URL" => $row['url']);
+			$subjects[$row['name']] = array("ID" => $row['ID'], "URL" => $row['url'], "name"=>$row['name']);
 		}
 
 		return $subjects;
