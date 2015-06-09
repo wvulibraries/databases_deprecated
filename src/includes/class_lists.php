@@ -4,6 +4,8 @@ class lists {
 	
 	public static function subjects() {
 
+		$localvars = localvars::getInstance();
+
 		// @todo do we want this to be static? would caching the results be 
 		// benificial
 		$subjects      = subjects::get();
@@ -34,7 +36,8 @@ class lists {
 
 			
 				$output .= "<li>";
-				$output .= sprintf("<a href=\"subjects.php?id=%s&status=%s\">%s</a>",
+				$output .= sprintf('<a href="%s/subjects/?id=%s&status=%s">%s</a>',
+					$localvars->get("databaseHome"),
 					htmlentities($subjectInfo['ID']),
 					status::current(),
 					htmlentities($subject)
