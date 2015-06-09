@@ -1,92 +1,57 @@
 <?php
+require "../engineHeader.php";
 
-require_once("/home/library/public_html/includes/engineHeader.php");
+try {
 
-$engine->localVars('pageTitle',"WVU Libraries: Databases");
+	$validate = validate::getInstance();
 
-// $engine->eTemplate("load","library2012.2col.right");
-$engine->eTemplate("load","library2014-backpage");
-
-recurseInsert("dbTables.php","php");
-require_once("/home/library/phpincludes/databaseConnectors/database.lib.wvu.edu.remote.php");
-$engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
-
-// Fire up the Engine
-$engine->eTemplate("include","header");
-?>
-
-<?php
-include("buildStatus.php");
-?>
-
-<?php
-
-recurseInsert("buildLists.php","php");
-
-$badError = FALSE;
-if (!isint($engine->cleanGet['MYSQL']['id'])) {
-	print webHelper_errorMsg("Invalid Subject Provided");
-	$badError = TRUE;
-}
-else {
-	$sql = sprintf("SELECT * FROM subjects WHERE ID='%s'",
-		$engine->cleanGet['MYSQL']['id']
-		);
-	$engineVars['openDB']->sanitize = FALSE;
-	$sqlResult = $engineVars['openDB']->query($sql);
-
-	if (!$sqlResult['result']) {
-		// print webHelper_errorMsg("SQL Error: ".$sqlResult['error']);
-		print webHelper_errorMsg("Error Retrieving database");
+	if (!$validate->integer($_GET['MYSQL']['id'])) {
+		throw new Exception("Invalid Subject Provided.");
 	}
-	else {
-		$subjectInfo = mysql_fetch_array($sqlResult['result'], MYSQL_NUM);
+
+	if (($subjectInfo = array_shift(subjects::get($_GET['MYSQL']['id']))) === FALSE) {
+		throw new Exception("Error retrieving subject information");
 	}
+	else if (is_empty($subjectInfo)) {
+		throw new Exception("Subject not found.");
+	}
+
+	$localvars->set("databaseHeading",(!empty($subjectInfo['name']))?$subjectInfo['name']:"Invalid Subject");
+	$localvars->set("subjectGuideDisplay",(!empty($subjectInfo['URL']))?"block":"none");
+	$localvars->set("subjectGuideLink",(!empty($subjectInfo['URL']))?$subjectInfo['URL']:"");
+
+	$dbObject  = new databases;
+	$databases = $dbObject->getBySubject($_GET['MYSQL']['id']);
+	$localvars->set("databases",lists::databases($databases));
 }
+catch(Exception $e) {
+	
+	errorHandle::errorMsg($e->message);
+	$localvars->set("prettyPrint",errorHandle::prettyPrint());
+
+}
+
+templates::display('header'); 
 ?>
 
 <!-- Page Content Goes Below This Line -->
 
+{local var="prettyPrint"}
+
 <div class="clearfix" id="subjectsContainer">
 
-<?php if ($badError === FALSE) { ?>
+<h3>{local var="databaseHeading"} Databases</h3>
 
-<h3><?php print (!empty($subjectInfo[1]))?$subjectInfo[1]:"Invalid Subject"; ?> Databases</h3>
+<p id="subjectGuideLink" style="display: {local var="subjectGuideDisplay"}">For a subject guide on this topic:<br />
+	<a href="{local var="subjectGuideLink"}">{local var="subjectGuideLink"}</a>
+</p>
 
-<?php if(!empty($subjectInfo[2])) { ?>
-	<p id="subjectGuideLink">For a subject guide on this topic:<br />
-	<a href="<?php print $subjectInfo[2]; ?>"><?php print $subjectInfo[2]; ?></a>
-	</p>
-<?php }?>
-
-<?php
-
-$sql = "select * from dbList JOIN databases_subjects where databases_subjects.subjectID='".$engine->cleanGet['MYSQL']['id']."' AND dbList.ID=databases_subjects.dbID AND (".$status.") AND `dbList`.`mobile`='0' AND `dbList`.`alumni`='0' ORDER BY dbList.name";
-$engineVars['openDB']->sanitize = FALSE;
-$sqlResult = $engineVars['openDB']->query($sql);
-
-if (!$sqlResult['result']) {
-	print webHelper_errorMsg("SQL Error: ".$sqlResult['error']);
-}
-?>
-
-<?php
-	include("buildDBListing.php");
-?>
-
-<?php } ?>
+{local var="databases"}
 
 </div>
 
-<div id="rightNav">
-
-<?php
-	recurseInsert("rightNav.php","php");
-?>
-
-</div>
 <!-- Page Content Goes Above This Line -->
 
 <?php
-$engine->eTemplate("include","footer");
+templates::display('footer'); 
 ?>
