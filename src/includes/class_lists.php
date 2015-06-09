@@ -15,6 +15,7 @@ class lists {
 		$output        = "";
 
 		$count = 0;
+		$div   = 0;
 		foreach ($subjects as $subject=>$subjectInfo) {
 
 			if ($count++ % ($totalSubjects/$divisions) == 0 && $div<$divisions ) {
