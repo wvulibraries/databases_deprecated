@@ -80,7 +80,7 @@ chmod a+rx /etc/httpd/logs -R
 sudo ln -s /etc/httpd/logs/error_log /vagrant/serverConfiguration/serverlogs/error_log
 sudo ln -s /etc/httpd/logs/access_log /vagrant/serverConfiguration/serverlogs/access_log
 
-ln -s /vagrant/template /tmp/git/engineAPITemplates/databases2015
+ln -s /vagrant/template /home/engineAPI/phpincludes/engine/template/databases2015
 
 ## Setup the EngineAPI Database
 
