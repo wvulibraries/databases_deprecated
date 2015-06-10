@@ -22,7 +22,7 @@ class databases {
 		$sqlResult = $this->db->query($sql,array($id));
 
 		if ($sqlResult->error()) {
-			errorHandle::newError($sqlResult->errorMsg(), errorHandle::DEBUG);
+			errorHandle::newError(__METHOD__."() - ".$sqlResult->errorMsg(), errorHandle::DEBUG);
 			return FALSE;
 		}	
 
