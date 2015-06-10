@@ -6,11 +6,13 @@ class databases {
 
 	private $localvars;
 	private $engine;
+	private $validate;
 	private $db;
 
 	function __construct() {
 		$this->localvars = localvars::getInstance();
 		$this->engine    = EngineAPI::singleton();
+		$this->validate  = validate::getInstance();
 		$this->db        = db::get($this->localvars->get('dbConnectionName'));
 	}
 
