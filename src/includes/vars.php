@@ -7,4 +7,5 @@ $localvars->set("currentDisplayObjectTitle","Databases A-Z List");
 $localvars->set('dbConnectionName', 'appDB');
 $localvars->set("databaseHome","/databases");
 $localvars->set("connectURL","/databases/connect.php");
+$localvars->set("proxyURL", "http://www.libproxy.wvu.edu/login?url=");
 ?>
