@@ -43,7 +43,6 @@ class databases {
 
 		if ($sqlResult->error()) {
 			errorHandle::newError($sqlResult->errorMsg(), errorHandle::DEBUG);
-			errorHandle::newError($sqlResult->sql(), errorHandle::DEBUG);
 			return FALSE;
 		}
 
