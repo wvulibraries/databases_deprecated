@@ -10,8 +10,6 @@ require "engineHeader.php";
 
 <?php
 
-$proxyURL  = "http://www.libproxy.wvu.edu/login?url=";
-
 if(empty($engine->cleanGet['MYSQL'])) {
 	echo "error";
 	exit;
