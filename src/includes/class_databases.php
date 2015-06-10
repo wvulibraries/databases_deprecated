@@ -111,6 +111,22 @@ class databases {
 
 	}
 
+	public function getByLetter($letter) {
+
+		if ($letter == "num") {
+			$letter = "1' OR name REGEXP '^2' OR name REGEXP '^3' OR name REGEXP '^4' OR name REGEXP '^5' OR name REGEXP '^6' OR name REGEXP '^7' OR name REGEXP '^8' OR name REGEXP '^9' OR name REGEXP '^0";
+		}
+
+		$sql = sprintf("select * from dbList WHERE (name REGEXP '^%s') AND (%s) AND `mobile`='0' AND `alumni`='0' ORDER BY name",
+			$letter,
+			status::buildSQLStatus()
+			);
+		$sqlResult = $this->db->query($sql);
+		
+		return $sqlResult->fetchAll();
+
+	}
+
 	public static function buildDBListing($sqlResult) {
 
 		return lists::databases($sqlResult);

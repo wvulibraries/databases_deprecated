@@ -1,83 +1,33 @@
 <?php
+require "../engineHeader.php";
 
-require_once("/home/library/public_html/includes/engineHeader.php");
-
-$engine->localVars('pageTitle',"WVU Libraries: Databases");
-
-// $engine->eTemplate("load","library2012.2col.right");
-$engine->eTemplate("load","library2014-backpage");
-
-recurseInsert("dbTables.php","php");
-require_once("/home/library/phpincludes/databaseConnectors/database.lib.wvu.edu.remote.php");
-$engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
-
-// Fire up the Engine
-$engine->eTemplate("include","header");
-?>
-
-<?php
-include("buildStatus.php");
-
-$pageHeader = (!empty($engine->cleanGet['HTML']['id']) && (preg_match('/^\w$/',$engine->cleanGet['HTML']['id']) == 1))?$engine->cleanGet['HTML']['id']:"";
+$pageHeader = (!empty($_GET['HTML']['id']) && (preg_match('/^\w$/',$_GET['HTML']['id']) == 1))?$_GET['HTML']['id']:"";
 
 if ($pageHeader == "num") {
 	$pageHeader = "Number";
 }
 
-?>
+$localvars->set("pageHeader",(!empty($pageHeader))?$pageHeader:"Error");
 
-<?php
+$dbObject  = new databases;
+$databases = $dbObject->getByLetter($_GET['HTML']['id']);
+$localvars->set("databases",lists::databases($databases));
 
-recurseInsert("buildLists.php","php");
-
+templates::display('header'); 
 ?>
 
 <!-- Page Content Goes Below This Line -->
 
 <div class="clearfix" id="subjectsContainer">
 
-<h3>Databases by Title: <?php print (!empty($pageHeader))?$pageHeader:"Error"; ?> </h3>
+<h3>Databases by Title: {local var="pageHeader"} </h3>
 
-
-<?php
-
-if ($engine->cleanGet['HTML']['id'] == "num" || preg_match('/^\w$/',$engine->cleanGet['HTML']['id']) == 1) {
-
-	if($engine->cleanGet['HTML']['id'] == "num") {
-		$engine->cleanGet['HTML']['id'] = "1' OR name REGEXP '^2' OR name REGEXP '^3' OR name REGEXP '^4' OR name REGEXP '^5' OR name REGEXP '^6' OR name REGEXP '^7' OR name REGEXP '^8' OR name REGEXP '^9' OR name REGEXP '^0";
-	}
-
-	$sql = "select * from dbList WHERE (name REGEXP '^".$engine->cleanGet['HTML']['id']."') AND (".$status.") AND `mobile`='0' AND `alumni`='0' ORDER BY name";
-	$engineVars['openDB']->sanitize = FALSE;
-	$sqlResult = $engineVars['openDB']->query($sql);
-
-	if (!$sqlResult['result']) {
-	// print webHelper_errorMsg("SQL Error: ".$sqlResult['error']);
-		print webHelper_errorMsg("Error retrieving database.");
-	}
-
-}
-else {
-	print webHelper_errorMsg("Invalid Letter Provided.");
-}
-
-?>
-
-<?php
-	include("buildDBListing.php");
-?>
+{local var="databases"}
 
 </div>
 
-<div id="rightNav">
-
-<?php
-	recurseInsert("rightNav.php","php");
-?>
-
-</div>
 <!-- Page Content Goes Above This Line -->
 
 <?php
-$engine->eTemplate("include","footer");
+templates::display('footer'); 
 ?>
