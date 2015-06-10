@@ -75,7 +75,7 @@ class lists {
 
 			$output .= '<div class="dbListing">';
 			$output .= sprintf('<p id="dbName"><a href="%s?%s=INVS">%s</a></p>',
-				"/databases/connect.php", // @TODO this needs to be configurable
+				$localvars->get("connectURL"),
 				$database['URLID'],
 				str2TitleCase($database['name'])
 				);
