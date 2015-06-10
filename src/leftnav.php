@@ -8,9 +8,9 @@ $dbObject = new databases;
 $popularDatabases = $dbObject->getByType("popular");
 $localvars->set("popular",lists::popular($popularDatabases));
 
-// $localvars->set("letters",buildTitleLetter());
-// $localvars->set("resourceTypes",buildResourceTypes());
-// $localvars->set("news",buildNews());
+$localvars->set("letters",lists::letters());
+
+$localvars->set("resourceTypes",lists::resourceTypes());
 
 ?>
 <ul>
@@ -32,12 +32,11 @@ $localvars->set("popular",lists::popular($popularDatabases));
 <li><a href="/databases/type/?type=trial&amp;{local var="currentStatus"}" id="rightNavSubLink">Trial Databases</a></li>
 </ul>
 
+<span class="rightNavListHeader">Databases By Title</span>
 {local var="letters"}
 
-
+<span class="rightNavListHeader">Databases by Resource Type</span>
 {local var="resourceTypes"}
-
-{local var="news"}
 
 <ul>
     <li><a href="/databases/rss.php" id="rssIcon"><img src="/databases/images/rss.gif" /></a></li>
