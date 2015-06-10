@@ -68,6 +68,27 @@ class databases {
 
 		return TRUE;
 	}
+	public function getHelpList($database) {
+
+		$helps   = explode("\n",$database['help']);
+		$helpURL = explode("\n",$database['helpURL']);
+
+		$output  = '<ul id="database_helpList">';
+
+		for ($I=0;$I<count($helps);$I++) {
+			if(!is_empty($helps[$I]) && !is_empty($helpURL[$I])) {
+				$output .= sprintf('<a href="%s">%s</a>',
+					htmlSanitize($helpURL[$I]),
+					htmlSanitize($helps[$I])
+					);
+			}
+		}
+
+		$output .= "</ul>";
+
+		return $output;
+
+	}
 }
 
 ?>
