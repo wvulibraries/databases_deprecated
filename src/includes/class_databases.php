@@ -71,7 +71,7 @@ class databases {
 
 		if ($sqlResult->error()) {
 			errorHandle::newError(__METHOD__."() - ".$sqlResult->errorMsg(), errorHandle::DEBUG);
-			return FALSE;
+			return array();
 		}
 
 		return $sqlResult->fetchAll();
