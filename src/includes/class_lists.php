@@ -109,6 +109,26 @@ class lists {
 
 	}
 
+	public static function popular($databases) {
+
+		$localvars = localvars::getInstance();
+
+		$output = "<ul id=\"popularDBList\">";
+
+		foreach ($databases as $database) {
+
+			$output .= sprintf('<li><a href="%s?%s=INVS\">%s</a></li>',
+				$localvars->get("connectURL"),
+				$database['URLID'],
+				htmlSanitize($database['name'])
+				);
+
+		}
+		$output .= "</ul>";
+
+		return $output;
+	}
+
 }
 
 ?>

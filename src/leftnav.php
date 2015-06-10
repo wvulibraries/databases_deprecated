@@ -3,7 +3,11 @@
 $localvars = localvars::getInstance();
 $localvars->set("currentStatus",status::build());
 
-// $localvars->set("popular",buildPopularDB());
+$dbObject = new databases;
+
+$popularDatabases = $dbObject->getByType("popular");
+$localvars->set("popular",lists::popular($popularDatabases));
+
 // $localvars->set("letters",buildTitleLetter());
 // $localvars->set("resourceTypes",buildResourceTypes());
 // $localvars->set("news",buildNews());
@@ -13,6 +17,7 @@ $localvars->set("currentStatus",status::build());
     <li><a href="/services/ask/database/" title="Help Accessing Databases">Help Accessing Databases</a></li>
 </ul>
 
+<span class="rightNavListHeader">Popular Databases</span>
 {local var="popular"}
 
 <span class="rightNavListHeader">Databases By Subject</span>
