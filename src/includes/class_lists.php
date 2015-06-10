@@ -129,6 +129,52 @@ class lists {
 		return $output;
 	}
 
+	// This method is largely unchanged from the previous function. It will likely be changed
+	// as we work on the new design
+	public static function letters() {
+
+		$localvars = localvars::getInstance();
+		$dbObject  = new databases;
+		$databases = $dbObject->getAll();
+
+		$sArray     = array();
+		$countTotal = 0;
+		foreach ($databases as $database) {
+
+			$cfl = strtoupper($database['name'][0]);
+
+			if(is_numeric($cfl)) {
+				$cfl = "#";
+			}
+
+			$sArray[$cfl] = TRUE;
+
+			$countTotal++;
+		}
+
+		$count = 0;
+
+		$output = "<ul>";
+		foreach ($sArray as $letter => $value) {
+
+			if ($countTotal > 8 && $count++%8 == 0) {
+				$output .= "</p><p class=\"dbLetterLine\">";
+			}
+
+			$output .= sprintf('<li><a href="%s/letter/?id=%s&%s">%s</a></li>',
+				$localvars->get("databaseHome"),
+				(($letter == "#")?"num":$letter),
+				status::current(),
+				$letter
+				);
+
+		}
+		$output .= "</ul>";
+
+		return $output;
+
+	}
+
 	public static function resourceTypes() {
 
 		$localvars = localvars::getInstance();
