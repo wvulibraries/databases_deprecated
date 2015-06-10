@@ -68,6 +68,15 @@ class databases {
 
 		return TRUE;
 	}
+	public function getAccessMessage($database) {
+
+		$accessType = $this->getMessage("accessTypes",$database['accessType']);
+		$access     = $this->getMessage("accessPlainText",$database['access']);
+
+		return sprintf('<p>%s</p><p>%s</p>',htmlSanitize($accessType),htmlSanitize($access));
+
+	}
+
 	// $table is assumed to be sanitized before entry
 	public function getMessage($table,$id,$field="name") {
 		
