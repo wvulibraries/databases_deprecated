@@ -17,14 +17,14 @@ $localvars->set("currentStatus",status::build());
 
 <span class="rightNavListHeader">Databases By Subject</span>
 <ul>
-<li><a href="/databases/index.php?{local var="currentStatus"}" id="rightNavSubLink">Subjects</a></li>
+<li><a href="/databases/?{local var="currentStatus"}" id="rightNavSubLink">Subjects</a></li>
 <li class="noBorder"></li>
 <li class="noBorder"></li>
-<li><a href="/databases/newdatabases.php?type=full&amp;{local var="currentStatus"}" id="rightNavSubLink">Full Text</a></li>
-<li><a href="/databases/newdatabases.php?type=alumni&amp;{local var="currentStatus"}" id="rightNavSubLink">Alumni Databases</a></li>
-<li><a href="/databases/newdatabases.php?type=mobile&amp;{local var="currentStatus"}" id="rightNavSubLink">Mobile Databases</a></li>
-<li><a href="/databases/newdatabases.php?type=new&amp;{local var="currentStatus"}" id="rightNavSubLink">New Databases</a></li>
-<li><a href="/databases/newdatabases.php?type=trial&amp;{local var="currentStatus"}" id="rightNavSubLink">Trial Databases</a></li>
+<li><a href="/databases/type/?type=full&amp;{local var="currentStatus"}" id="rightNavSubLink">Full Text</a></li>
+<li><a href="/databases/type/?type=alumni&amp;{local var="currentStatus"}" id="rightNavSubLink">Alumni Databases</a></li>
+<li><a href="/databases/type/?type=mobile&amp;{local var="currentStatus"}" id="rightNavSubLink">Mobile Databases</a></li>
+<li><a href="/databases/type/?type=new&amp;{local var="currentStatus"}" id="rightNavSubLink">New Databases</a></li>
+<li><a href="/databases/type/?type=trial&amp;{local var="currentStatus"}" id="rightNavSubLink">Trial Databases</a></li>
 </ul>
 
 {local var="letters"}
