@@ -1,87 +1,53 @@
 <?php
+require "../engineHeader.php";
 
-require_once("/home/library/public_html/includes/engineHeader.php");
+try {
 
-$engine->localVars('pageTitle',"WVU Libraries: Databases");
+	$validate = validate::getInstance();
 
-// $engine->eTemplate("load","library2012.2col.right");
-$engine->eTemplate("load","library2014-backpage");
-
-recurseInsert("dbTables.php","php");
-require_once("/home/library/phpincludes/databaseConnectors/database.lib.wvu.edu.remote.php");
-$engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
-
-// Fire up the Engine
-$engine->eTemplate("include","header");
-?>
-
-<?php
-include("buildStatus.php");
-?>
-
-<?php
-
-recurseInsert("buildLists.php","php");
-
-$badError = FALSE;
-if (!isint($engine->cleanGet['MYSQL']['id'])) {
-	print webHelper_errorMsg("Invalid Resource Type Provided");
-	$badError = TRUE;
-}
-else {
-
-	$sql = sprintf("SELECT * FROM resourceTypes WHERE ID='%s'",
-		$engine->cleanGet['MYSQL']['id']
-		);
-	$engineVars['openDB']->sanitize = FALSE;
-	$sqlResult = $engineVars['openDB']->query($sql);
-
-	if (!$sqlResult['result']) {
-		// print webHelper_errorMsg("SQL Error: ".$sqlResult['error']);
-		print webHelper_errorMsg("Error Retrieving database");
+	if (!$validate->integer($_GET['MYSQL']['id'])) {
+		throw new Exception("Invalid Resource Type Provided.");
 	}
-	else {
-		$rtInfo = mysql_fetch_array($sqlResult['result'], MYSQL_NUM);
+
+	if (($resourceType = resourceTypes::get($_GET['MYSQL']['id'])) === FALSE) {
+		throw new Exception("Error retrieving Resource Type information");
 	}
+	else if (is_empty($resourceType)) {
+		throw new Exception("Resource Type not found.");
+	}
+
+	$resourceType = $resourceType[0];
+
+	$localvars->set("databaseHeading",(!is_empty($resourceType['name']))?$resourceType['name']:"Invalid Resource Type");
+
+	$dbObject  = new databases;
+	$databases = $dbObject->getByResourceType($_GET['MYSQL']['id']);
+	$localvars->set("databases",lists::databases($databases));
 }
+catch(Exception $e) {
+
+	errorHandle::errorMsg($e->getMessage());
+	$localvars->set("prettyPrint",errorHandle::prettyPrint());
+
+}
+
+templates::display('header'); 
 ?>
 
 <!-- Page Content Goes Below This Line -->
 
+{local var="prettyPrint"}
+
 <div class="clearfix" id="subjectsContainer">
 
-<?php if ($badError === FALSE) { ?>
+<h3>{local var="databaseHeading"} Databases</h3>
 
-<h3><?php print (!empty($rtInfo[1]))?$rtInfo[1]:"Invalid Resource Type"; ?> Databases</h3>
-
-<?php
-
-$sql = "select * from dbList JOIN databases_resourceTypes where databases_resourceTypes.resourceID='".$engine->cleanGet['MYSQL']['id']."' AND dbList.ID=databases_resourceTypes.dbID AND (".$status.") ORDER BY dbList.name";
-$engineVars['openDB']->sanitize = FALSE;
-$sqlResult = $engineVars['openDB']->query($sql);
-
-if (!$sqlResult['result']) {
-	print webHelper_errorMsg("SQL Error: ".$sqlResult['error']);
-}
-?>
-
-<?php
-	include("buildDBListing.php");
-?>
-
-<?php }?>
+{local var="databases"}
 
 </div>
 
-<div id="rightNav">
-
-<?php
-	recurseInsert("rightNav.php","php");
-?>
-
-</div>
 <!-- Page Content Goes Above This Line -->
 
 <?php
-$engine->eTemplate("include","footer");
+templates::display('footer'); 
 ?>
