@@ -16,6 +16,24 @@ class databases {
 		$this->db        = db::get($this->localvars->get('dbConnectionName'));
 	}
 
+	public function get($id) {
+
+		$sql = "SELECT * FROM dbList WHERE ID=?";
+		$sqlResult = $this->db->query($sql,array($id));
+
+		if ($sqlResult->error()) {
+			errorHandle::newError($sqlResult->errorMsg(), errorHandle::DEBUG);
+			return FALSE;
+		}	
+
+		if ($sqlResult->rowCount() < 1) {
+			return "";	
+		}
+
+		return $sqlResult->fetch();
+
+	}
+
 	public function getBySubject() {
 
 		$sql       = sprintf("select * from dbList JOIN databases_subjects where databases_subjects.subjectID=? AND dbList.ID=databases_subjects.dbID AND (%s) AND `dbList`.`mobile`='0' AND `dbList`.`alumni`='0' ORDER BY dbList.name",
