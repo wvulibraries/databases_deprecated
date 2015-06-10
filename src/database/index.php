@@ -22,7 +22,7 @@ try {
 
 }
 catch(Exception $e) {
-	errorHandle::errorMsg($e->message);
+	errorHandle::errorMsg($e->getMessage());
 	$localvars->set("prettyPrint",errorHandle::prettyPrint());
 }
 
