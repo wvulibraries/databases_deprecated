@@ -68,6 +68,35 @@ class databases {
 
 		return TRUE;
 	}
+
+	public function buildLocalvars($database) {
+
+		$this->localvars->set("database_name",$database['name']);
+		$this->localvars->set("database_connection_url",sprintf("%s?%s=INVS",$this->localvars->get("connectURL"),$database['URLID']));
+		$this->localvars->set("database_fullText",($database['fullTextDB']    == 1)?"":'<img src="/databases/images/fulltext.gif" alt="Full Text" />');
+		$this->localvars->set("database_fullText",($database['trialDatabase'] == 1)?"":'<img src="/databases/images/trial.gif" alt="Trial" />');
+		$this->localvars->set("database_fullText",($database['newDatabase']   == 1)?"":'<img src="/databases/images/new.gif" alt="New" />');
+
+		$this->localvars->set("database_trialText_display", ($database['trialDatabase'] == 1)?"block":"none");
+		$this->localvars->set("database_trialDate", date("M d, Y",$database['trialExpireDate']));
+
+		$this->localvars->set("database_description_display", (is_empty($database['description']))?"none":"block");
+		$this->localvars->set("database_description", preg_replace('/\n/','<br />',$database['description']));
+
+		$this->localvars->set("database_yearsOdCoverage_display", (is_empty($database['yearsOfCoverage']))?"none":"block");
+		$this->localvars->set("database_yearsOfCoverage",$database['yearsOfCoverage']);
+
+		$this->localvars->set("database_updated_display", (is_empty($database['updated']) )?"none":"block");
+		$this->localvars->set("database_updated",$this->getMessage("updateText",$database['updated']));
+
+		$this->localvars->set("database_help_display",(is_empty($database['help']))?"none":"block");
+		$this->localvars->set("database_help",$this->getHelpList($database));
+
+		$this->localvars->set("database_access_display",(is_empty($database['access']) || is_empty($database['accessType']))?"none":"block");
+		$this->localvars->set("database_access",$this->getAccessMessage($database));
+
+	}
+
 	public function getAccessMessage($database) {
 
 		$accessType = $this->getMessage("accessTypes",$database['accessType']);
@@ -92,6 +121,7 @@ class databases {
 		return $result['name'];
 
 	}
+
 	public function getHelpList($database) {
 
 		$helps   = explode("\n",$database['help']);
@@ -113,6 +143,7 @@ class databases {
 		return $output;
 
 	}
+
 }
 
 ?>
