@@ -34,6 +34,20 @@ class databases {
 
 	}
 
+	public function getAll() {
+
+		$sql       = sprintf("SELECT * FROM dbList WHERE %s ORDER BY name", status::buildSQLStatus());
+		$sqlResult = $this->db->query($sql);
+
+		if ($sqlResult->error()) {
+			errorHandle::newError(__METHOD__."() - ".$sqlResult->errorMsg(), errorHandle::DEBUG);
+			return array();
+		}	
+
+		return $sqlResult->fetchAll();
+
+	}
+
 	public function getByURLID($urlID) {
 
 		$sql      = "SELECT * FROM dbList WHERE URLID=?";
