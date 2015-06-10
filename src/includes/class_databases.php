@@ -34,6 +34,20 @@ class databases {
 
 	}
 
+	public function getByURLID($urlID) {
+
+		$sql      = "SELECT * FROM dbList WHERE URLID=?";
+		$sqlResult = $this->db->query($sql,array($urlID));
+
+		if ($sqlResult->rowCount() != 1) {
+			print "Error with database selection.";
+			break;
+		}
+
+		return $sqlResult->fetch();
+
+	}
+
 	public function getBySubject() {
 
 		$sql       = sprintf("select * from dbList JOIN databases_subjects where databases_subjects.subjectID=? AND dbList.ID=databases_subjects.dbID AND (%s) AND `dbList`.`mobile`='0' AND `dbList`.`alumni`='0' ORDER BY dbList.name",
