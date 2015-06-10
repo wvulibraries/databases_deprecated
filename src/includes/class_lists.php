@@ -129,6 +129,40 @@ class lists {
 		return $output;
 	}
 
+	public static function resourceTypes() {
+
+		$localvars = localvars::getInstance();
+		$db        = db::get($localvars->get('dbConnectionName'));
+
+		$sql       = "SELECT * FROM resourceTypes ORDER BY name";
+		$sqlResult = $db->query($sql);
+
+		$count      = 0;
+		$ul2        = FALSE;
+
+		$output = "<ul class=\"rtUL\" id=\"rtUL1\">";
+
+		while ($row = $sqlResult->fetch()) {
+
+			if ($sqlResult->rowCount() > 8 && $count++ >= $sqlResult->rowCount()/2 && $ul2 == FALSE) {
+				$output .= "</ul><ul class=\"rtUL\" id=\"rtUL2\">";
+				$ul2     = TRUE;
+			}
+
+			$output .= sprintf('<li><a href="%s/resourceTypes/?id=%s&%s">%s</a></li>',
+				$localvars->get("databaseHome"),
+				$row['ID'],
+				status::current(),
+				$row['name']
+				);
+
+		}
+		$output .= "</ul>";
+
+		return($output);
+
+	}
+
 }
 
 ?>
