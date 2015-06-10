@@ -18,7 +18,7 @@ class lists {
 
 		$count = 0;
 		$div   = 0;
-		foreach ($subjects as $subject=>$subjectInfo) {
+		foreach ($subjects as $subject) {
 
 			if ($count++ % ($totalSubjects/$divisions) == 0 && $div<$divisions ) {
 				$output .= sprintf("%s<div class=\"subjectDiv\" id=\"subjectDiv_%s\">",
@@ -26,7 +26,7 @@ class lists {
 					$div++);
 			}
 
-			if (($curLetter = strtoupper($subject[0])) != $prevLetter) {
+			if (($curLetter = strtoupper($subject['name'][0])) != $prevLetter) {
 
 				$output     .= (!isnull($prevLetter))?"</ul>":"";
 				$output     .= sprintf("<h4 class=\"subjectLetterHeading\">%s</h4>\n",$curLetter);
@@ -38,9 +38,9 @@ class lists {
 				$output .= "<li>";
 				$output .= sprintf('<a href="%s/subjects/?id=%s&status=%s">%s</a>',
 					$localvars->get("databaseHome"),
-					htmlentities($subjectInfo['ID']),
+					htmlentities($subject['ID']),
 					status::current(),
-					htmlentities($subject)
+					htmlentities($subject['name'])
 					);
 				$output .= "</li>\n";
 
