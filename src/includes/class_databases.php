@@ -60,12 +60,28 @@ class databases {
 			return FALSE;
 		}
 
-		$databases = array();
-		while($row = $sqlResult->fetch()) {
-			$databases[] = $row;
+		return $sqlResult->fetchAll();
+
+	}
+
+	public function getByResourceType($resourceType) {
+
+	}
+
+	public function getByType($type) {
+
+		$sql = sprintf("select * from dbList WHERE `%s`='1' AND (%s) ORDER BY name",
+			$this->db->escape($type),
+			status::buildSQLStatus()
+			);
+		$sqlResult = $this->db->query($sql);
+
+		if ($sqlResult->error()) {
+			errorHandle::newError(__METHOD__."() - ".$sqlResult->errorMsg(), errorHandle::DEBUG);
+			return array();
 		}
 
-		return $databases;
+		return $sqlResult->fetchAll();
 
 	}
 
