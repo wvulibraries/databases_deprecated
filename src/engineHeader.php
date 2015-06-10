@@ -15,7 +15,6 @@ recurseInsert("acl.php","php");
 recurseInsert("includes/vars.php","php");
 
 // Setup the database connection
-recurseInsert("dbTables.php","php");
 $databaseOptions = array(
 	'username' => 'username',
 	'password' => 'password'
