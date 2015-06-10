@@ -16,9 +16,9 @@ try {
 		throw new Exception("Subject not found.");
 	}
 
-	$localvars->set("databaseHeading",(!empty($subjectInfo['name']))?$subjectInfo['name']:"Invalid Subject");
-	$localvars->set("subjectGuideDisplay",(!empty($subjectInfo['URL']))?"block":"none");
-	$localvars->set("subjectGuideLink",(!empty($subjectInfo['URL']))?$subjectInfo['URL']:"");
+	$localvars->set("databaseHeading",(!is_empty($subjectInfo['name']))?$subjectInfo['name']:"Invalid Subject");
+	$localvars->set("subjectGuideDisplay",(!is_empty($subjectInfo['url']))?"block":"none");
+	$localvars->set("subjectGuideLink",(!is_empty($subjectInfo['url']))?$subjectInfo['url']:"");
 
 	$dbObject  = new databases;
 	$databases = $dbObject->getBySubject($_GET['MYSQL']['id']);
