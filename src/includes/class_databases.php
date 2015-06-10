@@ -68,6 +68,21 @@ class databases {
 
 		return TRUE;
 	}
+	// $table is assumed to be sanitized before entry
+	public function getMessage($table,$id,$field="name") {
+		
+		$sql       = sprintf("SELECT * FROM `%s` WHERE `ID`=?",$this->db->escape($table));
+		$sqlResult = $this->db->query($sql,array($id));
+
+		if ($sqlResult->error()) {
+			errorHandle::newError(__METHOD__."() - ".$sqlResult->errorMsg(), errorHandle::DEBUG);
+			return "Error.";
+		}
+
+		$result = $sqlResult->fetch();
+		return $result['name'];
+
+	}
 	public function getHelpList($database) {
 
 		$helps   = explode("\n",$database['help']);
