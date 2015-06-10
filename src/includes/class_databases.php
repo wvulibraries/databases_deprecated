@@ -80,6 +80,18 @@ class databases {
 
 	public function getByResourceType($resourceType) {
 
+		$sql = sprintf('select * from dbList JOIN databases_resourceTypes where databases_resourceTypes.resourceID=? AND dbList.ID=databases_resourceTypes.dbID AND (%s) ORDER BY dbList.name',
+			status::buildSQLStatus()
+			);
+		$sqlResult = $this->db->query($sql,array($resourceType));
+
+		if ($sqlResult->error()) {
+			errorHandle::newError(__METHOD__."() - ".$sqlResult->errorMsg(), errorHandle::DEBUG);
+			return array();
+		}
+
+		return $sqlResult->fetchAll();
+
 	}
 
 	public function getByType($type) {
