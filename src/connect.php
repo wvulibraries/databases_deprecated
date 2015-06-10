@@ -1,16 +1,8 @@
 <?php
 
-require_once("/home/library/public_html/includes/engineHeader.php");
+// This file is linked in many places and should not be moved. 
 
-$engine->localVars('pageTitle',"WVU Libraries: Databases");
-
-// $engine->eTemplate("load","library2012.2col.right");
-$engine->eTemplate("load","library2014-backpage");
-
-recurseInsert("dbTables.php","php");
-
-require_once("/home/library/phpincludes/databaseConnectors/database.lib.wvu.edu.remote.php");
-$engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
+require "engineHeader.php";
 
 ?>
 
