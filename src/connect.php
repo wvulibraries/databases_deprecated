@@ -4,78 +4,48 @@
 
 require "engineHeader.php";
 
+$localvars = localvars::getInstance();
+$dbObject  = db::get($localvars->get('dbConnectionName'));
+$validate  = validate::getInstance();
+$databases = new databases;
+
 ?>
 
 <!-- Page Content Goes Below This Line -->
 
 <?php
 
-if(empty($engine->cleanGet['MYSQL'])) {
-	echo "error";
+if(is_empty($_GET['MYSQL'])) {
+	print "Error: No database provided.";
 	exit;
 }
 
-foreach ($engine->cleanGet['MYSQL'] as $db=>$invs) {
+foreach ($_GET['MYSQL'] as $db=>$invs) {
 
-	if (!isint($db) && strlen($db) > 10) {
+	if (!$validate->integer($db) && strlen($db) > 10) {
 		print "invalid database requested.";
 		exit;
 	}
 
-	// Determine Location
-	$location = 0;
-	if(onCampus()) {
-		$location = 1;
-	}
-	
-	$sql = "SELECT ID, url, offCampusURL, accessType FROM dbList WHERE URLID='$db'";
-	$engineVars['openDB']->sanitize = FALSE;
-	$sqlResult = $engineVars['openDB']->query($sql);
-	
-	if (mysql_num_rows($sqlResult['result']) != 1) {
-		echo "Error with database selection.";
-		echo "<pre>";
-		print_r($engine->cleanGet['MYSQL']);
-		echo "</pre>";
-		break;
-	}
-	
-	$dbInfo = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC);
+	$location = (ipAddr::onsite())?1:0;
+	$dbInfo   = $databases->getByURLID($db);
 	
 	if ($dbInfo['accessType'] < 2 && $location < 1) {
 		echo "This Database is only available while on campus.";
-		break;
+		exit;
 	}
 
-	$url = $dbInfo['url'];
-	if ($location == 0) {
-		
-		// Check if there is a special off campus URL
-		if(!empty($dbInfo['offCampusURL'])) {
-			$url = $dbInfo['offCampusURL'];
-		}
-		
-		// Check to see if we need the proxy server
-		if ($dbInfo['accessType'] == 2) {
-			$url = $proxyURL . $url;
-		}
+	$url = (!is_empty($dbInfo['offCampusURL']))?$dbInfo['offCampusURL']:$dbInfo['url'];
+	if ($location == 0 && $dbInfo['accessType'] == 2) {
+		$url = sprintf("%s%s",$localvars->get("proxyURL"),$url);
 	}
 
-	$sql = "INSERT into dbStats (dbID,location,accessDate) VALUES('".$dbInfo['ID']."','".$location."','".time()."')";
-	$engineVars['openDB']->sanitize = FALSE;
-	$sqlResult = $engineVars['openDB']->query($sql);
-
-	//echo $location ." -- ".$url;
+	$sql       = "INSERT into dbStats (dbID,location,accessDate) VALUES(?,?,?)";
+	$sqlResult = $dbObject->query($sql,array($dbInfo['ID'],$location,time()));
 
 	header("location: $url");
 	
 	break;
 }
-
-?>
-
-<!-- Page Content Goes Above This Line -->
-
-<?php
 
 ?>
