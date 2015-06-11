@@ -1,12 +1,13 @@
 <?php
 
+// @TODO update the RSS to Engine4
+
 $engineDir = "/home/library/phpincludes/engineAPI/engine2.0";
 include($engineDir ."/engine.php");
 $engine = new EngineCMS();
 
 $engine->localVars('pageTitle',"WVU Libraries: Databases");
 
-recurseInsert("dbTables.php","php");
 require_once("/home/library/phpincludes/databaseConnectors/database.lib.wvu.edu.remote.php");
 $engineVars['openDB'] = $engine->dbConnect("database","databases",FALSE);
 

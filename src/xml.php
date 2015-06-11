@@ -1,9 +1,11 @@
 <?php
+
+// @TODO update the RSS to Engine4
+
 require_once("/home/library/phpincludes/engine/engineAPI/3.1/engine.php");
 $engine = EngineAPI::singleton();
 $xml    = new syndication();
 
-recurseInsert("dbTables.php","php");
 require_once("/home/library/phpincludes/databaseConnectors/database.lib.wvu.edu.remote.php");
 $engine->dbConnect("database","databases",TRUE);
 
