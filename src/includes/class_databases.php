@@ -28,7 +28,7 @@ class databases {
 			errorHandle::newError(__METHOD__."() - ".$sqlResult->errorMsg(), errorHandle::DEBUG);
 			return array();
 		}	
-		
+
 		return $sqlResult->fetchAll();
 
 	}
@@ -141,12 +141,6 @@ class databases {
 		$sqlResult = $this->db->query($sql);
 		
 		return $sqlResult->fetchAll();
-
-	}
-
-	public static function buildDBListing($sqlResult) {
-
-		return lists::databases($sqlResult);
 
 	}
 
