@@ -16,6 +16,23 @@ class databases {
 		$this->db        = db::get($this->localvars->get('dbConnectionName'));
 	}
 
+	public function find($query) {
+
+		$sql       = sprintf('SELECT * FROM `dbList` WHERE `name` LIKE "%%%s%%"',
+			$query
+			);
+		$sqlResult = $this->db->query($sql);
+
+
+		if ($sqlResult->error()) {
+			errorHandle::newError(__METHOD__."() - ".$sqlResult->errorMsg(), errorHandle::DEBUG);
+			return array();
+		}	
+		
+		return $sqlResult->fetchAll();
+
+	}
+
 	public function get($id) {
 
 		$sql = "SELECT * FROM dbList WHERE ID=?";
