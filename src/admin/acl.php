@@ -1,7 +1,9 @@
 <?php
 
-global $engine;
+$engine = EngineAPI::singleton();
 
-$engine->accessControl("ADgroup","libraryWeb_databases",TRUE);
-$engine->accessControl("denyAll",null,null);
+accessControl::accessControl("ADgroup","libraryWeb_databases",TRUE,FALSE);
+accessControl::accessControl("denyAll",null,null);
+
+accessControl::build();
 ?>
