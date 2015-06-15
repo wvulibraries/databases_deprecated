@@ -1,80 +1,32 @@
 <?php
+require "../../engineHeader.php";
 
-$engineDir = "/home/library/phpincludes/engineAPI/engine";
-include($engineDir ."/engine.php");
-$engine = new EngineCMS();
+$dbObject  = new databases;
+$databases = $dbObject->getByType("status");
 
-$engine->localVars('pageTitle',"Database Management: Add Database");
+$databases = array_map(function($a){
+	$localvars  = localvars::getInstance();
+	foreach ($a as $I=>$V) {
+		if($I != "name" && $I !="URLID") unset($a[$I]);
+	} 
+	$a['URLID'] = sprintf('<a href="https://%s%s?%s=INVS">https://%s%s?%s=INV</a>',$_SERVER['HTTP_HOST'],$localvars->get('connectURL'),$a['URLID'],$_SERVER['HTTP_HOST'],$localvars->get('connectURL'),$a['URLID']);
+	return $a;
+}, $databases);
 
-recurseInsert("dbTableList.php","php");
-require_once("/home/library/phpincludes/databaseConnectors/database.lib.wvu.edu.remote.php");
-$engine->dbConnect("database","databases",TRUE);
 
-$engine->accessControl("ADgroup","Domain Users",TRUE);
-$engine->accessControl("denyAll",null,null);
-$engine->accessControl("build");
+$table     = new tableObject("array");
+$headers   = array();
+$headers[] = "Title";
+$headers[] = "URL";
+$table->headers($headers);
 
-$engine->eTemplate("include","header");
+$localvars->set("databaseTable",$table->display($databases));
+
+templates::display('header');
 ?>
 
-<!-- Page Content Goes Below This Line -->
+{local var="databaseTable"}
 
 <?php
-
-$error = FALSE;
-
-$sql = "SELECT * FROM dbList WHERE status='1' ORDER BY name";
-
-$engine->openDB->sanitize = FALSE;
-$sqlResult = $engine->openDB->query($sql);
-
-if (!$sqlResult['result']) {
-	$error = TRUE;
-	print webHelper_errorMsg("SQL Error:".$sqlResult['error']."<br /> SQL:".$sql);
-}
-
-?>
-
-<?php if ($error == FALSE) { ?>
-
-	<table border="0" cellpadding="1" cellspacing="0">
-		<tr style="background-color: #EEEEFF;">
-			<th style="width: 150px; text-align: left;">
-				Title
-			</th>
-			<th style="text-align: left;">
-				URL
-			</th>
-		</tr>
-		<tr><td colspan="2" style="background-color: #000000;"></td></tr>
-		
-<?php		
-$count = 0;
-while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC)) {
-
-$color = (++$count%2 == 0)?$engineVars['oddColor']:$engineVars['evenColor'];
-
-?>
-
-<tr style="background-color: <?php print $color; ?>;font-size:smaller;">
-	<td>
-		<?php print $row['name']; ?>
-	</td>
-	<td>
-		<a href="http://www.libraries.wvu.edu/databases/connect.php?<?php print $row['URLID']; ?>=INVS">http://www.libraries.wvu.edu/databases/connect.php?<?php print $row['URLID']; ?>=INVS</a>
-	</td>
-</tr>
-
-<?php		
-}
-?>
-		
-	</table>
-
-<?php } ?>
-
-<!-- Page Content Goes Above This Line -->
-
-<?php
-$engine->eTemplate("include","footer");
+templates::display('footer');
 ?>
