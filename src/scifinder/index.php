@@ -24,9 +24,8 @@ $engine->eTemplate("include","header");
 			    </h2>
 
 			    <p class="normal">
-			      SciFinder Scholar contains references and abstracts for articles in the chemical 
-			      literature (Chemical Abstracts) from 1907 to the present.  Disciplines covered 
-			      include chemistry, biochemistry, chemical engineering, and related sciences. 
+			      SciFinder Scholar contains references substances and reactions in chemistry and related sciences.
+			      References from the chimical literature are from 1907 to the present.
 			    </p>
 
 			    <hr />
@@ -34,21 +33,8 @@ $engine->eTemplate("include","header");
 			    <h2>Access:</h2>
 
 				<p class="normal">
-					To access SciFinder you must first <a href="https://scifinder.cas.org/registration/index.html?corpKey=92E01248-86F3-F00A-118B-5F2F72172EFA">create an account</a>.  Then, <a href="https://scifinder.cas.org">log on</a> any time thereafter.
+					To access SciFinder you must first <a href="https://scifinder.cas.org/registration/index.html?corpKey=92E01248-86F3-F00A-118B-5F2F72172EFA">create an account</a>, using your WVU e-mail.  Then, <a href="https://scifinder.cas.org">log on</a> any time thereafter.
 				</p>
-				<p class="normal">
-					SciFinder is set to time-out after twenty minutes of inactivity. Be sure to save your work frequently. 
-				</p>
-
-			    <hr />
-
-			    <h2>System Availability:</h2>
-
-			    <p class="normal">
-			      The operating hours for SciFinder Scholar are - Sunday 1:00AM until Saturday 10:00PM Eastern 
-			      Standard Time.  On the first Saturday of each month, SciFinder Scholar will only be available 
-			      until 5:00PM, and will not be accessible again until 1:00AM Sunday.
-			    </p>
 
 			    <hr />
 
