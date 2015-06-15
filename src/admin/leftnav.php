@@ -22,9 +22,6 @@
 		</ul>
 	</li>
 	<li>
-		<a href="listmanagement.php?type=news">News</a>
-	</li>
-	<li>
 		Management:
 		<ul>
 			<li>
