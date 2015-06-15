@@ -24,7 +24,7 @@ $engine->eTemplate("include","header");
 			    </h2>
 
 			    <p class="normal">
-			      SciFinder Scholar contains references in chemistry and related sciences, as well as information on substances and reactions. References are from the chemical literature are from 1907 to the present.
+			      SciFinder Scholar contains references in chemistry and related sciences, as well as information on substances and reactions. References from the chemical literature are from 1907 to the present.
 			    </p>
 
 			    <hr />
