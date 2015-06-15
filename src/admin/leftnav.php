@@ -1,46 +1,46 @@
 <ul>
 	<li>
-		<a href="newdatabase.php">New Database</a>
+		<a href="{local var="databaseHome"}/admin/newdatabase.php">New Database</a>
 	</li>
 	<li>
 		List Databases
 		<ul>
-			<li><a href="list.php">Alphabetical</a></li>
-			<li><a href="listbyvendor.php">By Vendor</a></li>
+			<li><a href="{local var="databaseHome"}/admin/list.php">Alphabetical</a></li>
+			<li><a href="{local var="databaseHome"}/admin/listbyvendor.php">By Vendor</a></li>
 		</ul>
 	</li>
 	<li>
-		<a href="dblinks.php">Database Links</a>
+		<a href="{local var="databaseHome"}/admin/dblinks/">Database Links</a>
 	</li>
 	<li>
 		Preview Databases
 		<ul>
-			<li><a href="/databases/index.php">Public Display</a></li>
-			<li><a href="/databases/index.php?status=2">Development</a></li>
-			<li><a href="/databases/index.php?status=3">Hidden</a></li>
-			<li><a href="/databases/index.php?status=4">All</a></li>
+			<li><a href="{local var="databaseHome"}/index.php">Public Display</a></li>
+			<li><a href="{local var="databaseHome"}/index.php?status=2">Development</a></li>
+			<li><a href="{local var="databaseHome"}/index.php?status=3">Hidden</a></li>
+			<li><a href="{local var="databaseHome"}/index.php?status=4">All</a></li>
 		</ul>
 	</li>
 	<li>
 		Management:
 		<ul>
 			<li>
-				<a href="listmanagement.php?type=accessType">Access Types</a>
+				<a href="{local var="databaseHome"}/admin/listmanagement.php?type=accessType">Access Types</a>
 			</li>
 			<li>
-				<a href="listmanagement.php?type=accessPlainText">Access Plain Text</a>
+				<a href="{local var="databaseHome"}/admin/listmanagement.php?type=accessPlainText">Access Plain Text</a>
 			</li>
 			<li>
-				<a href="listmanagement.php?type=resourceTypes">Resource Types</a>
+				<a href="{local var="databaseHome"}/admin/listmanagement.php?type=resourceTypes">Resource Types</a>
 			</li>
 			<li>
-				<a href="subjects.php">Subjects</a>
+				<a href="{local var="databaseHome"}/admin/subjects.php">Subjects</a>
 			</li>
 			<li>
-				<a href="listmanagement.php?type=updateText">Update Text</a>
+				<a href="{local var="databaseHome"}/admin/listmanagement.php?type=updateText">Update Text</a>
 			</li>
 			<li>
-				<a href="vendors.php">Vendors</a>
+				<a href="{local var="databaseHome"}/admin/vendors.php">Vendors</a>
 			</li>
 		</ul>
 	</li>
