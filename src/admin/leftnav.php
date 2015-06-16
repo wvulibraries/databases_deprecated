@@ -5,12 +5,12 @@
 	<li>
 		List Databases
 		<ul>
-			<li><a href="{local var="databaseHome"}/admin/list.php">Alphabetical</a></li>
-			<li><a href="{local var="databaseHome"}/admin/listbyvendor.php">By Vendor</a></li>
+			<li><a href="{local var="databaseHome"}/admin/list/">Alphabetical</a></li>
+			<li><a href="{local var="databaseHome"}/admin/list/vendor/">By Vendor</a></li>
+			<li>
+				<a href="{local var="databaseHome"}/admin/list/links/">Database Links</a>
+			</li>
 		</ul>
-	</li>
-	<li>
-		<a href="{local var="databaseHome"}/admin/dblinks/">Database Links</a>
 	</li>
 	<li>
 		Preview Databases
@@ -40,7 +40,7 @@
 				<a href="{local var="databaseHome"}/admin/listmanagement.php?type=updateText">Update Text</a>
 			</li>
 			<li>
-				<a href="{local var="databaseHome"}/admin/vendors.php">Vendors</a>
+				<a href="{local var="databaseHome"}/admin/vendors/">Vendors</a>
 			</li>
 		</ul>
 	</li>
