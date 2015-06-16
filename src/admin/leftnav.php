@@ -24,22 +24,22 @@
 		Management:
 		<ul>
 			<li>
-				<a href="{local var="databaseHome"}/admin/listmanagement.php?type=accessType">Access Types</a>
+				<a href="{local var="databaseHome"}/admin/management/accessTypes/">Access Types</a>
 			</li>
 			<li>
-				<a href="{local var="databaseHome"}/admin/listmanagement.php?type=accessPlainText">Access Plain Text</a>
+				<a href="{local var="databaseHome"}/admin/management/accessTypesPlainText/">Access Plain Text</a>
 			</li>
 			<li>
-				<a href="{local var="databaseHome"}/admin/listmanagement.php?type=resourceTypes">Resource Types</a>
+				<a href="{local var="databaseHome"}/admin/management/resourceTypes/">Resource Types</a>
 			</li>
 			<li>
-				<a href="{local var="databaseHome"}/admin/subjects.php">Subjects</a>
+				<a href="{local var="databaseHome"}/admin/management/subjects/">Subjects</a>
 			</li>
 			<li>
-				<a href="{local var="databaseHome"}/admin/listmanagement.php?type=updateText">Update Text</a>
+				<a href="{local var="databaseHome"}/admin/management/updateText/">Update Text</a>
 			</li>
 			<li>
-				<a href="{local var="databaseHome"}/admin/vendors/">Vendors</a>
+				<a href="{local var="databaseHome"}/admin/management/vendors/">Vendors</a>
 			</li>
 		</ul>
 	</li>
