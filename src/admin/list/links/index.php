@@ -1,5 +1,5 @@
 <?php
-require "../../engineHeader.php";
+require "../../../engineHeader.php";
 
 $dbObject  = new databases;
 $databases = $dbObject->getByType("status");
@@ -14,7 +14,9 @@ $databases = array_map(function($a){
 }, $databases);
 
 
-$table     = new tableObject("array");
+$table          = new tableObject("array");
+$table->summary = "Database links";
+
 $headers   = array();
 $headers[] = "Title";
 $headers[] = "URL";
