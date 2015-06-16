@@ -6,7 +6,6 @@
 		List Databases
 		<ul>
 			<li><a href="{local var="databaseHome"}/admin/list/">Alphabetical</a></li>
-			<li><a href="{local var="databaseHome"}/admin/list/vendor/">By Vendor</a></li>
 			<li>
 				<a href="{local var="databaseHome"}/admin/list/links/">Database Links</a>
 			</li>
