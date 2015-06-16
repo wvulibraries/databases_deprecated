@@ -227,6 +227,34 @@ class databases {
 
 	}
 
+	public function status($database,$html=TRUE) {
+
+		switch($database['status']) {
+			case 1:
+				$class = "status_published";
+				$status = "Published";
+				break;
+			case 2:
+				$class = "status_development";
+				$status = "Development";
+				break;
+			case 3:
+				$class = "status_hidden";
+				$status = "Hidden";
+				break;
+			default:
+				$class = "status_error";
+				$status = "Error";
+		}
+
+		if ($html) {
+			$status = sprintf('<span class="%s">%s</span>',$class,$status);
+		}
+
+		return $status;
+
+	}
+
 }
 
 ?>

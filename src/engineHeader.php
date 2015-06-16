@@ -29,8 +29,9 @@ recurseInsert("includes/class_status.php");
 recurseInsert("includes/class_lists.php");
 recurseInsert("includes/class_resourceTypes.php");
 recurseInsert("includes/class_subjects.php");
-recurseInsert("includes/class_topPickDBs");
- 
+recurseInsert("includes/class_topPickDBs.php");
+recurseInsert("includes/class_vendors.php");
+
 $databases = new databases;
 
 status::set();

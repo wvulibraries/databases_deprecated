@@ -1,121 +1,48 @@
 <?php
+require "../../engineHeader.php";
 
-$engineDir = "/home/library/phpincludes/engineAPI/engine";
-include($engineDir ."/engine.php");
-$engine = new EngineCMS();
+// Set the current status to all
+http::setGet("status","4");
 
-$engine->localVars('pageTitle',"Database Management: Add Database");
+$dbObject  = new databases;
+$databases = $dbObject->getAll();
 
-recurseInsert("dbTables.php","php");
-require_once("/home/library/phpincludes/databaseConnectors/database.lib.wvu.edu.remote.php");
-$engine->dbConnect("database","databases",TRUE);
+$databases = array_map(function($a){
+	$localvars = localvars::getInstance();
+	$dbObject  = new databases;
 
-recurseInsert("acl.php","php");
-$engine->accessControl("build");
+	$temp['ID']            = sprintf('<a href="%s/admin/database/?id=%s">Edit</a>',$localvars->get('databaseHome'),$a['ID']);
+	$temp['name']          = $a['name'];
+	$temp['status']        = $dbObject->status($a);
+	$temp['trialDatabase'] = ($a['trialDatabase'] == 1)?"Yes -- ".date("M d, Y",$a['trialExpireDate']):"No";
+	$temp['vendor']        = vendors::get($a['vendor']);
+	$temp['vendor']        = sprintf('<a href="%s">%s</a>',$temp['vendor']['url'],$temp['vendor']['name']);
 
-$engine->eTemplate("include","header");
+
+	return $temp;
+}, $databases);
+
+
+$table          = new tableObject("array");
+$table->summary = "Database links";
+
+$headers   = array();
+$headers[] = "ID";
+$headers[] = "Title";
+$headers[] = "Status";
+$headers[] = "Trial";
+$headers[] = "Vendor";
+$table->headers($headers);
+
+$table->sortable = TRUE;
+
+$localvars->set("databaseTable",$table->display($databases));
+
+templates::display('header');
 ?>
 
-<!-- Page Content Goes Below This Line -->
+{local var="databaseTable"}
 
 <?php
-
-// Check for and expire trial databases
-$sql = "UPDATE dbList set status='2' WHERE trialDatabase=1 AND trialExpireDate<".time();
-$engine->openDB->sanitize = FALSE;
-$sqlResult = $engine->openDB->query($sql);
-//
-
-$error = FALSE;
-
-$sql = "SELECT * FROM dbList ORDER BY name";
-
-$engine->openDB->sanitize = FALSE;
-$sqlResult = $engine->openDB->query($sql);
-
-if (!$sqlResult['result']) {
-	$error = TRUE;
-	print webHelper_errorMsg("SQL Error:".$sqlResult['error']."<br /> SQL:".$sql);
-}
-
-?>
-
-<?php if ($error == FALSE) { ?>
-
-	<table border="0" cellpadding="1" cellspacing="0">
-		<tr style="background-color: #EEEEFF;">
-			<th style="width: 50px; text-align: left;">
-				ID
-			</th>
-			<th style="width: 300px; text-align: left;">
-				Title
-			</th>
-			<th style="width: 120px; text-align: left;">
-				Status
-			</th>
-			<th style="width: 150px; text-align: left;">
-				Trial
-			</th>
-		</tr>
-		<tr><td colspan="4" style="background-color: #000000;"></td></tr>
-		
-<?php		
-$count = 0;
-while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC)) {
-
-$color = (++$count%2 == 0)?$engineVars['oddColor']:$engineVars['evenColor'];
-
-
-?>
-
-<tr style="background-color: <?php print $color; ?>;">
-	<td>
-		<a href="newdatabase.php?id=<?php print $row['ID'] ?>">Edit</a>
-	</td>
-	<td>
-		<?php print $row['name'] ?>
-	</td>
-	<td>
-		<?php
-		
-	        switch($row['status']) {
-				case 1:
-				echo '<span style="color:green;">Published</span>';
-				break;
-				case 2:
-				echo '<span style="color:#D9E455;">Development</span>';
-				break;
-				case 3:
-				echo '<span style="color:red;">Hidden</span>';
-				break;
-				default:
-				echo '<span style="color:red;font-weight: bold">ERROR</span>';
-			}
-				
-?>
-	</td>
-	<td>
-		<?php
-	    if($row['trialDatabase'] == 1) {
-			print "Yes -- ".date("M d, Y",$row['trialExpireDate']);
-		}
-		else {
-			echo "No";
-		} 
-		?>
-	</td>
-</tr>
-
-<?php		
-}
-?>
-		
-	</table>
-
-<?php } ?>
-
-<!-- Page Content Goes Above This Line -->
-
-<?php
-$engine->eTemplate("include","footer");
+templates::display('footer');
 ?>
