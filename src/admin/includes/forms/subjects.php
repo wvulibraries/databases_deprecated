@@ -31,8 +31,7 @@ $form->addField(
     array(
         'name'  => 'url',
         'label' => 'Subject URL',
-        'type'  => 'url',
-        'duplicates' => FALSE
+        'type'  => 'url'
     )
 );
 
