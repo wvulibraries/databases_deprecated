@@ -1,6 +1,10 @@
 <?php
 require_once "../../../engineHeader.php";
 
+if (!is_empty($_POST) || session::has('POST')) {
+	$processor->processPost();
+}
+
 recurseInsert("includes/forms/accessTypes.php","php");
 
 templates::display('header');
