@@ -31,9 +31,7 @@ $form->addField(
     array(
         'name'  => 'url',
         'label' => 'Vendor URL',
-        'type'  => 'url',
-        'required'   => TRUE,
-        'duplicates' => FALSE
+        'type'  => 'url'
     )
 );
 
