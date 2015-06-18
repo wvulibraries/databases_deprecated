@@ -2,6 +2,7 @@
 require_once "../../../engineHeader.php";
 
 if (!is_empty($_POST) || session::has('POST')) {
+	$processor = formBuilder::createProcessor();
 	$processor->processPost();
 }
 
