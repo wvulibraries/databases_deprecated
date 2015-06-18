@@ -1,6 +1,6 @@
 <ul>
 	<li>
-		<a href="{local var="databaseHome"}/admin/newdatabase.php">New Database</a>
+		<a href="{local var="databaseHome"}/admin/database/">New Database</a>
 	</li>
 	<li>
 		List Databases
