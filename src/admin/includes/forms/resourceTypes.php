@@ -21,7 +21,9 @@ $form->addField(
 $form->addField(
     array(
         'name'  => 'name',
-        'label' => 'Resource Types'
+        'label' => 'Resource Types',
+        'required'   => TRUE,
+        'duplicates' => FALSE
     )
 );
 

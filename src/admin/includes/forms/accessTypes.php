@@ -21,7 +21,9 @@ $form->addField(
 $form->addField(
     array(
         'name'  => 'name',
-        'label' => 'Access Type'
+        'label' => 'Access Type',
+        'required'   => TRUE,
+        'duplicates' => FALSE
     )
 );
 

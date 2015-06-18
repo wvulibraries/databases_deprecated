@@ -21,7 +21,9 @@ $form->addField(
 $form->addField(
     array(
         'name'  => 'name',
-        'label' => 'Subject'
+        'label' => 'Subject',
+        'required'   => TRUE,
+        'duplicates' => FALSE
     )
 );
 
@@ -29,7 +31,8 @@ $form->addField(
     array(
         'name'  => 'url',
         'label' => 'Subject URL',
-        'type'  => 'url'
+        'type'  => 'url',
+        'duplicates' => FALSE
     )
 );
 

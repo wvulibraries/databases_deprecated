@@ -21,7 +21,9 @@ $form->addField(
 $form->addField(
     array(
         'name'  => 'name',
-        'label' => 'Vendor'
+        'label' => 'Vendor',
+        'required'   => TRUE,
+        'duplicates' => FALSE
     )
 );
 
@@ -29,7 +31,9 @@ $form->addField(
     array(
         'name'  => 'url',
         'label' => 'Vendor URL',
-        'type'  => 'url'
+        'type'  => 'url',
+        'required'   => TRUE,
+        'duplicates' => FALSE
     )
 );
 

@@ -21,7 +21,9 @@ $form->addField(
 $form->addField(
     array(
         'name'  => 'name',
-        'label' => 'Update Text'
+        'label' => 'Update Text',
+        'required'   => TRUE,
+        'duplicates' => FALSE
     )
 );
 
