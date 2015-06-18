@@ -4,6 +4,15 @@
 <?php
 // Ensure {form ...} tag is processed
 new formBuilder('');
+
+// Process formBuilder forms
+if (!is_empty($_POST) || session::has('POST')) {
+
+	$processor = formBuilder::createProcessor();
+	$processor->processPost();
+
+}
+
 ?>
 
 {form display="assets"}
