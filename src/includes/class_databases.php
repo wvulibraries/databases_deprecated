@@ -113,6 +113,8 @@ class databases {
 
 	public function getByType($type) {
 
+		http::setGet("status","1");	
+
 		$sql = sprintf("select * from dbList WHERE `%s`='1' AND (%s) ORDER BY name",
 			$this->db->escape($type),
 			status::buildSQLStatus()
