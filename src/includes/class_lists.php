@@ -88,7 +88,7 @@ class lists {
 
 			$output .= '<p id="shortDesc">';
 			if ($database['trialDatabase'] == 1) {
-				$output .= sptrinf('<span class="trialText">Trial ends on %s &ndash; </span>',
+				$output .= sprintf('<span class="trialText">Trial ends on %s &ndash; </span>',
 					date("M d, Y",$database['trialExpireDate'])
 					);
 			}
