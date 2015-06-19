@@ -18,13 +18,16 @@ class lists {
 
 		$count = 0;
 		$div   = 0;
+
+		$output .= sprintf('<div class="subjectDiv" id="subjectDiv_0">');
+
 		foreach ($subjects as $subject) {
 
-			if ($count++ % ($totalSubjects/$divisions) == 0 && $div<$divisions ) {
-				$output .= sprintf("%s<div class=\"subjectDiv\" id=\"subjectDiv_%s\">",
-					($div > 0)?"</div>":"",
-					$div++);
-			}
+			// if ($count++ % ($totalSubjects/$divisions) == 0 && $div<$divisions ) {
+			// 	$output .= sprintf("%s<div class=\"subjectDiv\" id=\"subjectDiv_%s\">",
+			// 		($div > 0)?"</div>":"",
+			// 		$div++);
+			// }
 
 			if (($curLetter = strtoupper($subject['name'][0])) != $prevLetter) {
 
