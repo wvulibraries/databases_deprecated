@@ -161,7 +161,7 @@ class lists {
 				$output .= "</p><p class=\"dbLetterLine\">";
 			}
 
-			$output .= sprintf('<li><a href="%s/letter/?id=%s&%s">%s</a></li>',
+			$output .= sprintf('<li><a href="%s/letter/?id=%s&status=%s">%s</a></li>',
 				$localvars->get("databaseHome"),
 				(($letter == "#")?"num":$letter),
 				status::current(),
