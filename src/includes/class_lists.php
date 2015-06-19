@@ -83,7 +83,7 @@ class lists {
 				str2TitleCase($database['name'])
 				);
 
-			$output .= sprintf('<p id="fullTextRow"></p>',
+			$output .= sprintf('<p id="fullTextRow">%s%s%s</p>',
 				($database['fullTextDB']    == 1)?self::helper_dbType("fulltext"):"",
 				($database['trialDatabase'] == 1)?self::helper_dbType("trial"):"",
 				($database['newDatabase']   == 1)?self::helper_dbType("new"):""
