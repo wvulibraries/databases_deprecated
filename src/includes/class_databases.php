@@ -113,6 +113,7 @@ class databases {
 
 	public function getByType($type) {
 
+		$originalStatus = status::current();
 		http::setGet("status","1");	
 
 		$sql = sprintf("select * from dbList WHERE `%s`='1' AND (%s) ORDER BY name",
@@ -120,6 +121,8 @@ class databases {
 			status::buildSQLStatus()
 			);
 		$sqlResult = $this->db->query($sql);
+
+		http::setGet("status",$originalStatus);	
 
 		if ($sqlResult->error()) {
 			errorHandle::newError(__METHOD__."() - ".$sqlResult->errorMsg(), errorHandle::DEBUG);
