@@ -80,7 +80,7 @@ class lists {
 			$output .= sprintf('<p id="dbName"><a href="%s?%s=INVS">%s</a></p>',
 				$localvars->get("connectURL"),
 				$database['URLID'],
-				str2TitleCase($database['name'])
+				$database['name']
 				);
 
 			$output .= sprintf('<p id="fullTextRow">%s%s%s</p>',
