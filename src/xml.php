@@ -2,58 +2,80 @@
 
 // @TODO update the RSS to Engine4
 
-require_once("/home/library/phpincludes/engine/engineAPI/3.1/engine.php");
+require_once '/home/www.libraries.wvu.edu/phpincludes/engine/engineAPI/4.0/engine.php';
 $engine = EngineAPI::singleton();
-$xml    = new syndication();
 
-require_once("/home/library/phpincludes/databaseConnectors/database.lib.wvu.edu.remote.php");
-$engine->dbConnect("database","databases",TRUE);
+errorHandle::errorReporting(errorHandle::E_ALL);
 
-include("buildStatus.php");
+$localvars = localvars::getInstance();
+
+recurseInsert("includes/vars.php","php");
+
+// Setup the database connection
+$databaseOptions = array(
+	'username' => 'username',
+	'password' => 'password'
+);
+require_once('/home/www.libraries.wvu.edu/phpincludes/databaseConnectors/database.lib.wvu.edu.remote.php');
+$databaseOptions['dbName'] = 'databases';
+$db                        = db::create('mysql', $databaseOptions, $localvars->get("dbConnectionName"));
+
+recurseInsert("includes/class_databases.php");
+recurseInsert("includes/class_status.php");
+recurseInsert("includes/class_lists.php");
+recurseInsert("includes/class_resourceTypes.php");
+recurseInsert("includes/class_subjects.php");
+recurseInsert("includes/class_topPickDBs.php");
+recurseInsert("includes/class_vendors.php");
+
+$xml      = new syndication();
+$validate = validate::getInstance();
 
 if ($xml->switchTemplate("syn.xml","/home/library/public_html/databases/includes") === FALSE) {
 	print "Error finding XML Template";
 	exit();
 }
 
-$sql = sprintf("SELECT * FROM dbList WHERE %s",
-	$status
-	);
 
-if (isset($engine->cleanGet['MYSQL']['subjects']) && validate::integer($engine->cleanGet['MYSQL']['subjects'])) {
+if (isset($_GET['MYSQL']['subjects']) && $validate->integer($_GET['MYSQL']['subjects'])) {
 	$sql = sprintf("select dbList.* from dbList JOIN databases_subjects where databases_subjects.subjectID='%s' AND dbList.ID=databases_subjects.dbID AND (%s) ORDER BY dbList.name",
-		$engine->cleanGet['MYSQL']['subjects'],
-		$status
+		$_GET['MYSQL']['subjects'],
+		status::buildSQLStatus()
 		);
 }
-else if (isset($engine->cleanGet['MYSQL']['letter']) && validate::alphaNoSpaces($engine->cleanGet['MYSQL']['letter'])) {
+else if (isset($_GET['MYSQL']['letter']) && $validate->alphaNoSpaces($_GET['MYSQL']['letter'])) {
 
-	if ($engine->cleanGet['MYSQL']['letter'] == "num") {
-		$engine->cleanGet['MYSQL']['letter'] = "1' OR name REGEXP '^2' OR name REGEXP '^3' OR name REGEXP '^4' OR name REGEXP '^5' OR name REGEXP '^6' OR name REGEXP '^7' OR name REGEXP '^8' OR name REGEXP '^9' OR name REGEXP '^0";
+	if ($_GET['MYSQL']['letter'] == "num") {
+		$_GET['MYSQL']['letter'] = "1' OR name REGEXP '^2' OR name REGEXP '^3' OR name REGEXP '^4' OR name REGEXP '^5' OR name REGEXP '^6' OR name REGEXP '^7' OR name REGEXP '^8' OR name REGEXP '^9' OR name REGEXP '^0";
 	}
 
 	$sql = sprintf("select * from dbList WHERE (name REGEXP '^%s') AND (%s) ORDER BY name",
-		$engine->cleanGet['MYSQL']['letter'],
-		$status
+		$_GET['MYSQL']['letter'],
+		status::buildSQLStatus()
 		);
 }
-else if (isset($engine->cleanGet['MYSQL']['type']) && validate::alphaNoSpaces($engine->cleanGet['MYSQL']['type'])) {
+else if (isset($_GET['MYSQL']['type']) && $validate->alphaNoSpaces($_GET['MYSQL']['type'])) {
 
 	$sql = sprintf("select * from dbList WHERE `%s`='1' AND (%s) ORDER BY name",
-		$engine->cleanGet['MYSQL']['type'],
-		$status
+		$_GET['MYSQL']['type'],
+		status::buildSQLStatus()
 		);
 
 }
-else if (isset($engine->cleanGet['MYSQL']['resourceType']) && validate::integer($engine->cleanGet['MYSQL']['resourceType'])) {
+else if (isset($_GET['MYSQL']['resourceType']) && $validate->integer($_GET['MYSQL']['resourceType'])) {
 	$sql = sprintf("select * from dbList JOIN databases_resourceTypes where databases_resourceTypes.resourceID='%s' AND dbList.ID=databases_resourceTypes.dbID AND (%s) ORDER BY dbList.name",
-		$engine->cleanGet['MYSQL']['resourceType'],
-		$status
+		$_GET['MYSQL']['resourceType'],
+		status::buildSQLStatus()
 		);
+}
+else {
+	$sql = sprintf("SELECT * FROM dbList WHERE %s",
+	status::buildSQLStatus()
+	);
 }
 
 $xml->syndicationMetadata("title","WVU Libraries Databases");
-$xml->syndicationMetadata("link","http://www.libraries.wvu.edu/collections/");
+$xml->syndicationMetadata("link","http://www.libraries.wvu.edu/databases/");
 $xml->syndicationMetadata("description","WVU Libraries Databases");
 
 $xml->addItemField("title");
@@ -79,20 +101,20 @@ $xml->addItemField("popular");
 $xml->addItemField("trialExpireDate");
 $xml->addItemField("alumni");
 
-$sqlResult = $engine->openDB->query($sql);
+$sqlResult = $db->query($sql);
 
-if (!$sqlResult['result']) {
+if ($sqlResult->error()) {
 	errorHandle::newError(__METHOD__."() - ".$sqlResult['error'], errorHandle::DEBUG);
 	exit;
 }
 
-while($row = mysql_fetch_array($sqlResult['result'],  MYSQL_ASSOC)) {
+while($row = $sqlResult->fetch()) {
 
 	$item = array();
 
 	$item['title']           = $row['name'];
 	$item['link']            = "http://www.libraries.wvu.edu/databases/connect.php?".$row['URLID']."=INVS";
-	$item['moreInfo']        = "http://www.libraries.wvu.edu/databases/database.php?id=".$row['ID'];
+	$item['moreInfo']        = "http://www.libraries.wvu.edu/databases/database/?id=".$row['ID'];
 	$item['status']          = $row['status'];
 	$item['years']           = $row['yearsOfCoverage'];
 	$item['description']     = $row['description'];
@@ -119,5 +141,4 @@ while($row = mysql_fetch_array($sqlResult['result'],  MYSQL_ASSOC)) {
 }
 
 print $xml->buildXML();
-
 ?>
