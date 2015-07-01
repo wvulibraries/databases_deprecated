@@ -16,3 +16,5 @@ if (!is_empty($_POST) || session::has('POST')) {
 ?>
 
 {form display="assets"}
+
+<link rel="stylesheet" href="/databases/css/admin.css" type="text/css" media="screen" />
