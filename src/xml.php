@@ -7,6 +7,16 @@ $engine = EngineAPI::singleton();
 
 errorHandle::errorReporting(errorHandle::E_ALL);
 
+// Super quick hack to get it working
+function convertString($string) {
+
+	$string = preg_replace('/&/', '&amp;', $string);
+	$string = preg_replace('/>/', "&gt;",  $string);
+	$string = preg_replace('/</', "&lt;",  $string);
+
+	return $string;
+}
+
 $localvars = localvars::getInstance();
 
 recurseInsert("includes/vars.php","php");
@@ -112,21 +122,21 @@ while($row = $sqlResult->fetch()) {
 
 	$item = array();
 
-	$item['title']           = $row['name'];
+	$item['title']           = convertString($row['name']);
 	$item['link']            = "http://www.libraries.wvu.edu/databases/connect.php?".$row['URLID']."=INVS";
 	$item['moreInfo']        = "http://www.libraries.wvu.edu/databases/database/?id=".$row['ID'];
 	$item['status']          = $row['status'];
 	$item['years']           = $row['yearsOfCoverage'];
-	$item['description']     = $row['description'];
-	$item['vendor']          = $row['vendor'];
+	$item['description']     = convertString($row['description']);
+	$item['vendor']          = convertString($row['vendor']);
 	$item['offCampusURL']    = $row['offCampusURL'];
 	$item['updated']         = $row['updated'];
-	$item['accessType']      = $row['accessType'];
+	$item['accessType']      = convertString($row['accessType']);
 	$item['fullTextDB']      = $row['fullTextDB'];
 	$item['newDatabase']     = $row['newDatabase'];
 	$item['trialDatabase']   = $row['trialDatabase'];
 	$item['access']          = $row['access'];
-	$item['help']            = $row['help'];
+	$item['help']            = convertString($row['help']);
 	$item['helpURL']         = $row['helpURL'];
 	$item['createDate']      = $row['createDate'];
 	$item['updateDate']      = $row['updateDate'];
