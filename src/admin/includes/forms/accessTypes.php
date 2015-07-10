@@ -27,5 +27,14 @@ $form->addField(
     )
 );
 
+$form->addField(
+    array(
+        'name'  => "assignedTo",
+        'label' => "Assigned to",
+        'type' => "plaintext",
+        'value' => '<a href="list/?id={ID}">Assigned to</a>',
+        'showIn' => array(formBuilder::TYPE_EDIT),
+        )
+);
 
 ?>
