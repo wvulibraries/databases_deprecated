@@ -9,7 +9,6 @@ $form->insertTitle = "New Database";
 $form->editTitle   = "Edit Database";
 
 $processor = formBuilder::createProcessor();
-// $processor->setCallback('', array());
 
 global $databaseID;
 
@@ -20,6 +19,24 @@ $form->addField(
         'showIn'          => array(formBuilder::TYPE_INSERT, formBuilder::TYPE_UPDATE),
         'type'            => 'hidden',
         'value'           => $databaseID,
+    )
+);
+
+$form->addField(
+    array(
+        'name'            => 'createDate',
+        'showIn'          => array(formBuilder::TYPE_INSERT),
+        'type'            => 'hidden',
+        'value'           => time(),
+    )
+);
+
+$form->addField(
+    array(
+        'name'            => 'updateDate',
+        'showIn'          => array(formBuilder::TYPE_INSERT, formBuilder::TYPE_UPDATE),
+        'type'            => 'hidden',
+        'value'           => time(),
     )
 );
 
