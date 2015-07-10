@@ -18,7 +18,7 @@ class databases {
 
 	public function find($query) {
 
-		$sql       = sprintf('SELECT * FROM `dbList` WHERE `name` LIKE "%%%s%%"',
+		$sql       = sprintf("SELECT * FROM `dbList` WHERE `name` LIKE \"%%%s%%\" and dbList.status='1'",
 			$query
 			);
 		$sqlResult = $this->db->query($sql);
@@ -58,6 +58,7 @@ class databases {
 
 		if ($sqlResult->error()) {
 			errorHandle::newError(__METHOD__."() - ".$sqlResult->errorMsg(), errorHandle::DEBUG);
+			errorHandle::newError(__METHOD__."() - ".$sql, errorHandle::DEBUG);
 			return array();
 		}	
 
