@@ -36,9 +36,6 @@
 				<a href="{local var="databaseHome"}/admin/management/subjects/">Subjects</a>
 			</li>
 			<li>
-				<a href="{local var="databaseHome"}/admin/management/updateText/">Update Text</a>
-			</li>
-			<li>
 				<a href="{local var="databaseHome"}/admin/management/vendors/">Vendors</a>
 			</li>
 		</ul>
