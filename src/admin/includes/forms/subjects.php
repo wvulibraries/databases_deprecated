@@ -2,7 +2,8 @@
 
 $form = formBuilder::createForm('Subjects');
 $form->linkToDatabase(array(
-    'table'       => 'subjects'
+    'table'       => 'subjects',
+    'order'       => 'name'
 ));
 
 $form->insertTitle = "New Subject";

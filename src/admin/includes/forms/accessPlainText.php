@@ -2,7 +2,8 @@
 
 $form = formBuilder::createForm('accessPlainText');
 $form->linkToDatabase(array(
-    'table'       => 'accessPlainText'
+    'table'       => 'accessPlainText',
+    'order'       => 'name'
 ));
 
 $form->insertTitle = "New Access Plain Text";

@@ -2,7 +2,8 @@
 
 $form = formBuilder::createForm('Vendors');
 $form->linkToDatabase(array(
-    'table'       => 'vendors'
+    'table'       => 'vendors',
+    'order'       => 'name'
 ));
 
 $form->insertTitle = "New Vendor";

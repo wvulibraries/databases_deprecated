@@ -2,7 +2,8 @@
 
 $form = formBuilder::createForm('ResourceTypes');
 $form->linkToDatabase(array(
-    'table'       => 'resourceTypes'
+    'table'       => 'resourceTypes',
+    'order'       => 'name'
 ));
 
 $form->insertTitle = "New Resource Type";

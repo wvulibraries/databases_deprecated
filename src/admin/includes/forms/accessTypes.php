@@ -2,7 +2,8 @@
 
 $form = formBuilder::createForm('accessTypes');
 $form->linkToDatabase(array(
-    'table'       => 'accessTypes'
+    'table'       => 'accessTypes',
+    'order'       => 'name'
 ));
 
 $form->insertTitle = "New Access Types";
