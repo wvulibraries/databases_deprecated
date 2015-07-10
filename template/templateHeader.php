@@ -19,13 +19,13 @@
         <link rel="shortcut icon" href="https://wvrhc.lib.wvu.edu/favicon.ico">
         
         <!-- CSS -->
-        <link type="text/css" rel="stylesheet" href="stylesheets/variables.css"></link>
-        <link type="text/css" rel="stylesheet" href="stylesheets/wvu.css"></link>
-        <link type="text/css" rel="stylesheet" href="stylesheets/styles.css"></link>
+        <link type="text/css" rel="stylesheet" href="{local var="databaseHome"}/stylesheets/variables.css"></link>
+        <link type="text/css" rel="stylesheet" href="{local var="databaseHome"}/stylesheets/wvu.css"></link>
+        <link type="text/css" rel="stylesheet" href="{local var="databaseHome"}/stylesheets/styles.css"></link>
 
         <!-- JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="javascripts/scripts.js"></script>
+        <script src="{local var="databaseHome"}javascript/scripts.js"></script>
 
         <!-- External CSS: Helvetica & Font Awesome -->
         <link type="text/css" rel="stylesheet" href="https://fast.fonts.net/cssapi/36d8cd92-7cc7-499b-b169-0eed9d670283.css"></link>
@@ -41,7 +41,7 @@
         <!-- WVU Header -->
         <div class="wvu-header mobile wvubottom">
             <a href="#" id="wvutoggle" class="wvu-masthead__logo wvu-masthead__logo--w-signature">
-                <img src="images/wvulogo.svg" alt="WVU Libraries">
+                <img src="{local var="databaseHome"}/images/wvulogo.svg" alt="WVU Libraries">
                 <i class="fa fa-chevron-down"></i>
                 <i class="fa fa-chevron-up"></i>    
             </a>
@@ -85,20 +85,20 @@
             <div class="tbwrap"> 
                 <div class="sticky-header-nav tabBar">
                     <a id="menu-toggle">
-                        <img src="images/subject.svg" alt="Sort by Subject" id="menu-toggle1">
-                        <img src="images/subjectx.svg" alt="Sort by Subject" id="menu-toggle2">
+                        <img src="{local var="databaseHome"}/images/subject.svg" alt="Sort by Subject" id="menu-toggle1">
+                        <img src="{local var="databaseHome"}/images/subjectx.svg" alt="Sort by Subject" id="menu-toggle2">
                     </a>
                 </div>
                 <div class="sticky-header-top tabBar">
                     <a id="top-toggle">
-                        <img src="images/title.svg" alt="Sort by Title" id="top-toggle1">
-                        <img src="images/titlex.svg" alt="Sort by Title" id="top-toggle2">
+                        <img src="{local var="databaseHome"}/images/title.svg" alt="Sort by Title" id="top-toggle1">
+                        <img src="{local var="databaseHome"}/images/titlex.svg" alt="Sort by Title" id="top-toggle2">
                     </a>
                 </div>
                 <div class="sticky-header-filter tabBar">
                     <a id="facet-toggle">
-                        <img src="images/filter.svg" alt="Search" id=                        "filter-toggle1">
-                        <img src="images/x.svg" alt="Search" id=                        "filter-toggle2">
+                        <img src="{local var="databaseHome"}/images/filter.svg" alt="Search" id=                        "filter-toggle1">
+                        <img src="{local var="databaseHome"}/images/x.svg" alt="Search" id=                        "filter-toggle2">
                     </a>
                     <div class="sticky-header-filter-sidebar">
                     </div>
@@ -110,8 +110,8 @@
                         <li><a href="#help"><i class="fa fa-question-circle"></i>Help</a></li>
                     </ul>
                     <a id="search-toggle">
-                        <img src="images/help.svg" alt="Search" id="search-toggle1">
-                        <img src="images/x.svg" alt="Search" id=                        "search-toggle2">
+                        <img src="{local var="databaseHome"}/images/help.svg" alt="Search" id="search-toggle1">
+                        <img src="{local var="databaseHome"}/images/x.svg" alt="Search" id=                        "search-toggle2">
                     </a>
 
                     <!-- Help Information -->

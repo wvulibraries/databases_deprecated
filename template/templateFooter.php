@@ -54,27 +54,27 @@
                     <ul class="wvuFooterSocial">
                         <li>
                             <a class="socmedia" target="_blank" href="http://www.facebook.com/WVULibraries">
-                                <img src="images/facebook.png" alt="Facebook" title="Facebook">
+                                <img src="{local var="databaseHome"}/images/facebook.png" alt="Facebook" title="Facebook">
                             </a>
                         </li>
                         <li>
                             <a class="socmedia" href="https://plus.google.com/100326194366145492876" rel="publisher" target="_blank">
-                                <img src="images/google.png" alt="Google+" title="Google+">
+                                <img src="{local var="databaseHome"}/images/google.png" alt="Google+" title="Google+">
                             </a>
                         </li>
                         <li>
                             <a class="socmedia" href="http://instagram.com/wvulibrarianlinda" target="_blank">
-                                <img src="images/instagram.png" alt="Instagram" title="Instagram">
+                                <img src="{local var="databaseHome"}/images/instagram.png" alt="Instagram" title="Instagram">
                             </a>
                         </li>                           
                         <li>
                             <a class="socmedia" target="_blank" href="https://twitter.com/wvuLibraries">
-                                <img src="images/twitter.png" alt="Twitter" title="Twitter">
+                                <img src="{local var="databaseHome"}/images/twitter.png" alt="Twitter" title="Twitter">
                             </a>
                         </li>
                         <li>
                             <a class="socmedia" target="_blank" href="http://www.youtube.com/WVULibraries">
-                                <img src="images/youtube.png" alt="Youtube" title="Youtube">
+                                <img src="{local var="databaseHome"}/images/youtube.png" alt="Youtube" title="Youtube">
                             </a>
                         </li>
                     </ul>
