@@ -158,6 +158,15 @@ class databases {
 		return TRUE;
 	}
 
+	public function expireNewDatabases() {
+
+		$sql       = "UPDATE dbList set newDatabase='0' WHERE newDatabase=1 AND createDate+7776000<?";
+		$sqlResult = $this->db->query($sql,array(time()));
+
+		return TRUE;
+
+	}
+
 	public function buildLocalvars($database) {
 
 		$this->localvars->set("database_name",$database['name']);

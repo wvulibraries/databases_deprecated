@@ -36,6 +36,7 @@ $databases = new databases;
 
 status::set();
 $databases->expireTrials();
+$databases->expireNewDatabases();
 
 templates::load("databases2015");
 
