@@ -54,19 +54,19 @@ $form->addField(
 		)
 	);
 
-$form->addField(
-	array(
-		'name'        => 'vendor',
-		'label'       => 'Vendor',
-		'type'        => "select",
-		'blankOption' => "-- Select a Vendor --",
-		'linkedTo'    => array(
-			'foreignTable' => 'vendors',
-			'foreignKey'   => 'ID',
-			'foreignLabel' => 'name'
-			)
-		)
-	);
+// $form->addField(
+// 	array(
+// 		'name'        => 'vendor',
+// 		'label'       => 'Vendor',
+// 		'type'        => "select",
+// 		'blankOption' => "-- Select a Vendor --",
+// 		'linkedTo'    => array(
+// 			'foreignTable' => 'vendors',
+// 			'foreignKey'   => 'ID',
+// 			'foreignLabel' => 'name'
+// 			)
+// 		)
+// 	);
 
 $form->addField(
 	array(
@@ -78,27 +78,27 @@ $form->addField(
 		)
 	);
 
-$form->addField(
-	array(
-		'name'  => 'offCampusURL',
-		'label' => 'Datbase URL (Off Campus)',
-		'type'  => "url"
-		)
-	);
+// $form->addField(
+// 	array(
+// 		'name'  => 'offCampusURL',
+// 		'label' => 'Datbase URL (Off Campus)',
+// 		'type'  => "url"
+// 		)
+// 	);
 
-$form->addField(
-	array(
-		'name'     => 'updated',
-		'label'    => 'Updated',
-		'type'     => "select",
-		'blankOption' => '-- Select One --',
-		'linkedTo'    => array(
-			'foreignTable' => 'updateText',
-			'foreignKey'   => 'ID',
-			'foreignLabel' => 'name'
-			)
-		)
-	);
+// $form->addField(
+// 	array(
+// 		'name'     => 'updated',
+// 		'label'    => 'Updated',
+// 		'type'     => "select",
+// 		'blankOption' => '-- Select One --',
+// 		'linkedTo'    => array(
+// 			'foreignTable' => 'updateText',
+// 			'foreignKey'   => 'ID',
+// 			'foreignLabel' => 'name'
+// 			)
+// 		)
+// 	);
 
 $form->addField(
 	array(
@@ -108,13 +108,13 @@ $form->addField(
 		)
 	);
 
-$form->addField(
-	array(
-		'name'  => 'fullTextDB',
-		'label' => 'Full Text',
-		'type'  => 'boolean'
-		)
-	);
+// $form->addField(
+// 	array(
+// 		'name'  => 'fullTextDB',
+// 		'label' => 'Full Text',
+// 		'type'  => 'boolean'
+// 		)
+// 	);
 
 $form->addField(
 	array(
