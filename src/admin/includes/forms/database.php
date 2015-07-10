@@ -177,6 +177,7 @@ $form->addField(
 		'type'        => "select",
 		'required'    => TRUE,
 		'blankOption' => '-- Select One --',
+		'value'       => '48',
 		'linkedTo'    => array(
 			'foreignTable' => 'accessPlainText',
 			'foreignKey'   => 'ID',
@@ -193,6 +194,7 @@ $form->addField(
 		'type'     => "select",
 		'required' => TRUE,
 		'blankOption' => '-- Select One --',
+		'value'       => '2',
 		'linkedTo'    => array(
 			'foreignTable' => 'accessTypes',
 			'foreignKey'   => 'ID',
