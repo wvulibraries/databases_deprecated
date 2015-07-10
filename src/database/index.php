@@ -69,7 +69,7 @@ templates::display('header');
 		</div>
 	</div>
 			
-	<div class="infoBlock" style="display: {local var="database_updated_display"}">
+<!-- 	<div class="infoBlock" style="display: {local var="database_updated_display"}">
 		<div class="infoKey">
 			<span class="boldText">Updated:</span>
 		</div>
@@ -77,7 +77,7 @@ templates::display('header');
 		<div class="infoKeyInfo">
 			{local var="database_updated"}
 		</div>
-	</div>
+	</div> -->
 		
 	<div class="infoBlock" style="display: {local var="database_help_display"}">
 		<div class="infoKey">
