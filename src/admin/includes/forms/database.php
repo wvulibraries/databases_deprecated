@@ -208,7 +208,8 @@ $form->addField(
 	array(
 		'name'  => 'help',
 		'label' => 'Help (text)',
-		'type'  => 'textarea'
+		'type'  => 'textarea',
+		'value' => "Ask a Librarian"
 		)
 	);
 
@@ -216,7 +217,8 @@ $form->addField(
 	array(
 		'name'  => 'helpURL',
 		'label' => 'Help (URL)',
-		'type'  => 'textarea'
+		'type'  => 'textarea',
+		'value' => 'http://westvirginia.libanswers.com/'
 		)
 	);
 
