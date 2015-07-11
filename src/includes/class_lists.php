@@ -69,7 +69,12 @@ class lists {
 			}
 		}
 		
-		#subjects
+		//subjects
+		$dbObject  = new databases;
+
+		foreach ($dbObject->subjects($database['dbID']) as $subject) {
+			$output .= sprintf('<li><a href="#">%s</a></li>', $subject['name']);
+		}
 		
 		return $output;
 	}
