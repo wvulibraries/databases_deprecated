@@ -38,9 +38,7 @@ templates::display('header');
 
 {local var="prettyPrint"}
 
-<div class="clearfix" id="subjectsContainer">
-
-<h3>{local var="databaseHeading"} Databases</h3>
+<h3 id="subjectHeading">{local var="databaseHeading"} Databases</h3>
 
 <p id="subjectGuideLink" style="display: {local var="subjectGuideDisplay"}">For a subject guide on this topic:<br />
 	<a href="{local var="subjectGuideLink"}">{local var="subjectGuideLink"}</a>
@@ -48,7 +46,6 @@ templates::display('header');
 
 {local var="databases"}
 
-</div>
 
 <!-- Page Content Goes Above This Line -->
 
