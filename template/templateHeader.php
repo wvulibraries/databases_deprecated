@@ -2,7 +2,6 @@
 <html lang="en" class="no-js">
     <head>
         <title>Databases | WVU Libraries</title>
-        <?php recurseInsert("headerIncludes.php","php") ?>
         
         <!-- Meta Information -->
         <meta charset="utf-8">
@@ -35,6 +34,8 @@
         <script type="text/javascript">var switchTo5x=true;</script>
         <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
         <script type="text/javascript">stLight.options({publisher: "5d559dae-aaf3-4cce-bb7b-a7c904df0cf4", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script> -->
+
+        <?php recurseInsert("headerIncludes.php","php") ?>
     </head>
     <body>
 
