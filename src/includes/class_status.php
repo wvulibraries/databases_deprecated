@@ -50,7 +50,7 @@ class status {
 				$status = "dbList.status='1' OR dbList.status='2' OR dbList.status='3'";
 				break;
 			default:
-				$status = "";
+				$status = "dbList.status='1'";
 		}
 
 		return $status;
