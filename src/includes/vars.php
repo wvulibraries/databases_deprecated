@@ -8,4 +8,5 @@ $localvars->set('dbConnectionName', 'appDB');
 $localvars->set("databaseHome","/databases");
 $localvars->set("connectURL","/databases/connect.php");
 $localvars->set("proxyURL", "http://www.libproxy.wvu.edu/login?url=");
+$localvars->set("descriptionLength","300");
 ?>
