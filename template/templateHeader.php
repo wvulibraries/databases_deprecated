@@ -24,7 +24,7 @@
 
         <!-- JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="{local var="databaseHome"}javascript/scripts.js"></script>
+        <script src="{local var="databaseHome"}/javascript/scripts.js"></script>
 
         <!-- External CSS: Helvetica & Font Awesome -->
         <link type="text/css" rel="stylesheet" href="https://fast.fonts.net/cssapi/36d8cd92-7cc7-499b-b169-0eed9d670283.css"></link>
