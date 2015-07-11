@@ -57,14 +57,21 @@ class lists {
 
 	}
 
-	private static function helper_dbType($type) {
+	private static function generateDBTags($database) {
 
-		return sprintf('<img src="%s/%s.gif" alt="Full Text" />',
-			"/databases/images", // @TODO make configurable
-			htmlSanitize($type),
-			"gif" // @TODO make configurable
-			);
+		$localvars = localvars::getInstance();
 
+		$output = "";
+
+		foreach ($localvars->get("databaseTagTypes") as $I=>$V) {
+			if ($database[$I]  == 1) {
+				$output .= sprintf('<li><a href="#">%s</a></li>', $V);
+			}
+		}
+		
+		#subjects
+		
+		return $output;
 	}
 
 	// expects $databases to be a database array
@@ -76,35 +83,34 @@ class lists {
 
 		foreach ($databases as $database) {
 
-			$output .= '<div class="dbListing">';
-			$output .= sprintf('<p id="dbName"><a href="%s?%s=INVS">%s</a></p>',
+			$output .= '<div class="database">';
+			$output .= '<div class="database-box">';
+			$output .= '<div class="database-box-top database-resize">';
+			$output .= sprintf('<h3><a href="%s?%s=INVS">%s</a></h3>',
 				$localvars->get("connectURL"),
 				$database['URLID'],
 				$database['name']
 				);
-
-			$output .= sprintf('<p id="fullTextRow">%s%s%s</p>',
-				($database['fullTextDB']    == 1)?self::helper_dbType("fulltext"):"",
-				($database['trialDatabase'] == 1)?self::helper_dbType("trial"):"",
-				($database['newDatabase']   == 1)?self::helper_dbType("new"):""
-				);
-
-			$output .= '<p id="shortDesc">';
-			if ($database['trialDatabase'] == 1) {
-				$output .= sprintf('<span class="trialText">Trial ends on %s &ndash; </span>',
-					date("M d, Y",$database['trialExpireDate'])
-					);
-			}
-			$output .= ((!is_empty($database['description']) && list($shortDesc) = explode(".",$database['description']))?$shortDesc."....\n":"");
-			$output .= '</p>';
-	
-			$output .= sprintf('<p id="moreInfo"><a href="%s/database/?id=%s">(More Info)</a></p>',
+			$output .= sprintf('<p>%s <span class="moreLink">[ <a href="%s/database/?id=%s">More Information</a> ]</span></p>',
+				(!is_empty($database['description']))?substr($database['description'],0,$localvars->get("descriptionLength")):"",
 				$localvars->get("databaseHome"),
 				(!empty($database['dbID']))?$database['dbID']:$database['ID']
 				);
+			if ($database['trialDatabase'] == 1) {
+				$output .= sprintf('<p class="trialText">Trial ends on %s &ndash; </p>',
+					date("M d, Y",$database['trialExpireDate'])
+					);
+			}
+			$output .= '</div>'; // database-box-top
 
-			$output .= '<hr noshade="noshade" size="1"/>';
-			$output .= '</div>';
+			$output .= '<div class="database-box-bottom database-res">';
+            $output .= '<ul class="database-box-bottom-tags">';
+            $output .= self::generateDBTags($database);
+            $output .= '</ul>';
+            $output .= '</div>'; // database-box-bottom
+
+			$output .= '</div>'; // database-box
+			$output .= '</div>'; // database
 
 		}
 
