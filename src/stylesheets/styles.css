@@ -11,6 +11,29 @@ html, body, form, nav, ul, div {
   text-align: center;
   font-family: "Helvetica Neue", "Helvetica","Roboto", Arial, sans-serif; }
 
+a.button {
+    display: inline-block; 
+  padding: 10px 20px; 
+  text-shadow: 2px 2px 4px #005daa; 
+  border-radius: 5px; 
+  margin: 0 10px 10px 0; 
+  background: #3399ff; 
+  color:#fff; 
+  border-width: 1px 1px 2px; 
+  border-color: #005daa;
+    text-decoration: none;
+    border-style: solid;
+}
+a.button:hover {
+  background: #eeb111; 
+  color: #00447c; 
+  text-shadow: 2px 2px 4px #ffe894; 
+  border-color: #f47b20; 
+  border-width: 1px 1px 2px;
+    text-decoration: none;
+    border-style: solid;
+}
+
 .webapp-header {
   background: url(https://lib.wvu.edu/images/2014/wise.jpg);
   background-size: cover;
