@@ -152,7 +152,21 @@ class databases {
 
 	public function subjects($id) {
 
-		$sql       = "SELECT * FROM subjects LEFT JOIN databases_subjects on databases_subjects.subjectID=subjects.ID WHERE databases_subjects.dbID=?";
+		$sql       = "SELECT * FROM subjects LEFT JOIN databases_subjects on databases_subjects.subjectID=subjects.ID WHERE databases_subjects.dbID=? ORDER BY subjects.name";
+		$sqlResult = $this->db->query($sql,array($id));
+
+		if ($sqlResult->error()) {
+			errorHandle::newError(__METHOD__."() - ".$sqlResult->errorMsg(), errorHandle::DEBUG);
+			return FALSE;
+		}
+
+		return $sqlResult->fetchAll();
+
+	}
+
+	public function resourceTypes($id) {
+
+		$sql       = "SELECT * FROM resourceTypes LEFT JOIN databases_resourceTypes on databases_resourceTypes.resourceID=resourceTypes.ID WHERE databases_resourceTypes.dbID=? ORDER BY resourceTypes.name";
 		$sqlResult = $this->db->query($sql,array($id));
 
 		if ($sqlResult->error()) {
