@@ -40,9 +40,8 @@ templates::display('header');
 
 <h3 id="subjectHeading">{local var="databaseHeading"} Databases</h3>
 
-<p id="subjectGuideLink" style="display: {local var="subjectGuideDisplay"}">For a subject guide on this topic:<br />
-	<a href="{local var="subjectGuideLink"}">{local var="subjectGuideLink"}</a>
-</p>
+
+	<a href="{local var="subjectGuideLink"}" class="button">Subject Guide</a>
 
 {local var="databases"}
 
