@@ -203,16 +203,11 @@ class lists {
 		$count      = 0;
 		$ul2        = FALSE;
 
-		$output = "<ul class=\"rtUL\" id=\"rtUL1\">";
+		$output = "<ul>";
 
 		while ($row = $sqlResult->fetch()) {
 
-			if ($sqlResult->rowCount() > 8 && $count++ >= $sqlResult->rowCount()/2 && $ul2 == FALSE) {
-				$output .= "</ul><ul class=\"rtUL\" id=\"rtUL2\">";
-				$ul2     = TRUE;
-			}
-
-			$output .= sprintf('<li><a href="%s/resourceTypes/?id=%s&%s">%s</a></li>',
+			$output .= sprintf('<li><a href="%s/resourceTypes/?id=%s&%s">%s<i class="fa fa-angle-right"></li>',
 				$localvars->get("databaseHome"),
 				$row['ID'],
 				status::current(),
