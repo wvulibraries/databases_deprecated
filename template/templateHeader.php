@@ -168,41 +168,7 @@
             <div class="wrap">
 
                 <!-- Left Subcontainer -->
-                <div id="sidebar">
-                    <div id="facets">
-                        <h2>Narrow Your Results</h2>
-                        <ul>
-                            <li class="facets-header">Types of Databases
-                                <span class="facetToggle">+</span>
-                            </li>
-                            <ul>
-                                <li>Alumni<i class="fa fa-angle-right"></i></li>
-                                <li>Mobile<i class="fa fa-angle-right"></i></li>
-                                <li>New<i class="fa fa-angle-right"></i></li>
-                                <li>Trial<i class="fa fa-angle-right"></i></li>
-                            </ul>
-                            <li class="facets-header">Resource Types
-                                <span class="facetToggle">+</span>
-                            </li>
-                            <ul>
-                                <li>Article<i class="fa fa-angle-right"></i></li>
-                                <li>Biography<i class="fa fa-angle-right"></i></li>
-                                <li>Book Collections<i class="fa fa-angle-right"></i></li>
-                                <li>Career<i class="fa fa-angle-right"></i></li>
-                                <li>Dictionary<i class="fa fa-angle-right"></i></li>
-                                <li>Directory<i class="fa fa-angle-right"></i></li>
-                                <li>Handbook<i class="fa fa-angle-right"></i></li>
-                                <li>Historic Periodicals<i class="fa fa-angle-right"></i></li>
-                                <li>Images<i class="fa fa-angle-right"></i></li>
-                                <li>News<i class="fa fa-angle-right"></i></li>
-                                <li>Newspapers<i class="fa fa-angle-right"></i></li>
-                                <li>Primary Source<i class="fa fa-angle-right"></i></li>
-                                <li>Statistics<i class="fa fa-angle-right"></i></li>
-                                <li>Video and Sound<i class="fa fa-angle-right"></i></li>
-                            </ul>
-                        </ul>
-                    </div>
-                </div>
+                <?php recurseInsert("leftnav.php","php") ?>
 
                 <!-- Right Subcontainer -->
                 <div class="database-content">

@@ -3,41 +3,26 @@
 $localvars = localvars::getInstance();
 $localvars->set("currentStatus",status::build());
 
-$dbObject = new databases;
-
-$popularDatabases = $dbObject->getByType("popular");
-$localvars->set("popular",lists::popular($popularDatabases));
-
-$localvars->set("letters",lists::letters());
-
 $localvars->set("resourceTypes",lists::resourceTypes());
 
 ?>
-<ul>
-    <li><a href="/services/ask/database/" title="Help Accessing Databases">Help Accessing Databases</a></li>
-</ul>
 
-<span class="rightNavListHeader">Popular Databases</span>
-{local var="popular"}
-
-<span class="rightNavListHeader">Databases By Subject</span>
-<ul>
-<li><a href="/databases/?{local var="currentStatus"}" id="rightNavSubLink">Subjects</a></li>
-<li class="noBorder"></li>
-<li class="noBorder"></li>
-<li><a href="/databases/type/?type=full&amp;{local var="currentStatus"}" id="rightNavSubLink">Full Text</a></li>
-<li><a href="/databases/type/?type=alumni&amp;{local var="currentStatus"}" id="rightNavSubLink">Alumni Databases</a></li>
-<li><a href="/databases/type/?type=mobile&amp;{local var="currentStatus"}" id="rightNavSubLink">Mobile Databases</a></li>
-<li><a href="/databases/type/?type=new&amp;{local var="currentStatus"}" id="rightNavSubLink">New Databases</a></li>
-<li><a href="/databases/type/?type=trial&amp;{local var="currentStatus"}" id="rightNavSubLink">Trial Databases</a></li>
-</ul>
-
-<span class="rightNavListHeader">Databases By Title</span>
-{local var="letters"}
-
-<span class="rightNavListHeader">Databases by Resource Type</span>
-{local var="resourceTypes"}
-
-<ul>
-    <li><a href="/databases/rss.php" id="rssIcon"><img src="/databases/images/rss.gif" /></a></li>
-</ul>
+<div id="sidebar">
+	<div id="facets">
+		<h2>Narrow Your Results</h2>
+		<ul>
+			<li class="facets-header">Types of Databases
+				<span class="facetToggle">+</span>
+			</li>
+			<ul>
+				<li>Alumni<i class="fa fa-angle-right"></i></li>
+				<li>New<i class="fa fa-angle-right"></i></li>
+				<li>Trial<i class="fa fa-angle-right"></i></li>
+			</ul>
+			<li class="facets-header">Resource Types
+				<span class="facetToggle">+</span>
+			</li>
+			{local var="resourceTypes"}
+		</ul>
+	</div>
+</div>
