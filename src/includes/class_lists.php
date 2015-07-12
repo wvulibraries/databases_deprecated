@@ -69,13 +69,16 @@ class lists {
 			}
 		}
 		
-		//subjects
 		$dbObject  = new databases;
 
-		foreach ($dbObject->subjects($database['dbID']) as $subject) {
-			$output .= sprintf('<li><a href="#">%s</a></li>', $subject['name']);
+
+		$tags = array_merge($dbObject->subjects($database['dbID']),$dbObject->resourceTypes($database['dbID']));
+		usort($tags,function($a,$b){return strcmp($a['name'], $b['name']);});
+
+		foreach ($tags as $tag) {
+			$output .= sprintf('<li><a href="#">%s</a></li>', $tag['name']);
 		}
-		
+
 		return $output;
 	}
 
