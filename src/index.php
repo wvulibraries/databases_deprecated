@@ -10,13 +10,10 @@ templates::display('header');
 
 <!-- Page Content Goes Below This Line -->
 
-<div class="clearfix" id="subjectsContainer">
-
 <h3>Databases by Subject</h3>
 
 {local var="subjects"}
 
-</div>
 
 <!-- Page Content Goes Above This Line -->
 
