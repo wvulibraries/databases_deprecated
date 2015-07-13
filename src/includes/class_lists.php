@@ -207,7 +207,7 @@ class lists {
 
 		while ($row = $sqlResult->fetch()) {
 
-			$output .= sprintf('<li><a href="%s/resourceTypes/?id=%s&%s">%s<i class="fa fa-angle-right"></li>',
+			$output .= sprintf('<li><a href="%s/resourceTypes/?id=%s&%s">%s</a><i class="fa fa-angle-right"></i></li>',
 				$localvars->get("databaseHome"),
 				$row['ID'],
 				status::current(),
