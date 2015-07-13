@@ -16,16 +16,11 @@ templates::display('header');
 
 <!-- Page Content Goes Below This Line -->
 
-<div class="clearfix" id="subjectsContainer">
-
 <h3>Database Search Results</h3>
 
 <p style="display: {local var="displayNoResults"}">We do not have any databases named "<strong>{local var="query"}</strong>".  Please browse our <a href="{local var="databaseHome"}">Databases</a> by subject or title.</p>
 
 {local var="databases"}
-
-</div>
-
 
 <!-- Page Content Goes Above This Line -->
 

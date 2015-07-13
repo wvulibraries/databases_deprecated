@@ -18,13 +18,9 @@ templates::display('header');
 
 <!-- Page Content Goes Below This Line -->
 
-<div class="clearfix" id="subjectsContainer">
-
 <h3>Databases by Title: {local var="pageHeader"} </h3>
 
 {local var="databases"}
-
-</div>
 
 <!-- Page Content Goes Above This Line -->
 

@@ -30,7 +30,6 @@ if(empty($engine->cleanGet['HTML']['type'])) {
 
 <!-- Page Content Goes Below This Line -->
 
-<div class="clearfix" id="subjectsContainer">
 
 <h3>WVU Libraries Database RSS Feeds</h3>
 
@@ -45,15 +44,8 @@ if(empty($engine->cleanGet['HTML']['type'])) {
 <a href="rss.php?type=mobile">Mobile Databases</a>
 <br />
 <a href="http://www.libraries.wvu.edu/databases/rss.php?type=popular">Popular Databases</a>
-</div>
 
-<div id="rightNav">
 
-<?php
-	recurseInsert("rightNav.php","php");
-?>
-
-</div>
 <!-- Page Content Goes Above This Line -->
 
 <?php } ?>

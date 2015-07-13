@@ -35,7 +35,6 @@ templates::display('header');
 
 {local var="prettyPrint"}
 
-<div class="clearfix" id="subjectsContainer">
 
 	<h3>{local var="database_name"}</h3>
 
@@ -99,7 +98,6 @@ templates::display('header');
 		</div>
 	</div>
 
-</div>
 
 <!-- Page Content Goes Above This Line -->
 

@@ -38,13 +38,9 @@ templates::display('header');
 
 {local var="prettyPrint"}
 
-<div class="clearfix" id="subjectsContainer">
-
 <h3>{local var="databaseHeading"} Databases</h3>
 
 {local var="databases"}
-
-</div>
 
 <!-- Page Content Goes Above This Line -->
 
