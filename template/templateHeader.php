@@ -98,16 +98,16 @@
                 </div>
                 <div class="sticky-header-filter tabBar">
                     <a id="facet-toggle">
-                        <img src="{local var="databaseHome"}/images/filter.svg" alt="Search" id=                        "filter-toggle1">
-                        <img src="{local var="databaseHome"}/images/x.svg" alt="Search" id=                        "filter-toggle2">
+                        <img src="{local var="databaseHome"}/images/filter.svg" alt="Search" id="filter-toggle1">
+                        <img src="{local var="databaseHome"}/images/x.svg" alt="Search" id="filter-toggle2">
                     </a>
                     <div class="sticky-header-filter-sidebar">
                     </div>
                 </div>
                 <div class="sticky-header-search tabBar">
                     <ul class="sticky-header-desktop-links">
-                        <li><a href="#"><i class="fa fa-sort-amount-asc"></i>Database Subjects</a></li>
-                        <li><a href="#"><i class="fa fa-sort-alpha-asc"></i>Database Titles</a></li>
+                        <li><a href="{local var="databaseHome"}/"><i class="fa fa-sort-amount-asc"></i>Database Subjects</a></li>
+                        <li><a href="{local var="databaseHome"}/AtoZ/"><i class="fa fa-sort-alpha-asc"></i>Database Titles</a></li>
                         <li><a href="#help"><i class="fa fa-question-circle"></i>Help</a></li>
                     </ul>
                     <a id="search-toggle">
