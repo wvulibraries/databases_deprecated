@@ -170,14 +170,8 @@ class lists {
 			$countTotal++;
 		}
 
-		$count = 0;
-
 		$output = "<ul>";
 		foreach ($sArray as $letter => $value) {
-
-			if ($countTotal > 8 && $count++%8 == 0) {
-				$output .= "</p><p class=\"dbLetterLine\">";
-			}
 
 			$output .= sprintf('<li><a href="%s/letter/?id=%s&status=%s">%s</a></li>',
 				$localvars->get("databaseHome"),
