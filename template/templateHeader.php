@@ -112,7 +112,7 @@
                     </ul>
                     <a id="search-toggle">
                         <img src="{local var="databaseHome"}/images/help.svg" alt="Search" id="search-toggle1">
-                        <img src="{local var="databaseHome"}/images/x.svg" alt="Search" id=                        "search-toggle2">
+                        <img src="{local var="databaseHome"}/images/x.svg" alt="Search" id="search-toggle2">
                     </a>
 
                     <!-- Help Information -->
@@ -185,9 +185,9 @@
                     </div>
 
                     <!-- Top Paging -->
-                    <div class="database-content-paging right">
+<!--                     <div class="database-content-paging right">
                         <a href="#">« Previous</a> | <span class="database-content-paging-pages">1 - 10 of 200</span> | <a href="#">Next »</a>
-                    </div>
+                    </div> -->
 
                     <div style="clear:both;"></div>
                     <hr />
