@@ -71,6 +71,7 @@ class lists {
 		
 		$dbObject  = new databases;
 
+		if (!isset($database['dbID'])) $database['dbID'] = $database['ID'];
 
 		$tags = array_merge($dbObject->subjects($database['dbID']),$dbObject->resourceTypes($database['dbID']));
 		usort($tags,function($a,$b){return strcmp($a['name'], $b['name']);});
