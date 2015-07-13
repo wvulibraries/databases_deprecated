@@ -348,14 +348,14 @@ a.button:hover {
       border-radius: 5px;
       float: right;
       padding: 0px 4px; }
-  #facets ul ul li {
+  #facets ul li ul li {
     color: #000;
     text-align: left;
     padding: 5px 20px;
     border-bottom: 1px solid #cfcac6; }
-    #facets ul ul li .fa-angle-right {
+    #facets ul li ul li .fa-angle-right {
       float: right; }
-  #facets ul ul li:last-child {
+  #facets ul li ul li:last-child {
     border-bottom: none; }
 
 .sticky-header-desktop-links {
