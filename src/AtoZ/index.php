@@ -1,7 +1,7 @@
 <?php
 require "../engineHeader.php";
 
-$pageHeader = (!empty($_GET['HTML']['id']) && (preg_match('/^\w$/',$_GET['HTML']['id']) == 1))?$_GET['HTML']['id']:"";
+$pageHeader = (!empty($_GET['HTML']['id']) && (preg_match('/^\w$/',$_GET['HTML']['id']) == 1))?$_GET['HTML']['id']:"a";
 
 if ($pageHeader == "num") {
 	$pageHeader = "Number";
@@ -10,7 +10,7 @@ if ($pageHeader == "num") {
 $localvars->set("pageHeader",(!empty($pageHeader))?$pageHeader:"Error");
 
 $dbObject  = new databases;
-$databases = $dbObject->getByLetter($_GET['HTML']['id']);
+$databases = $dbObject->getByLetter($pageHeader);
 $localvars->set("databases",lists::databases($databases));
 
 templates::display('header'); 
