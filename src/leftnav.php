@@ -15,9 +15,9 @@ $localvars->set("resourceTypes",lists::resourceTypes());
 				<span class="facetToggle">+</span>
 			</li>
 			<ul>
-				<li>Alumni<i class="fa fa-angle-right"></i></li>
-				<li>New<i class="fa fa-angle-right"></i></li>
-				<li>Trial<i class="fa fa-angle-right"></i></li>
+				<li><a href="{local var="databaseHome"}/types/alumni/">Alumni</a><i class="fa fa-angle-right"></i></li>
+				<li><a href="{local var="databaseHome"}/types/new/">New</a><i class="fa fa-angle-right"></i></li>
+				<li><a href="{local var="databaseHome"}/types/trial/">Trial</a><i class="fa fa-angle-right"></i></li>
 			</ul>
 			<li class="facets-header">Resource Types
 				<span class="facetToggle">+</span>
