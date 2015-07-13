@@ -83,6 +83,26 @@ class lists {
 		return $output;
 	}
 
+	private static function generateClassTags($database) {
+
+		$localvars = localvars::getInstance();
+		$dbObject  = new databases;
+
+		if (!isset($database['dbID'])) $database['dbID'] = $database['ID'];
+
+		$tags = array_map(function($a){return $a['name'];},array_merge($dbObject->subjects($database['dbID']), $dbObject->resourceTypes($database['dbID'])));
+
+		foreach ($localvars->get("databaseTagTypes") as $I=>$V) {
+			if ($database[$I]  == 1) {
+				$tags[] = $V;
+			}
+		}
+
+		$tags = array_map(function($a){return str_replace(" ", "-", str_replace("&", "", $a));},$tags);
+
+		return implode(" ",$tags);
+	}
+
 	// expects $databases to be a database array
 	public static function databases($databases) {
 
@@ -92,7 +112,9 @@ class lists {
 
 		foreach ($databases as $database) {
 
-			$output .= '<div class="database">';
+			$output .= sprintf('<div class="database %s">',
+				self::generateClassTags($database)
+				);
 			$output .= '<div class="database-box">';
 			$output .= '<div class="database-box-top database-resize">';
 			$output .= sprintf('<h3><a href="%s?%s=INVS">%s</a></h3>',
