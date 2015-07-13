@@ -8,6 +8,7 @@ if ($pageHeader == "num") {
 }
 
 $localvars->set("pageHeader",(!empty($pageHeader))?$pageHeader:"Error");
+$localvars->set("letters",lists::letters());
 
 $dbObject  = new databases;
 $databases = $dbObject->getByLetter($pageHeader);
@@ -19,6 +20,8 @@ templates::display('header');
 <!-- Page Content Goes Below This Line -->
 
 <h3>Databases by Title: {local var="pageHeader"} </h3>
+
+{local var="letters"}
 
 {local var="databases"}
 
