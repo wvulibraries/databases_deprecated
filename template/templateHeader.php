@@ -174,15 +174,7 @@
                 <div class="database-content">
 
                     <!-- Faceted Bread Crumbs -->
-                    <div class="database-content-facets">
-                        <ul class="database-content-facets-ul">
-                            <li><i class="fa fa-home"></i><a href="https://lib.wvu.edu">Home</a></li>
-                            <li><a href="https://lib.wvu.edu/datbases">Databases</a></li>
-                            <li><span class="facetLi"><a href="#">All Results</a></span></li>
-                            <li><span class="facetLi"><a href="#">Full Text</a></span></li>
-                            <li><span class="facetLi"><a href="#">Encyclopedia<i class="fa fa-times"></i></a></span></li>
-                        </ul>
-                    </div>
+                    <?php recurseInsert("includes/breadcrumbs.php","php"); ?>
 
                     <!-- Top Paging -->
 <!--                     <div class="database-content-paging right">
