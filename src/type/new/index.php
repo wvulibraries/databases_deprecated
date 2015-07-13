@@ -1,15 +1,14 @@
 <?php
-require "../engineHeader.php";
+require "../../engineHeader.php";
+
+$localvars->set("pageHeader","New");
+$localvars->set("searchType","newDatabase");
 
 templates::display('header'); 
 ?>
 
-
-<!-- Page Content Goes Below This Line -->
-
 <?php recurseInsert("typeBase.php","php") ?>
 
-<!-- Page Content Goes Above This Line -->
 
 <?php
 templates::display('footer'); 

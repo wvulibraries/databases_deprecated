@@ -1,15 +1,14 @@
 <?php
-require "../engineHeader.php";
+require "../../engineHeader.php";
+
+$localvars->set("pageHeader","Alumni");
+$localvars->set("searchType","alumni");
 
 templates::display('header'); 
 ?>
 
-
-<!-- Page Content Goes Below This Line -->
-
 <?php recurseInsert("typeBase.php","php") ?>
 
-<!-- Page Content Goes Above This Line -->
 
 <?php
 templates::display('footer'); 
