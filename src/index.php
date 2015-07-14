@@ -4,13 +4,16 @@ require "engineHeader.php";
 
 $localvars->set("subjects",lists::subjects());
 
+$localvars = localvars::getInstance();
+$localvars->set("adminDisplay","display:none;");
+
 templates::display('header'); 
 
 ?>
 
 <!-- Page Content Goes Below This Line -->
 
-<h3>Databases by Subject</h3>
+<h3>Subjects</h3>
 
 {local var="subjects"}
 

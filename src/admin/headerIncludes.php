@@ -12,6 +12,8 @@ if (!is_empty($_POST) || session::has('POST')) {
 	$processor->processPost();
 
 }
+$localvars = localvars::getInstance();
+$localvars->set("adminDisplay","display:none;");
 
 ?>
 
