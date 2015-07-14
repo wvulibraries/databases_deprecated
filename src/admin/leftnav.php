@@ -1,9 +1,12 @@
-<ul>
+<div id="sidebar">
+	<div id="facets">
+		<h2>Admin Menu</h2>
+		<ul>
 	<li>
 		<a href="{local var="databaseHome"}/admin/database/">New Database</a>
 	</li>
 	<li>
-		List Databases
+		<span class="facets-header">List Databases</span>
 		<ul>
 			<li><a href="{local var="databaseHome"}/admin/list/">Alphabetical</a></li>
 			<li>
@@ -12,7 +15,7 @@
 		</ul>
 	</li>
 	<li>
-		Preview Databases
+		<span class="facets-header">Preview Databases</span>
 		<ul>
 			<li><a href="{local var="databaseHome"}/index.php">Public Display</a></li>
 			<li><a href="{local var="databaseHome"}/index.php?status=2">Development</a></li>
@@ -21,7 +24,7 @@
 		</ul>
 	</li>
 	<li>
-		Management:
+		<span class="facets-header">Management:</span>
 		<ul>
 			<li>
 				<a href="{local var="databaseHome"}/admin/management/accessTypes/">Access Types</a>
@@ -44,3 +47,5 @@
 		<a href="">Logout</a>
 	</li>
 </ul>
+	</div>
+</div>
