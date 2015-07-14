@@ -122,7 +122,7 @@ class lists {
 				$database['URLID'],
 				$database['name']
 				);
-			$output .= sprintf('<p>%s <span class="moreLink">[ <a href="%s/database/?id=%s">More Information</a> ]</span></p>',
+			$output .= sprintf('<p>%s&hellip; <span class="moreLink">[ <a href="%s/database/?id=%s">More Information</a> ]</span></p>',
 				(!is_empty($database['description']))?substr($database['description'],0,$localvars->get("descriptionLength")):"",
 				$localvars->get("databaseHome"),
 				(!empty($database['dbID']))?$database['dbID']:$database['ID']
