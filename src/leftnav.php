@@ -9,6 +9,8 @@ $localvars->set("resourceTypes",lists::resourceTypes());
 $dbObject = new databases;
 if (1 == 2) {
 	$popularDatabases = 1;
+if ($localvars->get("subjectsPage")) {
+	$popularDatabases = topPickDBs::getTopPicksForSubject($localvars->get("subjectsPage"));
 }
 else {
 	$popularDatabases = $dbObject->getByType("popular");
