@@ -7,8 +7,6 @@ $localvars->set("resourceTypes",lists::resourceTypes());
 
 // Figure out which popular databases we need.
 $dbObject = new databases;
-if (1 == 2) {
-	$popularDatabases = 1;
 if ($localvars->get("subjectsPage")) {
 	$popularDatabases = topPickDBs::getTopPicksForSubject($localvars->get("subjectsPage"));
 }
@@ -25,10 +23,12 @@ $localvars->set("popular",lists::popular($popularDatabases));
 	<div id="facets">
 		<h2>Narrow Your Results</h2>
 		<ul>
+			<?php if (count($popularDatabases)) { ?>
 			<li>
 				<span class="facets-header">Start Here / Top Picks<span class="facetToggle">+</span></span>
 				{local var="popular"}
 			</li>
+			<?php } ?>
 			<li><span class="facets-header">Types of Databases<span class="facetToggle">+</span></span>
 
 				<ul>
