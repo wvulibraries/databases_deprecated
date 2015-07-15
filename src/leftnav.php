@@ -33,6 +33,7 @@ $localvars->set("popular",lists::popular($popularDatabases));
 				{local var="popular"}
 			</li>
 			<?php } ?>
+			<?php if ($alumniDBs || $newDBs || $trialDBs) { ?>
 			<li><span class="facets-header">Types of Databases<span class="facetToggle">+</span></span>
 
 				<ul>
@@ -47,6 +48,7 @@ $localvars->set("popular",lists::popular($popularDatabases));
 					<?php } ?>
 				</ul>
 			</li>
+			<?php } ?>
 			<li><span class="facets-header">Resource Types<span class="facetToggle">+</span></span>
 
 				{local var="resourceTypes"}
