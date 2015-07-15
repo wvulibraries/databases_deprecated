@@ -14,6 +14,10 @@ else {
 	$popularDatabases = $dbObject->getByType("popular");
 }
 
+$alumniDBs = count($dbObject->getByType("alumni"));
+$newDBs    = count($dbObject->getByType("newDatabase"));
+$trialDBs  = count($dbObject->getByType("trialDatabase"));
+
 $localvars->set("popular",lists::popular($popularDatabases));
 
 
@@ -32,9 +36,15 @@ $localvars->set("popular",lists::popular($popularDatabases));
 			<li><span class="facets-header">Types of Databases<span class="facetToggle">+</span></span>
 
 				<ul>
+					<?php if ($alumniDBs) { ?>
 					<li><a href="{local var="databaseHome"}/type/alumni/">Alumni</a><i class="fa fa-angle-right"></i></li>
+					<?php } ?>
+					<?php if ($newDBs) { ?>
 					<li><a href="{local var="databaseHome"}/type/new/">New</a><i class="fa fa-angle-right"></i></li>
+					<?php } ?>
+					<?php if ($trialDBs) { ?>
 					<li><a href="{local var="databaseHome"}/type/trial/">Trial</a><i class="fa fa-angle-right"></i></li>
+					<?php } ?>
 				</ul>
 			</li>
 			<li><span class="facets-header">Resource Types<span class="facetToggle">+</span></span>
