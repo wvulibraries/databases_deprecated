@@ -9,13 +9,15 @@ class resourceTypes {
 		$validate  = validate::getInstance();
 
 		if (!isnull($ID) && $validate->integer($ID)) {
-			$whereClause = sprintf("WHERE `ID`=%s", $ID);
+			$whereClause = sprintf("AND `resourceTypes`.`ID`=%s", $ID);
 		}
 		else {
 			$whereClause = "";
 		}
 
-		$sql       = sprintf("SELECT * FROM `resourceTypes` %s ORDER BY `name`", $whereClause);
+		$sql       = sprintf("SELECT `resourceTypes`.* FROM `resourceTypes` LEFT JOIN `databases_resourceTypes` ON `databases_resourceTypes`.`resourceID`=`resourceTypes`.`ID` LEFT JOIN `dbList` ON `dbList`.`ID`=`databases_resourceTypes`.`dbID` WHERE %s %s ORDER BY `name`", 
+			status::buildSQLStatus(), 
+			$whereClause);
 		$sqlResult = $db->query($sql);
 
 		if ($sqlResult->error()) {
