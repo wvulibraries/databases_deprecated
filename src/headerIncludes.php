@@ -1,3 +1,13 @@
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<link rel="stylesheet" href="/css/2014/webapps.css" type="text/css" media="screen" />
- -->
+<?php
+
+$localvars = localvars::getInstance();
+
+print "<pre>";
+var_dump($_SERVER['REQUEST_URI']);
+print "</pre>";
+
+if (!preg_match("/\/databases\/?(index.php)?$/",$_SERVER['REQUEST_URI'])) {
+	$localvars->set("enableBreadcrumbClicking","breadcrumbClicking");
+}
+
+?>

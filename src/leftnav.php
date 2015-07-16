@@ -38,13 +38,13 @@ $localvars->set("popular",lists::popular($popularDatabases));
 
 				<ul>
 					<?php if ($alumniDBs) { ?>
-					<li><a href="{local var="databaseHome"}/type/alumni/">Alumni</a><i class="fa fa-angle-right"></i></li>
+					<li data-breadcrumb="Alumni" class="{local var="enableBreadcrumbClicking"}"><a href="{local var="databaseHome"}/type/alumni/">Alumni</a><i class="fa fa-angle-right"></i></li>
 					<?php } ?>
 					<?php if ($newDBs) { ?>
-					<li><a href="{local var="databaseHome"}/type/new/">New</a><i class="fa fa-angle-right"></i></li>
+					<li data-breadcrumb="New" class="{local var="enableBreadcrumbClicking"}"><a href="{local var="databaseHome"}/type/new/">New</a><i class="fa fa-angle-right"></i></li>
 					<?php } ?>
 					<?php if ($trialDBs) { ?>
-					<li><a href="{local var="databaseHome"}/type/trial/">Trial</a><i class="fa fa-angle-right"></i></li>
+					<li data-breadcrumb="Trial" class="{local var="enableBreadcrumbClicking"}"><a href="{local var="databaseHome"}/type/trial/">Trial</a><i class="fa fa-angle-right"></i></li>
 					<?php } ?>
 				</ul>
 			</li>

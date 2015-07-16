@@ -220,7 +220,9 @@ class lists {
 
 		foreach ($resourceTypes as $row) {
 
-			$output .= sprintf('<li><a href="%s/resourceTypes/?id=%s&%s">%s</a><i class="fa fa-angle-right"></i></li>',
+			$output .= sprintf('<li data-breadcrumb="%s" class="%s"><a href="%s/resourceTypes/?id=%s&%s">%s</a><i class="fa fa-angle-right"></i></li>',
+				$row['name'],
+				$localvars->get("enableBreadcrumbClicking"),
 				$localvars->get("databaseHome"),
 				$row['ID'],
 				status::build(),
