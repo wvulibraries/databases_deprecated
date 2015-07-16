@@ -214,20 +214,16 @@ class lists {
 		$localvars = localvars::getInstance();
 		$db        = db::get($localvars->get('dbConnectionName'));
 
-		$sql       = "SELECT * FROM resourceTypes ORDER BY name";
-		$sqlResult = $db->query($sql);
-
-		$count      = 0;
-		$ul2        = FALSE;
+		$resourceTypes = resourceTypes::get();
 
 		$output = "<ul>";
 
-		while ($row = $sqlResult->fetch()) {
+		foreach ($resourceTypes as $row) {
 
 			$output .= sprintf('<li><a href="%s/resourceTypes/?id=%s&%s">%s</a><i class="fa fa-angle-right"></i></li>',
 				$localvars->get("databaseHome"),
 				$row['ID'],
-				status::current(),
+				status::build(),
 				$row['name']
 				);
 
