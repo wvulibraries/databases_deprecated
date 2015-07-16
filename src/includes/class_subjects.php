@@ -11,17 +11,20 @@ class subjects {
 		$validate  = validate::getInstance();
 
 		if (!isnull($ID) && $validate->integer($ID)) {
-			$whereClause = sprintf("WHERE `ID`=%s", $ID);
+			$whereClause = sprintf("AND `subjects`.`ID`=%s", $ID);
 		}
 		else {
 			$whereClause = "";
 		}
 
 		$sql       = sprintf("SELECT * FROM `subjects` %s ORDER BY `name`", $whereClause);
+		$sql       = sprintf("SELECT `subjects`.* FROM `subjects` LEFT JOIN `databases_subjects` ON `databases_subjects`.`subjectID`=`subjects`.`ID` LEFT JOIN `dbList` ON `dbList`.`ID`=`databases_subjects`.`dbID` WHERE %s %s ORDER BY `name`", 
+			status::buildSQLStatus(), 
+			$whereClause);
 		$sqlResult = $db->query($sql);
 
 		if ($sqlResult->error()) {
-			errorHandle::newError($sqlResult->errorMsg(), errorHandle::DEBUG);
+			errorHandle::newError(__METHOD__."() - ".$sql, errorHandle::DEBUG);
 			return FALSE;
 		}
 
