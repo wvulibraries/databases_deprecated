@@ -17,7 +17,6 @@ class subjects {
 			$whereClause = "";
 		}
 
-		$sql       = sprintf("SELECT * FROM `subjects` %s ORDER BY `name`", $whereClause);
 		$sql       = sprintf("SELECT `subjects`.* FROM `subjects` LEFT JOIN `databases_subjects` ON `databases_subjects`.`subjectID`=`subjects`.`ID` LEFT JOIN `dbList` ON `dbList`.`ID`=`databases_subjects`.`dbID` WHERE %s %s ORDER BY `name`", 
 			status::buildSQLStatus(), 
 			$whereClause);
