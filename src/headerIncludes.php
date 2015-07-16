@@ -7,3 +7,5 @@ if (!preg_match("/\/databases\/?(index.php)?$/",$_SERVER['REQUEST_URI'])) {
 }
 
 ?>
+
+<script src="{local var="databaseHome"}/javascript/databases.js"></script>
