@@ -2,8 +2,11 @@
 
 $localvars = localvars::getInstance();
 
-$test = '<li><span class="facetLi"><a href="#">All Results</a></span></li>';
-$localvars->set("breadCrumbs","");
+$allResults = sprintf('<li><span class="facetLi"><a href="%s">All Results</a></span></li>',$_SERVER['REQUEST_URI']);
+
+if (!is_empty($localvars->get("enableBreadcrumbClicking"))) {
+	$localvars->set("breadCrumbs",$allResults);
+}
 
 ?>
 
