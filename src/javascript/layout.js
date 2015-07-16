@@ -11,8 +11,8 @@ $(document).ready(function() {
   $("#search-toggle #search-toggle2").addClass("hiding");
   $("#facet-toggle #filter-toggle2").addClass("hiding");  
 
-   facetfun = $('#sidebar').html();
-   messagefun = $('.search-query-form').html();
+	facetfun   = $('#sidebar').html();
+	messagefun = $('.search-query-form').html();
 });
 
 //Help Message Move 
@@ -47,8 +47,8 @@ $(window).bind("load resize", function() {
 $(document).ready(function() {
 
 	var windowh = document.documentElement.clientHeight;
-	var tabbar = $('.sticky-header').height();
-
+	var tabbar  = $('.sticky-header').height();
+	
 	var fheight = windowh - tabbar;
 
     $('.sticky-header-filter-sidebar').css('max-height', fheight);  
@@ -60,8 +60,8 @@ $(document).ready(function() {
 $(window).resize(function(){
 
 	var windowh = document.documentElement.clientHeight;
-	var tabbar = $('.sticky-header').height();
-
+	var tabbar  = $('.sticky-header').height();
+	
 	var fheight = windowh - tabbar;
 
     $('.sticky-header-filter-sidebar').css('max-height', fheight);  
@@ -189,7 +189,7 @@ $(window).load(function() {
 
 	var faceth = $('#sidebar').height();
 	var facetw = $('#sidebar #facets').width();
-	var mainw = $('#main-container .wrap').width();
+	var mainw  = $('#main-container .wrap').width();
 
 	if( $(window).width() < 768) {
   		var flexw = mainw - facetw;
@@ -207,7 +207,7 @@ $(window).resize(function(){
 
 	var faceth = $('#sidebar').height();
 	var facetw = $('#sidebar #facets').width();
-	var mainw = $('#main-container .wrap').width();
+	var mainw  = $('#main-container .wrap').width();
 
 	if( $(window).width() < 768) {
   		var flexw = mainw - facetw;
@@ -224,33 +224,38 @@ $(window).resize(function(){
 // Database Column Resizing
 equalheight = function(container){
 
-var currentTallest = 0,
-     currentRowStart = 0,
-     rowDivs = new Array(),
-     $el,
-     topPosition = 0;
- $(container).each(function() {
+	var currentTallest = 0,
+	currentRowStart    = 0,
+	rowDivs            = new Array(),
+	$el,
+	topPosition        = 0;
 
-   $el = $(this);
-   $($el).height('auto')
-   topPostion = $el.position().top;
+	$(container).each(function() {
 
-   if (currentRowStart != topPostion) {
-     for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
-       rowDivs[currentDiv].height(currentTallest);
-     }
-     rowDivs.length = 0; // empty the array
-     currentRowStart = topPostion;
-     currentTallest = $el.height();
-     rowDivs.push($el);
-   } else {
-     rowDivs.push($el);
-     currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
-  }
-   for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
-     rowDivs[currentDiv].height(currentTallest);
-   }
- });
+		$el = $(this);
+		$($el).height('auto')
+		topPostion = $el.position().top;
+
+		if (currentRowStart != topPostion) {
+	
+			for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+				rowDivs[currentDiv].height(currentTallest);
+			}
+
+			rowDivs.length  = 0; // empty the array
+			currentRowStart = topPostion;
+			currentTallest  = $el.height();
+    		rowDivs.push($el);
+    	} 
+    	else {
+    		rowDivs.push($el);
+    		currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
+    	}
+    	for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+    		rowDivs[currentDiv].height(currentTallest);
+    	}
+    });
+
 }
 
 $(window).load(function() {
