@@ -195,7 +195,7 @@ class lists {
 		$output = "<ul>";
 		foreach ($sArray as $letter => $value) {
 
-			$output .= sprintf('<li><a href="%s/letter/?id=%s&status=%s">%s</a></li>',
+			$output .= sprintf('<li><a href="%s/AtoZ/?id=%s&status=%s">%s</a></li>',
 				$localvars->get("databaseHome"),
 				(($letter == "#")?"num":$letter),
 				status::current(),
