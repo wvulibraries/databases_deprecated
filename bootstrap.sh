@@ -91,7 +91,7 @@ mysql -u root EngineAPI < /tmp/git/engineAPI/sql/EngineAPI.sql
 
 mysql -u root < /vagrant/sql/baseSnapshot.sql
 ## Comment out the following line for a clean, no data, install.
-mysql -u root < /vagrant/sql/databases.sql
+mysql -u root databases < /vagrant/sql/databases.sql
 
 for f in $SQLFILES
 do
