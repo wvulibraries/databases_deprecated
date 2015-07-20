@@ -11,29 +11,6 @@ html, body, form, nav, ul, div {
   text-align: center;
   font-family: "Helvetica Neue", "Helvetica","Roboto", Arial, sans-serif; }
 
-a.button {
-    display: inline-block; 
-  padding: 10px 20px; 
-  text-shadow: 2px 2px 4px #005daa; 
-  border-radius: 5px; 
-  margin: 0 10px 10px 0; 
-  background: #3399ff; 
-  color:#fff; 
-  border-width: 1px 1px 2px; 
-  border-color: #005daa;
-    text-decoration: none;
-    border-style: solid;
-}
-a.button:hover {
-  background: #eeb111; 
-  color: #00447c; 
-  text-shadow: 2px 2px 4px #ffe894; 
-  border-color: #f47b20; 
-  border-width: 1px 1px 2px;
-    text-decoration: none;
-    border-style: solid;
-}
-
 .webapp-header {
   background: url(https://lib.wvu.edu/images/2014/wise.jpg);
   background-size: cover;
@@ -58,7 +35,10 @@ a.button:hover {
         text-decoration: underline; }
 
 #main-container {
-  margin: 40px 0; }
+  margin: 40px 0;
+  display: block;
+  width: 100%;
+  overflow: hidden; }
   #main-container .main-container-alert {
     border: none; }
 
@@ -131,7 +111,17 @@ a.button:hover {
     .sticky-header .tabBar a {
       display: block;
       height: 35px;
-      margin: 10px 0px; }
+      margin: 10px 0; }
+    .sticky-header .tabBar ul {
+      list-style-type: none; }
+      .sticky-header .tabBar ul li ul li a {
+        height: auto;
+        margin: 0;
+        width: auto;
+        display: inline-block; }
+      .sticky-header .tabBar ul li ul li .fa-angle-right {
+        width: auto;
+        display: inline-block; }
 
 /* Toggles */
 .right {
@@ -251,12 +241,20 @@ a.button:hover {
         padding: 10px;
         margin-top: 4px;
         display: inline-block; }
-      .database-content .database-content-facets .database-content-facets-ul li .facetLi a {
+      .database-content .database-content-facets .database-content-facets-ul li .facetLi {
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 4px;
+        display: inline-block;
+        cursor: pointer;
         background: #efefef;
         border-radius: 5px; }
-      .database-content .database-content-facets .database-content-facets-ul li .facetLi .fa-times {
-        color: #a7a9ab;
-        margin-left: 10px; }
+        .database-content .database-content-facets .database-content-facets-ul li .facetLi a {
+          padding: 0;
+          margin-top: 0; }
+        .database-content .database-content-facets .database-content-facets-ul li .facetLi .fa-times {
+          color: #a7a9ab;
+          margin-left: 10px; }
     .database-content .database-content-facets .database-content-facets-ul li:before {
       font-family: "FontAwesome";
       content: "\f105";
@@ -301,8 +299,7 @@ a.button:hover {
       padding: 20px 5%;
       width: 90%;
       overflow: hidden;
-      float: left;
-      width: 100%; }
+      float: left; }
       .database .database-box .database-box-bottom .database-box-bottom-tags {
         list-style-type: none;
         margin: 0;
@@ -342,20 +339,21 @@ a.button:hover {
     text-align: left;
     padding: 5px 15px 5px 20px;
     background: #d2d3d5;
-    font-weight: 300; }
+    font-weight: 300;
+    display: block; }
     #facets ul .facets-header .facetToggle {
       background: #f5f5f5;
       border-radius: 5px;
       float: right;
       padding: 0px 4px; }
-  #facets ul li ul li {
+  #facets ul ul li {
     color: #000;
     text-align: left;
     padding: 5px 20px;
     border-bottom: 1px solid #cfcac6; }
-    #facets ul li ul li .fa-angle-right {
+    #facets ul ul li .fa-angle-right {
       float: right; }
-  #facets ul li ul li:last-child {
+  #facets ul ul li:last-child {
     border-bottom: none; }
 
 .sticky-header-desktop-links {
@@ -377,6 +375,13 @@ a.button:hover {
       .sticky-header-desktop-links li a .fa {
         COLOR: #EAAA00;
         margin-right: 6px; }
+
+.a2z {
+  list-style-type: none; }
+  .a2z li {
+    display: inline-block;
+    float: left;
+    margin-right: 10px; }
 
 /*********************************************************************
 	768px to 1024px
@@ -493,10 +498,7 @@ a.button:hover {
     float: left; }
 
   .database {
-    width: 48%;
-    margin-right: 4%; }
-
-  .database:nth-child(odd) {
-    margin-right: 0; } }
+    width: 46%;
+    margin-right: 4%; } }
 
 /*# sourceMappingURL=styles.css.map */

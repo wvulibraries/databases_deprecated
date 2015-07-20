@@ -39,6 +39,9 @@ html, body, form, nav, ul, div {
  }
 #main-container {
  	margin: 40px 0;
+ 	display: block;
+	width: 100%;
+	overflow: hidden;
  	.main-container-alert {
  		border: none;
  	}
@@ -133,7 +136,26 @@ html, body, form, nav, ul, div {
 		a {
 			display: block;
 			height: 35px;
-			margin: 10px 0px;
+			margin: 10px 0;
+		}
+		ul {
+			list-style-type: none;
+			li {
+				ul {
+					li {
+						a {
+							height: auto;
+							margin: 0;
+							width: auto;
+  							display: inline-block;
+						}
+						.fa-angle-right {
+							width: auto;
+  							display: inline-block;
+						}
+					}
+				}
+			}
 		}
 	}
 }
@@ -272,9 +294,16 @@ html, body, form, nav, ul, div {
 					display: inline-block;
 				}
 				.facetLi {
+					border-radius: 5px;
+					padding: 10px;
+					margin-top: 4px;
+					display: inline-block;
+					cursor: pointer;
+					background: #efefef;
+					border-radius: 5px;
 					a {
-						background: #efefef;
-						border-radius: 5px;
+						padding: 0;
+						margin-top: 0;
 					}
 					.fa-times {
 						color: #a7a9ab;
@@ -337,7 +366,6 @@ html, body, form, nav, ul, div {
 			width: 90%;
 			overflow: hidden;
 			float: left;
-			width: 100%;
 			.database-box-bottom-tags {
 				list-style-type: none;
 				margin: 0;
@@ -387,6 +415,7 @@ html, body, form, nav, ul, div {
 			padding: 5px 15px 5px 20px;
 			background: #d2d3d5;
 			font-weight: 300;
+			display: block;
 			.facetToggle {
 				background: #f5f5f5;
 				border-radius: 5px;
@@ -432,6 +461,14 @@ html, body, form, nav, ul, div {
 				margin-right: 6px;
 			}
 		}
+	}
+}
+.a2z {
+	list-style-type: none;
+	li {
+		display: inline-block;
+		float: left; 
+		margin-right: 10px;
 	}
 }
 
@@ -577,11 +614,7 @@ html, body, form, nav, ul, div {
 		}
 	}		
 	.database {
-		width: 48%;
+		width: 46%;
 		margin-right: 4%;
 	}
-	.database:nth-child(odd) {
-		margin-right: 0;
-	}		
-
 } 

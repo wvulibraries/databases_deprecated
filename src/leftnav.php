@@ -29,12 +29,12 @@ $localvars->set("popular",lists::popular($popularDatabases));
 		<ul>
 			<?php if (count($popularDatabases)) { ?>
 			<li>
-				<span class="facets-header">Start Here / Top Picks<span class="facetToggle">+</span></span>
+				<span id="f1" class="facets-header">Librarian Top Picks<span class="facetToggle">+</span></span>
 				{local var="popular"}
 			</li>
 			<?php } ?>
 			<?php if ($alumniDBs || $newDBs || $trialDBs) { ?>
-			<li><span class="facets-header">Types of Databases<span class="facetToggle">+</span></span>
+			<li><span id="f2" class="facets-header">Types of Databases<span class="facetToggle">+</span></span>
 
 				<ul>
 					<?php if ($alumniDBs) { ?>
@@ -49,7 +49,7 @@ $localvars->set("popular",lists::popular($popularDatabases));
 				</ul>
 			</li>
 			<?php } ?>
-			<li><span class="facets-header">Resource Types<span class="facetToggle">+</span></span>
+			<li><span id="f1" class="facets-header">Resource Types<span class="facetToggle">+</span></span>
 
 				{local var="resourceTypes"}
 			</li>

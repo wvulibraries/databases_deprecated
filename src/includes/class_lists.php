@@ -192,7 +192,7 @@ class lists {
 			$countTotal++;
 		}
 
-		$output = "<ul>";
+		$output = "<div style='clear:both;'></div><ul class='a2z'>";
 		foreach ($sArray as $letter => $value) {
 
 			$output .= sprintf('<li><a href="%s/AtoZ/?id=%s&status=%s">%s</a></li>',
@@ -203,7 +203,7 @@ class lists {
 				);
 
 		}
-		$output .= "</ul>";
+		$output .= "</ul><div style='clear:both;'></div>";
 
 		return $output;
 

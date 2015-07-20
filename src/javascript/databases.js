@@ -57,6 +57,10 @@ function updateVisibleDatabases() {
 		$(".database").show();
 	}
 
+	equalheight('.database-res');
+
+	equalheight('.database-resize');
+
 	return;
 	
 }

@@ -36,9 +36,19 @@ $(window).bind("load resize", function() {
 
 	if( $(window).width() < 768) {
   		$('.sticky-header-filter-sidebar').html(facetfun);
+  		
+  		$(".facets-header").click(function() {
+    		$(this).next("ul").slideToggle("fast");
+    		console.log('test 2');
+    	});
 	}
   	else { 
   		$('#sidebar').html(facetfun);
+  		
+  		$(".facets-header").click(function() {
+    		$(this).next("ul").slideToggle("fast");
+    		console.log('test');
+    	});
 	} 
 });
 
@@ -69,21 +79,14 @@ $(window).resize(function(){
 
 });
 
+
+
 // Mobile WVU Nav
 $(function () {
 	$("#wvutoggle").click(function () {		
 		$(".list").slideToggle("fast");
 		$("#wvutoggle .fa-chevron-up").toggleClass("hiding");
 		$("#wvutoggle .fa-chevron-down").toggleClass("hiding");
-	});
-});
-
-// Mobile WVRHC Nav
-$(function () {
-	$("#wvrhctoggle").click(function () {		
-		$(".list2").slideToggle("fast");
-		$("#wvrhctoggle .fa-chevron-up").toggleClass("hiding");
-		$("#wvrhctoggle .fa-chevron-down").toggleClass("hiding");
 	});
 });
 
@@ -256,8 +259,14 @@ equalheight = function(container){
     	}
     });
 
+    console.log("working");
+
 }
 
+$(document).ready(function() {
+  equalheight('.database-res');
+});
+
 $(window).load(function() {
   equalheight('.database-res');
 });
@@ -270,6 +279,12 @@ $(window).load(function() {
   equalheight('.database-resize');
 });
 
+$(document).ready(function() {
+  equalheight('.database-resize');
+});
+
 $(window).resize(function(){
   equalheight('.database-resize');
 });
+
+
