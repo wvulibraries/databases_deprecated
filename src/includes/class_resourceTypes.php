@@ -15,7 +15,7 @@ class resourceTypes {
 			$whereClause = "";
 		}
 
-		$sql       = sprintf("SELECT `resourceTypes`.* FROM `resourceTypes` LEFT JOIN `databases_resourceTypes` ON `databases_resourceTypes`.`resourceID`=`resourceTypes`.`ID` LEFT JOIN `dbList` ON `dbList`.`ID`=`databases_resourceTypes`.`dbID` WHERE %s %s ORDER BY `name`", 
+		$sql       = sprintf("SELECT DISTINCT `resourceTypes`.* FROM `resourceTypes` LEFT JOIN `databases_resourceTypes` ON `databases_resourceTypes`.`resourceID`=`resourceTypes`.`ID` LEFT JOIN `dbList` ON `dbList`.`ID`=`databases_resourceTypes`.`dbID` WHERE %s %s ORDER BY `name`", 
 			status::buildSQLStatus(), 
 			$whereClause);
 		$sqlResult = $db->query($sql);
