@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 
 # Base PRE Setup
 
