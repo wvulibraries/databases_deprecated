@@ -43,7 +43,7 @@ function updateVisibleDatabases() {
 		$(".database").hide();
 
 		// show only the databases associated with active facets
-		var classes = activeFacets.join(" ");
+		var classes = activeFacets.join(".");
 
 		$("."+classes).show();
 	}
