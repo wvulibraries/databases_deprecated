@@ -6,6 +6,11 @@ $(function() {
 
 function handler_breadcrumbClicking() {
 
+	// Check to see if we already added it to the facets list. If so, ignore it.
+	if ($('*[data-breadcrumb-facet="'+$(this).attr("data-breadcrumb")+'"]').length > 0) {
+		return false;
+	}
+
 	var breadcrumb = '<li class="breadcrumb-facet" data-breadcrumb-facet="'+$(this).attr("data-breadcrumb")+'"><span class="facetLi">'+$(this).attr("data-breadcrumb")+'<i class="fa fa-times"></i></span></li>';
 
 	$( breadcrumb ).appendTo(".database-content-facets-ul");
