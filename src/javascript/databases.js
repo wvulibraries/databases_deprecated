@@ -191,7 +191,8 @@ function updatePageMin() {
 }
 
 function updateNextButton() {
-	if ($(getCurrentSelector()).length <= databasesPerPage) {
+	if ($(getCurrentSelector()).length <= databasesPerPage ||
+		currentPagingMax >= $(getCurrentSelector()).length) {
 		$(".pagingNext").addClass("disabledPaginButton");
 	}
 	else {
