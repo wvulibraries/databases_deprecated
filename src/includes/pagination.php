@@ -1,0 +1,1 @@
+<a href="#">« Previous</a> | <span class="database-content-paging-pages">1 - 100 of 200</span> | <a href="#">Next »</a>
