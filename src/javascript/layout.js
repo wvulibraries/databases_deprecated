@@ -266,8 +266,6 @@ equalheight = function(container){
     	}
     });
 
-    console.log("working");
-
 }
 
 $(document).ready(function() {
