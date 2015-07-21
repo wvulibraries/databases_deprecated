@@ -95,7 +95,10 @@ function hideInitialDataSet() {
 function showDatabasePageSet() {
 
 	$(".database").hide();
-	$(getCurrentSelector()+":lt("+(databasesPerPage)+")").show();
+	$(getCurrentSelector()+":gt("+currentPagingMin+"):lt("+currentPagingMax+")").show();
+
+	updatePagingCounts();
+	
 	equalizeHieghts();
 }
 
