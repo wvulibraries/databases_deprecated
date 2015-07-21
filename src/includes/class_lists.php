@@ -65,7 +65,11 @@ class lists {
 
 		foreach ($localvars->get("databaseTagTypes") as $I=>$V) {
 			if ($database[$I]  == 1) {
-				$output .= sprintf('<li><a href="#">%s</a></li>', $V);
+				$output .= sprintf('<li><a href="%s/%s/">%s</a></li>', 
+					$localvars->get('databaseHome'),
+					strtolower($V),
+					$V
+					);
 			}
 		}
 		
@@ -77,7 +81,13 @@ class lists {
 		usort($tags,function($a,$b){return strcmp($a['name'], $b['name']);});
 
 		foreach ($tags as $tag) {
-			$output .= sprintf('<li><a href="#">%s</a></li>', $tag['name']);
+
+			$output .= sprintf('<li><a href="%s/%s/?id=%s">%s</a></li>',
+				$localvars->get('databaseHome'),
+				(isset($tag['resourceID']))?"resourceTypes":"subjects",
+				(isset($tag['resourceID']))?$tag['resourceID']:$tag['subjectID'],
+				$tag['name']
+				);
 		}
 
 		return $output;
