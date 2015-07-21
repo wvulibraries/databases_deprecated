@@ -44,13 +44,14 @@ function handler_destroy_breadcrumb() {
 }
 
 function handler_nextPage() {
-	currentPagingMax += 10;
-	currentPagingMin += 10;
-	currentPage++;
+	currentPagingMax += databasesPerPage;
 
-	var currentSelector = getCurrentSelector();
-	if (currentPagingMax > $(currentSelector).length) {
-		currentPagingMax = $(currentSelector).length;
+	if (currentPagingMax > $(getCurrentSelector()).length) {
+		currentPagingMax = $(getCurrentSelector()).length;
+	}
+	else {
+		currentPagingMin += databasesPerPage;
+		currentPage++;
 	}
 
 	showDatabasePageSet();
@@ -58,16 +59,16 @@ function handler_nextPage() {
 
 function handler_prevPage() {
 
-	currentPagingMax -= 10;
-	currentPagingMin -= 10;
-	currentPage--;
+	currentPagingMin -= databasesPerPage;
 
-	if (currentPagingMax < databasesPerPage) {
-		currentPagingMax = databasesPerPage;
-	}
 	if (currentPagingMin < 1) {
 		currentPagingMin = 1;
 	}
+	else {
+		currentPagingMax -= databasesPerPage;
+		currentPage--;
+	}
+
 	if (currentPage < 1) {
 		currentPage = 1;
 	}
