@@ -1,7 +1,19 @@
+var databasesPerPage = 10;
+var currentPagingMax = 10;
+var currentPagingMin = 1;
+var currentPage      = 1;
+
 $(function() {
 	$(document)
 		.on('click',  '.breadcrumbClicking',   handler_breadcrumbClicking)
 		.on('click',  '.breadcrumb-facet',     handler_destroy_breadcrumb)
+		.on('click',  '.pagingNext',           handler_nextPage)
+		.on('click',  '.pagingPrevious',       handler_prevPage)
+});
+
+$(document).ready(function() {
+	updatePagingCounts();
+	hideInitialDataSet();
 });
 
 function handler_breadcrumbClicking() {
@@ -31,6 +43,19 @@ function handler_destroy_breadcrumb() {
 
 }
 
+function handler_nextPage() {
+
+}
+
+function handler_prevPage() {
+
+}
+
+function hideInitialDataSet() {
+	$(".database:gt(9)").hide();
+	return;
+}
+
 function updateVisibleDatabases() {
 
 	var activeFacets = [];
@@ -58,9 +83,53 @@ function updateVisibleDatabases() {
 	}
 
 	equalheight('.database-res');
-
 	equalheight('.database-resize');
+
+	updatePagingCounts();
 
 	return;
 	
+}
+
+function updatePagingCounts() {
+	updateTotalDatabases();
+	updatePageMax();
+	updatePageMin();
+
+	updateNextButton();
+	updatePrevButton();
+}
+
+function updateTotalDatabases() {
+	var totalDatabases = $(".database:visible").length;
+	$(".totalResults").html(totalDatabases);
+	return;
+}
+
+function updatePageMax() {
+	$(".endResult").html(currentPagingMax);
+}
+
+function updatePageMin() {
+	$(".beginningResult").html(currentPagingMin);
+}
+
+function updateNextButton() {
+	if ($(".database:visible").length <= databasesPerPage ||
+		currentPagingMax >= databasesPerPage) {
+		$(".pagingNext").addClass("disabledPaginButton");
+	}
+	else {
+		$(".pagingNext").removeClass("disabledPaginButton");
+	}
+	return;
+}
+
+function updatePrevButton() {
+	if (currentPage == 1) {
+		$(".pagingPrevious").addClass("disabledPaginButton");
+	}
+	else {
+		$(".pagingPrevious").removeClass("disabledPaginButton");
+	}
 }

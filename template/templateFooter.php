@@ -1,9 +1,9 @@
                     <div style="clear:both;"></div>
 
                     <!-- Bottom Paging -->
-<!--                     <div class="database-content-paging bottom">
-                        <a href="#">« Previous</a> | <span class="database-content-paging-pages">1 - 10 of 200</span> | <a href="#">Next »</a>
-                    </div> -->
+                    <div class="database-content-paging bottom">
+                        <?php recurseInsert("includes/pagination.php","php"); ?>
+                    </div>
 
                     <div style="clear:both;"></div>
 

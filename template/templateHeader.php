@@ -177,8 +177,8 @@
                     <?php recurseInsert("includes/breadcrumbs.php","php"); ?>
 
                     <!-- Top Paging -->
-                     <div class="database-content-paging right">
-                        <a href="#">« Previous</a> | <span class="database-content-paging-pages">1 - 10 of 200</span> | <a href="#">Next »</a>
+                    <div class="database-content-paging right">
+                        <?php recurseInsert("includes/pagination.php","php"); ?>
                     </div> 
 
                     <div style="clear:both;"></div>
