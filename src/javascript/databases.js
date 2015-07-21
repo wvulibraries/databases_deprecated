@@ -153,6 +153,11 @@ function updateVisibleDatabases() {
 }
 
 function updatePagingCounts() {
+
+	if ($(getCurrentSelector()).length < databasesPerPage) {
+		currentPagingMax = $(getCurrentSelector()).length;
+	}
+
 	updateTotalDatabases();
 	updatePageMax();
 	updatePageMin();
