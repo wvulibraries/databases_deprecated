@@ -226,7 +226,7 @@ $(window).resize(function(){
 
 });
 
-function equalizeHeights() {
+function equalizeHieghts() {
 	equalheight('.database-res');
 	equalheight('.database-resize');
 }
