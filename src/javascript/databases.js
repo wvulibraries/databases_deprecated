@@ -1,10 +1,13 @@
 var databasesPerPage = 10;
 var currentPagingMax = 0;
+var currentPage      = 1;
 
 $(function() {
 	$(document)
 		.on('click',  '.breadcrumbClicking',   handler_breadcrumbClicking)
 		.on('click',  '.breadcrumb-facet',     handler_destroy_breadcrumb)
+		.on('click',  '.pagingNext',           handler_nextPage)
+		.on('click',  '.pagingPrevious',       handler_prevPage)
 });
 
 $(document).ready(function() {
@@ -36,6 +39,14 @@ function handler_destroy_breadcrumb() {
 
 	return false;
 
+}
+
+function handler_nextPage() {
+
+}
+
+function handler_prevPage() {
+	
 }
 
 function updateVisibleDatabases() {
