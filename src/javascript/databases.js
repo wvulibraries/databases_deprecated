@@ -44,6 +44,11 @@ function handler_destroy_breadcrumb() {
 }
 
 function handler_nextPage() {
+
+	if ($(".pagingNext").hasClass("disabledPaginButton")) {
+		return;
+	}
+
 	currentPagingMax += databasesPerPage;
 
 	if (currentPagingMax > $(getCurrentSelector()).length) {
@@ -59,6 +64,10 @@ function handler_nextPage() {
 }
 
 function handler_prevPage() {
+
+	if ($(".pagingPrevious").hasClass("disabledPaginButton")) {
+		return;
+	}
 
 	currentPagingMin -= databasesPerPage;
 
@@ -182,7 +191,7 @@ function updatePageMin() {
 }
 
 function updateNextButton() {
-	if ($(".database:visible").length <= databasesPerPage ||
+	if ($(getCurrentSelector()).length <= databasesPerPage ||
 		currentPagingMax >= databasesPerPage) {
 		$(".pagingNext").addClass("disabledPaginButton");
 	}
