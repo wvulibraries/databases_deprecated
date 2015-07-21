@@ -44,16 +44,68 @@ function handler_destroy_breadcrumb() {
 }
 
 function handler_nextPage() {
+	currentPagingMax += 10;
+	currentPagingMin += 10;
+	currentPage++;
 
+	var currentSelector = getCurrentSelector();
+	if (currentPagingMax > $(currentSelector).length) {
+		currentPagingMax = $(currentSelector).length;
+	}
+
+	showDatabasePageSet();
 }
 
 function handler_prevPage() {
 
+	currentPagingMax -= 10;
+	currentPagingMin -= 10;
+	currentPage--;
+
+	if (currentPagingMax > databasesPerPage) {
+		currentPagingMax = databasesPerPage;
+	}
+	if (currentPagingMin < 1) {
+		currentPagingMin = 1;
+	}
+	if (currentPage < 1) {
+		currentPage = 1;
+	}
+
+	showDatabasePageSet();
+
 }
 
 function hideInitialDataSet() {
-	$(".database:gt(9)").hide();
+
+	setInitialVars();
+
+	// Hide all the databases
+	$(".database").hide();
+
+	// show only the 1st ten databases (all or facetted)
+	$(getCurrentSelector()+":lt("+(databasesPerPage)+")").show();
+
+	// Resize everything
+	equalizeHieghts();
+
 	return;
+}
+
+function showDatabasePageSet() {
+
+	$(".database").hide();
+	$(getCurrentSelector()+":lt("+(databasesPerPage)+")").show();
+	equalizeHieghts();
+}
+
+function setInitialVars() {
+
+	databasesPerPage = 10;
+	currentPagingMax = 10;
+	currentPagingMin = 1;
+	currentPage      = 1;
+
 }
 
 function updateVisibleDatabases() {
@@ -62,29 +114,26 @@ function updateVisibleDatabases() {
 
 	// get all the active facets
 	$(".breadcrumb-facet").each(function() {
-
 		activeFacets.push($(this).attr("data-breadcrumb-facet"));
-
 	});
+
+	// remove facetDisplay from all databases
+	$(".database").removeClass("facetDisplay");
 
 	// if there is 1 or more active facets
 	if (activeFacets.length > 0) {
-		// hide all the databases
-		$(".database").hide();
-
 		// show only the databases associated with active facets
 		var classes = activeFacets.join(".");
 
-		$("."+classes).show();
-	}
-	else {
-		// show all databases
-		$(".database").show();
+		// Add the "facetDisplay" class to all the databases that have all the 
+		// requested facets
+		$("."+classes).addClass("facetDisplay");
 	}
 
-	equalheight('.database-res');
-	equalheight('.database-resize');
+	// Because the facets changed, reset to page 1 and reload as a new page
+	hideInitialDataSet();
 
+	// Update the pagination
 	updatePagingCounts();
 
 	return;
@@ -101,7 +150,8 @@ function updatePagingCounts() {
 }
 
 function updateTotalDatabases() {
-	var totalDatabases = $(".database:visible").length;
+
+	var totalDatabases = $(getCurrentSelector()).length;
 	$(".totalResults").html(totalDatabases);
 	return;
 }
@@ -132,4 +182,14 @@ function updatePrevButton() {
 	else {
 		$(".pagingPrevious").removeClass("disabledPaginButton");
 	}
+}
+
+function getCurrentSelector() {
+
+	if ($(".facetDisplay").length > 0) {
+		return ".facetDisplay";
+	}
+
+	return ".database";
+
 }
