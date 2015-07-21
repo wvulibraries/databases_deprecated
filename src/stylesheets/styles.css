@@ -409,6 +409,16 @@ html, body, form, nav, ul, div {
     .subjectDiv .subjectDivList li {
       line-height: 150%; }
 
+.infoBlock {
+  text-align: left; }
+  .infoBlock .infoKey {
+    text-align: left; }
+    .infoBlock .infoKey .boldText {
+      font-weight: bold; }
+  .infoBlock .infoKeyInfo {
+    text-align: left;
+    margin-bottom: 20px; }
+
 /*********************************************************************
 	768px to 1024px
 **********************************************************************/

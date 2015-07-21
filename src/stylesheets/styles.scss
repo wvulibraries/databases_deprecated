@@ -499,6 +499,19 @@ html, body, form, nav, ul, div {
 		}
 	}
 }
+.infoBlock {
+	text-align: left;
+	.infoKey {
+		text-align: left;
+		.boldText {
+			font-weight: bold;
+		}
+	}
+	.infoKeyInfo {
+		text-align: left;
+		margin-bottom: 20px;
+	}
+}
 
 /*********************************************************************
 	768px to 1024px
