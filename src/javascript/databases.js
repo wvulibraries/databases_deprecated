@@ -95,3 +95,12 @@ function updateNextButton() {
 	}
 	return;
 }
+
+function updatePrevButton() {
+	if (currentPage == 1) {
+		$(".pagingPrevious").addClass("disabledPaginButton");
+	}
+	else {
+		$(".pagingPrevious").removeClass("disabledPaginButton");
+	}
+}
