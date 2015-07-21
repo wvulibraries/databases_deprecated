@@ -1,1 +1,1 @@
-<a href="#">« Previous</a> | <span class="database-content-paging-pages">1 - 100 of 200</span> | <a href="#">Next »</a>
+<span class="pagingPrevious" data-previous="">« Previous</span> | <span class="database-content-paging-pages"><span class="beginningResult">x</span> - <span class="endResult">y</span> of <span class="totalResults">z</span></span> | <span class="pagingNext" data-next="">Next »</span>

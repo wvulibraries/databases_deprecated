@@ -4,6 +4,10 @@ $(function() {
 		.on('click',  '.breadcrumb-facet',     handler_destroy_breadcrumb)
 });
 
+$(document).ready(function() {
+	updatePagingCounts();
+});
+
 function handler_breadcrumbClicking() {
 
 	// Check to see if we already added it to the facets list. If so, ignore it.
@@ -58,9 +62,20 @@ function updateVisibleDatabases() {
 	}
 
 	equalheight('.database-res');
-
 	equalheight('.database-resize');
+
+	updatePagingCounts();
 
 	return;
 	
+}
+
+function updatePagingCounts() {
+	updateTotalDatabases();
+}
+
+function updateTotalDatabases() {
+	var totalDatabases = $(".database:visible").length;
+	$(".totalResults").html(totalDatabases);
+	return;
 }
