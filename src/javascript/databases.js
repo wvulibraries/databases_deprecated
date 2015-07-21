@@ -48,6 +48,7 @@ function handler_nextPage() {
 
 	if (currentPagingMax > $(getCurrentSelector()).length) {
 		currentPagingMax = $(getCurrentSelector()).length;
+		currentPagingMin = (currentPagingMin+databasesPerPage > currentPagingMax)?currentPagingMax:currentPagingMin+databasesPerPage;
 	}
 	else {
 		currentPagingMin += databasesPerPage;
@@ -71,6 +72,13 @@ function handler_prevPage() {
 
 	if (currentPage < 1) {
 		currentPage = 1;
+	}
+
+	if (currentPagingMax > databasesPerPage && currentPagingMax % databasesPerPage != 0) {
+		currentPagingMax += databasesPerPage - (currentPagingMax % databasesPerPage);
+	}
+	else if ($(getCurrentSelector()).length < databasesPerPage) {
+		currentPagingMax = $(getCurrentSelector()).length;
 	}
 
 	showDatabasePageSet();
