@@ -316,7 +316,21 @@ html, body, form, nav, ul, div {
           margin: 0 4px;
           color: #bfb7af; }
 
+/* Admin */
+.formFields {
+  text-align: left; }
+
 /* Facets */
+#facets > ul > li > a {
+  padding: 5px 20px;
+  display: block; }
+
+#facets > ul > li:nth-child(3) > span {
+  border-bottom: none; }
+
+#facets > ul > li > ul {
+  display: none; }
+
 #facets {
   width: 90%;
   text-align: left;
@@ -334,27 +348,29 @@ html, body, form, nav, ul, div {
     font-size: 16pt;
     font-weight: 300;
     color: #6d6159; }
-  #facets ul .facets-header {
-    color: #404041;
-    text-align: left;
-    padding: 5px 15px 5px 20px;
-    background: #d2d3d5;
-    font-weight: 300;
-    display: block; }
-    #facets ul .facets-header .facetToggle {
-      background: #f5f5f5;
-      border-radius: 5px;
-      float: right;
-      padding: 0px 4px; }
-  #facets ul ul li {
-    color: #000;
-    text-align: left;
-    padding: 5px 20px;
-    border-bottom: 1px solid #cfcac6; }
-    #facets ul ul li .fa-angle-right {
-      float: right; }
-  #facets ul ul li:last-child {
-    border-bottom: none; }
+  #facets ul {
+    list-style-type: none;
+    text-align: left; }
+    #facets ul .facets-header {
+      color: #404041;
+      text-align: left;
+      padding: 5px 15px 5px 20px;
+      background: #d2d3d5;
+      font-weight: 300;
+      display: block;
+      cursor: pointer;
+      border-bottom: 1px #F5F5F5 solid; }
+      #facets ul .facets-header .facetToggle {
+        float: right; }
+    #facets ul ul li {
+      color: #000;
+      text-align: left;
+      padding: 5px 20px;
+      border-bottom: 1px solid #cfcac6; }
+      #facets ul ul li .fa-angle-right {
+        float: right; }
+    #facets ul ul li:last-child {
+      border-bottom: none; }
 
 .sticky-header-desktop-links {
   display: none;
@@ -383,10 +399,33 @@ html, body, form, nav, ul, div {
     float: left;
     margin-right: 10px; }
 
+.subjectDiv {
+  text-align: left; }
+  .subjectDiv .subjectDivList {
+    list-style-type: none;
+    text-align: left;
+    padding: 0;
+    margin: 0; }
+    .subjectDiv .subjectDivList li {
+      line-height: 150%; }
+
+.infoBlock {
+  text-align: left; }
+  .infoBlock .infoKey {
+    text-align: left; }
+    .infoBlock .infoKey .boldText {
+      font-weight: bold; }
+  .infoBlock .infoKeyInfo {
+    text-align: left;
+    margin-bottom: 20px; }
+
 /*********************************************************************
 	768px to 1024px
 **********************************************************************/
 @media screen and (min-width: 768px) {
+  #facets > ul > li > ul {
+    display: block; }
+
   .sticky-header-desktop-links {
     display: block; }
 

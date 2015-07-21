@@ -389,7 +389,22 @@ html, body, form, nav, ul, div {
 	}
 }
 
+/* Admin */
+.formFields {
+	text-align: left;
+}
+
 /* Facets */
+#facets > ul > li > a {
+	padding: 5px 20px;
+	display: block;
+}
+#facets > ul > li:nth-child(3) > span {
+	border-bottom: none;
+}
+#facets > ul > li > ul {
+	display:none;
+}
 #facets {
   	width: 90%;
 	text-align: left;
@@ -409,6 +424,8 @@ html, body, form, nav, ul, div {
 		color: #6d6159;
 	}
 	ul {
+		list-style-type: none;
+		text-align: left;
 		.facets-header {
 			color: #404041;
 			text-align: left;
@@ -416,11 +433,10 @@ html, body, form, nav, ul, div {
 			background: #d2d3d5;
 			font-weight: 300;
 			display: block;
+			cursor: pointer;
+			border-bottom: 1px #F5F5F5 solid;
 			.facetToggle {
-				background: #f5f5f5;
-				border-radius: 5px;
 				float: right;
-				padding: 0px 4px;
 			}
 		}
 		ul {
@@ -471,11 +487,39 @@ html, body, form, nav, ul, div {
 		margin-right: 10px;
 	}
 }
+.subjectDiv {
+	text-align: left;
+	.subjectDivList {
+		list-style-type: none;
+		text-align: left;
+		padding: 0;
+		margin: 0;
+		li {
+			line-height: 150%;
+		}
+	}
+}
+.infoBlock {
+	text-align: left;
+	.infoKey {
+		text-align: left;
+		.boldText {
+			font-weight: bold;
+		}
+	}
+	.infoKeyInfo {
+		text-align: left;
+		margin-bottom: 20px;
+	}
+}
 
 /*********************************************************************
 	768px to 1024px
 **********************************************************************/
 @media screen and (min-width: 768px) {
+	#facets > ul > li > ul {
+		display:block;
+	}
 	.sticky-header-desktop-links {
 		display: block;
 	}
