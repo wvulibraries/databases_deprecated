@@ -201,7 +201,7 @@ function updateNextButton() {
 }
 
 function updatePrevButton() {
-	if (currentPage == 1) {
+	if (currentPagingMin <= 1) {
 		$(".pagingPrevious").addClass("disabledPaginButton");
 	}
 	else {
