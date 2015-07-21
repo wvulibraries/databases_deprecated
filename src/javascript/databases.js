@@ -62,7 +62,7 @@ function handler_prevPage() {
 	currentPagingMin -= 10;
 	currentPage--;
 
-	if (currentPagingMax > databasesPerPage) {
+	if (currentPagingMax < databasesPerPage) {
 		currentPagingMax = databasesPerPage;
 	}
 	if (currentPagingMin < 1) {
