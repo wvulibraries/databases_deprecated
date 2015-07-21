@@ -473,6 +473,18 @@ html, body, form, nav, ul, div {
 		margin-right: 10px;
 	}
 }
+.subjectDiv {
+	text-align: left;
+	.subjectDivList {
+		list-style-type: none;
+		text-align: left;
+		padding: 0;
+		margin: 0;
+		li {
+			line-height: 150%;
+		}
+	}
+}
 
 /*********************************************************************
 	768px to 1024px
