@@ -38,8 +38,6 @@ templates::display('header');
 
 {local var="prettyPrint"}
 
-<h3>{local var="databaseHeading"} Databases</h3>
-
 {local var="databases"}
 
 <!-- Page Content Goes Above This Line -->

@@ -40,8 +40,6 @@ templates::display('header');
 
 {local var="prettyPrint"}
 
-<h3 id="subjectHeading">{local var="databaseHeading"} Databases</h3>
-
 <div style="clear:both;"></div>
 <a href="{local var="subjectGuideLink"}" class="button">Subject Guide</a>
 <div style="clear:both;"></div>
