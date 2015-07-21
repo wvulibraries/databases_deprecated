@@ -1,3 +1,6 @@
+var databasesPerPage = 10;
+var currentPagingMax = 0;
+
 $(function() {
 	$(document)
 		.on('click',  '.breadcrumbClicking',   handler_breadcrumbClicking)
@@ -72,10 +75,23 @@ function updateVisibleDatabases() {
 
 function updatePagingCounts() {
 	updateTotalDatabases();
+
+	updateNextButton();
 }
 
 function updateTotalDatabases() {
 	var totalDatabases = $(".database:visible").length;
 	$(".totalResults").html(totalDatabases);
+	return;
+}
+
+function updateNextButton() {
+	if ($(".database:visible").length <= databasesPerPage ||
+		currentPagingMax >= databasesPerPage) {
+		$(".pagingNext").addClass("disabledPaginButton");
+	}
+	else {
+		$(".pagingNext").removeClass("disabledPaginButton");
+	}
 	return;
 }
