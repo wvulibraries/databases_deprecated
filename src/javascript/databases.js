@@ -1,5 +1,6 @@
 var databasesPerPage = 10;
-var currentPagingMax = 0;
+var currentPagingMax = 10;
+var currentPagingMin = 1;
 var currentPage      = 1;
 
 $(function() {
@@ -12,6 +13,7 @@ $(function() {
 
 $(document).ready(function() {
 	updatePagingCounts();
+	hideInitialDataSet();
 });
 
 function handler_breadcrumbClicking() {
@@ -46,7 +48,12 @@ function handler_nextPage() {
 }
 
 function handler_prevPage() {
-	
+
+}
+
+function hideInitialDataSet() {
+	$(".database:gt(9)").hide();
+	return;
 }
 
 function updateVisibleDatabases() {
@@ -86,14 +93,25 @@ function updateVisibleDatabases() {
 
 function updatePagingCounts() {
 	updateTotalDatabases();
+	updatePageMax();
+	updatePageMin();
 
 	updateNextButton();
+	updatePrevButton();
 }
 
 function updateTotalDatabases() {
 	var totalDatabases = $(".database:visible").length;
 	$(".totalResults").html(totalDatabases);
 	return;
+}
+
+function updatePageMax() {
+	$(".endResult").html(currentPagingMax);
+}
+
+function updatePageMin() {
+	$(".beginningResult").html(currentPagingMin);
 }
 
 function updateNextButton() {
