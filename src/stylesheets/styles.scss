@@ -393,6 +393,9 @@ html, body, form, nav, ul, div {
 #facets > ul > li:nth-child(3) > span {
 	border-bottom: none;
 }
+#facets > ul > li > ul {
+	display:none;
+}
 #facets {
   	width: 90%;
 	text-align: left;
@@ -490,6 +493,9 @@ html, body, form, nav, ul, div {
 	768px to 1024px
 **********************************************************************/
 @media screen and (min-width: 768px) {
+	#facets > ul > li > ul {
+		display:block;
+	}
 	.sticky-header-desktop-links {
 		display: block;
 	}
