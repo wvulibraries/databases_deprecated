@@ -317,6 +317,9 @@ html, body, form, nav, ul, div {
           color: #bfb7af; }
 
 /* Facets */
+#facets > ul > li:nth-child(3) > span {
+  border-bottom: none; }
+
 #facets {
   width: 90%;
   text-align: left;
@@ -340,12 +343,11 @@ html, body, form, nav, ul, div {
     padding: 5px 15px 5px 20px;
     background: #d2d3d5;
     font-weight: 300;
-    display: block; }
+    display: block;
+    cursor: pointer;
+    border-bottom: 1px #F5F5F5 solid; }
     #facets ul .facets-header .facetToggle {
-      background: #f5f5f5;
-      border-radius: 5px;
-      float: right;
-      padding: 0px 4px; }
+      float: right; }
   #facets ul ul li {
     color: #000;
     text-align: left;

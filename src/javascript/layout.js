@@ -39,7 +39,8 @@ $(window).bind("load resize", function() {
   		
   		$(".facets-header").click(function() {
     		$(this).next("ul").slideToggle("fast");
-    		console.log('test 2');
+    		$(this).children(".ftMinus").toggleClass("hiding");
+    		$(this).children(".ftPlus").toggleClass("hiding");
     	});
 	}
   	else { 
@@ -47,7 +48,8 @@ $(window).bind("load resize", function() {
   		
   		$(".facets-header").click(function() {
     		$(this).next("ul").slideToggle("fast");
-    		console.log('test');
+    		$(this).children(".ftMinus").toggleClass("hiding");
+    		$(this).children(".ftPlus").toggleClass("hiding");
     	});
 	} 
 });
