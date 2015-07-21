@@ -224,6 +224,11 @@ $(window).resize(function(){
 
 });
 
+function equalizeHeights() {
+	equalheight('.database-res');
+	equalheight('.database-resize');
+}
+
 // Database Column Resizing
 equalheight = function(container){
 
