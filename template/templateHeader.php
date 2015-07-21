@@ -192,20 +192,3 @@
                         <i class="fa fa-th-large"></i>
                     </div>
                     <div style="clear:both;"></div>
-
-                    <!-- Databases -->
-<!--                     <div class="database">
-                        <div class="database-box">
-                            <div class="database-box-top database-resize">
-                                <h3>AccessScience: McGraw-Hill Encyclopedia of Science and Technology</h3>
-                                <p>A science and technology encyclopedia containing more than 8,000 articles written by the leading figures in their fields, including 30 Nobel Prize winners, and edited and illustrated with the non-specialist in mind.... <span class="moreLink">[ <a href="#">More Information</a> ]</span></p>
-                            </div>
-                            <div class="database-box-bottom database-res">
-                                <ul class="database-box-bottom-tags">
-                                    <li><a href="#">Full Text</a></li>
-                                    <li><a href="#">New</a></li>
-                                    <li><a href="#">Encyclopedia</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div> -->
