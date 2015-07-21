@@ -44,8 +44,11 @@ templates::display('header');
 <a href="{local var="subjectGuideLink"}" class="button">Subject Guide</a>
 <div style="clear:both;"></div>
 
+<div class="database-content-holder">
+
 {local var="databases"}
 
+</div>
 
 <!-- Page Content Goes Above This Line -->
 

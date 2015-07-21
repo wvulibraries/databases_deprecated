@@ -287,7 +287,11 @@ html, body, form, nav, ul, div {
       .database .database-box .database-box-top h3 {
         font-size: 1.5em;
         color: #EAAA00;
-        marhin: 0; }
+        marhin: 0;
+        word-break: break-word;
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        hyphens: auto; }
       .database .database-box .database-box-top p {
         font-size: 1em;
         line-height: 150%;
@@ -419,6 +423,14 @@ html, body, form, nav, ul, div {
     text-align: left;
     margin-bottom: 20px; }
 
+.pagingNext, .pagingPrevious {
+  color: #0000ff;
+  cursor: pointer; }
+
+.disabledPaginButton {
+  color: #000;
+  cursor: initial; }
+
 /*********************************************************************
 	768px to 1024px
 **********************************************************************/
@@ -537,7 +549,8 @@ html, body, form, nav, ul, div {
     float: left; }
 
   .database {
-    width: 46%;
-    margin-right: 4%; } }
+    width: 48%;
+    float: left;
+    margin: 20px 1% 0 1%; } }
 
 /*# sourceMappingURL=styles.css.map */

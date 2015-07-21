@@ -24,6 +24,7 @@
 
         <!-- JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="{local var="databaseHome"}/javascript/masonry.pkgd.js"></script>
         <script src="{local var="databaseHome"}/javascript/layout.js"></script>
 
         <!-- External CSS: Helvetica & Font Awesome -->
@@ -192,3 +193,4 @@
                         <i class="fa fa-th-large"></i>
                     </div>
                     <div style="clear:both;"></div>
+                    

@@ -23,7 +23,11 @@ templates::display('header');
 
 {local var="letters"}
 
+<div class="database-content-holder">
+
 {local var="databases"}
+
+</div>
 
 <!-- Page Content Goes Above This Line -->
 

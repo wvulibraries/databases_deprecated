@@ -350,6 +350,10 @@ html, body, form, nav, ul, div {
 				font-size: 1.5em;
 				color: $primary-orange;
 				marhin: 0;
+				word-break:     break-word;
+				  -webkit-hyphens: auto;
+				  -moz-hyphens:    auto;
+				  hyphens:         auto;
 			}
 			p {
 				font-size: 1em;
@@ -512,6 +516,16 @@ html, body, form, nav, ul, div {
 		margin-bottom: 20px;
 	}
 }
+.pagingNext, .pagingPrevious {
+	color: #0000ff;
+	cursor: pointer;
+}
+.disabledPaginButton {
+	color: #000;
+	cursor: initial;
+}
+.database-content-holder {
+}
 
 /*********************************************************************
 	768px to 1024px
@@ -658,7 +672,8 @@ html, body, form, nav, ul, div {
 		}
 	}		
 	.database {
-		width: 46%;
-		margin-right: 4%;
+		width: 48%;
+		float: left;
+		margin: 20px 1% 0 1%;
 	}
 } 

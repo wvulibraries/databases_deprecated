@@ -226,70 +226,90 @@ $(window).resize(function(){
 
 });
 
-function equalizeHieghts() {
-	equalheight('.database-res');
-	equalheight('.database-resize');
-}
+// function equalizeHieghts() {
+// 	equalheight('.database-res');
+// 	equalheight('.database-resize');
+// }
 
 // Database Column Resizing
-equalheight = function(container){
+// equalheight = function(container){
 
-	var currentTallest = 0,
-	currentRowStart    = 0,
-	rowDivs            = new Array(),
-	$el,
-	topPosition        = 0;
+// 	var currentTallest = 0,
+// 	currentRowStart    = 0,
+// 	rowDivs            = new Array(),
+// 	$el,
+// 	topPosition        = 0;
 
-	$(container).each(function() {
+// 	$(container).each(function() {
 
-		$el = $(this);
-		$($el).height('auto')
-		topPostion = $el.position().top;
+// 		$el = $(this);
+// 		$($el).height('auto')
+// 		topPostion = $el.position().top;
 
-		if (currentRowStart != topPostion) {
+// 		if (currentRowStart != topPostion) {
 	
-			for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
-				rowDivs[currentDiv].height(currentTallest);
-			}
+// 			for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+// 				rowDivs[currentDiv].height(currentTallest);
+// 			}
 
-			rowDivs.length  = 0; // empty the array
-			currentRowStart = topPostion;
-			currentTallest  = $el.height();
-    		rowDivs.push($el);
-    	} 
-    	else {
-    		rowDivs.push($el);
-    		currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
-    	}
-    	for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
-    		rowDivs[currentDiv].height(currentTallest);
-    	}
-    });
+// 			rowDivs.length  = 0; // empty the array
+// 			currentRowStart = topPostion;
+// 			currentTallest  = $el.height();
+//     		rowDivs.push($el);
+//     	} 
+//     	else {
+//     		rowDivs.push($el);
+//     		currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
+//     	}
+//     	for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+//     		rowDivs[currentDiv].height(currentTallest);
+//     	}
+//     });
 
-}
+// }
 
-$(document).ready(function() {
-  equalheight('.database-res');
+// $(document).ready(function() {
+//   equalheight('.database-res');
+// });
+
+// $(window).load(function() {
+//   equalheight('.database-res');
+// });
+
+// $(window).resize(function(){
+//   equalheight('.database-res');
+// });
+
+// $(window).load(function() {
+//   equalheight('.database-resize');
+// });
+
+// $(document).ready(function() {
+//   equalheight('.database-resize');
+// });
+
+// $(window).resize(function(){
+//   equalheight('.database-resize');
+// });
+
+
+$(document).ready( function() {
+	$('.database-content-holder').masonry({
+	  itemSelector: '.database',
+	  percentPosition: true,
+	});
 });
 
-$(window).load(function() {
-  equalheight('.database-res');
+$(window).load( function() {
+	$('.database-content-holder').masonry({
+	  itemSelector: '.database',
+	  percentPosition: true,
+	});
 });
 
-$(window).resize(function(){
-  equalheight('.database-res');
+$(window).resize( function() {
+	$('.database-content-holder').masonry({
+	  itemSelector: '.database',
+	  percentPosition: true,
+	});
 });
-
-$(window).load(function() {
-  equalheight('.database-resize');
-});
-
-$(document).ready(function() {
-  equalheight('.database-resize');
-});
-
-$(window).resize(function(){
-  equalheight('.database-resize');
-});
-
-
