@@ -177,10 +177,12 @@
                     <!-- Faceted Bread Crumbs -->
                     <?php recurseInsert("includes/breadcrumbs.php","php"); ?>
 
+                    
+
                     <!-- Top Paging -->
-                    <div class="database-content-paging right">
-                        <?php recurseInsert("includes/pagination.php","php"); ?>
-                    </div> 
+                    
+                    <?php recurseInsert("includes/pagination.php","php"); ?>
+                     
 
                     <div style="clear:both;"></div>
                     <hr />
@@ -189,8 +191,10 @@
                     <!-- Database Results Title & Sorting -->
                     <div class="database-content-title" style="{local var="adminDisplay"}">
                         <h2><span class="database-content-title-results">{local var="databaseHeading"} Database Results: {local var="databaseHeadingByTitle"}</span></h2>
+                        <!-- Impliment blocks versus lists later
                         <i class="fa fa-list"></i>
                         <i class="fa fa-th-large"></i>
+                        -->
                     </div>
                     <div style="clear:both;"></div>
                     

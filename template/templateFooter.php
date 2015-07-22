@@ -1,11 +1,12 @@
                     
-                    <div style="clear:both;"></div>
+
 
                     <!-- Bottom Paging -->
-                    <div class="database-content-paging bottom">
-                        <?php recurseInsert("includes/pagination.php","php"); ?>
-                    </div>
+                    <?php recurseInsert("includes/pagination.php","php"); ?>
+                     
 
+                    <div style="clear:both;"></div>
+                    <hr />
                     <div style="clear:both;"></div>
 
                 </div><!-- /database-content -->
