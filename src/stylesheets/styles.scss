@@ -11,6 +11,27 @@ html, body, form, nav, ul, div {
 	text-align: center;
 	font-family: "Helvetica Neue", "Helvetica","Roboto", Arial, sans-serif;
 }
+.ask {
+	display: block;
+	position: fixed;
+	z-index: 200;
+	right: 0;
+	top:250px;
+	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+	border-radius: 5px 0px 0px 5px;
+    background: #fff;
+    border-color: #fff;
+    border-width: 2px 0 2px 2px;
+    border-style: solid;
+}
+.ask a {
+    display: block;
+    height: 127px;
+    width: 40px;
+}
+.ask a:hover {
+    opacity: 0.75;
+}    
 .webapp-header {
 	background: url(https://lib.wvu.edu/images/2014/wise.jpg);
 	background-size: cover;
