@@ -1,7 +1,7 @@
 <?php
 require "../../engineHeader.php";
 
-$localvars->set("pageHeader","Alumni");
+$localvars->set("databaseHeading","Alumni");
 $localvars->set("searchType","alumni");
 
 templates::display('header'); 

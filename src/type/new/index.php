@@ -1,7 +1,7 @@
 <?php
 require "../../engineHeader.php";
 
-$localvars->set("pageHeader","New");
+$localvars->set("databaseHeading","New");
 $localvars->set("searchType","newDatabase");
 
 templates::display('header'); 
