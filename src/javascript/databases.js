@@ -2,6 +2,7 @@ var databasesPerPage = 10;
 var currentPagingMax = 10;
 var currentPagingMin = 1;
 var currentPage      = 1;
+var facetted         = false;
 
 $(function() {
 	$(document)
@@ -152,15 +153,19 @@ function updateVisibleDatabases() {
 
 	// remove facetDisplay from all databases
 	$(".database").removeClass("facetDisplay");
+	facetted = false;
 
 	// if there is 1 or more active facets
 	if (activeFacets.length > 0) {
+
 		// show only the databases associated with active facets
 		var classes = activeFacets.join(".");
 
 		// Add the "facetDisplay" class to all the databases that have all the 
 		// requested facets
 		$("."+classes).addClass("facetDisplay");
+
+		facetted = true;
 	}
 
 	// Because the facets changed, reset to page 1 and reload as a new page
@@ -224,7 +229,7 @@ function updatePrevButton() {
 
 function getCurrentSelector() {
 
-	if ($(".facetDisplay").length > 0) {
+	if (facetted) {
 		return ".facetDisplay";
 	}
 
