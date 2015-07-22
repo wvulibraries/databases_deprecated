@@ -106,13 +106,7 @@ function hideInitialDataSet() {
 	$(getCurrentSelector()+":lt("+(databasesPerPage)+")").show();
 
 	// Resize everything
-	// equalizeHieghts();
-
-		$('.database-content-holder').masonry({
-		  itemSelector: '.database',
-		  percentPosition: true,
-		});
-
+	equalizeHieghts();
 
 	return;
 }
@@ -124,12 +118,8 @@ function showDatabasePageSet() {
 
 	updatePagingCounts();
 	
-	// equalizeHieghts();
-
-		$('.database-content-holder').masonry({
-		  itemSelector: '.database',
-		  percentPosition: true,
-		});
+	// Resize everything
+	equalizeHieghts();
 
 }
 

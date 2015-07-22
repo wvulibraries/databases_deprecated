@@ -226,10 +226,12 @@ $(window).resize(function(){
 
 });
 
-// function equalizeHieghts() {
-// 	equalheight('.database-res');
-// 	equalheight('.database-resize');
-// }
+function equalizeHieghts() {
+	$('.database-content-holder').masonry({
+		itemSelector: '.database',
+		percentPosition: true,
+	});
+}
 
 // Database Column Resizing
 // equalheight = function(container){
