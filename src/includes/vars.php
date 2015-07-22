@@ -16,4 +16,8 @@ $localvars->set("databaseTagTypes",array(
 	"alumni"        => "Alumni", 
 	"mobile"        => "Mobile"
 	));
+$localvars->set("noPagination",array(
+	"/databases/index.php",
+	"/databases/database/index.php"
+	));
 ?>

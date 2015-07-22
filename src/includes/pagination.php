@@ -1,4 +1,7 @@
-<?php if ($_SERVER['SCRIPT_NAME'] != "/databases/index.php") { ?>
+<?php 
+$localvars = localvars::getInstance();
+if (!in_array($_SERVER['SCRIPT_NAME'], $localvars->get("noPagination"))) { 
+?>
 
 <div style="clear:both;"></div>
 <hr />
