@@ -78,7 +78,7 @@
         <!-- WebApp Header -->
         <div class="webapp-header">
             <div class="wrap">
-                <h1><a href="https://lib.wvu.edu/databases/">Databases</a></h1>
+                <h1><a href="{local var="databaseHome"}">Databases</a></h1>
             </div>
         </div>
 
