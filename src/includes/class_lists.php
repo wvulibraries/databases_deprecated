@@ -231,7 +231,7 @@ class lists {
 		foreach ($resourceTypes as $row) {
 
 			$output .= sprintf('<li data-breadcrumb="%s" class="%s"><a href="%s/resourceTypes/?id=%s&%s">%s</a><i class="fa fa-angle-right"></i></li>',
-				$row['name'],
+				str_replace(" ", "-", $row['name']),
 				$localvars->get("enableBreadcrumbClicking"),
 				$localvars->get("databaseHome"),
 				$row['ID'],
