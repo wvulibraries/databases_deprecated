@@ -322,8 +322,7 @@ html, body, form, nav, ul, div {
 		}
 	}
 	.database-content-paging {
-		border-top: 1px solid $primary-orange;
-		margin-top: 20px;
+
 		padding-top: 10px;
 		.database-content-paging-pages {
 			font-weight: 600;
@@ -525,6 +524,7 @@ html, body, form, nav, ul, div {
 	cursor: initial;
 }
 .database-content-holder {
+	width:100%;
 }
 
 /*********************************************************************

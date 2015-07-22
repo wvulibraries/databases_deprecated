@@ -114,6 +114,7 @@ function hideInitialDataSet() {
 function showDatabasePageSet() {
 
 	$(".database").hide();
+
 	$(getCurrentSelector()).slice((currentPagingMin-1),(currentPagingMin-1+databasesPerPage)).show();
 
 	updatePagingCounts();

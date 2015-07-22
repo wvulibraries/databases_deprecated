@@ -262,8 +262,6 @@ html, body, form, nav, ul, div {
     .database-content .database-content-facets .database-content-facets-ul li:nth-child(1):before {
       content: none; }
   .database-content .database-content-paging {
-    border-top: 1px solid #EAAA00;
-    margin-top: 20px;
     padding-top: 10px; }
     .database-content .database-content-paging .database-content-paging-pages {
       font-weight: 600; }
@@ -430,6 +428,9 @@ html, body, form, nav, ul, div {
 .disabledPaginButton {
   color: #000;
   cursor: initial; }
+
+.database-content-holder {
+  width: 100%; }
 
 /*********************************************************************
 	768px to 1024px

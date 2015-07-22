@@ -226,12 +226,6 @@ $(window).resize(function(){
 
 });
 
-function equalizeHieghts() {
-	$('.database-content-holder').masonry({
-		itemSelector: '.database',
-		percentPosition: true,
-	});
-}
 
 // Database Column Resizing
 // equalheight = function(container){
@@ -296,22 +290,38 @@ function equalizeHieghts() {
 
 
 $(document).ready( function() {
+	var dwidth  = $('.database-content-holder').width();
 	$('.database-content-holder').masonry({
 	  itemSelector: '.database',
 	  percentPosition: true,
+	  columnWidth: dwidth / 2
 	});
 });
 
 $(window).load( function() {
+	var dwidth  = $('.database-content-holder').width();
 	$('.database-content-holder').masonry({
 	  itemSelector: '.database',
 	  percentPosition: true,
+	  columnWidth: dwidth / 2
 	});
 });
 
 $(window).resize( function() {
+	var dwidth  = $('.database-content-holder').width();
 	$('.database-content-holder').masonry({
 	  itemSelector: '.database',
 	  percentPosition: true,
+	  columnWidth: dwidth / 2
 	});
 });
+
+function equalizeHieghts() {
+	var dwidth  = $('.database-content-holder').width();
+
+	$('.database-content-holder').masonry({
+		itemSelector: '.database',
+		percentPosition: true,
+		columnWidth: dwidth / 2
+	});
+}
