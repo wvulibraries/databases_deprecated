@@ -20,6 +20,8 @@ try {
 
 	$dbObject->buildLocalvars($database);
 
+	$localvars->set("databaseHeading",$localvars->get("database_name"));
+
 }
 catch(Exception $e) {
 	errorHandle::errorMsg($e->getMessage());
