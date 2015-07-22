@@ -38,7 +38,9 @@ templates::display('header');
 
 {local var="prettyPrint"}
 
+<div class="database-content-holder">
 {local var="databases"}
+</div>
 
 <!-- Page Content Goes Above This Line -->
 
