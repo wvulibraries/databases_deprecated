@@ -188,7 +188,7 @@
                     
                     <!-- Database Results Title & Sorting -->
                     <div class="database-content-title" style="{local var="adminDisplay"}">
-                        <h2><span class="database-content-title-results">{local var="databaseHeading"} Database Results:</span></h2>
+                        <h2><span class="database-content-title-results">{local var="databaseHeading"} Database Results: {local var="databaseHeadingByTitle"}</span></h2>
                         <i class="fa fa-list"></i>
                         <i class="fa fa-th-large"></i>
                     </div>

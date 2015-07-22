@@ -14,12 +14,12 @@ $dbObject  = new databases;
 $databases = $dbObject->getByLetter($pageHeader);
 $localvars->set("databases",lists::databases($databases));
 
+$localvars->set("databaseHeadingByTitle",sprintf("By title '%s'",strtoupper($localvars->get("pageHeader"))));
+
 templates::display('header'); 
 ?>
 
 <!-- Page Content Goes Below This Line -->
-
-<h3>Databases by Title: {local var="pageHeader"} </h3>
 
 {local var="letters"}
 
