@@ -2,7 +2,7 @@
 
 $localvars = localvars::getInstance();
 
-$allResults = sprintf('<li><span class="facetLi"><a href="%s">All Results</a></span></li>',$_SERVER['REQUEST_URI']);
+$allResults = sprintf('<li><span class="facetLi"><a href="%s">%s</a></span></li>',$_SERVER['REQUEST_URI'],$localvars->get("databaseHeading"));
 
 if (!is_empty($localvars->get("enableBreadcrumbClicking"))) {
 	$localvars->set("breadCrumbs",$allResults);
