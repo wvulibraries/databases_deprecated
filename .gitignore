@@ -3,3 +3,4 @@
 /serverConfiguration/includes/
 sessionLogin.php
 /src/.sass-cache/
+.sass-cache
