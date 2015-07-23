@@ -91,7 +91,7 @@ html, body, form, nav, ul, div {
     transition: all 0.2s ease;
     max-width: 90%; }
     .sticky-header .sticky-header-search .search-query-form .search-query-form-message {
-      PADDING: 40PX 0;
+      padding: 80px 0 40px 0;
       text-align: left;
       color: #fff;
       text-align: left;
