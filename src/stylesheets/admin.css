@@ -15,3 +15,8 @@ input[type=text],input[type=url] {
 .ask {
 	display: none;
 }
+
+.database-content-facets {
+	display: none;
+}
+
