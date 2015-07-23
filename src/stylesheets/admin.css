@@ -1,3 +1,13 @@
 /* Admin */
 .formFields {
   text-align: left; }
+
+ textarea {
+	width: 400px;
+	height: 200px;
+}
+
+input[type=text],input[type=url] {
+	width: 500px !important;
+	max-width: 500px !important;
+}
