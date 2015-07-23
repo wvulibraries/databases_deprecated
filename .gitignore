@@ -2,5 +2,5 @@
 /serverConfiguration/serverLogs/
 /serverConfiguration/includes/
 sessionLogin.php
-/src/.sass-cache/
+src/.sass-cache/
 .sass-cache
