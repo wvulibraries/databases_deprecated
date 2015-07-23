@@ -19,4 +19,4 @@ $localvars->set("adminDisplay","display:none;");
 
 {form display="assets"}
 
-<link rel="stylesheet" href="/databases/css/admin.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/databases/stylesheets/admin.css" type="text/css" media="screen" />
