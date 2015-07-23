@@ -70,7 +70,7 @@ if (!empty($engine->cleanGet)) {
 		
 		while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC)) {
 			
-			$dbURL = $engineVars['WVULSERVER']."/databases/database.php?id=".$row['ID'];
+			$dbURL = $engineVars['WVULSERVER']."/databases/database/?id=".$row['ID'];
 			
 			$dbDesc = "";
 			$dbDesc .= ($row['newDatabase'] == 1)?"<img src=\"".$engineVars['WVULSERVER']."/databases/images/new.gif\" />&nbsp;":"";
@@ -93,7 +93,7 @@ if (!empty($engine->cleanGet)) {
 		
 		while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC)) {
 			
-			$dbURL = $engineVars['WVULSERVER']."/databases/database.php?id=".$row['ID'];
+			$dbURL = $engineVars['WVULSERVER']."/databases/database/?id=".$row['ID'];
 			
 			$dbDesc = "";
 			$dbDesc .= ($row['newDatabase'] == 1)?"<img src=\"".$engineVars['WVULSERVER']."/databases/images/new.gif\" />&nbsp;":"";
@@ -116,7 +116,7 @@ if (!empty($engine->cleanGet)) {
 		
 		while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC)) {
 			
-			$dbURL = $engineVars['WVULSERVER']."/databases/database.php?id=".$row['ID'];
+			$dbURL = $engineVars['WVULSERVER']."/databases/database/?id=".$row['ID'];
 			
 			$dbDesc = "";
 			$dbDesc .= ($row['newDatabase'] == 1)?"<img src=\"".$engineVars['WVULSERVER']."/databases/images/new.gif\" />&nbsp;":"";
@@ -179,7 +179,7 @@ if (!empty($engine->cleanGet)) {
 		
 		while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC)) {
 			
-			$dbURL = $engineVars['WVULSERVER']."/databases/database.php?id=".$row['ID'];
+			$dbURL = $engineVars['WVULSERVER']."/databases/database/?id=".$row['ID'];
 			
 			$dbDesc = "";
 			$dbDesc .= ($row['newDatabase'] == 1)?"<img src=\"".$engineVars['WVULSERVER']."/databases/images/new.gif\" />&nbsp;":"";
@@ -195,7 +195,7 @@ if (!empty($engine->cleanGet)) {
 		
 		while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC)) {
 			
-			$dbURL = $engineVars['WVULSERVER']."/databases/database.php?id=".$row['ID'];
+			$dbURL = $engineVars['WVULSERVER']."/databases/database/?id=".$row['ID'];
 			
 			$dbDesc = "";
 			
