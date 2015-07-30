@@ -41,6 +41,15 @@ $form->addField(
 );
 
 $form->addField(
+    array(
+        'name'            => 'URLID',
+        'showIn'          => array(formBuilder::TYPE_INSERT),
+        'type'            => 'hidden',
+        'value'           => time(),
+    )
+);
+
+$form->addField(
 	array(
 		'name'       => 'name',
 		'label'      => 'Database Name',
