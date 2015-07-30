@@ -3,8 +3,8 @@ require "../engineHeader.php";
 
 $pageHeader = (!empty($_GET['HTML']['id']) && (preg_match('/^\w$/',$_GET['HTML']['id']) == 1))?$_GET['HTML']['id']:"a";
 
-if ($pageHeader == "num") {
-	$pageHeader = "Number";
+if ($_GET['HTML']['id'] == "num") {
+	$pageHeader = "num";
 }
 
 $localvars->set("pageHeader",(!empty($pageHeader))?$pageHeader:"Error");
