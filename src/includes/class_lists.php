@@ -65,7 +65,7 @@ class lists {
 
 		foreach ($localvars->get("databaseTagTypes") as $I=>$V) {
 			if ($database[$I]  == 1) {
-				$output .= sprintf('<li><a href="%s/%s/">%s</a></li>', 
+				$output .= sprintf('<li><a href="%s/type/%s/">%s</a></li>', 
 					$localvars->get('databaseHome'),
 					strtolower($V),
 					$V
