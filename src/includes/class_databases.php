@@ -257,7 +257,7 @@ class databases {
 
 		for ($I=0;$I<count($helps);$I++) {
 			if(!is_empty($helps[$I]) && !is_empty($helpURL[$I])) {
-				$output .= sprintf('<a href="%s">%s</a>',
+				$output .= sprintf('<li><a href="%s">%s</a></li>',
 					htmlSanitize($helpURL[$I]),
 					htmlSanitize($helps[$I])
 					);
