@@ -122,7 +122,17 @@
                     <div class="search-query-form">
                         <div class="search-query-form-message">
                             <h2>Help with Databases</h2>
-                            <p>Most databases are available off-campus to current WVU-Morgantown students, faculty and staff. Licensing restrictions prevent WVU Libraries from providing off-campus access to others. Your affiliation with WVU is verified through use of WVU MyID. You will be prompted to enter this when you choose a database from the menu. For assistance with MyID, please go to the Office of Information Technology (OIT) website at: <a href="https://myid.wvu.edu/">https://myid.wvu.edu/</a>. There you can activate your account or change your password. Alternatively, you may call the OIT Help Desk at <span class="phoneNumber">(304) 293-4444</span>. If you need assistance with database selection or searching please contact:</p>
+                            <p>
+                                Most databases are available off-campus to current WVU-Morgantown students, faculty and 
+                                staff. Licensing restrictions prevent WVU Libraries from providing off-campus access to 
+                                others. Your affiliation with WVU is verified through use of WVU MyID. You will be 
+                                prompted to enter this when you choose a database from the menu. For assistance with 
+                                MyID, please go to the Office of Information Technology (OIT) website at: 
+                                <a href="https://myid.wvu.edu/">https://myid.wvu.edu/</a>. There you can activate your 
+                                account or change your password. Alternatively, you may call the OIT Help Desk at 
+                                <span class="phoneNumber">(304) 293-4444</span>. If you need assistance with database 
+                                selection or searching please contact:
+                            </p>
                             <div class="search-query-form-message-box">
                                 <p><strong>Barbara Lagodna</strong><br />
                                 Evansdale Library<br />
