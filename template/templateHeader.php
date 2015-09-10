@@ -125,11 +125,11 @@
                             <p>
                                 Most databases are available off-campus to current WVU-Morgantown students, faculty and 
                                 staff. Licensing restrictions prevent WVU Libraries from providing off-campus access to 
-                                others. Your affiliation with WVU is verified through use of WVU MyID. You will be 
+                                others. Your affiliation with WVU is verified through use of WVU Login. You will be 
                                 prompted to enter this when you choose a database from the menu. For assistance with 
-                                MyID, please go to the Office of Information Technology (OIT) website at: 
-                                <a href="https://myid.wvu.edu/">https://myid.wvu.edu/</a>. There you can activate your 
-                                account or change your password. Alternatively, you may call the OIT Help Desk at 
+                                WVU Login, please go to the Information Technology Services (ITS) website at: 
+                                <a href="https://login.wvu.edu/">https://login.wvu.edu/</a>. There you can activate your 
+                                account or change your password. Alternatively, you may call the ITS Help Desk at 
                                 <span class="phoneNumber">(304) 293-4444</span>. If you need assistance with database 
                                 selection or searching please contact:
                             </p>
