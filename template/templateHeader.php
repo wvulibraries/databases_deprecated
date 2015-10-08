@@ -134,9 +134,9 @@
                                 selection or searching please contact:
                             </p>
                             <div class="search-query-form-message-box">
-                                <p><strong>Barbara Lagodna</strong><br />
+                                <p><strong>Barbara Hengemihle</strong><br />
                                 Evansdale Library<br />
-                                <a href="mailto:blagodna@wvu.edu">blagodna@wvu.edu</a><br />
+                                <a href="mailto:Barbara.Hengemihle@mail.wvu.edu">Barbara.Hengemihle@mail.wvu.edu</a><br />
                                 <span class="phoneNumber">(304) 293-9748</span><br />
                                 or the<br />
                                 Evansdale Library<br />
