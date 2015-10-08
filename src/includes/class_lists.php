@@ -146,7 +146,7 @@ class lists {
 
 			$output .= '<div class="database-box-bottom database-res">';
             $output .= '<ul class="database-box-bottom-tags">';
-            $output .= self::generateDBTags($database);
+            // $output .= self::generateDBTags($database);
             $output .= '</ul>';
             $output .= '</div>'; // database-box-bottom
 
