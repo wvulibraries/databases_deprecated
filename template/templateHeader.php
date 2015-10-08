@@ -163,7 +163,7 @@
                                     Reference Desk<br />
                                     <span class="phoneNumber">(304) 293-3640</span><br />
                                     or the<br />
-                                    <a href="/services/ask/">Ask a Librarian</a> - Chat/Text/E-Mail reference service.
+                                    <a href="http://westvirginia.libanswers.com/">Ask a Librarian</a> - Chat/Text/E-Mail reference service.
                                 </p>
                             </div>
                             <div class="search-query-form-message-box">
