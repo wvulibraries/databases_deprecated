@@ -4,13 +4,38 @@
 /*********************************************************************
     480px or less
 **********************************************************************/
-html, body, form, nav, ul, div { 
+html, body, form, nav, ul, div {
     display: block;
 	margin: 0;
 	padding: 0;
 	text-align: center;
 	font-family: "Helvetica Neue", "Helvetica","Roboto", Arial, sans-serif;
 }
+
+.button {
+  display: inline-block; 
+  padding: 10px 20px; 
+  text-shadow: 2px 2px 4px #005daa; 
+  border-radius: 5px; 
+  margin: 0 10px 10px 0; 
+  background: #3399ff; 
+  color: #fff !important; 
+  border-width: 1px 1px 2px; 
+  border-color: #005daa;
+  text-decoration: none;
+  border-style: solid;
+  width: 20%;
+}
+.button:hover {
+  background: #eeb111; 
+  color: #00447c !important; 
+  text-shadow: 2px 2px 4px #ffe894; 
+  border-color: #f47b20; 
+  border-width: 1px 1px 2px;
+  text-decoration: none;
+  border-style: solid;
+}
+
 .ask {
 	display: block;
 	position: fixed;
@@ -102,7 +127,7 @@ html, body, form, nav, ul, div {
 			transition: all 0.2s ease;
 			max-width: 90%;
 			.search-query-form-message {
-				padding: 80px 0 40px 0;
+				PADDING: 40PX 0;
 				text-align: left;
 				color: #fff;
 				text-align: left;
@@ -266,10 +291,6 @@ html, body, form, nav, ul, div {
 #sidebar {
 	margin: 0;
 }
-#database_helpList {
-	text-align: left;
-	margin-left: 20px;
-}
 .database-content {
 	width: 100%;
 	float: left;
@@ -415,6 +436,11 @@ html, body, form, nav, ul, div {
 			}
 		}
 	}
+}
+
+/* Admin */
+.formFields {
+	text-align: left;
 }
 
 /* Facets */
