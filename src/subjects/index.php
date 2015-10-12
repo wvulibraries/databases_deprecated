@@ -19,7 +19,7 @@ try {
 	$localvars->set("subjectsPage", $_GET['MYSQL']['id']);
 
 	$localvars->set("databaseHeading",(!is_empty($subjectInfo['name']))?$subjectInfo['name']:"Invalid Subject");
-	$localvars->set("subjectGuideDisplay",(!is_empty($subjectInfo['url']))?"block":"none");
+	$localvars->set("subjectGuideDisplay",(!is_empty($subjectInfo['url']))?"inline-block":"none");
 	$localvars->set("subjectGuideLink",(!is_empty($subjectInfo['url']))?$subjectInfo['url']:"");
 
 	$dbObject  = new databases;
