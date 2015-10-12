@@ -41,7 +41,7 @@ templates::display('header');
 {local var="prettyPrint"}
 
 <div style="clear:both;"></div>
-<a href="{local var="subjectGuideLink"}" class="button" style="display: {local var="subjectGuideDisplay"}">Subject Guide</a>
+<a href="{local var="subjectGuideLink"}" class="button">Subject Guide</a>
 <div style="clear:both;"></div>
 
 <div class="database-content-holder">
