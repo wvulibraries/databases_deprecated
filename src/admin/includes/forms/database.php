@@ -98,7 +98,7 @@ $form->addField(
 	array(
 		'name'       => 'url',
 		'label'      => 'Database URL',
-		'type'       => "url",
+		// 'type'       => "url",
 		'required'   => TRUE,
 		'duplicates' => FALSE
 		)
