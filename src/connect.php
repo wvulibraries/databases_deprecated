@@ -29,13 +29,14 @@ foreach ($_GET['MYSQL'] as $db=>$invs) {
 
 	$location = (ipAddr::onsite())?1:0;
 	$dbInfo   = $databases->getByURLID($db);
-	
+
 	if ($dbInfo['accessType'] < 2 && $location < 1) {
 		echo "This Database is only available while on campus.";
 		exit;
 	}
 
-	$url = (!is_empty($dbInfo['offCampusURL']))?$dbInfo['offCampusURL']:$dbInfo['url'];
+	$url = $dbInfo['url']; //(!is_empty($dbInfo['offCampusURL']))?$dbInfo['offCampusURL']:$dbInfo['url'];
+
 	if ($location == 0 && $dbInfo['accessType'] == 2) {
 		$url = sprintf("%s%s",$localvars->get("proxyURL"),$url);
 	}
