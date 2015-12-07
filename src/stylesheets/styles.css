@@ -463,6 +463,9 @@ html, body, form, nav, ul, div {
   .infoBlock .infoKeyInfo {
     text-align: left;
     margin-bottom: 20px; }
+    .infoBlock .infoKeyInfo #database_helpList {
+      list-style: none;
+      text-align: left; }
 
 .pagingNext, .pagingPrevious {
   color: #0000ff;

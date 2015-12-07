@@ -558,6 +558,12 @@ html, body, form, nav, ul, div {
 	.infoKeyInfo {
 		text-align: left;
 		margin-bottom: 20px;
+
+		#database_helpList {
+			list-style: none;
+			text-align: left;
+		}
+
 	}
 }
 .pagingNext, .pagingPrevious {
