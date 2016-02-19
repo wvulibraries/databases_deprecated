@@ -132,10 +132,8 @@ class lists {
 				$database['URLID'],
 				$database['name']
 				);
-			$output .= sprintf('<p>%s&hellip; <span class="moreLink">[ <a href="%s/database/?id=%s">More Information</a> ]</span></p>',
-				(!is_empty($database['description']))?substr($database['description'],0,$localvars->get("descriptionLength")):"",
-				$localvars->get("databaseHome"),
-				(!empty($database['dbID']))?$database['dbID']:$database['ID']
+			$output .= sprintf('<p>%s</p>',
+				(!is_empty($database['description']))?$database['description']:""
 				);
 			if ($database['trialDatabase'] == 1) {
 				$output .= sprintf('<p class="trialText">Trial ends on %s &ndash; </p>',
@@ -146,7 +144,7 @@ class lists {
 
 			$output .= '<div class="database-box-bottom database-res">';
             $output .= '<ul class="database-box-bottom-tags">';
-            // $output .= self::generateDBTags($database);
+            $output .= self::generateDBTags($database);
             $output .= '</ul>';
             $output .= '</div>'; // database-box-bottom
 
