@@ -28,6 +28,7 @@ catch(Exception $e) {
 	$localvars->set("prettyPrint",errorHandle::prettyPrint());
 }
 
+$localvars->set("letters",lists::letters());
 
 templates::display('header'); 
 ?>
@@ -37,6 +38,7 @@ templates::display('header');
 
 {local var="prettyPrint"}
 
+{local var="letters"}
 
 	<h3>{local var="database_name"}</h3>
 

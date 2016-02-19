@@ -33,12 +33,16 @@ catch(Exception $e) {
 
 }
 
+$localvars->set("letters",lists::letters());
+
 templates::display('header'); 
 ?>
 
 <!-- Page Content Goes Below This Line -->
 
 {local var="prettyPrint"}
+
+{local var="letters"}
 
 <div style="clear:both;"></div>
 <a href="{local var="subjectGuideLink"}" class="button" style="display: {local var="subjectGuideDisplay"}">Subject Guide</a>

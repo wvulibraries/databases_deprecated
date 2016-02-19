@@ -31,12 +31,16 @@ catch(Exception $e) {
 
 }
 
+$localvars->set("letters",lists::letters());
+
 templates::display('header'); 
 ?>
 
 <!-- Page Content Goes Below This Line -->
 
 {local var="prettyPrint"}
+
+{local var="letters"}
 
 <div class="database-content-holder">
 {local var="databases"}

@@ -6,12 +6,15 @@ $localvars->set("subjects",lists::subjects());
 
 $localvars = localvars::getInstance();
 $localvars->set("adminDisplay","display:none;");
+$localvars->set("letters",lists::letters());
 
 templates::display('header'); 
 
 ?>
 
 <!-- Page Content Goes Below This Line -->
+
+{local var="letters"}
 
 <h3>Subjects</h3>
 
