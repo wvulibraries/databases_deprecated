@@ -23,7 +23,7 @@ class databases {
 		$search_name = preg_replace("/\W/",     "", $search_name);
 
 		$sql       = sprintf("SELECT * FROM `dbList` WHERE `titleSearch` LIKE \"%%%s%%\" and dbList.status='1'",
-			strtolower($search_name)
+			strtolower($this->db->escape($search_name))
 			);
 		$sqlResult = $this->db->query($sql);
 
@@ -120,8 +120,19 @@ class databases {
 		$originalStatus = status::current();
 		http::setGet("status","1");	
 
-		$sql = sprintf("select * from dbList WHERE `%s`='1' AND (%s) ORDER BY name",
-			$this->db->escape($type),
+		if (is_array($type)) {
+			$temp = array();
+			foreach ($type as $t) {	
+				$temp[] = sprintf("`%s`='1'",$this->db->escape($t));
+			}
+			$type = implode(" OR ", $temp);
+		}
+		else {
+			$type = sprintf("`%s`='1'",$this->db->escape($type));
+		}
+
+		$sql = sprintf("select * from dbList WHERE %s AND (%s) ORDER BY name",
+			$type,
 			status::buildSQLStatus()
 			);
 		$sqlResult = $this->db->query($sql);

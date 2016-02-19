@@ -8,6 +8,11 @@ $localvars = localvars::getInstance();
 $localvars->set("adminDisplay","display:none;");
 $localvars->set("letters",lists::letters());
 
+$dbObject  = new databases;
+$databases = $dbObject->getByType(array("newDatabase","trialDatabase"));
+
+$localvars->set("highlighted_databases",lists::databases($databases));
+
 templates::display('header'); 
 
 ?>
@@ -23,6 +28,11 @@ templates::display('header');
 </div>
 
 {local var="letters"}
+
+<div id="highlighted-databases">
+	<h3>New / Trial Databases</h3>
+	{local var="highlighted_databases"}
+</div>
 
 <h3>Subjects</h3>
 
