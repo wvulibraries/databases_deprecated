@@ -19,14 +19,13 @@ class databases {
 	public function find($query) {
 
 		$search_name = preg_replace("/\&.+\;/", "", $query);
-		$search_name = preg_replace("/ and /", "",  $search_name);
-		$search_name = preg_replace("/\W/", "",     $search_name);
+		$search_name = preg_replace("/ and /",  "", $search_name);
+		$search_name = preg_replace("/\W/",     "", $search_name);
 
 		$sql       = sprintf("SELECT * FROM `dbList` WHERE `titleSearch` LIKE \"%%%s%%\" and dbList.status='1'",
-			$query
+			strtolower($search_name)
 			);
 		$sqlResult = $this->db->query($sql);
-
 
 		if ($sqlResult->error()) {
 			errorHandle::newError(__METHOD__."() - ".$sqlResult->errorMsg(), errorHandle::DEBUG);

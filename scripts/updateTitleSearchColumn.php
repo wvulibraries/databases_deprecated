@@ -27,7 +27,7 @@ while($row = $sqlResult->fetch()) {
 	$search_name = preg_replace("/\W/", "", $search_name);
 
 	$sql       = sprintf("UPDATE `dbList` SET `titleSearch`=? WHERE `ID`=?");
-	$sqlResult2 = $db->query($sql,array($search_name,$row['ID']));
+	$sqlResult2 = $db->query($sql,array(strtolower($search_name),$row['ID']));
 
 	if ($sqlResult2->error()) {
 		print "error\n";
