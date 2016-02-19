@@ -121,7 +121,6 @@ class lists {
 		$output = "";
 
 		foreach ($databases as $database) {
-
 			$output .= sprintf('<div class="database %s">',
 				self::generateClassTags($database)
 				);
@@ -132,6 +131,8 @@ class lists {
 				$database['URLID'],
 				$database['name']
 				);
+			$output .= ($database['newDatabase'])?'<span class="new-database">New</span>':"";
+			$output .= ($database['trialDatabase'])?'<span class="trial-database">Trial</span>':"";
 			$output .= sprintf('<p>%s</p>',
 				(!is_empty($database['description']))?$database['description']:""
 				);
