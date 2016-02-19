@@ -77,7 +77,7 @@ class lists {
 
 		if (!isset($database['dbID'])) $database['dbID'] = $database['ID'];
 
-		$tags = array_merge($dbObject->subjects($database['dbID']),$dbObject->resourceTypes($database['dbID']));
+		$tags = array_merge($dbObject->subjects($database['dbID']));
 		usort($tags,function($a,$b){return strcmp($a['name'], $b['name']);});
 
 		foreach ($tags as $tag) {
