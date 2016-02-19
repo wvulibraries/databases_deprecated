@@ -1,8 +1,4 @@
                     
-
-
-                    <!-- Bottom Paging -->
-                    <?php recurseInsert("includes/pagination.php","php"); ?>
                      
 
                     <div style="clear:both;"></div>

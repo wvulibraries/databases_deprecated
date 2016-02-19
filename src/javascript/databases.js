@@ -12,11 +12,6 @@ $(function() {
 		.on('click',  '.pagingPrevious',       handler_prevPage)
 });
 
-$(document).ready(function() {
-	updatePagingCounts();
-	hideInitialDataSet();
-});
-
 function handler_breadcrumbClicking() {
 
 	// Check to see if we already added it to the facets list. If so, ignore it.

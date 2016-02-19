@@ -188,12 +188,6 @@
 
                     <!-- Faceted Bread Crumbs -->
                     <?php recurseInsert("includes/breadcrumbs.php","php"); ?>
-
-                    
-
-                    <!-- Top Paging -->
-                    
-                    <?php recurseInsert("includes/pagination.php","php"); ?>
                      
 
                     <div style="clear:both;"></div>
