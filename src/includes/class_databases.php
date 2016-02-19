@@ -18,7 +18,11 @@ class databases {
 
 	public function find($query) {
 
-		$sql       = sprintf("SELECT * FROM `dbList` WHERE `name` LIKE \"%%%s%%\" and dbList.status='1'",
+		$search_name = preg_replace("/\&.+\;/", "", $query);
+		$search_name = preg_replace("/ and /", "",  $search_name);
+		$search_name = preg_replace("/\W/", "",     $search_name);
+
+		$sql       = sprintf("SELECT * FROM `dbList` WHERE `titleSearch` LIKE \"%%%s%%\" and dbList.status='1'",
 			$query
 			);
 		$sqlResult = $this->db->query($sql);

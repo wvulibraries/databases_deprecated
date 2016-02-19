@@ -1,0 +1,1 @@
+ALTER TABLE `dbList` ADD COLUMN `titleSearch` varchar(255) DEFAULT NULL;
