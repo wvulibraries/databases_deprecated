@@ -7,19 +7,10 @@ $localvars->set("resourceTypes",lists::resourceTypes());
 
 // Figure out which popular databases we need.
 $dbObject = new databases;
-if ($localvars->get("subjectsPage")) {
-	$popularDatabases = topPickDBs::getTopPicksForSubject($localvars->get("subjectsPage"));
-}
-else {
-	$popularDatabases = $dbObject->getByType("popular");
-}
 
 $alumniDBs = count($dbObject->getByType("alumni"));
 $newDBs    = count($dbObject->getByType("newDatabase"));
 $trialDBs  = count($dbObject->getByType("trialDatabase"));
-
-$localvars->set("popular",lists::popular($popularDatabases));
-
 
 ?>
 
@@ -27,12 +18,6 @@ $localvars->set("popular",lists::popular($popularDatabases));
 	<div id="facets">
 		<h2>Narrow Your Results</h2>
 		<ul>
-			<?php if (count($popularDatabases)) { ?>
-			<li>
-				<span class="facets-header">Librarian Top Picks<span class="facetToggle ftPlus hiding"><i class="fa fa-plus-square-o"></i></span><span class="facetToggle ftMinus"><i class="fa fa-minus-square-o"></i></span></span>
-				{local var="popular"}
-			</li>
-			<?php } ?>
 			<?php if ($alumniDBs || $newDBs || $trialDBs) { ?>
 			<li><span class="facets-header">Types of Databases<span class="facetToggle ftPlus hiding"><i class="fa fa-plus-square-o"></i></span><span class="facetToggle ftMinus"><i class="fa fa-minus-square-o"></i></span></span>
 

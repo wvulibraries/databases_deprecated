@@ -48,6 +48,8 @@ templates::display('header');
 <a href="{local var="subjectGuideLink"}" class="button" style="display: {local var="subjectGuideDisplay"}">Subject Guide</a>
 <div style="clear:both;"></div>
 
+<?php recurseInsert("includes/popularDatabases.php","php"); ?>
+
 <div class="database-content-holder">
 
 {local var="databases"}

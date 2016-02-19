@@ -3,7 +3,7 @@ require "../engineHeader.php";
 
 $pageHeader = (!empty($_GET['HTML']['id']) && (preg_match('/^\w$/',$_GET['HTML']['id']) == 1))?$_GET['HTML']['id']:"a";
 
-if ($_GET['HTML']['id'] == "num") {
+if (isset($_GET['HTML']) && $_GET['HTML']['id'] == "num") {
 	$pageHeader = "num";
 }
 
@@ -23,6 +23,8 @@ templates::display('header');
 <!-- Page Content Goes Below This Line -->
 
 {local var="letters"}
+
+<?php recurseInsert("includes/popularDatabases.php","php"); ?>
 
 <div class="database-content-holder">
 

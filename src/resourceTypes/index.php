@@ -42,6 +42,8 @@ templates::display('header');
 
 {local var="letters"}
 
+<?php recurseInsert("includes/popularDatabases.php","php"); ?>
+
 <div class="database-content-holder">
 {local var="databases"}
 </div>

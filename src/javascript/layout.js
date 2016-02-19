@@ -36,21 +36,9 @@ $(window).bind("load resize", function() {
 
 	if( $(window).width() < 768) {
   		$('.sticky-header-filter-sidebar').html(facetfun);
-  		
-  		$(".facets-header").click(function() {
-    		$(this).next("ul").slideToggle("fast");
-    		$(this).children(".ftMinus").toggleClass("hiding");
-    		$(this).children(".ftPlus").toggleClass("hiding");
-    	});
 	}
   	else { 
   		$('#sidebar').html(facetfun);
-  		
-  		$(".facets-header").click(function() {
-    		$(this).next("ul").slideToggle("fast");
-    		$(this).children(".ftMinus").toggleClass("hiding");
-    		$(this).children(".ftPlus").toggleClass("hiding");
-    	});
 	} 
 });
 
