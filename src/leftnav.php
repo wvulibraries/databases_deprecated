@@ -34,10 +34,6 @@ $trialDBs  = count($dbObject->getByType("trialDatabase"));
 				</ul>
 			</li>
 			<?php } ?>
-			<li><span class="facets-header">Resource Types<span class="facetToggle ftPlus hiding"><i class="fa fa-plus-square-o"></i></span><span class="facetToggle ftMinus"><i class="fa fa-minus-square-o"></i></span></span>
-
-				{local var="resourceTypes"}
-			</li>
 		</ul>
 	</div>
 </div>
