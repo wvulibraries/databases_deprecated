@@ -27,6 +27,7 @@ foreach ($_GET['MYSQL'] as $db=>$invs) {
 		exit;
 	}
 
+	//@TODO this needs to be expanded for ip locations in the table. 
 	$location = (ipAddr::onsite())?1:0;
 	$dbInfo   = $databases->getByURLID($db);
 
@@ -41,8 +42,8 @@ foreach ($_GET['MYSQL'] as $db=>$invs) {
 		$url = sprintf("%s%s",$localvars->get("proxyURL"),$url);
 	}
 
-	$sql       = "INSERT into dbStats (dbID,location,accessDate) VALUES(?,?,?)";
-	$sqlResult = $dbObject->query($sql,array($dbInfo['ID'],$location,time()));
+	$sql       = "INSERT into dbStats (dbID,location,accessDate,referrer,ipaddress) VALUES(?,?,?,?,?)";
+	$sqlResult = $dbObject->query($sql,array($dbInfo['ID'],$location,time(),(isset($_SERVER['HTTP_REFERER']))?$_SERVER['HTTP_REFERER']:"",$_SERVER['REMOTE_ADDR']));
 
 	header("location: $url");
 	
