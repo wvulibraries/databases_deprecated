@@ -109,8 +109,8 @@
                 </div>
                 <div class="sticky-header-search tabBar">
                     <ul class="sticky-header-desktop-links">
-                        <li><a href="{local var="databaseHome"}/"><i class="fa fa-sort-amount-asc"></i>Database Subjects</a></li>
-                        <li><a href="{local var="databaseHome"}/AtoZ/"><i class="fa fa-sort-alpha-asc"></i>Database Titles</a></li>
+                        <li><a href="{local var="databaseHome"}/"><i class="fa fa-sort-amount-asc"></i>Databases by Subjects</a></li>
+                        <li><a href="{local var="databaseHome"}/AtoZ/"><i class="fa fa-sort-alpha-asc"></i>Databases by Titles</a></li>
                         <li><a href="#help"><i class="fa fa-question-circle"></i>Help</a></li>
                     </ul>
                     <a id="search-toggle">
@@ -196,7 +196,7 @@
                     
                     <!-- Database Results Title & Sorting -->
                     <div class="database-content-title" style="{local var="adminDisplay"}">
-                        <h2><span class="database-content-title-results">{local var="databaseHeading"} Database Results: {local var="databaseHeadingByTitle"}</span></h2>
+                        <h2><span class="database-content-title-results">{local var="databaseHeading"} {local var="database_heading_middle"} {local var="databaseHeadingByTitle"}</span></h2>
                         <!-- Impliment blocks versus lists later
                         <i class="fa fa-list"></i>
                         <i class="fa fa-th-large"></i>

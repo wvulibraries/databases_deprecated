@@ -14,9 +14,8 @@ $dbObject  = new databases;
 $databases = $dbObject->getByLetter($pageHeader);
 $localvars->set("databases",lists::databases($databases));
 
-$localvars->set("databaseHeadingByTitle",sprintf("By title '%s'",strtoupper($localvars->get("pageHeader"))));
-$localvars->set("databaseHeading",sprintf("By title '%s'",strtoupper($localvars->get("pageHeader"))));
-
+$localvars->set("databaseHeadingByTitle",sprintf("%s",strtoupper($localvars->get("pageHeader"))));
+$localvars->set("database_heading_middle","Databases by Title:");
 templates::display('header'); 
 ?>
 

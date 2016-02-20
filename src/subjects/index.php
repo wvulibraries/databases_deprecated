@@ -34,6 +34,7 @@ catch(Exception $e) {
 }
 
 $localvars->set("letters",lists::letters());
+$localvars->set("database_heading_middle","Database Results:");
 
 templates::display('header'); 
 ?>
