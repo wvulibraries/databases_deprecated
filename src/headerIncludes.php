@@ -18,8 +18,6 @@ $localvars->set("popular",lists::popular($localvars->get("popularDatabases")));
 
 ?>
 
-<script src="{local var="databaseHome"}/javascript/databases.js"></script>
-
 <link href="/databases/stylesheets/jquery.marcoPolo.css" type="text/css" rel="stylesheet" />
 	<script type="text/javascript" src="/databases/javascript/jquery.marcopolo.min.js"></script>
 	<script type="text/javascript" src="/databases/javascript/jquery.ui.widget.min.js"></script>
