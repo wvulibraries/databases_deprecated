@@ -21,6 +21,9 @@ templates::display('header');
 .sticky-header {
 	display: none;
 }
+#main-container {
+    margin: 40px 0 0 0;
+}
 </style>
 
 <!-- Homepage Content -->

@@ -543,9 +543,7 @@ html, body, form, nav, ul, div {
   #main-container {
     margin: 0; }
     #main-container .main-container-alert {
-      border-top: 1px solid #d3d3d3;
-      display: block;
-      float: left; }
+      border-top: 1px solid #d3d3d3; }
 
   .database-content {
     margin: 20px 0 50px 0;
