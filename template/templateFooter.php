@@ -1,12 +1,12 @@
                     
                      
 
-                    <div style="clear:both;"></div>
-                    <hr />
-                    <div style="clear:both;"></div>
+
 
                 </div><!-- /database-content -->
             </div><!-- /wrap -->
+
+        </div><!-- /main-container -->
 
             <!-- Alerts/Policies Container -->
             <div class="main-container-alert">
@@ -14,8 +14,6 @@
                 <div class="wrap" id="main-container-alert">
                 </div>
             </div>
-
-        </div><!-- /main-container -->
 
         <!-- Footer -->
         <footer id="footer">

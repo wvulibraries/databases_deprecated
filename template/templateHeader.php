@@ -134,41 +134,32 @@
                                 selection or searching please contact:
                             </p>
                             <div class="search-query-form-message-box">
-                                <p><strong>Barbara Hengemihle</strong><br />
+                                <p><a href="mailto:Barbara.Hengemihle@mail.wvu.edu">Barbara Hengemihle</a><br />
                                 Evansdale Library<br />
-                                <a href="mailto:Barbara.Hengemihle@mail.wvu.edu">Barbara.Hengemihle@mail.wvu.edu</a><br />
-                                <span class="phoneNumber">(304) 293-9748</span><br />
-                                or the<br />
-                                Evansdale Library<br />
-                                Reference Desk<br />
+                                <span class="phoneNumber">(304) 293-9748</span><br /><br />
+                                Evansdale Library Reference Desk<br />
                                 <span class="phoneNumber">(304) 293-4695</span></p>
                             </div>
                             <div class="search-query-form-message-box">
-                                <p><strong>Susan Arnold</strong><br />
+                                <p><a href="mailto:Susan.Arnold@mail.wvu.edu">Susan Arnold</a><br />
                                 Health Sciences Library<br />
-                                <a href="mailto:Susan.Arnold@mail.wvu.edu">Susan.Arnold@mail.wvu.edu </a><br />
-                                <span class="phoneNumber">(304) 293-2105</span><br />
-                                or the<br />
-                                Health Sciences Library<br />
-                                Reference Desk<br />
+                                <span class="phoneNumber">(304) 293-2105</span><br /><br />
+                                Health Sciences Library Reference Desk<br />
                                 <span class="phoneNumber">(304) 293-6810</span></p>
                             </div>
                             <div class="search-query-form-message-box">
-                                <p><strong>Penny Pugh</strong><br />
+                                <p><a href="mailto:ppugh@wvu.edu">Penny Pugh</a><br />
                                     Downtown Campus Library<br />
-                                    <a href="mailto:ppugh@wvu.edu">ppugh@wvu.edu</a><br />
-                                    <span class="phoneNumber">(304) 293-0334</span><br />
-                                    or the<br />
-                                    Downtown Campus Library<br />
-                                    Reference Desk<br />
-                                    <span class="phoneNumber">(304) 293-3640</span><br />
-                                    or the<br />
-                                    <a href="http://westvirginia.libanswers.com/">Ask a Librarian</a> - Chat/Text/E-Mail reference service.
+                                    <span class="phoneNumber">(304) 293-0334</span><br /><br />
+                                    Downtown Campus Library Reference Desk<br />
+                                    <span class="phoneNumber">(304) 293-3640</span>
                                 </p>
                             </div>
                             <div class="search-query-form-message-box">
-                                <p><strong>For technical problems call:</strong></p>
-                                <p>WVU Library Systems Office at <span class="phoneNumber">(304) 293-0340</span> Monday-Friday, 8 a.m. to 4:00 p.m. or send e-mail to <a href="mailto:libsys@mail.wvu.edu">libsys@mail.wvu.edu</a>.</p>
+                                <p><a href="http://westvirginia.libanswers.com/">Ask a Librarian</a><br />
+                                    <em>Chat/Text/Email Reference Service</em><br><br>
+                                    <em>If you are having a problem with a database or online resource, please submit an <a href="/databases/report/">eResource Error Report</a>.</em></p>
+                                    <!-- <br><br><strong>For technical problems call</strong> the WVU Library Systems Office at <span class="phoneNumber">(304) 293-0340</span> Monday-Friday, 8 a.m. to 4:00 p.m. or send e-mail to <a href="mailto:libsys@mail.wvu.edu">libsys@mail.wvu.edu</a>. -->
                             </div>
                         </div>
                     </div>
@@ -180,13 +171,9 @@
         <div id="main-container">
             <div class="wrap">
 
-                <!-- Left Subcontainer -->
-                <?php recurseInsert("leftnav.php","php") ?>
-
-                <!-- Right Subcontainer -->
                 <div class="database-content">
 
-                    <!-- Faceted Bread Crumbs -->
+                    <!-- Bread Crumbs -->
                     <?php recurseInsert("includes/breadcrumbs.php","php"); ?>
                      
 
