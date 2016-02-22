@@ -17,8 +17,14 @@ templates::display('header');
 
 ?>
 
-<!-- Page Content Goes Below This Line -->
+<style>
+.sticky-header {
+	display: none;
+}
+</style>
 
+<!-- Homepage Content -->
+<h2>Database Search</h2>
 <div id="searchBox">
 	<form class="search-wrap" method="get" action="/databases/search/" id="dbn_form">
 		<label for="dbn" class="hidelabel">Label</label>
@@ -27,19 +33,15 @@ templates::display('header');
 	</form>
 </div>
 
+<h2>Databases by Title</h2>
 {local var="letters"}
 
-<div id="highlighted-databases">
-	<h3>New / Trial Databases</h3>
-	{local var="highlighted_databases"}
-</div>
+<?php recurseInsert("leftnav.php","php") ?>
 
-<h3>Subjects</h3>
+<div style="clear:both;"></div>
 
+<h2>Databases by Subject</h2>
 {local var="subjects"}
-
-
-<!-- Page Content Goes Above This Line -->
 
 <!-- <script type="text/javascript" src="http://s3.amazonaws.com/new.cetrk.com/pages/scripts/0008/8415.js"> </script> -->
 

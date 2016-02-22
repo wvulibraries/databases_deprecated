@@ -31,8 +31,8 @@ class lists {
 
 			if (($curLetter = strtoupper($subject['name'][0])) != $prevLetter) {
 
-				$output     .= (!isnull($prevLetter))?"</ul>":"";
-				$output     .= sprintf("<h4 class=\"subjectLetterHeading\">%s</h4>\n",$curLetter);
+				$output     .= (!isnull($prevLetter))?"</ul></div>":"";
+				$output     .= sprintf("<div class='subres'><h3 class=\"subjectLetterHeading\">%s</h3>\n",$curLetter);
 				$output     .= "<ul class=\"subjectDivList\">\n";
 				$prevLetter  = $curLetter;
 			}

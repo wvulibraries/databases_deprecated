@@ -178,106 +178,95 @@ $(function () {
 });
 
 // Facet Size
+// $(window).load(function() {
+
+// 	var faceth = $('#sidebar').height();
+// 	var facetw = $('#sidebar #facets').width();
+// 	var mainw  = $('#main-container .wrap').width();
+
+// 	if( $(window).width() < 768) {
+//   		var flexw = mainw - facetw;
+// 	}
+//   	else { 
+//   		var flexw = mainw - facetw - 50;
+// 	} 
+
+//     $('.database-content').css('min-height', faceth);  
+//     $('.database-content').css('width', flexw);  
+
+// });
+
+// $(window).resize(function(){
+
+// 	var faceth = $('#sidebar').height();
+// 	var facetw = $('#sidebar #facets').width();
+// 	var mainw  = $('#main-container .wrap').width();
+
+// 	if( $(window).width() < 768) {
+//   		var flexw = mainw - facetw;
+// 	}
+//   	else { 
+//   		var flexw = mainw - facetw - 50;
+// 	} 
+
+//     $('.database-content').css('min-height', faceth);  
+//     $('.database-content').css('width', flexw);  
+
+// });
+
+
+// Subject Column Resizing
+equalheight = function(container){
+
+	var currentTallest = 0,
+	currentRowStart    = 0,
+	rowDivs            = new Array(),
+	$el,
+	topPosition        = 0;
+
+	$(container).each(function() {
+
+		$el = $(this);
+		$($el).height('auto')
+		topPostion = $el.position().top;
+
+		if (currentRowStart != topPostion) {
+	
+			for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+				rowDivs[currentDiv].height(currentTallest);
+			}
+
+			rowDivs.length  = 0; // empty the array
+			currentRowStart = topPostion;
+			currentTallest  = $el.height();
+    		rowDivs.push($el);
+    	} 
+    	else {
+    		rowDivs.push($el);
+    		currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
+    	}
+    	for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+    		rowDivs[currentDiv].height(currentTallest);
+    	}
+    });
+
+}
+
+$(document).ready(function() {
+  equalheight('.subres');
+});
+
 $(window).load(function() {
-
-	var faceth = $('#sidebar').height();
-	var facetw = $('#sidebar #facets').width();
-	var mainw  = $('#main-container .wrap').width();
-
-	if( $(window).width() < 768) {
-  		var flexw = mainw - facetw;
-	}
-  	else { 
-  		var flexw = mainw - facetw - 50;
-	} 
-
-    $('.database-content').css('min-height', faceth);  
-    $('.database-content').css('width', flexw);  
-
+  equalheight('.subres');
 });
 
 $(window).resize(function(){
-
-	var faceth = $('#sidebar').height();
-	var facetw = $('#sidebar #facets').width();
-	var mainw  = $('#main-container .wrap').width();
-
-	if( $(window).width() < 768) {
-  		var flexw = mainw - facetw;
-	}
-  	else { 
-  		var flexw = mainw - facetw - 50;
-	} 
-
-    $('.database-content').css('min-height', faceth);  
-    $('.database-content').css('width', flexw);  
-
+  equalheight('.subres');
 });
-
-
-// Database Column Resizing
-// equalheight = function(container){
-
-// 	var currentTallest = 0,
-// 	currentRowStart    = 0,
-// 	rowDivs            = new Array(),
-// 	$el,
-// 	topPosition        = 0;
-
-// 	$(container).each(function() {
-
-// 		$el = $(this);
-// 		$($el).height('auto')
-// 		topPostion = $el.position().top;
-
-// 		if (currentRowStart != topPostion) {
-	
-// 			for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
-// 				rowDivs[currentDiv].height(currentTallest);
-// 			}
-
-// 			rowDivs.length  = 0; // empty the array
-// 			currentRowStart = topPostion;
-// 			currentTallest  = $el.height();
-//     		rowDivs.push($el);
-//     	} 
-//     	else {
-//     		rowDivs.push($el);
-//     		currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
-//     	}
-//     	for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
-//     		rowDivs[currentDiv].height(currentTallest);
-//     	}
-//     });
-
-// }
-
-// $(document).ready(function() {
-//   equalheight('.database-res');
-// });
-
-// $(window).load(function() {
-//   equalheight('.database-res');
-// });
-
-// $(window).resize(function(){
-//   equalheight('.database-res');
-// });
-
-// $(window).load(function() {
-//   equalheight('.database-resize');
-// });
-
-// $(document).ready(function() {
-//   equalheight('.database-resize');
-// });
-
-// $(window).resize(function(){
-//   equalheight('.database-resize');
-// });
-
 	
 
+
+// Database Resizing
 $(document).ready( function() {
 	var dwidth  = $('.database-content-holder').width();
 	var eaglewidth  = $('.database').width();
