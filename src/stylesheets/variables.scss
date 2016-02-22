@@ -24,3 +24,15 @@ $accent-green2: #708573;
 $accent-green3: #9ABEAA; 
 $accent-red: #BE3A34; 
 $accent-yellow: #FDDA24; 
+
+ /*************************************************
+Mixins 
+ *************************************************/
+@mixin mq($dim) {
+	@if $dim == desktop {
+		@media (min-width: 1024px) { @content; }
+	}
+	@else if $dim == tablet {
+		@media (min-width: 768px)  { @content; }
+	}
+}

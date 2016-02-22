@@ -307,6 +307,12 @@ html, body, form, nav, ul, div {
 		border: none;
 		border: collaps
 	}
+	h2 {
+		margin: 40px 0 10px 0;
+	}
+	h3 {
+		margin: 0px 0px 10px;
+	}
 	.database-content-title {
 		h2 {
 			color: $accent-blue1;
@@ -537,13 +543,37 @@ html, body, form, nav, ul, div {
 }
 .subjectDiv {
 	text-align: left;
-	.subjectDivList {
-		list-style-type: none;
-		text-align: left;
-		padding: 0;
-		margin: 0;
-		li {
-			line-height: 150%;
+	width: 100%;
+	float: left;
+	display: block;
+	.subres {
+		width: 100%;
+		float: left;
+		display: block;
+		margin: 0 0 20px 0;
+		@include mq(tablet) {
+			width: 33%;
+		}
+		@include mq(desktop) {
+			width: 25%;
+		}
+		.subjectLetterHeading {
+			width: 100%;
+			float: left;
+			display: block;
+			text-align: left;
+		}
+		.subjectDivList {
+			text-align: left;
+			width: 85%;
+			float: left;
+			display: block;
+			padding: 0 10% 0 5%;
+			margin: 0;
+			li {
+				line-height: 100%;
+				padding-bottom: 10px;
+			}
 		}
 	}
 }
@@ -564,6 +594,17 @@ html, body, form, nav, ul, div {
 			text-align: left;
 		}
 
+	}
+}
+.datatype {
+	display: block;
+	margin: 0px;
+	padding: 0 0 0 10px;
+	width: 100%;
+	li {
+		float: left;
+		padding: 0 20px 0 0;
+		margin: 0 10px;
 	}
 }
 .pagingNext, .pagingPrevious {
@@ -605,10 +646,12 @@ html, body, form, nav, ul, div {
  		margin: 0;
  		.main-container-alert {
 			border-top: 1px solid #d3d3d3;
+			display: block;
+			float: left;
 		}
 	}
 	.database-content {
-		margin: 50px 0 50px 0;
+		margin: 20px 0 50px 0;
 		text-align: left;
 		float: right;
 		.database-content-facets {

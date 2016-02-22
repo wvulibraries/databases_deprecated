@@ -1,6 +1,9 @@
 /*********************************************************************
     Variables
 **********************************************************************/
+ /*************************************************
+Mixins 
+ *************************************************/
 /*********************************************************************
     480px or less
 **********************************************************************/
@@ -260,6 +263,10 @@ html, body, form, nav, ul, div {
     margin: 20px 0;
     border: none;
     border: collaps; }
+  .database-content h2 {
+    margin: 40px 0 10px 0; }
+  .database-content h3 {
+    margin: 0px 0px 10px; }
   .database-content .database-content-title h2 {
     color: #0033A0;
     font-size: 2em;
@@ -445,14 +452,36 @@ html, body, form, nav, ul, div {
     margin-right: 10px; }
 
 .subjectDiv {
-  text-align: left; }
-  .subjectDiv .subjectDivList {
-    list-style-type: none;
-    text-align: left;
-    padding: 0;
-    margin: 0; }
-    .subjectDiv .subjectDivList li {
-      line-height: 150%; }
+  text-align: left;
+  width: 100%;
+  float: left;
+  display: block; }
+  .subjectDiv .subres {
+    width: 100%;
+    float: left;
+    display: block;
+    margin: 0 0 20px 0; }
+    @media (min-width: 768px) {
+      .subjectDiv .subres {
+        width: 33%; } }
+    @media (min-width: 1024px) {
+      .subjectDiv .subres {
+        width: 25%; } }
+    .subjectDiv .subres .subjectLetterHeading {
+      width: 100%;
+      float: left;
+      display: block;
+      text-align: left; }
+    .subjectDiv .subres .subjectDivList {
+      text-align: left;
+      width: 85%;
+      float: left;
+      display: block;
+      padding: 0 10% 0 5%;
+      margin: 0; }
+      .subjectDiv .subres .subjectDivList li {
+        line-height: 100%;
+        padding-bottom: 10px; }
 
 .infoBlock {
   text-align: left; }
@@ -466,6 +495,16 @@ html, body, form, nav, ul, div {
     .infoBlock .infoKeyInfo #database_helpList {
       list-style: none;
       text-align: left; }
+
+.datatype {
+  display: block;
+  margin: 0px;
+  padding: 0 0 0 10px;
+  width: 100%; }
+  .datatype li {
+    float: left;
+    padding: 0 20px 0 0;
+    margin: 0 10px; }
 
 .pagingNext, .pagingPrevious {
   color: #0000ff;
@@ -504,10 +543,12 @@ html, body, form, nav, ul, div {
   #main-container {
     margin: 0; }
     #main-container .main-container-alert {
-      border-top: 1px solid #d3d3d3; }
+      border-top: 1px solid #d3d3d3;
+      display: block;
+      float: left; }
 
   .database-content {
-    margin: 50px 0 50px 0;
+    margin: 20px 0 50px 0;
     text-align: left;
     float: right; }
     .database-content .database-content-paging {
