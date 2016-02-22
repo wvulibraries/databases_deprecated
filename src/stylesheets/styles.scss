@@ -66,7 +66,6 @@ html, body, form, nav, ul, div {
 	overflow: hidden;
 	h1 {
 		color: #fff;
-		font-size: 3em;
 		font-weight: 400;
 		display: inline-block;
 		margin: 0;
@@ -315,8 +314,6 @@ html, body, form, nav, ul, div {
 	}
 	.database-content-title {
 		h2 {
-			color: $accent-blue1;
-			font-size: 2em;
 			float: left;
 			display: inline-block;
 			margin: 0;
@@ -397,7 +394,6 @@ html, body, form, nav, ul, div {
 			overflow: hidden;
 			float: left;
 			h3 {
-				font-size: 1.5em;
 				color: $primary-orange;
 				marhin: 0;
 				word-break:     break-word;
@@ -518,6 +514,7 @@ html, body, form, nav, ul, div {
 		text-align: right;
 		width: 32%;
 		text-align: left;
+		float: left;
 		a {
 			font-size: 16px;
 			padding: 4px 0 5px 0;

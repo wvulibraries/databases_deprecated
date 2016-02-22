@@ -67,7 +67,6 @@ html, body, form, nav, ul, div {
   overflow: hidden; }
   .webapp-header h1 {
     color: #fff;
-    font-size: 3em;
     font-weight: 400;
     display: inline-block;
     margin: 0;
@@ -268,8 +267,6 @@ html, body, form, nav, ul, div {
   .database-content h3 {
     margin: 0px 0px 10px; }
   .database-content .database-content-title h2 {
-    color: #0033A0;
-    font-size: 2em;
     float: left;
     display: inline-block;
     margin: 0; }
@@ -333,7 +330,6 @@ html, body, form, nav, ul, div {
       overflow: hidden;
       float: left; }
       .database .database-box .database-box-top h3 {
-        font-size: 1.5em;
         color: #EAAA00;
         marhin: 0;
         word-break: break-word;
@@ -432,7 +428,8 @@ html, body, form, nav, ul, div {
     display: inline-block;
     text-align: right;
     width: 32%;
-    text-align: left; }
+    text-align: left;
+    float: left; }
     .sticky-header-desktop-links li a {
       font-size: 16px;
       padding: 4px 0 5px 0;

@@ -43,7 +43,7 @@ templates::display('header');
 
 {local var="prettyPrint"}
 
-{local var="letters"}
+<!-- {local var="letters"} -->
 
 <div style="clear:both;"></div>
 <a href="{local var="subjectGuideLink"}" class="button" style="display: {local var="subjectGuideDisplay"}">Subject Guide</a>
