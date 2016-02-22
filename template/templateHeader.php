@@ -101,17 +101,25 @@
                 </div>
                 <div class="sticky-header-filter tabBar">
                     <a id="facet-toggle">
-                        <img src="{local var="databaseHome"}/images/filter.svg" alt="Search" id="filter-toggle1">
+                        <img src="{local var="databaseHome"}/images/search.svg" alt="Search" id="filter-toggle1">
                         <img src="{local var="databaseHome"}/images/x.svg" alt="Search" id="filter-toggle2">
                     </a>
                     <div class="sticky-header-filter-sidebar">
+                        <div id="searchBox">
+                            <form class="search-wrap" method="get" action="/databases/search/" id="dbn_form">
+                                <label for="dbn" class="hidelabel">Label</label>
+                                <input id="dbn" name='q' type='text' placeholder="Databases by Name..." class="search-field" size="21" maxlength="120" />
+                                <button class="search-button"><i class="fa fa-search"></i>Search</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div class="sticky-header-search tabBar">
                     <ul class="sticky-header-desktop-links">
-                        <li><a href="{local var="databaseHome"}/"><i class="fa fa-sort-amount-asc"></i>Databases by Subjects</a></li>
-                        <li><a href="{local var="databaseHome"}/AtoZ/"><i class="fa fa-sort-alpha-asc"></i>Databases by Titles</a></li>
-                        <li><a href="#help"><i class="fa fa-question-circle"></i>Help</a></li>
+                        <li><a href="{local var="databaseHome"}/"><i class="fa fa-sort-amount-asc"></i>Database Subjects</a></li>
+                        <li><a href="{local var="databaseHome"}/AtoZ/"><i class="fa fa-sort-alpha-asc"></i>Database Titles</a></li>
+
+                        <li><a href="#help"><i class="fa fa-question-circle"></i>Database Help</a></li>
                     </ul>
                     <a id="search-toggle">
                         <img src="{local var="databaseHome"}/images/help.svg" alt="Search" id="search-toggle1">
