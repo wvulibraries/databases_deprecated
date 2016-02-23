@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
     <head>
-        <title>Databases Admin | WVU Libraries</title>
+        <title>Databases | WVU Libraries</title>
         
         <!-- Meta Information -->
         <meta charset="utf-8">
@@ -101,25 +101,17 @@
                 </div>
                 <div class="sticky-header-filter tabBar">
                     <a id="facet-toggle">
-                        <img src="{local var="databaseHome"}/images/search.svg" alt="Search" id="filter-toggle1">
+                        <img src="{local var="databaseHome"}/images/filter.svg" alt="Search" id="filter-toggle1">
                         <img src="{local var="databaseHome"}/images/x.svg" alt="Search" id="filter-toggle2">
                     </a>
                     <div class="sticky-header-filter-sidebar">
-                        <div id="searchBox">
-                            <form class="search-wrap" method="get" action="/databases/search/" id="dbn_form">
-                                <label for="dbn" class="hidelabel">Label</label>
-                                <input id="dbn" name='q' type='text' placeholder="Databases by Name..." class="search-field" size="21" maxlength="120" />
-                                <button class="search-button"><i class="fa fa-search"></i>Search</button>
-                            </form>
-                        </div>
                     </div>
                 </div>
                 <div class="sticky-header-search tabBar">
                     <ul class="sticky-header-desktop-links">
-                        <li><a href="{local var="databaseHome"}/subjects/"><i class="fa fa-sort-amount-asc"></i>Database Subjects</a></li>
+                        <li><a href="{local var="databaseHome"}/"><i class="fa fa-sort-amount-asc"></i>Database Subjects</a></li>
                         <li><a href="{local var="databaseHome"}/AtoZ/"><i class="fa fa-sort-alpha-asc"></i>Database Titles</a></li>
-
-                        <li><a href="#help"><i class="fa fa-question-circle"></i>Database Help</a></li>
+                        <li><a href="#help"><i class="fa fa-question-circle"></i>Help</a></li>
                     </ul>
                     <a id="search-toggle">
                         <img src="{local var="databaseHome"}/images/help.svg" alt="Search" id="search-toggle1">
@@ -142,32 +134,41 @@
                                 selection or searching please contact:
                             </p>
                             <div class="search-query-form-message-box">
-                                <p><a href="mailto:Barbara.Hengemihle@mail.wvu.edu">Barbara Hengemihle</a><br />
+                                <p><strong>Barbara Hengemihle</strong><br />
                                 Evansdale Library<br />
-                                <span class="phoneNumber">(304) 293-9748</span><br /><br />
-                                Evansdale Library Reference Desk<br />
+                                <a href="mailto:Barbara.Hengemihle@mail.wvu.edu">Barbara.Hengemihle@mail.wvu.edu</a><br />
+                                <span class="phoneNumber">(304) 293-9748</span><br />
+                                or the<br />
+                                Evansdale Library<br />
+                                Reference Desk<br />
                                 <span class="phoneNumber">(304) 293-4695</span></p>
                             </div>
                             <div class="search-query-form-message-box">
-                                <p><a href="mailto:Susan.Arnold@mail.wvu.edu">Susan Arnold</a><br />
+                                <p><strong>Susan Arnold</strong><br />
                                 Health Sciences Library<br />
-                                <span class="phoneNumber">(304) 293-2105</span><br /><br />
-                                Health Sciences Library Reference Desk<br />
+                                <a href="mailto:Susan.Arnold@mail.wvu.edu">Susan.Arnold@mail.wvu.edu </a><br />
+                                <span class="phoneNumber">(304) 293-2105</span><br />
+                                or the<br />
+                                Health Sciences Library<br />
+                                Reference Desk<br />
                                 <span class="phoneNumber">(304) 293-6810</span></p>
                             </div>
                             <div class="search-query-form-message-box">
-                                <p><a href="mailto:ppugh@wvu.edu">Penny Pugh</a><br />
+                                <p><strong>Penny Pugh</strong><br />
                                     Downtown Campus Library<br />
-                                    <span class="phoneNumber">(304) 293-0334</span><br /><br />
-                                    Downtown Campus Library Reference Desk<br />
-                                    <span class="phoneNumber">(304) 293-3640</span>
+                                    <a href="mailto:ppugh@wvu.edu">ppugh@wvu.edu</a><br />
+                                    <span class="phoneNumber">(304) 293-0334</span><br />
+                                    or the<br />
+                                    Downtown Campus Library<br />
+                                    Reference Desk<br />
+                                    <span class="phoneNumber">(304) 293-3640</span><br />
+                                    or the<br />
+                                    <a href="http://westvirginia.libanswers.com/">Ask a Librarian</a> - Chat/Text/E-Mail reference service.
                                 </p>
                             </div>
                             <div class="search-query-form-message-box">
-                                <p><a href="http://westvirginia.libanswers.com/">Ask a Librarian</a><br />
-                                    <em>Chat/Text/Email Reference Service</em><br><br>
-                                    <em>If you are having a problem with a database or online resource, please submit an <a href="/databases/report/">eResource Error Report</a>.</em></p>
-                                    <!-- <br><br><strong>For technical problems call</strong> the WVU Library Systems Office at <span class="phoneNumber">(304) 293-0340</span> Monday-Friday, 8 a.m. to 4:00 p.m. or send e-mail to <a href="mailto:libsys@mail.wvu.edu">libsys@mail.wvu.edu</a>. -->
+                                <p><strong>For technical problems call:</strong></p>
+                                <p>WVU Library Systems Office at <span class="phoneNumber">(304) 293-0340</span> Monday-Friday, 8 a.m. to 4:00 p.m. or send e-mail to <a href="mailto:libsys@mail.wvu.edu">libsys@mail.wvu.edu</a>.</p>
                             </div>
                         </div>
                     </div>
@@ -179,9 +180,13 @@
         <div id="main-container">
             <div class="wrap">
 
+                <!-- Left Subcontainer -->
+                <?php recurseInsert("leftnav.php","php") ?>
+
+                <!-- Right Subcontainer -->
                 <div class="database-content">
 
-                    <!-- Bread Crumbs -->
+                    <!-- Faceted Bread Crumbs -->
                     <?php recurseInsert("includes/breadcrumbs.php","php"); ?>
                      
 
@@ -191,7 +196,7 @@
                     
                     <!-- Database Results Title & Sorting -->
                     <div class="database-content-title" style="{local var="adminDisplay"}">
-                        <h2><span class="database-content-title-results">{local var="databaseHeading"} {local var="database_heading_middle"} {local var="databaseHeadingByTitle"}</span></h2>
+                        <h2><span class="database-content-title-results">{local var="databaseHeading"} Database Results: {local var="databaseHeadingByTitle"}</span></h2>
                         <!-- Impliment blocks versus lists later
                         <i class="fa fa-list"></i>
                         <i class="fa fa-th-large"></i>

@@ -1,12 +1,12 @@
                     
                      
 
-
+                    <div style="clear:both;"></div>
+                    <hr />
+                    <div style="clear:both;"></div>
 
                 </div><!-- /database-content -->
             </div><!-- /wrap -->
-
-        </div><!-- /main-container -->
 
             <!-- Alerts/Policies Container -->
             <div class="main-container-alert">
@@ -14,6 +14,8 @@
                 <div class="wrap" id="main-container-alert">
                 </div>
             </div>
+
+        </div><!-- /main-container -->
 
         <!-- Footer -->
         <footer id="footer">
@@ -54,11 +56,6 @@
                             </a>
                         </li>
                         <li>
-                            <a class="socmedia" target="_blank" href="https://www.flickr.com/photos/wvulibraries/">
-                                <img src="{local var="databaseHome"}/images/flickr.png" alt="Flickr" title="Flickr">
-                            </a>
-                        </li>
-                        <li>
                             <a class="socmedia" href="https://plus.google.com/100326194366145492876" rel="publisher" target="_blank">
                                 <img src="{local var="databaseHome"}/images/google.png" alt="Google+" title="Google+">
                             </a>
@@ -67,12 +64,7 @@
                             <a class="socmedia" href="http://instagram.com/wvulibrarianlinda" target="_blank">
                                 <img src="{local var="databaseHome"}/images/instagram.png" alt="Instagram" title="Instagram">
                             </a>
-                        </li>             
-                        <li>
-                            <a class="socmedia" target="_blank" href="https://www.pinterest.com/wvulibraries/">
-                                <img src="{local var="databaseHome"}/images/pinterest.png" alt="Pinterest" title="Pinterest">
-                            </a>
-                        </li>
+                        </li>                           
                         <li>
                             <a class="socmedia" target="_blank" href="https://twitter.com/wvuLibraries">
                                 <img src="{local var="databaseHome"}/images/twitter.png" alt="Twitter" title="Twitter">
