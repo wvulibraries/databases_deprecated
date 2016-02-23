@@ -11,6 +11,8 @@ $localvars->set("databases",lists::databases($databases));
 $localvars->set("displayNoResults",(is_empty($databases))?"block":"none");
 $localvars->set("query",$_GET['HTML']['q']);
 
+$localvars->set("breadcrumb_heading","Search Results: ".htmlSanitize($_GET['HTML']['q']));
+
 templates::display('header'); 
 ?>
 
