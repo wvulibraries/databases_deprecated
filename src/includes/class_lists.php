@@ -131,7 +131,7 @@ class lists {
 				$database['URLID'],
 				$database['name']
 				);
-			
+
 			// Print if a new database
 			$output .= ($database['newDatabase'])?'<span class="new-database">New</span>':"";
 
@@ -165,6 +165,8 @@ class lists {
 	}
 
 	public static function popular($databases) {
+
+		return self::databases($databases);
 
 		$localvars = localvars::getInstance();
 
