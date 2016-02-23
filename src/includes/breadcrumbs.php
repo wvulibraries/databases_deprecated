@@ -32,4 +32,9 @@ if (!is_empty($localvars->get("enableBreadcrumbClicking"))) {
 		<li><a href="{local var="databaseHome"}">Databases</a></li>
 		{local var="breadCrumbs"}
 	</ul>
+
 </div>
+
+	<?php if (!is_empty($localvars->get("results_count"))) { ?>
+	<span id="results-count" >{local var="results_count"} Results</span>
+	<?php } ?>

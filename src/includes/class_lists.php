@@ -114,9 +114,11 @@ class lists {
 	}
 
 	// expects $databases to be a database array
-	public static function databases($databases) {
+	public static function databases($databases,$results_count=TRUE) {
 
 		$localvars = localvars::getInstance();
+
+		if ($results_count) $localvars->set("results_count",count($databases));
 
 		$output = "";
 
@@ -166,24 +168,8 @@ class lists {
 
 	public static function popular($databases) {
 
-		return self::databases($databases);
+		return self::databases($databases,FALSE);
 
-		$localvars = localvars::getInstance();
-
-		$output = "<ul id=\"popularDBList\">";
-
-		foreach ($databases as $database) {
-
-			$output .= sprintf('<li><a href="%s?%s=INVS\">%s</a></li>',
-				$localvars->get("connectURL"),
-				$database['URLID'],
-				htmlSanitize($database['name'])
-				);
-
-		}
-		$output .= "</ul>";
-
-		return $output;
 	}
 
 	// This method is largely unchanged from the previous function. It will likely be changed

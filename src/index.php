@@ -11,7 +11,7 @@ $localvars->set("letters",lists::letters());
 $dbObject  = new databases;
 $databases = $dbObject->getByType(array("newDatabase","trialDatabase"));
 
-$localvars->set("highlighted_databases",lists::databases($databases));
+$localvars->set("highlighted_databases",lists::databases($databases,false));
 
 templates::display('header'); 
 recurseInsert("stylesheets/homepage.css");
