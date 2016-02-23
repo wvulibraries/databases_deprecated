@@ -186,7 +186,7 @@
                      
 
                     <div style="clear:both;"></div>
-                    <hr />
+                    <hr class="tophr" />
                     <div style="clear:both;"></div>
                     
                     <!-- Database Results Title & Sorting -->

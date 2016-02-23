@@ -21,15 +21,11 @@ templates::display('header');
 ?>
 
 <!-- Page Content Goes Below This Line -->
-
+<br>
 {local var="letters"}
 
-<?php recurseInsert("includes/popularDatabases.php","php"); ?>
-
 <div class="database-content-holder">
-
-{local var="databases"}
-
+	{local var="databases"}
 </div>
 
 <!-- Page Content Goes Above This Line -->

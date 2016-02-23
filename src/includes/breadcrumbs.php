@@ -36,5 +36,5 @@ if (!is_empty($localvars->get("enableBreadcrumbClicking"))) {
 </div>
 
 	<?php if (!is_empty($localvars->get("results_count"))) { ?>
-	<span id="results-count" >{local var="results_count"} Results</span>
+	<span id="results-count" ><strong>{local var="results_count"}</strong> <em>Results</em></span>
 	<?php } ?>

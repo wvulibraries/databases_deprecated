@@ -11,6 +11,21 @@ html, body, form, nav, ul, div {
 	text-align: center;
 	font-family: "Helvetica Neue", "Helvetica","Roboto", Arial, sans-serif;
 }
+#results-count {
+	display: none;
+	float: right;
+	padding: 10px 0px;
+	margin-top: 4px;
+	@include mq(tablet) {
+		display: inline-block;
+	}
+}
+.database-content-facets, .tophr {
+	display: none;
+	@include mq(tablet) {
+		display: block;
+	}	
+}
 
 .button {
   display: inline-block; 
@@ -307,10 +322,12 @@ html, body, form, nav, ul, div {
 		border: collaps
 	}
 	h2 {
-		margin: 40px 0 10px 0;
+		margin: 60px 0 10px 0;
+		color: $accent-blue1;
 	}
 	h3 {
-		margin: 0px 0px 10px;
+		margin: 10px 0px 10px;
+		color: $primary-blue;
 	}
 	.database-content-title {
 		h2 {
