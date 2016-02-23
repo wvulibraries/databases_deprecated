@@ -148,7 +148,7 @@ class lists {
 					date("M d, Y",$database['trialExpireDate'])
 					);
 			}
-			$output .= '<span class="bookmark-false">Bookmark</span>';
+			//$output .= '<span class="bookmark-false">Bookmark</span>';
 			$output .= '</div>'; // database-box-top
 
 			// $output .= '<div class="database-box-bottom database-res">';
