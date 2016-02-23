@@ -116,7 +116,7 @@
                 </div>
                 <div class="sticky-header-search tabBar">
                     <ul class="sticky-header-desktop-links">
-                        <li><a href="{local var="databaseHome"}/"><i class="fa fa-sort-amount-asc"></i>Database Subjects</a></li>
+                        <li><a href="{local var="databaseHome"}/subjects/"><i class="fa fa-sort-amount-asc"></i>Database Subjects</a></li>
                         <li><a href="{local var="databaseHome"}/AtoZ/"><i class="fa fa-sort-alpha-asc"></i>Database Titles</a></li>
 
                         <li><a href="#help"><i class="fa fa-question-circle"></i>Database Help</a></li>
