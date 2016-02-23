@@ -1,6 +1,7 @@
 <style>
 .database-content {
 	width: 60%;
+	overflow: auto;
 }
 </style>
 
