@@ -20,7 +20,7 @@ templates::display('header');
 	us know.
 </p>
 
-<form action="https://lib.wvu.edu/email/email.php" method="post" enctype="multipart/form-data">
+<form class ="error-report" action="https://lib.wvu.edu/email/email.php" method="post" enctype="multipart/form-data">
 
 {csrf}
 
@@ -52,7 +52,7 @@ templates::display('header');
 <label for="problem">Describe the issue</label>
 <textarea name="Problem" value="" id="problem"></textarea>
 <p id="optional-citation">
-	Optional: Include the citation of the book or article you are trying to 
+	<u>Optional</u>: Include the citation of the book or article you are trying to 
 	access.
 </p>
 
