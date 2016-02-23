@@ -11,6 +11,34 @@ html, body, form, nav, ul, div {
 	text-align: center;
 	font-family: "Helvetica Neue", "Helvetica","Roboto", Arial, sans-serif;
 }
+.admin-container {
+	.wrap {
+		#sidebar {
+			width: 25% !important;
+			padding-right: 5%;
+		}
+		.database-admin {
+			width: 70% !important;
+			overflow: auto;
+			@include mq(tablet) {
+				width: 70% !important;
+			}
+			select {
+				max-width: 480px;
+			}
+			table {
+				font-size: 14px;
+				td, th {
+					padding: 5px;
+					vertical-align: top;
+				}
+				tr:nth-of-type(2n+1) {
+				    background: none repeat scroll 0% 0% #EEE;
+				}
+			}
+		}
+	}
+}
 .poppicks {
 	.database {
 		background: #fffeab;

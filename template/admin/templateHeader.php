@@ -84,107 +84,15 @@
             </div>
         </div>
 
-        <!-- Tab Bar -->
-        <div class="sticky-header">
-            <div class="tbwrap"> 
-                <div class="sticky-header-nav tabBar">
-                    <a id="menu-toggle" href="{local var="databaseHome"}">
-                        <img src="{local var="databaseHome"}/images/subject.svg" alt="Sort by Subject" id="menu-toggle1">
-                        <img src="{local var="databaseHome"}/images/subjectx.svg" alt="Sort by Subject" id="menu-toggle2">
-                    </a>
-                </div>
-                <div class="sticky-header-top tabBar">
-                    <a id="top-toggle" href="{local var="databaseHome"}/AtoZ">
-                        <img src="{local var="databaseHome"}/images/title.svg" alt="Sort by Title" id="top-toggle1">
-                        <img src="{local var="databaseHome"}/images/titlex.svg" alt="Sort by Title" id="top-toggle2">
-                    </a>
-                </div>
-                <div class="sticky-header-filter tabBar">
-                    <a id="facet-toggle">
-                        <img src="{local var="databaseHome"}/images/filter.svg" alt="Search" id="filter-toggle1">
-                        <img src="{local var="databaseHome"}/images/x.svg" alt="Search" id="filter-toggle2">
-                    </a>
-                    <div class="sticky-header-filter-sidebar">
-                    </div>
-                </div>
-                <div class="sticky-header-search tabBar">
-                    <ul class="sticky-header-desktop-links">
-                        <li><a href="{local var="databaseHome"}/"><i class="fa fa-sort-amount-asc"></i>Database Subjects</a></li>
-                        <li><a href="{local var="databaseHome"}/AtoZ/"><i class="fa fa-sort-alpha-asc"></i>Database Titles</a></li>
-                        <li><a href="#help"><i class="fa fa-question-circle"></i>Help</a></li>
-                    </ul>
-                    <a id="search-toggle">
-                        <img src="{local var="databaseHome"}/images/help.svg" alt="Search" id="search-toggle1">
-                        <img src="{local var="databaseHome"}/images/x.svg" alt="Search" id="search-toggle2">
-                    </a>
-
-                    <!-- Help Information -->
-                    <div class="search-query-form">
-                        <div class="search-query-form-message">
-                            <h2>Help with Databases</h2>
-                            <p>
-                                Most databases are available off-campus to current WVU-Morgantown students, faculty and 
-                                staff. Licensing restrictions prevent WVU Libraries from providing off-campus access to 
-                                others. Your affiliation with WVU is verified through use of WVU Login. You will be 
-                                prompted to enter this when you choose a database from the menu. For assistance with 
-                                WVU Login, please go to the Information Technology Services (ITS) website at: 
-                                <a href="https://login.wvu.edu/">https://login.wvu.edu/</a>. There you can activate your 
-                                account or change your password. Alternatively, you may call the ITS Help Desk at 
-                                <span class="phoneNumber">(304) 293-4444</span>. If you need assistance with database 
-                                selection or searching please contact:
-                            </p>
-                            <div class="search-query-form-message-box">
-                                <p><strong>Barbara Hengemihle</strong><br />
-                                Evansdale Library<br />
-                                <a href="mailto:Barbara.Hengemihle@mail.wvu.edu">Barbara.Hengemihle@mail.wvu.edu</a><br />
-                                <span class="phoneNumber">(304) 293-9748</span><br />
-                                or the<br />
-                                Evansdale Library<br />
-                                Reference Desk<br />
-                                <span class="phoneNumber">(304) 293-4695</span></p>
-                            </div>
-                            <div class="search-query-form-message-box">
-                                <p><strong>Susan Arnold</strong><br />
-                                Health Sciences Library<br />
-                                <a href="mailto:Susan.Arnold@mail.wvu.edu">Susan.Arnold@mail.wvu.edu </a><br />
-                                <span class="phoneNumber">(304) 293-2105</span><br />
-                                or the<br />
-                                Health Sciences Library<br />
-                                Reference Desk<br />
-                                <span class="phoneNumber">(304) 293-6810</span></p>
-                            </div>
-                            <div class="search-query-form-message-box">
-                                <p><strong>Penny Pugh</strong><br />
-                                    Downtown Campus Library<br />
-                                    <a href="mailto:ppugh@wvu.edu">ppugh@wvu.edu</a><br />
-                                    <span class="phoneNumber">(304) 293-0334</span><br />
-                                    or the<br />
-                                    Downtown Campus Library<br />
-                                    Reference Desk<br />
-                                    <span class="phoneNumber">(304) 293-3640</span><br />
-                                    or the<br />
-                                    <a href="http://westvirginia.libanswers.com/">Ask a Librarian</a> - Chat/Text/E-Mail reference service.
-                                </p>
-                            </div>
-                            <div class="search-query-form-message-box">
-                                <p><strong>For technical problems call:</strong></p>
-                                <p>WVU Library Systems Office at <span class="phoneNumber">(304) 293-0340</span> Monday-Friday, 8 a.m. to 4:00 p.m. or send e-mail to <a href="mailto:libsys@mail.wvu.edu">libsys@mail.wvu.edu</a>.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- Main Container -->
-        <div id="main-container">
+        <div id="main-container" class="admin-container">
             <div class="wrap">
 
                 <!-- Left Subcontainer -->
                 <?php recurseInsert("leftnav.php","php") ?>
 
                 <!-- Right Subcontainer -->
-                <div class="database-content">
+                <div class="database-content database-admin">
 
                     <!-- Faceted Bread Crumbs -->
                     <?php recurseInsert("includes/breadcrumbs.php","php"); ?>

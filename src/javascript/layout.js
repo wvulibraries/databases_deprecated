@@ -263,7 +263,18 @@ $(window).load(function() {
 $(window).resize(function(){
   equalheight('.subres');
 });
-	
+
+// $(document).ready(function() {
+//   equalheight('.database-resize');
+// });
+
+// $(window).load(function() {
+//   equalheight('.database-resize');
+// });
+
+// $(window).resize(function(){
+//   equalheight('.database-resize');
+// });	
 
 
 // Database Resizing
