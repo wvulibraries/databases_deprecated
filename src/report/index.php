@@ -89,6 +89,8 @@ templates::display('header');
 	<input type="text" name="captchaAnswer"><br />
 </p>
 
+<input type="submit" value="Report Problem" name="submit_report">
+
 </form>
 
 <!-- Page Content Goes Above This Line -->
