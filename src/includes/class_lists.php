@@ -131,8 +131,13 @@ class lists {
 				$database['URLID'],
 				$database['name']
 				);
+			
+			// Print if a new database
 			$output .= ($database['newDatabase'])?'<span class="new-database">New</span>':"";
+
+			// print if a trial database
 			$output .= ($database['trialDatabase'])?'<span class="trial-database">Trial</span>':"";
+
 			$output .= sprintf('<p>%s</p>',
 				(!is_empty($database['description']))?$database['description']:""
 				);
