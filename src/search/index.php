@@ -17,10 +17,16 @@ templates::display('header');
 ?>
 
 <!-- Page Content Goes Below This Line -->
+<h2>Database Search Results:</h2>
 
-<h3>Database Search Results</h3>
+<p style="display: {local var="displayNoResults"}">Sorry, but there are no matching results for a database titled "<strong>{local var="query"}</strong>". Are you sure you spelled "{local var="query"}" correctly?<br><br>Please feel free to search again, or you can also sort through the databases by <a href="{local var="databaseHome"}/subjects/">subject</a> or <a href="{local var="databaseHome"}/AtoZ/">title</a>.<br><br>Also, you might want to check some of the following popular databases:</p>
 
-<p style="display: {local var="displayNoResults"}">We do not have any databases named "<strong>{local var="query"}</strong>".  Please browse our <a href="{local var="databaseHome"}">Databases</a> by subject or title.</p>
+<style>
+.facets-header {
+	display: none;
+}
+</style>
+<?php recurseInsert("includes/popularDatabases.php","php"); ?>
 
 {local var="databases"}
 

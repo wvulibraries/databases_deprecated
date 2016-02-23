@@ -277,11 +277,13 @@ html, body, form, nav, ul, div {
     margin: 20px 0;
     border: none;
     border: collaps; }
+  .database-content .hp h2 {
+    margin: 60px 0 10px 0; }
+  .database-content .hp h3 {
+    margin: 10px 0px 10px; }
   .database-content h2 {
-    margin: 60px 0 10px 0;
     color: #0033A0; }
   .database-content h3 {
-    margin: 10px 0px 10px;
     color: #002855; }
   .database-content .database-content-title h2 {
     float: left;

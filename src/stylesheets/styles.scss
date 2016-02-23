@@ -321,12 +321,18 @@ html, body, form, nav, ul, div {
 		border: none;
 		border: collaps
 	}
+	.hp {
+		h2 {
+			margin: 60px 0 10px 0;
+		}
+		h3 {
+			margin: 10px 0px 10px;
+		}
+	}
 	h2 {
-		margin: 60px 0 10px 0;
 		color: $accent-blue1;
 	}
 	h3 {
-		margin: 10px 0px 10px;
 		color: $primary-blue;
 	}
 	.database-content-title {

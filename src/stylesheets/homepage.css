@@ -3,6 +3,9 @@
 	display: none;
 }
 #main-container {
-    margin: 40px 0 0 0;
+    margin: 0;
+}
+#main-container > div.wrap > div > span > h2:nth-child(1) {
+	margin-top: 20px;
 }
 </style>
