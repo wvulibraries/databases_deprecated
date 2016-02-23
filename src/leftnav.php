@@ -18,14 +18,16 @@ $trialDBs  = count($dbObject->getByType("trialDatabase"));
 
 	<h2>Database Types</h2>
 
+	<ul class="datatype">
 	<?php if ($alumniDBs) { ?>
-		<ul class="datatype">
-			<li data-breadcrumb="Alumni" class="{local var="enableBreadcrumbClicking"}"><a href="{local var="databaseHome"}/type/alumni/">Alumni</a></li>
-			<?php } ?>
-			<?php if ($newDBs) { ?>
-			<li data-breadcrumb="New" class="{local var="enableBreadcrumbClicking"}"><a href="{local var="databaseHome"}/type/new/">New</a></li>
-			<?php } ?>
-			<?php if ($trialDBs) { ?>
+	<li data-breadcrumb="Alumni" class="{local var="enableBreadcrumbClicking"}"><a href="{local var="databaseHome"}/type/alumni/">Alumni</a></li>
+	<?php } ?>
+	
+	<?php if ($newDBs) { ?>
+	<li data-breadcrumb="New" class="{local var="enableBreadcrumbClicking"}"><a href="{local var="databaseHome"}/type/new/">New</a></li>
+	<?php } ?>
+	<li data-breadcrumb="Popular" class="{local var="enableBreadcrumbClicking"}"><a href="{local var="databaseHome"}/type/popular/">Popular</a></li>
+	<?php if ($trialDBs) { ?>
 			<li data-breadcrumb="Trial" class="{local var="enableBreadcrumbClicking"}"><a href="{local var="databaseHome"}/type/trial/">Trial</a></li>
 	<?php } ?>
 		</ul>
