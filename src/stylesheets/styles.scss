@@ -11,6 +11,46 @@ html, body, form, nav, ul, div {
 	text-align: center;
 	font-family: "Helvetica Neue", "Helvetica","Roboto", Arial, sans-serif;
 }
+#searchBox {
+	border: 1px solid $primary-blue;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	max-width: 480px;
+	width: 99%;
+	#dbn_form {
+		width: 100%;
+		.hidelabel {
+			position:absolute;
+			left:-10000px;
+			top:auto;
+			width:1px;
+			height:1px;
+			overflow: hidden;
+		}
+		#dbn {
+			border: none;
+			width: 65%;
+			height: 35px;
+			padding: 0 5%;
+			margin: 0;
+			float: left;
+			display: inline-block;	
+		}
+		.search-button {
+			border: medium none;
+			width: 25%;
+			height: 35px;
+			padding: 0;
+			margin: 0;
+			float: left;
+			display: inline-block;
+			background: $primary-blue;
+			color: #fff;
+			cursor: pointer;
+		}
+	}
+}
 #results-count {
 	display: none;
 	float: right;
@@ -175,6 +215,41 @@ html, body, form, nav, ul, div {
 		.sticky-header-filter-sidebar {
 			transition: all 0.2s ease;
 		}
+		#searchBox {
+			width: 100%;
+			#dbn_form {
+				width: 100%;
+				.hidelabel {
+					position:absolute;
+					left:-10000px;
+					top:auto;
+					width:1px;
+					height:1px;
+					overflow: hidden;
+				}
+				#dbn {
+					border: none;
+					width: 65%;
+					height: 35px;
+					padding: 0 5%;
+					margin: 0;
+					float: left;
+					display: inline-block;	
+				}
+				.search-button {
+					border: medium none;
+					width: 25%;
+					height: 35px;
+					padding: 0;
+					margin: 0;
+					float: left;
+					display: inline-block;
+					background: $primary-blue;
+					color: #fff;
+					cursor: pointer;
+				}
+			}
+		}
 	}
 	.sticky-header a {
 		width: 100%;
@@ -246,7 +321,7 @@ html, body, form, nav, ul, div {
 	bottom: 55px;
 	position: fixed;
 	background: #337AB7;
-	width: 100%;
+	width: 90%;
 	margin: 0;
 	left: 0;
 	padding: 5%;
@@ -337,9 +412,12 @@ html, body, form, nav, ul, div {
 	}
 	.database-content-title {
 		h2 {
-			float: left;
+			float: initial;
 			display: inline-block;
 			margin: 0;
+			@include mq(tablet) {
+				float: left;
+			}
 		}	
 		i {
 			float: right;

@@ -172,8 +172,7 @@ class lists {
 
 	}
 
-	// This method is largely unchanged from the previous function. It will likely be changed
-	// as we work on the new design
+	// This method is largely unchanged from the previous function. It will likely be changed as we work on the new design
 	public static function letters() {
 
 		$localvars = localvars::getInstance();
