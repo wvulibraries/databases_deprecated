@@ -14,17 +14,9 @@ $databases = $dbObject->getByType(array("newDatabase","trialDatabase"));
 $localvars->set("highlighted_databases",lists::databases($databases));
 
 templates::display('header'); 
+recurseInsert("stylesheets/homepage.css");
 
 ?>
-
-<style>
-.sticky-header {
-	display: none;
-}
-#main-container {
-    margin: 40px 0 0 0;
-}
-</style>
 
 <!-- Homepage Content -->
 <h2>Database Search</h2>
