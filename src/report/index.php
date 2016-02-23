@@ -13,7 +13,7 @@ templates::display('header');
 
 {local var="letters"}
 
-<h3>eResource Error Report</h3>
+<h2>eResource Error Report</h2>
 
 <p>
 	If you are having a problem with a database or online resource, please let 

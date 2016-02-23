@@ -10,7 +10,7 @@ templates::display('header');
 
 {local var="letters"}
 
-<h3>eResource Error Report -- Thanks</h3>
+<h2>eResource Error Report -- Thanks</h2>
 
 <p>
 Thank you for submitting a problem.
