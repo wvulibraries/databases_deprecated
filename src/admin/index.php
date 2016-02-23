@@ -1,5 +1,5 @@
 <?php
-require "../engineHeader.php";
+require "engineHeader.php";
 
 templates::display('header');
 ?>

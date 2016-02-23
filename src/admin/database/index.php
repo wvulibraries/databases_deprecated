@@ -1,5 +1,5 @@
 <?php
-require_once "../../engineHeader.php";
+require_once "../engineHeader.php";
 
 try {
 	$databaseID = isset($_GET['MYSQL']['id']) ? $_GET['MYSQL']['id'] : NULL;

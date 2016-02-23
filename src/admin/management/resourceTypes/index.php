@@ -1,5 +1,5 @@
 <?php
-require_once "../../../engineHeader.php";
+require_once "../../engineHeader.php";
 
 recurseInsert("includes/forms/resourceTypes.php","php");
 
