@@ -7,6 +7,7 @@ if (isset($_GET['HTML']) && $_GET['HTML']['id'] == "num") {
 	$pageHeader = "num";
 }
 
+$localvars->set("breadcrumb_heading",(!empty($pageHeader))?"by Title: ".$pageHeader:"Error");
 $localvars->set("pageHeader",(!empty($pageHeader))?$pageHeader:"Error");
 $localvars->set("letters",lists::letters());
 

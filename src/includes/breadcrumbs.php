@@ -2,7 +2,22 @@
 
 $localvars = localvars::getInstance();
 
-$allResults = sprintf('<li><span class="facetLi"><a href="%s">%s</a></span></li>',$_SERVER['REQUEST_URI'],$localvars->get("databaseHeading"));
+if (is_array($localvars->get("breadcrumb_heading"))) {
+
+	$allResults = "";
+	foreach ($localvars->get("breadcrumb_heading") as $breadcrumb) {
+
+		$allResults .= sprintf('<li>%s</li>',$breadcrumb);
+
+	}
+
+}
+else {
+	$allResults = sprintf('<li><span class="facetLi"><a href="%s">%s</a></span></li>',
+		$_SERVER['REQUEST_URI'],
+		(!is_empty($localvars->get("breadcrumb_heading")))?$localvars->get("breadcrumb_heading"):$localvars->get("databaseHeading")
+		);
+}
 
 if (!is_empty($localvars->get("enableBreadcrumbClicking"))) {
 	$localvars->set("breadCrumbs",$allResults);
