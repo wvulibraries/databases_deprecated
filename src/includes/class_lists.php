@@ -151,11 +151,11 @@ class lists {
 			$output .= '<span class="bookmark-false">Bookmark</span>';
 			$output .= '</div>'; // database-box-top
 
-			$output .= '<div class="database-box-bottom database-res">';
-            $output .= '<ul class="database-box-bottom-tags">';
-            $output .= self::generateDBTags($database);
-            $output .= '</ul>';
-            $output .= '</div>'; // database-box-bottom
+			// $output .= '<div class="database-box-bottom database-res">';
+   //          $output .= '<ul class="database-box-bottom-tags">';
+   //          $output .= self::generateDBTags($database);
+   //          $output .= '</ul>';
+   //          $output .= '</div>'; // database-box-bottom
 
 			$output .= '</div>'; // database-box
 			$output .= '</div>'; // database
