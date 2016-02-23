@@ -39,7 +39,7 @@ class lists {
 
 			
 				$output .= "<li>";
-				$output .= sprintf('<a href="%s/subjects/?id=%s&status=%s">%s</a>',
+				$output .= sprintf('<a href="%s/subjects/subject/?id=%s&status=%s">%s</a>',
 					$localvars->get("databaseHome"),
 					htmlentities($subject['ID']),
 					status::current(),
