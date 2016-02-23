@@ -4,6 +4,7 @@ require "../engineHeader.php";
 
 // require_once "/home/www.libraries.wvu.edu/public_html/email/emailCaptcha.php";
 // genTextCaptcha();
+$localvars->set("breadcrumb_heading","eResource Error Report");
 
 templates::display('header'); 
 
