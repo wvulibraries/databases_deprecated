@@ -84,7 +84,7 @@ templates::display('header');
 
 {local var="curated_table"}
 
-<input type="submit" name="sort_submit" value="Update" />
+<input type="submit" name="sort_submit" value="Update" style="float: left;"/>
 
 </form>
 
