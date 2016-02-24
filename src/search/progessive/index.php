@@ -1,6 +1,8 @@
 <?php
 require "../../engineHeader.php";
 
+if (!isset($_GET['MYSQL']) && !isset($_GET['MYSQL']['q'])) die;
+
 $_GET['MYSQL']['q'] = ($_GET['MYSQL']['q'] && !is_empty($_GET['MYSQL']['q']))?$_GET['MYSQL']['q']:"";
 $_GET['MYSQL']['q'] = urldecode($_GET['MYSQL']['q']);
 
