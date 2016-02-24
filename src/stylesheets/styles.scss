@@ -11,6 +11,18 @@ html, body, form, nav, ul, div {
 	text-align: center;
 	font-family: "Helvetica Neue", "Helvetica","Roboto", Arial, sans-serif;
 }
+#mp_q_list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	text-align: left;
+	margin-top: 35px;
+	border: 1px solid #C0C0C0;
+	li {
+		padding: 0 0 0 10px;
+	}
+}
 .error-report {
 	width: 100%;
 	max-width: 480px;
