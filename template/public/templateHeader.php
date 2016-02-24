@@ -1,3 +1,4 @@
+<?php $localvars  = localvars::getInstance(); ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
     <head>
@@ -85,6 +86,8 @@
         </div>
 
         <!-- Tab Bar -->
+
+        <?php if ($localvars->get("homepage") != "true") { ?>
         <div class="sticky-header">
             <div class="tbwrap"> 
                 <div class="sticky-header-nav tabBar">
@@ -104,15 +107,7 @@
                         <img src="{local var="databaseHome"}/images/search.svg" alt="Search" id="filter-toggle1">
                         <img src="{local var="databaseHome"}/images/x.svg" alt="Search" id="filter-toggle2">
                     </a>
-                    <div class="sticky-header-filter-sidebar">
-                        <div id="searchBox">
-                            <form class="search-wrap" method="get" action="/databases/search/" id="dbn_form">
-                                <label for="dbn" class="hidelabel">Label</label>
-                                <input id="dbn" name='q' type='text' placeholder="Database Title Search..." class="search-field" size="21" maxlength="120" />
-                                <button class="search-button"><i class="fa fa-search"></i></button>
-                            </form>
-                        </div>
-                    </div>
+                    <?php recurseInsert("includes/searchBox.php","php") ?>
                 </div>
                 <div class="sticky-header-search tabBar">
                     <ul class="sticky-header-desktop-links">
@@ -174,6 +169,7 @@
                 </div>
             </div>
         </div>
+        <?php } ?>
 
         <!-- Main Container -->
         <div id="main-container">

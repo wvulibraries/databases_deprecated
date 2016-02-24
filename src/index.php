@@ -13,6 +13,8 @@ $databases = $dbObject->getByType(array("newDatabase","trialDatabase"));
 
 $localvars->set("highlighted_databases",lists::databases($databases,false));
 
+$localvars->set("homepage","true");
+
 templates::display('header'); 
 recurseInsert("stylesheets/homepage.css");
 
@@ -21,13 +23,8 @@ recurseInsert("stylesheets/homepage.css");
 <!-- Homepage Content -->
 <span class="hp">
 	<h2>Database Search</h2>
-	<div id="searchBox">
-		<form class="search-wrap" method="get" action="/databases/search/" id="dbn_form">
-			<label for="dbn" class="hidelabel">Label</label>
-			<input id="dbn" name='q' type='text' placeholder="Database Title Search..." class="search-field" size="21" maxlength="120" />
-			<button class="search-button"><i class="fa fa-search"></i></button>
-		</form>
-	</div>
+
+	<?php recurseInsert("includes/searchBox.php","php") ?>
 
 	<h2>Databases by Title</h2>
 	{local var="letters"}
