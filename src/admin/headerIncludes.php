@@ -7,7 +7,7 @@
 new formBuilder('');
 
 // Process formBuilder forms
-if (!is_empty($_POST) || session::has('POST')) {
+if (isset($ignore_form_builder) && (!is_empty($_POST) || session::has('POST'))) {
 
 	$processor = formBuilder::createProcessor();
 	$processor->processPost();

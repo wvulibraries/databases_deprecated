@@ -36,4 +36,14 @@ $form->addField(
     )
 );
 
+$form->addField(
+    array(
+        'name'  => "orderCuratedDatabases",
+        'label' => "Order Curated DBs",
+        'type'  => "plainText",
+        'value' => sprintf('<a href="order/?id={ID}">Edit</a>')
+
+        )
+    );
+
 ?>
