@@ -67,8 +67,24 @@ html, body, form, nav, ul, div {
 	}
 }
 .poppicks {
+	background: #fffeab;
+	border-radius: 5px;
+	overflow: hidden;
+	padding: 0 0 30px 0;
+	margin: 20px 0;
+	.facets-header {
+		display: inline-block;
+		float: left;
+		h2 {
+			text-align: left;
+			padding: 30px 30px 0 30px;
+			margin: 0;
+			color: $primary-orange;
+		}
+	}
 	.database {
-		background: #fffeab;
+		margin: 20px 30px 0 30px;
+		width: auto;
 	}
 }
 #searchBox {
@@ -142,6 +158,9 @@ html, body, form, nav, ul, div {
   border-color: #005daa;
   text-decoration: none;
   border-style: solid;
+  .fa {
+  	padding: 0 6px 0 0;
+  }
 }
 .button:hover {
   background: #eeb111; 
@@ -542,24 +561,21 @@ html, body, form, nav, ul, div {
 	}
 }
 .database {
-	margin-top: 50px;
+	margin: 10px 0;
 	width: 100%;
 	overflow: hidden;
 	float: left;
 	.database-box {
-		border: 1px solid #d1d3d4;
-		border-radius: 5px;
-		overflow: hidden;
 		float: left;
 		.database-box-top {
-			padding: 20px 5%;
-			width: 90%;
+			padding: 1px 0;
+			width: 100%;
 			text-align: left;
 			overflow: hidden;
 			float: left;
 			h3 {
 				color: $primary-orange;
-				marhin: 0;
+				margin: 10px 0 0 0;
 				word-break:     break-word;
 				  -webkit-hyphens: auto;
 				  -moz-hyphens:    auto;
@@ -569,6 +585,7 @@ html, body, form, nav, ul, div {
 				font-size: 1em;
 				line-height: 150%;
 				color: #002755;
+				margin: 0;
 				.moreLink {
 					white-space: nowrap;
 				}
@@ -932,9 +949,9 @@ html, body, form, nav, ul, div {
 			float: left;
 		}
 	}		
-	.database {
-		width: 48%;
-		float: left;
-		margin: 20px 1% 0 1%;
-	}
+	// .database {
+	// 	width: 48%;
+	// 	float: left;
+	// 	margin: 20px 1% 0 1%;
+	// }
 } 

@@ -57,8 +57,23 @@ html, body, form, nav, ul, div {
     .admin-container .wrap .database-admin table tr:nth-of-type(2n+1) {
       background: none repeat scroll 0% 0% #EEE; }
 
-.poppicks .database {
-  background: #fffeab; }
+.poppicks {
+  background: #fffeab;
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 0 0 30px 0;
+  margin: 20px 0; }
+  .poppicks .facets-header {
+    display: inline-block;
+    float: left; }
+    .poppicks .facets-header h2 {
+      text-align: left;
+      padding: 30px 30px 0 30px;
+      margin: 0;
+      color: #EAAA00; }
+  .poppicks .database {
+    margin: 20px 30px 0 30px;
+    width: auto; }
 
 #searchBox {
   border: 1px solid #002855;
@@ -125,6 +140,8 @@ html, body, form, nav, ul, div {
   border-color: #005daa;
   text-decoration: none;
   border-style: solid; }
+  .button .fa {
+    padding: 0 6px 0 0; }
 
 .button:hover {
   background: #eeb111;
@@ -450,24 +467,21 @@ html, body, form, nav, ul, div {
       font-weight: 600; }
 
 .database {
-  margin-top: 50px;
+  margin: 10px 0;
   width: 100%;
   overflow: hidden;
   float: left; }
   .database .database-box {
-    border: 1px solid #d1d3d4;
-    border-radius: 5px;
-    overflow: hidden;
     float: left; }
     .database .database-box .database-box-top {
-      padding: 20px 5%;
-      width: 90%;
+      padding: 1px 0;
+      width: 100%;
       text-align: left;
       overflow: hidden;
       float: left; }
       .database .database-box .database-box-top h3 {
         color: #EAAA00;
-        marhin: 0;
+        margin: 10px 0 0 0;
         word-break: break-word;
         -webkit-hyphens: auto;
         -moz-hyphens: auto;
@@ -475,7 +489,8 @@ html, body, form, nav, ul, div {
       .database .database-box .database-box-top p {
         font-size: 1em;
         line-height: 150%;
-        color: #002755; }
+        color: #002755;
+        margin: 0; }
         .database .database-box .database-box-top p .moreLink {
           white-space: nowrap; }
     .database .database-box .database-box-bottom {
@@ -773,11 +788,6 @@ html, body, form, nav, ul, div {
 @media screen and (min-width: 1024px) {
   .webapp-header h1 {
     margin: 0 0 0 60px;
-    float: left; }
-
-  .database {
-    width: 48%;
-    float: left;
-    margin: 20px 1% 0 1%; } }
+    float: left; } }
 
 /*# sourceMappingURL=styles.css.map */

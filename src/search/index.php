@@ -22,7 +22,7 @@ templates::display('header');
 <p style="display: {local var="displayNoResults"}">Sorry, but there are no matching results for a database titled "<strong>{local var="query"}</strong>". Are you sure you spelled "{local var="query"}" correctly?<br><br>Please feel free to search again, or you can sort through the databases by <a href="{local var="databaseHome"}/subjects/">subject</a> or <a href="{local var="databaseHome"}/AtoZ/">title</a>.<br><br>Also, you might want to check some of the following popular databases:</p>
 
 <style>
-.facets-header {
+.poppicks .facets-header {
 	display: none;
 }
 </style>
