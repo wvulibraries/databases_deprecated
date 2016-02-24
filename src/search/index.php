@@ -26,7 +26,10 @@ templates::display('header');
 	display: none;
 }
 </style>
-<?php recurseInsert("includes/popularDatabases.php","php"); ?>
+
+<?php if ($localvars->get("displayNoResults") == "block") {  
+recurseInsert("includes/popularDatabases.php","php");
+}?>
 
 {local var="databases"}
 
