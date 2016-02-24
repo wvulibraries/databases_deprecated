@@ -10,7 +10,7 @@ $localvars->set("letters",lists::letters());
 
 ?>
 
-{local var="letters"}
+<!-- {local var="letters"} -->
 
 <div class="database-content-holder">
 {local var="databases"}

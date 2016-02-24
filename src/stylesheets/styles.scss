@@ -11,6 +11,9 @@ html, body, form, nav, ul, div {
 	text-align: center;
 	font-family: "Helvetica Neue", "Helvetica","Roboto", Arial, sans-serif;
 }
+.new-database, .trial-database {
+	padding: 0 0 0 10px;
+}
 #mp_q_list {
 	list-style-type: none;
 	margin: 0;
@@ -20,7 +23,8 @@ html, body, form, nav, ul, div {
 	margin-top: 35px;
 	border: 1px solid #C0C0C0;
 	li {
-		padding: 0 0 0 10px;
+		padding-bottom: 6px;
+		border: none;
 	}
 }
 .error-report {
@@ -106,6 +110,7 @@ html, body, form, nav, ul, div {
 	padding: 0;
 	max-width: 480px;
 	width: 99%;
+	float: left;
 	#dbn_form {
 		width: 100%;
 		.hidelabel {
@@ -311,6 +316,7 @@ html, body, form, nav, ul, div {
 		}
 		#searchBox {
 			width: 100%;
+			max-width: 100%;
 			#dbn_form {
 				width: 100%;
 				.hidelabel {

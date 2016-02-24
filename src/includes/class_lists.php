@@ -128,17 +128,20 @@ class lists {
 				);
 			$output .= '<div class="database-box">';
 			$output .= '<div class="database-box-top database-resize">';
-			$output .= sprintf('<h3><a href="%s?%s=INVS">%s</a></h3>',
+			$output .= sprintf('<h3><a href="%s?%s=INVS">%s</a>',
 				$localvars->get("connectURL"),
 				$database['URLID'],
 				$database['name']
 				);
 
 			// Print if a new database
-			$output .= ($database['newDatabase'])?'<span class="new-database">New</span>':"";
+			$output .= ($database['newDatabase'])?'<span class="new-database">(New)</span>':"";
+			
 
 			// print if a trial database
-			$output .= ($database['trialDatabase'])?'<span class="trial-database">Trial</span>':"";
+			$output .= ($database['trialDatabase'])?'<span class="trial-database">(Trial)</span>':"";
+			
+			$output .= '</h3>';
 
 			$output .= sprintf('<p>%s</p>',
 				(!is_empty($database['description']))?$database['description']:""

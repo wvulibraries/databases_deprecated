@@ -177,6 +177,18 @@ $(function () {
 	});
 });
 
+//Search Box Dropdown
+$(window).bind("load resize",function(){
+
+	var tsw = $('#dbn').outerWidth(true);
+	var tswp = tsw * .05;
+	var newb = tswp * 2;
+
+	$('.mp_list').css('width', tsw - newb);  
+	$('.mp_list').css('padding-left', tswp);  
+	$('.mp_list').css('padding-right', tswp); 
+});
+
 // Facet Size
 // $(window).load(function() {
 

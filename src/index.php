@@ -25,6 +25,7 @@ recurseInsert("stylesheets/homepage.css");
 	<h2>Database Search</h2>
 
 	<?php recurseInsert("includes/searchBox.php","php") ?>
+	<div style="clear:both;"></div>
 
 	<h2>Databases by Title</h2>
 	{local var="letters"}
