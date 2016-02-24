@@ -95,6 +95,8 @@ html, body, form, nav, ul, div {
       background: #002855;
       color: #fff;
       cursor: pointer; }
+      #searchBox #dbn_form .search-button:hover {
+        background: #0033A0; }
 
 #results-count {
   display: none;

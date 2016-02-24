@@ -108,6 +108,9 @@ html, body, form, nav, ul, div {
 			background: $primary-blue;
 			color: #fff;
 			cursor: pointer;
+			&:hover {
+				background: $accent-blue1;
+			}
 		}
 	}
 }
