@@ -91,13 +91,13 @@
         <div class="sticky-header">
             <div class="tbwrap"> 
                 <div class="sticky-header-nav tabBar">
-                    <a id="menu-toggle" href="{local var="databaseHome"}">
+                    <a id="menu-toggle" href="{local var="databaseHome"}/subjects/">
                         <img src="{local var="databaseHome"}/images/subject.svg" alt="Sort by Subject" id="menu-toggle1">
                         <img src="{local var="databaseHome"}/images/subjectx.svg" alt="Sort by Subject" id="menu-toggle2">
                     </a>
                 </div>
                 <div class="sticky-header-top tabBar">
-                    <a id="top-toggle" href="{local var="databaseHome"}/AtoZ">
+                    <a id="top-toggle" href="{local var="databaseHome"}/AtoZ/">
                         <img src="{local var="databaseHome"}/images/title.svg" alt="Sort by Title" id="top-toggle1">
                         <img src="{local var="databaseHome"}/images/titlex.svg" alt="Sort by Title" id="top-toggle2">
                     </a>

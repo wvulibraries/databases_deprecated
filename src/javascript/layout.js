@@ -189,6 +189,19 @@ $(window).bind("load resize",function(){
 	$('.mp_list').css('padding-right', tswp); 
 });
 
+$(function () {
+	$("#facet-toggle").click(function () {	
+
+	var tsw = $('#dbn').outerWidth(true);
+	var tswp = tsw * .05;
+	var newb = tswp * 2;
+
+	$('.mp_list').css('width', tsw - newb);  
+	$('.mp_list').css('padding-left', tswp);  
+	$('.mp_list').css('padding-right', tswp); 
+	});
+});
+
 // Facet Size
 // $(window).load(function() {
 
