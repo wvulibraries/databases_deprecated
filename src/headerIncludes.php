@@ -36,7 +36,8 @@ $localvars->set("popular",lists::popular($localvars->get("popularDatabases")));
             this.val(data.name);
           },
           param: 'q',
-          required: true
+          required: false,
+          submitOnEnter: true
         });
       });
 
