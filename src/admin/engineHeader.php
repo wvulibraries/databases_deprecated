@@ -11,7 +11,7 @@ errorHandle::errorReporting(errorHandle::E_ALL);
 $localvars  = localvars::getInstance();
 $enginevars = enginevars::getInstance();
 
-recurseInsert("acl.php","php"); 
+recurseInsert("acl.php","php");
 recurseInsert("includes/vars.php","php");
 
 // Setup the database connection
@@ -39,5 +39,8 @@ $databases->expireTrials();
 $databases->expireNewDatabases();
 
 templates::load("databases2015-admin");
+
+formBuilder::process();
+formBuilder::ajaxHandler();
 
 ?>
