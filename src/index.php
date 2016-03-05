@@ -15,7 +15,7 @@ $localvars->set("highlighted_databases",lists::databases($databases,false));
 
 $localvars->set("homepage","true");
 
-templates::display('header'); 
+templates::display('header');
 recurseInsert("stylesheets/homepage.css");
 
 ?>
@@ -38,8 +38,6 @@ recurseInsert("stylesheets/homepage.css");
 	{local var="subjects"}
 </span>
 
-<!-- <script type="text/javascript" src="http://s3.amazonaws.com/new.cetrk.com/pages/scripts/0008/8415.js"> </script> -->
-
 <?php
-templates::display('footer'); 
+templates::display('footer');
 ?>

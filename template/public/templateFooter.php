@@ -1,5 +1,5 @@
-                    
-                     
+
+
 
 
 
@@ -29,7 +29,7 @@
                 </div>
                 <div class="wvu-footer">
                     <ul class="wvuFooterSites">
-                        <nobr>                        
+                        <nobr>
                             <li><a href="http://www.wvu.edu/SiteIndex/">A-Z Site Index</a></li>
                             <li><a href="http://www.wvu.edu/CampusMap/">Campus Map</a></li>
                             <li><a href="http://www.hr.wvu.edu/wvu_jobs">Jobs</a></li>
@@ -40,7 +40,7 @@
                             <li><a href="http://myaccess.wvu.edu/">MyAccess</a></li>
                             <li><a href="http://careerservices.wvu.edu/">MountaineerTRAK</a></li>
                         </nobr>
-                        <nobr>                            
+                        <nobr>
                             <li><a href="http://emergency.wvu.edu/alert/">WVU Alert</a></li>
                             <li><a href="http://wvutoday.wvu.edu">WVU Today</a></li>
                             <li><a href="http://mix.wvu.edu/">MIX</a></li>
@@ -67,7 +67,7 @@
                             <a class="socmedia" href="http://instagram.com/wvulibrarianlinda" target="_blank">
                                 <img src="{local var="databaseHome"}/images/instagram.png" alt="Instagram" title="Instagram">
                             </a>
-                        </li>             
+                        </li>
                         <li>
                             <a class="socmedia" target="_blank" href="https://www.pinterest.com/wvulibraries/">
                                 <img src="{local var="databaseHome"}/images/pinterest.png" alt="Pinterest" title="Pinterest">
@@ -87,7 +87,7 @@
                 </div>
             </div>
         </footer>
-    
+
     <!-- Google Analytics -->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -99,6 +99,8 @@
       ga('send', 'pageview');
 
     </script>
+
+    <!-- <script type="text/javascript" src="http://s3.amazonaws.com/new.cetrk.com/pages/scripts/0008/8415.js"> </script> -->
 
     </body>
 </html>
