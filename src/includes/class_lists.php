@@ -1,12 +1,12 @@
 <?php
 
 class lists {
-	
+
 	public static function subjects() {
 
 		$localvars = localvars::getInstance();
 
-		// @todo do we want this to be static? would caching the results be 
+		// @todo do we want this to be static? would caching the results be
 		// benificial
 		$subjects      = subjects::get();
 		$totalSubjects = count($subjects);
@@ -37,7 +37,7 @@ class lists {
 				$prevLetter  = $curLetter;
 			}
 
-			
+
 				$output .= "<li>";
 				$output .= sprintf('<a href="%s/subjects/subject/?id=%s&status=%s">%s</a>',
 					$localvars->get("databaseHome"),
@@ -48,7 +48,7 @@ class lists {
 				$output .= "</li>\n";
 
 				$count++;
-			
+
 
 		}
 		$output .= "</div>"; // closes the last division
@@ -65,14 +65,14 @@ class lists {
 
 		foreach ($localvars->get("databaseTagTypes") as $I=>$V) {
 			if ($database[$I]  == 1) {
-				$output .= sprintf('<li><a href="%s/type/%s/">%s</a></li>', 
+				$output .= sprintf('<li><a href="%s/type/%s/">%s</a></li>',
 					$localvars->get('databaseHome'),
 					strtolower($V),
 					$V
 					);
 			}
 		}
-		
+
 		$dbObject  = new databases;
 
 		if (!isset($database['dbID'])) $database['dbID'] = $database['ID'];
@@ -128,7 +128,7 @@ class lists {
 				);
 			$output .= '<div class="database-box">';
 			$output .= '<div class="database-box-top database-resize">';
-			$output .= sprintf('<h3><a href="%s?%s=INVS">%s</a>',
+			$output .= sprintf('<h3><a href="%s?%s=INVS" target="_blank">%s</a>',
 				$localvars->get("connectURL"),
 				$database['URLID'],
 				$database['name']
@@ -136,11 +136,11 @@ class lists {
 
 			// Print if a new database
 			$output .= ($database['newDatabase'])?'<span class="new-database">(New)</span>':"";
-			
+
 
 			// print if a trial database
 			$output .= ($database['trialDatabase'])?'<span class="trial-database">(Trial)</span>':"";
-			
+
 			$output .= '</h3>';
 
 			$output .= sprintf('<p>%s</p>',
