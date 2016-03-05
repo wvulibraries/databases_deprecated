@@ -6,7 +6,7 @@ require "../engineHeader.php";
 // genTextCaptcha();
 $localvars->set("breadcrumb_heading","eResource Error Report");
 
-templates::display('header'); 
+templates::display('header');
 
 ?>
 
@@ -17,7 +17,7 @@ templates::display('header');
 <h2>eResource Error Report</h2>
 
 <p>
-	If you are having a problem with a database or online resource, please let 
+	If you are having a problem with a database or online resource, please let
 	us know.
 </p>
 
@@ -54,12 +54,12 @@ templates::display('header');
 <label for="problem">Describe the issue</label>
 <textarea name="Problem" value="" id="problem"></textarea>
 <p id="optional-citation">
-	<u>Optional</u>: Include the citation of the book or article you are trying to 
+	<u>Optional</u>: Include the citation of the book or article you are trying to
 	access.
 </p>
 
 <p>
-	May we contact you for clarification or to inform you of the problem's 
+	May we contact you for clarification or to inform you of the problem's
 	resolution?
 </p>
 
@@ -81,7 +81,7 @@ templates::display('header');
 
 <div id="screenshot">
     <p>
-        <label class="bold" for="attachment">File:</label>
+        <label class="bold" for="attachment">Screenshot:</label>
         <input type="file" name="attachment[]" multiple>
     </p>
 </div>
@@ -98,5 +98,5 @@ templates::display('header');
 <!-- Page Content Goes Above This Line -->
 
 <?php
-templates::display('footer'); 
+templates::display('footer');
 ?>
