@@ -33,16 +33,16 @@ try {
 	$localvars->set("databases",lists::databases($databases));
 }
 catch(Exception $e) {
-	
+
 	errorHandle::errorMsg($e->getMessage());
 	$localvars->set("prettyPrint",errorHandle::prettyPrint());
 
 }
 
 $localvars->set("letters",lists::letters());
-$localvars->set("database_heading_middle","Database Results:");
+$localvars->set("database_heading_middle","Databases:");
 
-templates::display('header'); 
+templates::display('header');
 ?>
 
 <!-- Page Content Goes Below This Line -->
@@ -66,5 +66,5 @@ templates::display('header');
 <!-- Page Content Goes Above This Line -->
 
 <?php
-templates::display('footer'); 
+templates::display('footer');
 ?>
