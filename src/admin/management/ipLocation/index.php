@@ -2,9 +2,6 @@
 require_once "../../engineHeader.php";
 
 recurseInsert("includes/forms/ipLocations.php","php");
-print "<pre>";
-var_dump($_SERVER);
-print "</pre>";
 templates::display('header');
 ?>
 
