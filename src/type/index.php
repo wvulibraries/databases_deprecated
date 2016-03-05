@@ -1,7 +1,7 @@
 <?php
 require "../engineHeader.php";
 
-templates::display('header'); 
+templates::display('header');
 ?>
 
 
