@@ -34,8 +34,6 @@ recurseInsert("stylesheets/homepage.css");
 	<h2>Databases by Title</h2>
 	{local var="letters"}
 
-	<?php recurseInsert("leftnav.php","php") ?>
-
 	<div style="clear:both;"></div>
 
 	<h2>Databases by Subject</h2>
