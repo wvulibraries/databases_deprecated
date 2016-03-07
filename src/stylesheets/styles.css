@@ -29,6 +29,11 @@ html, body, form, nav, ul, div {
     padding-bottom: 6px;
     border: none; }
 
+.trialText {
+  font-style: italic;
+  margin: 0;
+  font-weight: bold; }
+
 .error-report {
   width: 100%;
   max-width: 480px;

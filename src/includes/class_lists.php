@@ -143,7 +143,7 @@ class lists {
 				(!is_empty($database['description']))?$database['description']:""
 				);
 			if ($database['trialDatabase'] == 1) {
-				$output .= sprintf('<p class="trialText">Trial ends on %s &ndash; </p>',
+				$output .= sprintf('<p class="trialText">Trial ends on %s</p>',
 					date("M d, Y",$database['trialExpireDate'])
 					);
 				$output .= sprintf('<a href="%sfeedback/?dbid=%s">Trial Database Feedback</a>',$localvars->get("siteRoot"),$database['ID']);

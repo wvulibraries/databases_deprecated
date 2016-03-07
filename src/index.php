@@ -22,27 +22,27 @@ recurseInsert("stylesheets/homepage.css");
 
 <!-- Homepage Content -->
 <span class="hp">
+	<span class="hpl">
+		<h2>Database Search</h2>
 
-	<h2>Database Search</h2>
+		<?php recurseInsert("includes/searchBox.php","php") ?>
+		<div style="clear:both;"></div>
 
-	<?php recurseInsert("includes/searchBox.php","php") ?>
-	<div style="clear:both;"></div>
+		<h2>Databases by Title</h2>
+		{local var="letters"}
 
-	<h2>Databases by Title</h2>
-	{local var="letters"}
+		<div style="clear:both;"></div>
 
-	<div style="clear:both;"></div>
+		<h2>Databases by Subject</h2>
+		{local var="subjects"}
+	</span>
 
-	<h2>Databases by Subject</h2>
-	{local var="subjects"}
-
-	<div style="clear:both;"></div>
-	
 	<?php if(!is_empty($localvars->get("highlighted_databases"))) {?>
-	<h2>Trial Databases</h2>
-	{local var="highlighted_databases"}
-	<?php } ?>
-
+	<span class="hpr">
+		<h2>Trial Databases</h2>
+		{local var="highlighted_databases"}
+	</span>
+		<?php } ?>
 </span>
 
 <?php
