@@ -636,9 +636,6 @@ html, body, form, nav, ul, div {
     @media (min-width: 768px) {
       .subjectDiv .subres {
         width: 33%; } }
-    @media (min-width: 1024px) {
-      .subjectDiv .subres {
-        width: 25%; } }
     .subjectDiv .subres .subjectLetterHeading {
       width: 100%;
       float: left;
@@ -688,6 +685,13 @@ html, body, form, nav, ul, div {
 
 .database-content-holder {
   width: 100%; }
+
+.tfeedback {
+  display: inline-block;
+  margin: 10px 0 0 0;
+  font-size: 14px; }
+  .tfeedback .fa {
+    padding: 0 5px 0 0; }
 
 /*********************************************************************
 	768px to 1024px

@@ -757,9 +757,7 @@ html, body, form, nav, ul, div {
 		@include mq(tablet) {
 			width: 33%;
 		}
-		@include mq(desktop) {
-			width: 25%;
-		}
+
 		.subjectLetterHeading {
 			width: 100%;
 			float: left;
@@ -820,6 +818,14 @@ html, body, form, nav, ul, div {
 }
 .database-content-holder {
 	width:100%;
+}
+.tfeedback {
+	display: inline-block;
+	margin: 10px 0 0 0;
+	font-size: 14px;
+	.fa {
+		padding: 0 5px 0 0;
+	}
 }
 
 /*********************************************************************

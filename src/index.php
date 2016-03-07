@@ -39,9 +39,44 @@ recurseInsert("stylesheets/homepage.css");
 
 	<?php if(!is_empty($localvars->get("highlighted_databases"))) {?>
 	<span class="hpr">
-		<h2>Trial Databases</h2>
-		{local var="highlighted_databases"}
-	</span>
+		<span class="hprwrap">
+			<h2>Trial Databases</h2>
+			{local var="highlighted_databases"}
+	</span></span>
+
+	<style>
+		.hpl {
+			width: 100%;
+			display: block;
+			float: left;
+		}
+		.hpr {
+			width: 100%;
+			display: block;
+			float: left;
+		}
+		.hprwrap {
+			display: block;
+			float: left;
+			border: none;
+			padding: 40px 0px;
+		}
+		.hprwrap h2 {
+			margin-top: 0 !important;
+		}
+		@media screen and (min-width: 1024px) {
+			.hpl {
+				width: 66%;
+			}
+			.hpr {
+				width: 34%;
+			}
+			.hprwrap {
+				border: 1px solid #EAAA00;
+				padding: 20px;
+			}
+		}
+	</style>
 		<?php } ?>
 </span>
 
