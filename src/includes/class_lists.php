@@ -135,7 +135,7 @@ class lists {
 				);
 
 			// print if a trial database
-			$output .= ($database['trialDatabase'])?'<span class="trial-database">(Trial)</span>':"";
+			$output .= ($database['trialDatabase'])?'<span class="trial-database">( <i class="fa fa-star"></i> <em>Trial</em> )</span>':"";
 
 			$output .= '</h3>';
 
