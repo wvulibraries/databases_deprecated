@@ -33,17 +33,16 @@ recurseInsert("stylesheets/homepage.css");
 
 	<div style="clear:both;"></div>
 
-	<?php if(!is_empty($localvars->get("highlighted_databases"))) {?>
-	<div id="highlighed-databases">
-		<h2>Trial Databases</h2>
-		{local var="highlighted_databases"}
-	</div>
-	<?php } ?>
-
-	<div style="clear:both;"></div>
-
 	<h2>Databases by Subject</h2>
 	{local var="subjects"}
+
+	<div style="clear:both;"></div>
+	
+	<?php if(!is_empty($localvars->get("highlighted_databases"))) {?>
+	<h2>Trial Databases</h2>
+	{local var="highlighted_databases"}
+	<?php } ?>
+
 </span>
 
 <?php
