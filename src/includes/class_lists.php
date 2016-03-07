@@ -23,35 +23,30 @@ class lists {
 
 		foreach ($subjects as $subject) {
 
-			// if ($count++ % ($totalSubjects/$divisions) == 0 && $div<$divisions ) {
-			// 	$output .= sprintf("%s<div class=\"subjectDiv\" id=\"subjectDiv_%s\">",
-			// 		($div > 0)?"</div>":"",
-			// 		$div++);
-			// }
-
 			if (($curLetter = strtoupper($subject['name'][0])) != $prevLetter) {
 
 				$output     .= (!isnull($prevLetter))?"</ul></div>":"";
 				$output     .= sprintf("<div class='subres'><h3 class=\"subjectLetterHeading\">%s</h3>\n",$curLetter);
 				$output     .= "<ul class=\"subjectDivList\">\n";
 				$prevLetter  = $curLetter;
+
 			}
 
 
-				$output .= "<li>";
-				$output .= sprintf('<a href="%s/subjects/subject/?id=%s&status=%s">%s</a>',
-					$localvars->get("databaseHome"),
-					htmlentities($subject['ID']),
-					status::current(),
-					htmlentities($subject['name'])
-					);
-				$output .= "</li>\n";
+			$output .= "<li>";
+			$output .= sprintf('<a href="%s/subjects/subject/?id=%s&status=%s">%s</a>',
+				$localvars->get("databaseHome"),
+				htmlentities($subject['ID']),
+				status::current(),
+				htmlentities($subject['name'])
+				);
+			$output .= "</li>\n";
 
-				$count++;
+			$count++;
 
 
 		}
-		$output .= "</div>"; // closes the last division
+		$output .= "</div></div>"; // closes the last division
 
 		return $output;
 
