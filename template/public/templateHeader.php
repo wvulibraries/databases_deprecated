@@ -101,6 +101,7 @@
                         <img src="{local var="databaseHome"}/images/titlex.svg" alt="Sort by Title" id="top-toggle2">
                     </a>
                 </div>
+                <?php if ($localvars->get("homepage") != "true") { ?>
                 <div class="sticky-header-filter tabBar">
                     <a id="facet-toggle">
                         <img src="{local var="databaseHome"}/images/search.svg" alt="Search" id="filter-toggle1">
@@ -108,6 +109,7 @@
                     </a>
                     <?php recurseInsert("includes/searchBox.php","php") ?>
                 </div>
+                <?php } ?>
                 <div class="sticky-header-search tabBar">
                     <ul class="sticky-header-desktop-links">
                         <li><a href="{local var="databaseHome"}/subjects/"><i class="fa fa-sort-amount-asc"></i>Database Subjects</a></li>
