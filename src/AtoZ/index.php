@@ -7,6 +7,7 @@ if (isset($_GET['HTML']) && $_GET['HTML']['id'] == "num") {
 	$pageHeader = "num";
 }
 
+$localvars->set("breadcrumb_heading",(!empty($pageHeader))?"by Title: ".$pageHeader:"Error");
 $localvars->set("pageHeader",(!empty($pageHeader))?$pageHeader:"Error");
 $localvars->set("letters",lists::letters());
 
@@ -14,22 +15,17 @@ $dbObject  = new databases;
 $databases = $dbObject->getByLetter($pageHeader);
 $localvars->set("databases",lists::databases($databases));
 
-$localvars->set("databaseHeadingByTitle",sprintf("By title '%s'",strtoupper($localvars->get("pageHeader"))));
-$localvars->set("databaseHeading",sprintf("By title '%s'",strtoupper($localvars->get("pageHeader"))));
-
+$localvars->set("databaseHeadingByTitle",sprintf("%s",strtoupper($localvars->get("pageHeader"))));
+$localvars->set("database_heading_middle","Databases by Title:");
 templates::display('header'); 
 ?>
 
 <!-- Page Content Goes Below This Line -->
-
+<br>
 {local var="letters"}
 
-<?php recurseInsert("includes/popularDatabases.php","php"); ?>
-
 <div class="database-content-holder">
-
-{local var="databases"}
-
+	{local var="databases"}
 </div>
 
 <!-- Page Content Goes Above This Line -->

@@ -33,6 +33,9 @@
 				<a href="{local var="databaseHome"}/admin/management/accessTypesPlainText/">Access Plain Text</a>
 			</li>
 			<li>
+				<a href="{local var="databaseHome"}/admin/management/ipLocation/">IP Ranges</a>
+			</li>
+			<li>
 				<a href="{local var="databaseHome"}/admin/management/resourceTypes/">Resource Types</a>
 			</li>
 			<li>

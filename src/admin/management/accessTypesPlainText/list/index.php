@@ -1,5 +1,5 @@
 <?php
-require_once "../../../../engineHeader.php";
+require_once "../../../engineHeader.php";
 
 $sql       = sprintf("SELECT * FROM `dbList` WHERE `access`=? ORDER BY `name`");
 $sqlResult = $db->query($sql,array($_GET['MYSQL']['id']));

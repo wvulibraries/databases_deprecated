@@ -8,23 +8,78 @@ $localvars = localvars::getInstance();
 $localvars->set("adminDisplay","display:none;");
 $localvars->set("letters",lists::letters());
 
-templates::display('header'); 
+$dbObject  = new databases;
+$databases = $dbObject->getByType(array("trialDatabase")); //"newDatabase",
+
+$localvars->set("highlighted_databases",lists::databases($databases,false));
+
+$localvars->set("homepage","true");
+
+templates::display('header');
+recurseInsert("stylesheets/homepage.css");
 
 ?>
 
-<!-- Page Content Goes Below This Line -->
+<!-- Homepage Content -->
+<span class="hp">
+	<span class="hpl">
+		<h2>Database Search</h2>
 
-{local var="letters"}
+		<?php recurseInsert("includes/searchBox.php","php") ?>
+		<div style="clear:both;"></div>
 
-<h3>Subjects</h3>
+		<h2>Databases by Title</h2>
+		{local var="letters"}
 
-{local var="subjects"}
+		<div style="clear:both;"></div>
 
+		<h2>Databases by Subject</h2>
+		{local var="subjects"}
+	</span>
 
-<!-- Page Content Goes Above This Line -->
+	<?php if(!is_empty($localvars->get("highlighted_databases"))) {?>
+	<span class="hpr">
+		<span class="hprwrap">
+			<h2>Trial Databases</h2>
+			{local var="highlighted_databases"}
+	</span></span>
 
-<!-- <script type="text/javascript" src="http://s3.amazonaws.com/new.cetrk.com/pages/scripts/0008/8415.js"> </script> -->
+	<style>
+		.hpl {
+			width: 100%;
+			display: block;
+			float: left;
+		}
+		.hpr {
+			width: 100%;
+			display: block;
+			float: left;
+		}
+		.hprwrap {
+			display: block;
+			float: left;
+			border: none;
+			padding: 40px 0px;
+		}
+		.hprwrap h2 {
+			margin-top: 0 !important;
+		}
+		@media screen and (min-width: 1024px) {
+			.hpl {
+				width: 66%;
+			}
+			.hpr {
+				width: 34%;
+			}
+			.hprwrap {
+				border: 1px solid #EAAA00;
+				padding: 20px;
+			}
+		}
+	</style>
+		<?php } ?>
+</span>
 
 <?php
-templates::display('footer'); 
+templates::display('footer');
 ?>

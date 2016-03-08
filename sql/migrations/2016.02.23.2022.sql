@@ -1,0 +1,1 @@
+ALTER TABLE `databases_curated` ADD COLUMN `sort` int(10) unsigned DEFAULT 0;

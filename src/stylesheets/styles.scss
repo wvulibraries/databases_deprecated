@@ -11,6 +11,162 @@ html, body, form, nav, ul, div {
 	text-align: center;
 	font-family: "Helvetica Neue", "Helvetica","Roboto", Arial, sans-serif;
 }
+.new-database, .trial-database {
+	padding: 0 0 0 10px;
+}
+#mp_q_list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	text-align: left;
+	margin-top: 35px;
+	border: 1px solid #C0C0C0;
+	li {
+		padding-bottom: 6px;
+		border: none;
+	}
+}
+.trialText {
+	font-style: italic;
+	margin: 0;
+	font-weight: bold;
+}
+.error-report {
+	width: 100%;
+	max-width: 480px;
+	text-align: left;
+	label {
+		display: block;
+		text-align: left;
+		font-weight: bold;
+		color: $primary-blue;
+	}
+	input[type=text] {
+		display: block;
+		width: 90%;
+		padding: 0 2%;
+		height: 35px;
+		font-size: 16px;
+		color: 1px solid #777;
+	}
+	textarea {
+		display: block;
+		width: 90%;
+		padding: 0 2%;
+		font-size: 16px;
+		min-height: 100px;
+		color: 1px solid #777;
+	}
+}
+.admin-container {
+	.wrap {
+		#sidebar {
+			width: 25% !important;
+			padding-right: 5%;
+		}
+		.database-admin {
+			width: 70% !important;
+			overflow: auto;
+			@include mq(tablet) {
+				width: 70% !important;
+			}
+			select {
+				max-width: 480px;
+			}
+			table {
+				font-size: 14px;
+				td, th {
+					padding: 5px;
+					vertical-align: top;
+				}
+				tr:nth-of-type(2n+1) {
+				    background: none repeat scroll 0% 0% #EEE;
+				}
+			}
+		}
+	}
+}
+.poppicks {
+	background: #fffeab;
+	border-radius: 5px;
+	overflow: hidden;
+	padding: 0 0 30px 0;
+	margin: 20px 0;
+	.facets-header {
+		display: inline-block;
+		float: left;
+		h2 {
+			text-align: left;
+			padding: 30px 30px 0 30px;
+			margin: 0;
+			color: $primary-orange;
+		}
+	}
+	.database {
+		margin: 20px 30px 0 30px;
+		width: auto;
+	}
+}
+#searchBox {
+	border: 1px solid $primary-blue;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	max-width: 480px;
+	width: 99%;
+	float: left;
+	#dbn_form {
+		width: 100%;
+		.hidelabel {
+			position:absolute;
+			left:-10000px;
+			top:auto;
+			width:1px;
+			height:1px;
+			overflow: hidden;
+		}
+		#dbn {
+			border: none;
+			width: 65%;
+			height: 35px;
+			padding: 0 5%;
+			margin: 0;
+			float: left;
+			display: inline-block;	
+		}
+		.search-button {
+			border: medium none;
+			width: 25%;
+			height: 35px;
+			padding: 0;
+			margin: 0;
+			float: left;
+			display: inline-block;
+			background: $primary-blue;
+			color: #fff;
+			cursor: pointer;
+			&:hover {
+				background: $accent-blue1;
+			}
+		}
+	}
+}
+#results-count {
+	display: none;
+	float: right;
+	padding: 10px 0px;
+	margin-top: 4px;
+	@include mq(tablet) {
+		display: inline-block;
+	}
+}
+.database-content-facets, .tophr {
+	display: none;
+	@include mq(tablet) {
+		display: block;
+	}	
+}
 
 .button {
   display: inline-block; 
@@ -24,6 +180,9 @@ html, body, form, nav, ul, div {
   border-color: #005daa;
   text-decoration: none;
   border-style: solid;
+  .fa {
+  	padding: 0 6px 0 0;
+  }
 }
 .button:hover {
   background: #eeb111; 
@@ -66,7 +225,6 @@ html, body, form, nav, ul, div {
 	overflow: hidden;
 	h1 {
 		color: #fff;
-		font-size: 3em;
 		font-weight: 400;
 		display: inline-block;
 		margin: 0;
@@ -161,6 +319,42 @@ html, body, form, nav, ul, div {
 		.sticky-header-filter-sidebar {
 			transition: all 0.2s ease;
 		}
+		#searchBox {
+			width: 100%;
+			max-width: 100%;
+			#dbn_form {
+				width: 100%;
+				.hidelabel {
+					position:absolute;
+					left:-10000px;
+					top:auto;
+					width:1px;
+					height:1px;
+					overflow: hidden;
+				}
+				#dbn {
+					border: none;
+					width: 65%;
+					height: 35px;
+					padding: 0 5%;
+					margin: 0;
+					float: left;
+					display: inline-block;	
+				}
+				.search-button {
+					border: medium none;
+					width: 25%;
+					height: 35px;
+					padding: 0;
+					margin: 0;
+					float: left;
+					display: inline-block;
+					background: $primary-blue;
+					color: #fff;
+					cursor: pointer;
+				}
+			}
+		}
 	}
 	.sticky-header a {
 		width: 100%;
@@ -232,7 +426,7 @@ html, body, form, nav, ul, div {
 	bottom: 55px;
 	position: fixed;
 	background: #337AB7;
-	width: 100%;
+	width: 90%;
 	margin: 0;
 	left: 0;
 	padding: 5%;
@@ -307,13 +501,28 @@ html, body, form, nav, ul, div {
 		border: none;
 		border: collaps
 	}
+	.hp {
+		h2 {
+			margin: 60px 0 10px 0;
+		}
+		h3 {
+			margin: 10px 0px 10px;
+		}
+	}
+	h2 {
+		color: $accent-blue1;
+	}
+	h3 {
+		color: $primary-blue;
+	}
 	.database-content-title {
 		h2 {
-			color: $accent-blue1;
-			font-size: 2em;
-			float: left;
+			float: initial;
 			display: inline-block;
 			margin: 0;
+			@include mq(tablet) {
+				float: left;
+			}
 		}	
 		i {
 			float: right;
@@ -375,25 +584,21 @@ html, body, form, nav, ul, div {
 	}
 }
 .database {
-	margin-top: 50px;
+	margin: 10px 0;
 	width: 100%;
 	overflow: hidden;
 	float: left;
 	.database-box {
-		border: 1px solid #d1d3d4;
-		border-radius: 5px;
-		overflow: hidden;
 		float: left;
 		.database-box-top {
-			padding: 20px 5%;
-			width: 90%;
+			padding: 1px 0;
+			width: 100%;
 			text-align: left;
 			overflow: hidden;
 			float: left;
 			h3 {
-				font-size: 1.5em;
 				color: $primary-orange;
-				marhin: 0;
+				margin: 10px 0 0 0;
 				word-break:     break-word;
 				  -webkit-hyphens: auto;
 				  -moz-hyphens:    auto;
@@ -403,6 +608,7 @@ html, body, form, nav, ul, div {
 				font-size: 1em;
 				line-height: 150%;
 				color: #002755;
+				margin: 0;
 				.moreLink {
 					white-space: nowrap;
 				}
@@ -510,9 +716,11 @@ html, body, form, nav, ul, div {
 	li {
 		display: inline-block;
 		text-align: right;
-		margin-right: 20px;
+		width: 32%;
+		text-align: left;
+		float: left;
 		a {
-			font-size: 18px;
+			font-size: 16px;
 			padding: 4px 0 5px 0;
 			display: block;
 			color: #337AB7;
@@ -523,6 +731,7 @@ html, body, form, nav, ul, div {
 			.fa {
 				COLOR: $primary-orange;
 				margin-right: 6px;
+				font-size: 18px;
 			}
 		}
 	}
@@ -537,13 +746,35 @@ html, body, form, nav, ul, div {
 }
 .subjectDiv {
 	text-align: left;
-	.subjectDivList {
-		list-style-type: none;
-		text-align: left;
-		padding: 0;
-		margin: 0;
-		li {
-			line-height: 150%;
+	width: 100%;
+	float: left;
+	display: block;
+	.subres {
+		width: 100%;
+		float: left;
+		display: block;
+		margin: 0 0 20px 0;
+		@include mq(tablet) {
+			width: 33%;
+		}
+
+		.subjectLetterHeading {
+			width: 100%;
+			float: left;
+			display: block;
+			text-align: left;
+		}
+		.subjectDivList {
+			text-align: left;
+			width: 85%;
+			float: left;
+			display: block;
+			padding: 0 10% 0 5%;
+			margin: 0;
+			li {
+				line-height: 100%;
+				padding-bottom: 10px;
+			}
 		}
 	}
 }
@@ -566,6 +797,17 @@ html, body, form, nav, ul, div {
 
 	}
 }
+.datatype {
+	display: block;
+	margin: 0px;
+	padding: 0 0 0 10px;
+	width: 100%;
+	li {
+		float: left;
+		padding: 0 20px 0 0;
+		margin: 0 10px;
+	}
+}
 .pagingNext, .pagingPrevious {
 	color: #0000ff;
 	cursor: pointer;
@@ -577,6 +819,14 @@ html, body, form, nav, ul, div {
 .database-content-holder {
 	width:100%;
 }
+.tfeedback {
+	display: inline-block;
+	margin: 10px 0 0 0;
+	font-size: 14px;
+	.fa {
+		padding: 0 5px 0 0;
+	}
+}
 
 /*********************************************************************
 	768px to 1024px
@@ -587,6 +837,7 @@ html, body, form, nav, ul, div {
 	}
 	.sticky-header-desktop-links {
 		display: block;
+		width: 100%;
 	}
 	.right {
 		float: right;
@@ -608,7 +859,7 @@ html, body, form, nav, ul, div {
 		}
 	}
 	.database-content {
-		margin: 50px 0 50px 0;
+		margin: 20px 0 50px 0;
 		text-align: left;
 		float: right;
 		.database-content-facets {
@@ -647,7 +898,11 @@ html, body, form, nav, ul, div {
 			display: none;
 		}
 		.sticky-header-filter {
-			display: none;
+			width: 25%;
+			float: right;
+			#facet-toggle {
+				display: none;
+			}
 		}
 		.sticky-header-nav {
 			background: none;
@@ -681,6 +936,7 @@ html, body, form, nav, ul, div {
 			}
 		}
 		.sticky-header-search {
+			width: 75%;
 			.search-query-form {
 				background: none;
 				position: relative;
@@ -722,9 +978,9 @@ html, body, form, nav, ul, div {
 			float: left;
 		}
 	}		
-	.database {
-		width: 48%;
-		float: left;
-		margin: 20px 1% 0 1%;
-	}
+	// .database {
+	// 	width: 48%;
+	// 	float: left;
+	// 	margin: 20px 1% 0 1%;
+	// }
 } 

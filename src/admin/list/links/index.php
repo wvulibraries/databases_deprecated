@@ -27,6 +27,12 @@ $localvars->set("databaseTable",$table->display($databases));
 templates::display('header');
 ?>
 
+<style>
+	.sticky-header {
+		display:none;
+	}
+</style>
+
 {local var="databaseTable"}
 
 <?php

@@ -1,12 +1,12 @@
 <?php
 
 class lists {
-	
+
 	public static function subjects() {
 
 		$localvars = localvars::getInstance();
 
-		// @todo do we want this to be static? would caching the results be 
+		// @todo do we want this to be static? would caching the results be
 		// benificial
 		$subjects      = subjects::get();
 		$totalSubjects = count($subjects);
@@ -23,35 +23,30 @@ class lists {
 
 		foreach ($subjects as $subject) {
 
-			// if ($count++ % ($totalSubjects/$divisions) == 0 && $div<$divisions ) {
-			// 	$output .= sprintf("%s<div class=\"subjectDiv\" id=\"subjectDiv_%s\">",
-			// 		($div > 0)?"</div>":"",
-			// 		$div++);
-			// }
-
 			if (($curLetter = strtoupper($subject['name'][0])) != $prevLetter) {
 
-				$output     .= (!isnull($prevLetter))?"</ul>":"";
-				$output     .= sprintf("<h4 class=\"subjectLetterHeading\">%s</h4>\n",$curLetter);
+				$output     .= (!isnull($prevLetter))?"</ul></div>":"";
+				$output     .= sprintf("<div class='subres'><h3 class=\"subjectLetterHeading\">%s</h3>\n",$curLetter);
 				$output     .= "<ul class=\"subjectDivList\">\n";
 				$prevLetter  = $curLetter;
+
 			}
 
-			
-				$output .= "<li>";
-				$output .= sprintf('<a href="%s/subjects/?id=%s&status=%s">%s</a>',
-					$localvars->get("databaseHome"),
-					htmlentities($subject['ID']),
-					status::current(),
-					htmlentities($subject['name'])
-					);
-				$output .= "</li>\n";
 
-				$count++;
-			
+			$output .= "<li>";
+			$output .= sprintf('<a href="%s/subjects/subject/?id=%s&status=%s">%s</a>',
+				$localvars->get("databaseHome"),
+				htmlentities($subject['ID']),
+				status::current(),
+				htmlentities($subject['name'])
+				);
+			$output .= "</li>\n";
+
+			$count++;
+
 
 		}
-		$output .= "</div>"; // closes the last division
+		$output .= "</div></div>"; // closes the last division
 
 		return $output;
 
@@ -65,14 +60,14 @@ class lists {
 
 		foreach ($localvars->get("databaseTagTypes") as $I=>$V) {
 			if ($database[$I]  == 1) {
-				$output .= sprintf('<li><a href="%s/type/%s/">%s</a></li>', 
+				$output .= sprintf('<li><a href="%s/type/%s/">%s</a></li>',
 					$localvars->get('databaseHome'),
 					strtolower($V),
 					$V
 					);
 			}
 		}
-		
+
 		$dbObject  = new databases;
 
 		if (!isset($database['dbID'])) $database['dbID'] = $database['ID'];
@@ -114,9 +109,11 @@ class lists {
 	}
 
 	// expects $databases to be a database array
-	public static function databases($databases) {
+	public static function databases($databases,$results_count=TRUE) {
 
 		$localvars = localvars::getInstance();
+
+		if ($results_count) $localvars->set("results_count",count($databases));
 
 		$output = "";
 
@@ -126,28 +123,34 @@ class lists {
 				);
 			$output .= '<div class="database-box">';
 			$output .= '<div class="database-box-top database-resize">';
-			$output .= sprintf('<h3><a href="%s?%s=INVS">%s</a></h3>',
+			$output .= sprintf('<h3><a href="%s?%s=INVS" target="_blank">%s</a>',
 				$localvars->get("connectURL"),
 				$database['URLID'],
 				$database['name']
 				);
-			$output .= ($database['newDatabase'])?'<span class="new-database">New</span>':"";
-			$output .= ($database['trialDatabase'])?'<span class="trial-database">Trial</span>':"";
+
+			// print if a trial database
+			$output .= ($database['trialDatabase'])?'<span class="trial-database">( <i class="fa fa-star"></i> <em>Trial</em> )</span>':"";
+
+			$output .= '</h3>';
+
 			$output .= sprintf('<p>%s</p>',
 				(!is_empty($database['description']))?$database['description']:""
 				);
 			if ($database['trialDatabase'] == 1) {
-				$output .= sprintf('<p class="trialText">Trial ends on %s &ndash; </p>',
+				$output .= sprintf('<p class="trialText">Trial ends on %s</p>',
 					date("M d, Y",$database['trialExpireDate'])
 					);
+				$output .= sprintf('<a class="tfeedback" href="%sfeedback/?dbid=%s"><i class="fa fa-envelope"></i>Trial Database Feedback</a>',$localvars->get("siteRoot"),$database['ID']);
 			}
+			//$output .= '<span class="bookmark-false">Bookmark</span>';
 			$output .= '</div>'; // database-box-top
 
-			$output .= '<div class="database-box-bottom database-res">';
-            $output .= '<ul class="database-box-bottom-tags">';
-            $output .= self::generateDBTags($database);
-            $output .= '</ul>';
-            $output .= '</div>'; // database-box-bottom
+			// $output .= '<div class="database-box-bottom database-res">';
+   //          $output .= '<ul class="database-box-bottom-tags">';
+   //          $output .= self::generateDBTags($database);
+   //          $output .= '</ul>';
+   //          $output .= '</div>'; // database-box-bottom
 
 			$output .= '</div>'; // database-box
 			$output .= '</div>'; // database
@@ -160,26 +163,11 @@ class lists {
 
 	public static function popular($databases) {
 
-		$localvars = localvars::getInstance();
+		return self::databases($databases,FALSE);
 
-		$output = "<ul id=\"popularDBList\">";
-
-		foreach ($databases as $database) {
-
-			$output .= sprintf('<li><a href="%s?%s=INVS\">%s</a></li>',
-				$localvars->get("connectURL"),
-				$database['URLID'],
-				htmlSanitize($database['name'])
-				);
-
-		}
-		$output .= "</ul>";
-
-		return $output;
 	}
 
-	// This method is largely unchanged from the previous function. It will likely be changed
-	// as we work on the new design
+	// This method is largely unchanged from the previous function. It will likely be changed as we work on the new design
 	public static function letters() {
 
 		$localvars = localvars::getInstance();

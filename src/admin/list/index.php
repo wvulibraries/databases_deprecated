@@ -1,5 +1,5 @@
 <?php
-require "../../engineHeader.php";
+require "../engineHeader.php";
 
 // Set the current status to all
 http::setGet("status","4");

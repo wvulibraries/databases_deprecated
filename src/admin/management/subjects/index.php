@@ -1,5 +1,5 @@
 <?php
-require_once "../../../engineHeader.php";
+require_once "../../engineHeader.php";
 
 recurseInsert("includes/forms/subjects.php","php");
 
@@ -11,11 +11,11 @@ templates::display('header');
 </header>
 
 <section>
-{form name="Subjects" display="form"}
+{form name="Subjects" display="form" addGet="true"}
 </section>
 
 <section>
-{form name="Subjects" display="editTable"}
+  {form name="Subjects" display="edit" expandable="true" addGet="true"}
 </section>
 
 

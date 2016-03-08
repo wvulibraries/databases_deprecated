@@ -7,7 +7,7 @@ class topPickDBs {
 		$localvars = localvars::getInstance();
 
 		$db        = db::get($localvars->get('dbConnectionName'));
-		$sql       = "SELECT `dbID` FROM `databases_curated` WHERE subjectID=?";
+		$sql       = "SELECT `dbID` FROM `databases_curated` LEFT JOIN `dbList` ON `dbList`.`ID`=`databases_curated`.`dbID` WHERE subjectID=? ORDER BY `sort`,`dbList`.`name`";
 		$sqlResult = $db->query($sql,array($id));
 
 		$databases = array();

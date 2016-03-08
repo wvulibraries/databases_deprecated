@@ -18,11 +18,14 @@ class databases {
 
 	public function find($query) {
 
-		$sql       = sprintf("SELECT * FROM `dbList` WHERE `name` LIKE \"%%%s%%\" and dbList.status='1'",
-			$query
+		$search_name = preg_replace("/\&.+\;/", "", $query);
+		$search_name = preg_replace("/ and /",  "", $search_name);
+		$search_name = preg_replace("/\W/",     "", $search_name);
+
+		$sql       = sprintf("SELECT * FROM `dbList` WHERE `titleSearch` LIKE \"%%%s%%\" and dbList.status='1'",
+			strtolower($this->db->escape($search_name))
 			);
 		$sqlResult = $this->db->query($sql);
-
 
 		if ($sqlResult->error()) {
 			errorHandle::newError(__METHOD__."() - ".$sqlResult->errorMsg(), errorHandle::DEBUG);
@@ -117,8 +120,19 @@ class databases {
 		$originalStatus = status::current();
 		http::setGet("status","1");	
 
-		$sql = sprintf("select * from dbList WHERE `%s`='1' AND (%s) ORDER BY name",
-			$this->db->escape($type),
+		if (is_array($type)) {
+			$temp = array();
+			foreach ($type as $t) {	
+				$temp[] = sprintf("`%s`='1'",$this->db->escape($t));
+			}
+			$type = implode(" OR ", $temp);
+		}
+		else {
+			$type = sprintf("`%s`='1'",$this->db->escape($type));
+		}
+
+		$sql = sprintf("select * from dbList WHERE %s AND (%s) ORDER BY name",
+			$type,
 			status::buildSQLStatus()
 			);
 		$sqlResult = $this->db->query($sql);

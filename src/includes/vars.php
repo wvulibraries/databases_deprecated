@@ -9,7 +9,7 @@ $localvars->set("databaseHome","/databases");
 $localvars->set("connectURL","/databases/connect.php");
 $localvars->set("proxyURL", "http://www.libproxy.wvu.edu/login?url=");
 $localvars->set("descriptionLength","300");
-$localvars->set("topPickHeading","Start Here");
+$localvars->set("topPickHeading","<h2>Start Here:</h2>");
 $localvars->set("databaseTagTypes",array(
 	// "fullTextDB"    => "Full Text",
 	"newDatabase"   => "New", 

@@ -100,7 +100,7 @@ $form->addField(
 		'label'      => 'Database URL',
 		// 'type'       => "url",
 		'required'   => TRUE,
-		'duplicates' => FALSE
+		'duplicates' => TRUE
 		)
 	);
 
@@ -172,7 +172,7 @@ $form->addField(
 		'label'    => 'Trial Expiration Date',
 		'type'     => 'date',
 		'placeholder' => "MM/DD/YYYY",
-		'help'     => array( 
+		'help'     => array(
 			'type' => "hover",
 			'text' => "Must be a date in the format of mm/dd/yyyy"
 			)
@@ -193,7 +193,7 @@ $form->addField(
 			'foreignLabel' => 'name'
 			)
 		)
-		
+
 	);
 
 $form->addField(
@@ -210,7 +210,7 @@ $form->addField(
 			'foreignLabel' => 'name'
 			)
 		)
-		
+
 	);
 
 $form->addField(
