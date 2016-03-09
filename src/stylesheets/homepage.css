@@ -9,4 +9,18 @@
 	margin-top: 20px;
 }
 
+.hphelp {
+	display: block;
+	padding: 0 0 20px 0;
+}
+.hphelp p {
+	text-align: left;
+	line-height: 120%;
+}
+@media screen and (min-width: 768px) {
+	.hphelp {
+		display: none;
+	}
+}
+
 </style>

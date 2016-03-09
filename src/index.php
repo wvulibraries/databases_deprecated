@@ -80,6 +80,12 @@ recurseInsert("stylesheets/homepage.css");
 		<?php } ?>
 </span>
 
+<div style="clear:both;"></div>
+
+<div class="hphelp">
+    <?php recurseInsert("includes/database_help.php","php") ?>
+</div>
+
 <?php
 templates::display('footer');
 ?>
