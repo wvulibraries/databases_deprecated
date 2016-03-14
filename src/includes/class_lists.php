@@ -141,7 +141,7 @@ class lists {
 				$output .= sprintf('<p class="trialText">Trial ends on %s</p>',
 					date("M d, Y",$database['trialExpireDate'])
 					);
-				$output .= sprintf('<a class="tfeedback" href="%sfeedback/?dbid=%s"><i class="fa fa-envelope"></i>Trial Database Feedback</a>',$localvars->get("databaseHome"),$database['ID']);
+				$output .= sprintf('<a class="tfeedback" href="%s/feedback/?dbid=%s"><i class="fa fa-envelope"></i>Trial Database Feedback</a>',$localvars->get("databaseHome"),$database['ID']);
 			}
 			//$output .= '<span class="bookmark-false">Bookmark</span>';
 			$output .= '</div>'; // database-box-top
