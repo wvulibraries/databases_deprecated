@@ -25,7 +25,7 @@ templates::display('header');
 
 {csrf}
 
-	<input name="emailcgi_to"      type="hidden" value="mrbond@mail.wvu.edu" />
+	<input name="emailcgi_to"      type="hidden" value="eresources@mail.wvu.edu" />
     <input name="emailcgi_server"  type="hidden" value="smtp.wvu.edu" />
     <input name="emailcgi_subject" type="hidden" value="Databases Problem Report" />
 
