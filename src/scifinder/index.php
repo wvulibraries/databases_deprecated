@@ -2,7 +2,7 @@
 require "../engineHeader.php";
 
 // Change the second argument to this function to set the page title.
-// Must be in single quotes.
+// Must be in single quotes. 
 $localvars = localvars::getInstance();
 $localvars->set("pageTitle",'WVU Libraries: Scifinder Scholar');
 $localvars->set("pageImg","http://www.libraries.wvu.edu/images/2012/facebookDefault.png");
