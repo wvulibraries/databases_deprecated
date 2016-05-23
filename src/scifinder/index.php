@@ -1,17 +1,13 @@
 <?php
-require_once("/home/library/public_html/includes/engineHeader.php");
+require "../engineHeader.php";
 
-// Change the second argument to this function to set the page title. 
-// Must be in single quotes. 
-localvars::add("pageTitle",'WVU Libraries: Scifinder Scholar');
-localvars::add("pageImg","http://www.libraries.wvu.edu/images/2012/facebookDefault.png");
+// Change the second argument to this function to set the page title.
+// Must be in single quotes.
+$localvars = localvars::getInstance();
+$localvars->set("pageTitle",'WVU Libraries: Scifinder Scholar');
+$localvars->set("pageImg","http://www.libraries.wvu.edu/images/2012/facebookDefault.png");
 
-// localvars::add("excludeToolbar","TRUE");
-
-// Change the second argument to this function to set a different template for the page
-$engine->eTemplate("load","library2012.3col");
-
-$engine->eTemplate("include","header");
+templates::display('header');
 ?>
 
 <!-- Page Content Goes Below This Line -->
@@ -40,17 +36,17 @@ $engine->eTemplate("include","header");
 			    <h2>Restrictions:</h2>
 
 			    <p class="normal">
-			      SciFinder Scholar is available for use by current WVU faculty, students and staff. It may be 
+			      SciFinder Scholar is available for use by current WVU faculty, students and staff. It may be
 			      used for individual research purposes.  All other use is prohibited.
 			    </p>
 
 				<hr />
 
 			    <p class="normal">
-			      Visit 
+			      Visit
 			      <a href="http://www.cas.org/support/scifi/index.html">
 				SciFinder Scholar Resources
-			      </a> 
+			      </a>
 			      for an interactive tutorial and user guides.
 			    </p>
 
@@ -72,5 +68,5 @@ $engine->eTemplate("include","header");
 <!-- Page Content Goes Above This Line -->
 
 <?php
-$engine->eTemplate("include","footer");
+templates::display('footer');
 ?>
