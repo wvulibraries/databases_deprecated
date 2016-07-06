@@ -17,6 +17,9 @@ html, body, form, nav, ul, div {
 .needs-js {
   display: none; }
 
+.libraryh3lp {
+  display: none; }
+
 .new-database, .trial-database {
   padding: 0 0 0 10px; }
 
