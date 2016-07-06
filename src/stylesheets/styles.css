@@ -14,6 +14,9 @@ html, body, form, nav, ul, div {
   text-align: center;
   font-family: "Helvetica Neue", "Helvetica","Roboto", Arial, sans-serif; }
 
+.needs-js {
+  display: none; }
+
 .new-database, .trial-database {
   padding: 0 0 0 10px; }
 

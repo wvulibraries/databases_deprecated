@@ -1,6 +1,6 @@
 
-@import 'variables'; 
- 
+@import 'variables';
+
 /*********************************************************************
     480px or less
 **********************************************************************/
@@ -11,6 +11,11 @@ html, body, form, nav, ul, div {
 	text-align: center;
 	font-family: "Helvetica Neue", "Helvetica","Roboto", Arial, sans-serif;
 }
+
+.needs-js {
+  display: none; 
+}
+
 .new-database, .trial-database {
 	padding: 0 0 0 10px;
 }
@@ -133,7 +138,7 @@ html, body, form, nav, ul, div {
 			padding: 0 5%;
 			margin: 0;
 			float: left;
-			display: inline-block;	
+			display: inline-block;
 		}
 		.search-button {
 			border: medium none;
@@ -165,18 +170,18 @@ html, body, form, nav, ul, div {
 	display: none;
 	@include mq(tablet) {
 		display: block;
-	}	
+	}
 }
 
 .button {
-  display: inline-block; 
-  padding: 10px 20px; 
-  text-shadow: 2px 2px 4px #005daa; 
-  border-radius: 5px; 
-  margin: 10px 0; 
-  background: #3399ff; 
-  color: #fff !important; 
-  border-width: 1px 1px 2px; 
+  display: inline-block;
+  padding: 10px 20px;
+  text-shadow: 2px 2px 4px #005daa;
+  border-radius: 5px;
+  margin: 10px 0;
+  background: #3399ff;
+  color: #fff !important;
+  border-width: 1px 1px 2px;
   border-color: #005daa;
   text-decoration: none;
   border-style: solid;
@@ -185,10 +190,10 @@ html, body, form, nav, ul, div {
   }
 }
 .button:hover {
-  background: #eeb111; 
-  color: #00447c !important; 
-  text-shadow: 2px 2px 4px #ffe894; 
-  border-color: #f47b20; 
+  background: #eeb111;
+  color: #00447c !important;
+  text-shadow: 2px 2px 4px #ffe894;
+  border-color: #f47b20;
   border-width: 1px 1px 2px;
   text-decoration: none;
   border-style: solid;
@@ -214,7 +219,7 @@ html, body, form, nav, ul, div {
 }
 .ask a:hover {
     opacity: 0.75;
-}    
+}
 .webapp-header {
 	background: url(https://lib.wvu.edu/images/2014/wise.jpg);
 	background-size: cover;
@@ -276,9 +281,9 @@ html, body, form, nav, ul, div {
 			}
 			li:last-child {
 				margin-right: 0;
-			}			
+			}
 		}
-	}	
+	}
 	.sticky-header-search {
 		.search-query-form {
 			transition: all 0.2s ease;
@@ -339,7 +344,7 @@ html, body, form, nav, ul, div {
 					padding: 0 5%;
 					margin: 0;
 					float: left;
-					display: inline-block;	
+					display: inline-block;
 				}
 				.search-button {
 					border: medium none;
@@ -495,7 +500,7 @@ html, body, form, nav, ul, div {
 		}
 	}
 	hr {
-		height: 1px; 
+		height: 1px;
 		background: $primary-orange;
 		margin: 20px 0;
 		border: none;
@@ -523,7 +528,7 @@ html, body, form, nav, ul, div {
 			@include mq(tablet) {
 				float: left;
 			}
-		}	
+		}
 		i {
 			float: right;
 			margin-right: 20px;
@@ -613,7 +618,7 @@ html, body, form, nav, ul, div {
 					white-space: nowrap;
 				}
 			}
-		}	
+		}
 		.database-box-bottom {
 			background: #eeeeee;
 			padding: 20px 5%;
@@ -740,7 +745,7 @@ html, body, form, nav, ul, div {
 	list-style-type: none;
 	li {
 		display: inline-block;
-		float: left; 
+		float: left;
 		margin-right: 10px;
 	}
 }
@@ -944,7 +949,7 @@ html, body, form, nav, ul, div {
 				bottom: 0;
 				max-width: 640px;
 				padding: 0;
-			}			
+			}
 			#search-toggle {
 				display: none;
 			}
@@ -977,10 +982,10 @@ html, body, form, nav, ul, div {
 			margin: 0 0 0 60px;
 			float: left;
 		}
-	}		
+	}
 	// .database {
 	// 	width: 48%;
 	// 	float: left;
 	// 	margin: 20px 1% 0 1%;
 	// }
-} 
+}
