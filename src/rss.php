@@ -57,30 +57,30 @@ if (!empty($engine->cleanGet)) {
 	$rss->title         = "WVU Libraries Databases: ";
 	$rss->link          = "http://www.libraries.wvu.edu/databases/";
 	$rss->lastBuildDate = gmdate("D, j M Y G:i:s T");
-	
+
 
 	if($engine->cleanGet['HTML']['type'] == "newdb") {
-		
+
 		$rss->title .= "New and Trial Databases";
 		$rss->description = "WVU Libraries New and Trial databases.";
-	
+
 		$sql = "SELECT * FROM dbList WHERE newDatabase='1' OR trialDatabase='1' ORDER BY createDate DESC LIMIT 10";
 		$engineVars['openDB']->sanitize = FALSE;
 		$sqlResult = $engineVars['openDB']->query($sql);
-		
+
 		while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC)) {
-			
+
 			$dbURL = $engineVars['WVULSERVER']."/databases/database/?id=".$row['ID'];
-			
+
 			$dbDesc = "";
 			$dbDesc .= ($row['newDatabase'] == 1)?"<img src=\"".$engineVars['WVULSERVER']."/databases/images/new.gif\" />&nbsp;":"";
 			$dbDesc .= ($row['trialDatabase'] == 1)?"<img src=\"".$engineVars['WVULSERVER']."/databases/images/trial.gif\" />&nbsp;":"";
 			$dbDesc .= $row['description'];
-			
+
 			$rss->addItem($row['name'],$dbURL,$dbURL,gmdate("D, j M Y G:i:s T",$row['createDate']),$dbDesc);
 		}
-		
-		
+
+
 		$xml = $rss->buildRSS();
 	}
 	else if ($engine->cleanGet['HTML']['type'] == "alumni") {
@@ -90,20 +90,21 @@ if (!empty($engine->cleanGet)) {
 			$sql = "SELECT * FROM dbList WHERE alumni='1' ORDER BY name DESC";
 		$engineVars['openDB']->sanitize = FALSE;
 		$sqlResult = $engineVars['openDB']->query($sql);
-		
+
 		while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC)) {
-			
+
 			$dbURL = $engineVars['WVULSERVER']."/databases/database/?id=".$row['ID'];
-			
+
 			$dbDesc = "";
 			$dbDesc .= ($row['newDatabase'] == 1)?"<img src=\"".$engineVars['WVULSERVER']."/databases/images/new.gif\" />&nbsp;":"";
 			$dbDesc .= ($row['trialDatabase'] == 1)?"<img src=\"".$engineVars['WVULSERVER']."/databases/images/trial.gif\" />&nbsp;":"";
 			$dbDesc .= $row['description'];
-			
+
 			$rss->addItem($row['name'],$dbURL,$dbURL,gmdate("D, j M Y G:i:s T",$row['createDate']),$dbDesc);
 		}
-		
-		
+		$rss->addItem("connect_link",sprintf("%s?%s=INVS",$localVars["connectURL"],$database['URLID']));
+
+
 		$xml = $rss->buildRSS();
 	}
 	else if ($engine->cleanGet['HTML']['type'] == "mobile") {
@@ -113,97 +114,97 @@ if (!empty($engine->cleanGet)) {
 			$sql = "SELECT * FROM dbList WHERE mobile='1' ORDER BY name DESC";
 		$engineVars['openDB']->sanitize = FALSE;
 		$sqlResult = $engineVars['openDB']->query($sql);
-		
+
 		while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC)) {
-			
+
 			$dbURL = $engineVars['WVULSERVER']."/databases/database/?id=".$row['ID'];
-			
+
 			$dbDesc = "";
 			$dbDesc .= ($row['newDatabase'] == 1)?"<img src=\"".$engineVars['WVULSERVER']."/databases/images/new.gif\" />&nbsp;":"";
 			$dbDesc .= ($row['trialDatabase'] == 1)?"<img src=\"".$engineVars['WVULSERVER']."/databases/images/trial.gif\" />&nbsp;":"";
 			$dbDesc .= $row['description'];
-			
+
 			$rss->addItem($row['name'],$dbURL,$dbURL,gmdate("D, j M Y G:i:s T",$row['createDate']),$dbDesc);
 		}
-		
-		
+
+
 		$xml = $rss->buildRSS();
 	}
 	else if ($engine->cleanGet['HTML']['type'] == "news") {
 		$rss->title .= "News and Announcements";
 		$rss->description = "WVU Libraries Database News and Announcements.";
-		
+
 		$sql = "SELECT * FROM news ORDER BY ID DESC LIMIT 10";
 		$engineVars['openDB']->sanitize = FALSE;
 		$sqlResult = $engineVars['openDB']->query($sql);
-		
+
 		while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC)) {
-			
+
 			$dbURL = $engineVars['WVULSERVER']."/databases/database.php?id=".$row['ID'];
-			
+
 			$dbDesc = "";
-			
+
 			$rss->addItem($row['name'],$dbURL,$dbURL,gmdate("D, j M Y G:i:s T"),$dbDesc);
 		}
-		
+
 		$xml = $rss->buildRSS();
-		
+
 	}
 	else if ($engine->cleanGet['HTML']['type'] == "popular") {
 		$rss->title      .= "Popular Databases";
 		$rss->description = "WVU Libraries Popular Databases RSS feed.";
-		
+
 		$sql = "SELECT * FROM dbList WHERE popular='1' ORDER BY name";
 		$engineVars['openDB']->sanitize = FALSE;
 		$sqlResult = $engineVars['openDB']->query($sql);
-		
+
 		while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC)) {
-			
+
 			$dbURL = $engineVars['WVULSERVER']."/databases/database.php?id=".$row['ID'];
-			
+
 			$dbDesc = "";
-			
+
 			$rss->addItem($row['name'],$dbURL,$dbURL,gmdate("D, j M Y G:i:s T"),$dbDesc);
 		}
-		
+
 		$xml = $rss->buildRSS();
-		
+
 	}
 	else if ($engine->cleanGet['HTML']['type'] == "combined") {
 		$rss->title .= "Combined RSS Feed.";
 		$rss->description = "WVU Libraries Database combined RSS feed. News and Announcements, New Databases, Trial Databases.";
-		
+
 		$sql = "SELECT * FROM dbList WHERE newDatabase='1' OR trialDatabase='1' ORDER BY createDate DESC LIMIT 10";
 		$engineVars['openDB']->sanitize = FALSE;
 		$sqlResult = $engineVars['openDB']->query($sql);
-		
+
 		while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC)) {
-			
+
 			$dbURL = $engineVars['WVULSERVER']."/databases/database/?id=".$row['ID'];
-			
+
 			$dbDesc = "";
 			$dbDesc .= ($row['newDatabase'] == 1)?"<img src=\"".$engineVars['WVULSERVER']."/databases/images/new.gif\" />&nbsp;":"";
 			$dbDesc .= ($row['trialDatabase'] == 1)?"<img src=\"".$engineVars['WVULSERVER']."/databases/images/trial.gif\" />&nbsp;":"";
 			$dbDesc .= $row['description'];
-			
+
 			$rss->addItem($row['name'],$dbURL,$dbURL,gmdate("D, j M Y G:i:s T",$row['createDate']),$dbDesc);
 		}
-		
+
 		$sql = "SELECT * FROM news ORDER BY ID DESC LIMIT 10";
 		$engineVars['openDB']->sanitize = FALSE;
 		$sqlResult = $engineVars['openDB']->query($sql);
-		
+
 		while ($row = mysql_fetch_array($sqlResult['result'], MYSQL_ASSOC)) {
-			
+
 			$dbURL = $engineVars['WVULSERVER']."/databases/database/?id=".$row['ID'];
-			
+
 			$dbDesc = "";
-			
+
 			$rss->addItem($row['name'],$dbURL,$dbURL,gmdate("D, j M Y G:i:s T"),$dbDesc);
 		}
-		
+
 		$xml = $rss->buildRSS();
-		
+
 	}
 
 print $xml;
