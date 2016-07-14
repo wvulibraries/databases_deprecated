@@ -101,8 +101,10 @@ if (!empty($engine->cleanGet)) {
 			$dbDesc .= $row['description'];
 
 			$rss->addItem($row['name'],$dbURL,$dbURL,gmdate("D, j M Y G:i:s T",$row['createDate']),$dbDesc);
+
+			$rss->addItem("connect_link",sprintf("%s?%s=INVS",$localVars["connectURL"],$database['URLID']));
 		}
-		$rss->addItem("connect_link",sprintf("%s?%s=INVS",$localVars["connectURL"],$database['URLID']));
+
 
 
 		$xml = $rss->buildRSS();
