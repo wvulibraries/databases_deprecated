@@ -100,7 +100,7 @@ if (!empty($engine->cleanGet)) {
 			$dbDesc .= ($row['trialDatabase'] == 1)?"<img src=\"".$engineVars['WVULSERVER']."/databases/images/trial.gif\" />&nbsp;":"";
 			$dbDesc .= $row['description'];
 
-			$rss->addItem($row['name'],$dbURL,sprintf("/databases/connect.php?%s=INVS",$row['ID']),gmdate("D, j M Y G:i:s T",$row['createDate']),$dbDesc);
+			$rss->addItem($row['name'],$dbURL,sprintf("/databases/connect.php?%s=INVS",$row['URLID']),gmdate("D, j M Y G:i:s T",$row['createDate']),$dbDesc);
 
 		}
 
