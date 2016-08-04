@@ -18,7 +18,9 @@ templates::display('header');
 <h2>
 			      Description:
 			    </h2>
-
+					<p>
+						<a class="button" href="http://www.libproxy.wvu.edu/login?url=https://scifinder.cas.org/registration/index.html?corpKey=92E01248-86F3-F00A-118B-5F2F72172EFA">Create an Account</a><a class="button" href="http://www.libproxy.wvu.edu/login?url=https://scifinder.cas.org">Logon to Scifinder</a>
+					</p>
 			    <p class="normal">
 			      SciFinder Scholar contains references in chemistry and related sciences, as well as information on substances and reactions. References from the chemical literature are from 1907 to the present.
 			    </p>
