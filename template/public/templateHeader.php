@@ -1,5 +1,6 @@
 <?php $localvars  = localvars::getInstance(); ?>
 <!DOCTYPE html>
+<!-- nagios check -->
 <html lang="en" class="no-js">
     <head>
         <title>Databases | WVU Libraries</title>
