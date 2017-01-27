@@ -1,6 +1,6 @@
 <?php
 
-require_once '/home/www.libraries.wvu.edu/phpincludes/engine/engineAPI/4.0/engine.php';
+require_once '/home/www.libraries.wvu.edu/phpincludes/engine/engineAPI/4.0a/engine.php';
 $engine = EngineAPI::singleton();
 
 require_once "/home/www.libraries.wvu.edu/public_html/includes/2014/engineHeader.php";
