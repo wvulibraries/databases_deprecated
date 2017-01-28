@@ -43,4 +43,7 @@ templates::load("databases2015-admin");
 formBuilder::process();
 formBuilder::ajaxHandler();
 
+if (!is_empty($_POST) && $_POST['MYSQL']['delete'] == "Delete") {
+	header('Location: /databases/admin/');
+}
 ?>

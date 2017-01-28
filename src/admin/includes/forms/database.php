@@ -8,8 +8,6 @@ $form->linkToDatabase(array(
 $form->insertTitle = "New Database";
 $form->editTitle   = "Edit Database";
 
-$processor = formBuilder::createProcessor();
-
 global $databaseID;
 
 $form->addField(
