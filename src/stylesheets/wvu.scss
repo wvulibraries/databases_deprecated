@@ -4,7 +4,7 @@
     480px or less
 **********************************************************************/
 html, body, form, nav, ul {
-    display: block;
+  display: block;
 	margin: 0;
 	padding: 0;
 	text-align: center;
@@ -22,6 +22,15 @@ html, body, form, nav, ul {
 video {
 	display: block;
 } 
+
+.wvu-skip-nav { 
+	position: absolute; 
+	z-index: 10; padding: 
+	0.5em; left: -99999em; 
+	background: white;
+	border: 2px dashed #004f90; 
+  &:focus { left: 0; }
+}
 
 /* For IE9 */
 a img {
@@ -52,6 +61,9 @@ a:hover, a:active, a:focus {
 	}
 	.wvu-masthead__logo--w-signature {
 	    width: 100%;
+	}
+	.wvu-header-logo .wvu-masthead__logo .wvu-masthead__logo--w-signature { 
+		&:active, &:hover, &:focus { border-bottom:1px solid #fff; }
 	}
 	.imagedesc {
 		background: url("../images/wvulogo.png") no-repeat center top 1.2em / 300px auto transparent;
@@ -90,7 +102,7 @@ a:hover, a:active, a:focus {
 			border-top-color: lighten( $primary-blue, 10% );
 			border-right: 1px solid lighten( $primary-blue, 10% );
 			border-left: 2px solid darken( $primary-blue, 10% );
-			text-decoration: none;
+			text-decoration: underline;
 			padding-top: 10px;
 			padding-bottom: 15px;
 			width: 50%;
@@ -107,7 +119,7 @@ a:hover, a:active, a:focus {
 		border-top-width: 1px;
 		border-top-style: solid;
 		border-top-color: #0079dd; 
-		text-decoration: none; 
+		text-decoration: underline; 
 		padding-top: 10px;
 		padding-bottom: 15px;
 		li {
@@ -147,8 +159,9 @@ footer {
 	}
 	a {
 		color: #fff;
-		text-decoration: none;
-		&:hover {
+		text-decoration: underline;
+		&:hover, &:active, &:focus {
+			color: #FC6; 
 			text-decoration: underline;
 		}
 	}
@@ -162,8 +175,8 @@ footer {
 		font-weight: 300;	
 		display: block;
 		color: #FC6;
-		&:hover {
-			text-decoration:none;
+		&:hover, &:active, &:focus {
+			text-decoration:bold;
 		}
 	}
 
@@ -185,8 +198,9 @@ footer {
 				font-size:  0.75em;	
 				border-radius: 30px;
 				color: #fff;
-				text-decoration: none;
-				&:hover {
+				text-decoration: underline;
+				&:hover, &:active, &:focus {
+					color: #FC6;
 					text-decoration: underline;
 				}
 			}
@@ -200,9 +214,11 @@ footer {
 			padding: 0 2px;
 			.socmedia {
 				opacity: 1;
-				&:hover {
+				text-decoration:none;
+				&:hover, &:active, &:focus {
 					text-decoration: none;
 					opacity: 0.75;
+					border-bottom:1px solid #fff;
 				}
 				img {
 					width: 30px;
@@ -254,13 +270,13 @@ footer {
 		a {
 			margin: 0 0.5em; 
 			color: white; 
-			text-decoration: none;
-			&:hover {
+			text-decoration: underline;
+			&:hover, &:active, &:focus {
+				color: #FC6; 
 				text-decoration:underline;
 			}	
 		}
 	}
-
 
 	/* Footer */
 	footer {
@@ -283,6 +299,9 @@ footer {
 				a {
 					padding: 10px 0 0 0;
 					margin-left: 1em;
+					&:hover,&:active, &:focus { 
+							color: #FC6; 
+					}
 				}
 			}
 		}

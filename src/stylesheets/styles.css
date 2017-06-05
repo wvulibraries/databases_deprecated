@@ -14,6 +14,15 @@ html, body, form, nav, ul, div {
   text-align: center;
   font-family: "Helvetica Neue", "Helvetica","Roboto", Arial, sans-serif; }
 
+.hidden-text {
+  text-indent: 100%;
+  white-space: nowrap;
+  /* visibility: hidden; */
+  overflow: hidden;
+  width: 0px;
+  height: 0px;
+  display: block; }
+
 .needs-js, .libraryh3lp {
   display: none; }
 
@@ -106,6 +115,8 @@ html, body, form, nav, ul, div {
   max-width: 480px;
   width: 99%;
   float: left; }
+  #searchBox:hover, #searchBox:focus {
+    border: 1px solid #0033A0; }
   #searchBox #dbn_form {
     width: 100%; }
     #searchBox #dbn_form .hidelabel {
@@ -134,7 +145,7 @@ html, body, form, nav, ul, div {
       background: #002855;
       color: #fff;
       cursor: pointer; }
-      #searchBox #dbn_form .search-button:hover {
+      #searchBox #dbn_form .search-button:hover, #searchBox #dbn_form .search-button:focus {
         background: #0033A0; }
 
 #results-count {
@@ -215,9 +226,12 @@ html, body, form, nav, ul, div {
     .webapp-header h1 a {
       color: #fff;
       text-decoration: none;
+      border-bottom: 1px solid #fff;
       text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.75); }
-      .webapp-header h1 a:hover {
-        text-decoration: underline; }
+      .webapp-header h1 a:hover, .webapp-header h1 a:active, .webapp-header h1 a:focus {
+        color: #FC6;
+        text-decoration: none;
+        border-bottom: 1px solid #fc6; }
 
 #main-container {
   margin: 40px 0;
@@ -423,9 +437,10 @@ html, body, form, nav, ul, div {
   width: 100%;
   float: left; }
   .database-content a {
-    color: #0000ff;
-    text-decoration: none; }
-    .database-content a:hover {
+    color: #0033A0;
+    text-decoration: underline; }
+    .database-content a:hover, .database-content a:active, .database-content a:focus {
+      color: #E35205;
       text-decoration: underline; }
   .database-content hr {
     height: 1px;
@@ -611,8 +626,8 @@ html, body, form, nav, ul, div {
       padding: 4px 0 5px 0;
       display: block;
       color: #337AB7;
-      text-decoration: none; }
-      .sticky-header-desktop-links li a:hover {
+      text-decoration: underline; }
+      .sticky-header-desktop-links li a:hover, .sticky-header-desktop-links li a:active, .sticky-header-desktop-links li a:focus {
         text-decoration: underline; }
       .sticky-header-desktop-links li a .fa {
         COLOR: #EAAA00;

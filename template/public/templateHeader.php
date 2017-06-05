@@ -41,17 +41,25 @@
         <?php recurseInsert("headerIncludes.php","php") ?>
     </head>
     <body>
+        <!-- Skip Nav --> 
+        <a class="wvu-skip-nav" href="#main-container">Skip to main content</a>
+
         <!-- Ask A Librarian  -->
-        <div class="ask"><a href="http://westvirginia.libanswers.com/"><img title="Ask A Librarian" alt="Ask A Librarian" src="https://lib.wvu.edu/images/2014/ask.png"></a></div>
+        <div class="ask" role="banner" aria-label="ask a library interactive chat button">
+            <a href="http://westvirginia.libanswers.com/">
+                <img title="Ask A Librarian" alt="Ask A Librarian" src="https://lib.wvu.edu/images/2014/ask.png">
+                <span class="hidden-text">Ask a Librarian</span>
+            </a>
+        </div>
 
         <!-- WVU Header -->
-        <div class="wvu-header mobile wvubottom">
+        <div class="wvu-header mobile wvubottom" role="banner" aria-label="wvu header and branding for mobile devices">
             <a href="#" id="wvutoggle" class="wvu-masthead__logo wvu-masthead__logo--w-signature">
                 <img src="{local var="databaseHome"}/images/wvulogo.svg" alt="WVU Libraries">
                 <i class="fa fa-chevron-down"></i>
                 <i class="fa fa-chevron-up"></i>
             </a>
-            <ul class="list">
+            <ul class="list" role="menu" aria-label="quick links to other library pages">
                 <li><a class="links" href="https://lib.wvu.edu/about/">About</a></li>
                 <li><a class="links" href="https://lib.wvu.edu/collections/">Collections</a></li>
                 <li><a class="links" href="https://lib.wvu.edu/instruction">Instruction</a></li>
@@ -62,7 +70,7 @@
                 <li><a class="links" href="https://lib.wvu.edu/">Library Home</a></li>
             </ul>
         </div>
-        <div class="wvu-header tablet wvubottom">
+        <div class="wvu-header tablet wvubottom" role="banner" aria-label="wvu header and branding for larger devices and computers">
             <div class="wrap">
                 <a href="https://lib.wvu.edu" class="wvu-header-logo wvu-masthead__logo wvu-masthead__logo--w-signature">
                     <span class="wvu-masthead-title wvu-masthead__title--w-signature">Libraries</span>
@@ -80,7 +88,7 @@
         </div>
 
         <!-- WebApp Header -->
-        <div class="webapp-header">
+        <div class="webapp-header" role="banner" aria-label="site header">
             <div class="wrap">
                 <h1><a href="{local var="databaseHome"}">Databases</a></h1>
             </div>
@@ -134,7 +142,7 @@
         </div>
 
         <!-- Main Container -->
-        <div id="main-container">
+        <div id="main-container" role="main" tab-index="-1">
             <div class="wrap">
 
                 <div class="database-content">
