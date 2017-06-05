@@ -157,7 +157,7 @@
 
                     <!-- Database Results Title & Sorting -->
                     <div class="database-content-title" style="{local var="adminDisplay"}">
-                        <h2><span class="database-content-title-results">{local var="databaseHeading"} {local var="database_heading_middle"} {local var="databaseHeadingByTitle"}</span></h2>
+                        <h2 class="{local var="databaseHeadingClass"}"><span class="database-content-title-results">{local var="databaseHeading"} {local var="database_heading_middle"} {local var="databaseHeadingByTitle"}</span></h2>
                         <!-- Impliment blocks versus lists later
                         <i class="fa fa-list"></i>
                         <i class="fa fa-th-large"></i>
