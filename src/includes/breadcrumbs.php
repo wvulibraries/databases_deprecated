@@ -28,7 +28,7 @@ if (!is_empty($localvars->get("enableBreadcrumbClicking"))) {
 
 <div class ="database-content-facets">
 	<ul class="database-content-facets-ul">
-		<li><i class="fa fa-home"></i><a href="/">Home</a></li>
+		<li><span class="fa fa-home"></span>  <a href="/">Home</a></li>
 		<li><a href="{local var="databaseHome"}">Databases</a></li>
 		{local var="breadCrumbs"}
 	</ul>
