@@ -216,7 +216,7 @@ html, body, form, nav, ul, div {
   background: url(https://lib.wvu.edu/images/2014/wise.jpg);
   background-size: cover;
   background-position: center center;
-  background-color: #fff;
+  background-color: #002855;
   height: auto;
   display: block;
   overflow: hidden; }
@@ -444,8 +444,8 @@ html, body, form, nav, ul, div {
     color: #0033A0;
     text-decoration: underline; }
     .database-content a:hover, .database-content a:active, .database-content a:focus {
-      color: #983703;
-      text-decoration: underline; }
+      text-decoration: underline;
+      font-weight: bold; }
   .database-content hr {
     height: 1px;
     background: #EAAA00;

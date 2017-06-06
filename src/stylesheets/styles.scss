@@ -242,7 +242,7 @@ html, body, form, nav, ul, div {
 	background: url(https://lib.wvu.edu/images/2014/wise.jpg);
 	background-size: cover;
 	background-position: center center;
-	background-color: #fff;
+	background-color: $primary-blue;
 	height: auto;
 	display: block;
 	overflow: hidden;
@@ -517,8 +517,8 @@ html, body, form, nav, ul, div {
 		color: $accent-blue1;
 		text-decoration: underline;
 		&:hover, &:active, &:focus {
-			color:  darken($accent-orange3, 15%);
 			text-decoration: underline;
+			font-weight:bold;
 		}
 	}
 	hr {
