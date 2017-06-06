@@ -233,6 +233,11 @@ html, body, form, nav, ul, div {
 .ask a:hover {
     opacity: 0.75;
 }
+
+.ask a:focus {
+    opacity: 0.75;
+		border:1px dashed $accent-orange3;
+}
 .webapp-header {
 	background: url(https://lib.wvu.edu/images/2014/wise.jpg);
 	background-size: cover;

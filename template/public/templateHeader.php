@@ -45,7 +45,7 @@
         <a class="wvu-skip-nav" href="#main-container">Skip to main content</a>
 
         <!-- Ask A Librarian  -->
-        <div class="ask" role="banner" aria-label="ask a library interactive chat button">
+        <div class="ask" role="banner" aria-label="ask a library interactive chat button" tab-index="0">
             <a href="http://westvirginia.libanswers.com/">
                 <img title="Ask A Librarian" alt="Ask A Librarian" src="https://lib.wvu.edu/images/2014/ask.png">
                 <span class="hidden-text">Ask a Librarian</span>
