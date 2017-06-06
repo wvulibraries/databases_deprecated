@@ -56,8 +56,8 @@
         <div class="wvu-header mobile wvubottom" role="banner" aria-label="wvu header and branding for mobile devices">
             <a href="#" id="wvutoggle" class="wvu-masthead__logo wvu-masthead__logo--w-signature">
                 <img src="{local var="databaseHome"}/images/wvulogo.svg" alt="WVU Libraries">
-                <i class="fa fa-chevron-down"></i>
-                <i class="fa fa-chevron-up"></i>
+                <span class="fa fa-chevron-down"></span>
+                <span class="fa fa-chevron-up"></span>
             </a>
             <ul class="list" role="menu" aria-label="quick links to other library pages">
                 <li><a class="links" href="https://lib.wvu.edu/about/">About</a></li>
@@ -121,10 +121,10 @@
                 <?php } ?>
                 <div class="sticky-header-search tabBar">
                     <ul class="sticky-header-desktop-links">
-                        <li><a href="{local var="databaseHome"}/subjects/"><i class="fa fa-sort-amount-asc"></i>Database Subjects</a></li>
-                        <li><a href="{local var="databaseHome"}/AtoZ/"><i class="fa fa-sort-alpha-asc"></i>Database Titles</a></li>
+                        <li><a href="{local var="databaseHome"}/subjects/"><span class="fa fa-sort-amount-asc"></span>Database Subjects</a></li>
+                        <li><a href="{local var="databaseHome"}/AtoZ/"><span class="fa fa-sort-alpha-asc"></span>Database Titles</a></li>
 
-                        <li><a href="#help"><i class="fa fa-question-circle"></i>Database Help</a></li>
+                        <li><a href="#help"><span class="fa fa-question-circle"></span>Database Help</a></li>
                     </ul>
                     <a id="search-toggle">
                         <img src="{local var="databaseHome"}/images/help.svg" alt="Search" id="search-toggle1">
@@ -159,8 +159,8 @@
                     <div class="database-content-title" style="{local var="adminDisplay"}">
                         <h2 class="{local var="databaseHeadingClass"}"><span class="database-content-title-results">{local var="databaseHeading"} {local var="database_heading_middle"} {local var="databaseHeadingByTitle"}</span></h2>
                         <!-- Impliment blocks versus lists later
-                        <i class="fa fa-list"></i>
-                        <i class="fa fa-th-large"></i>
+                        <span class="fa fa-list"></span>
+                        <span class="fa fa-th-large"></span>
                         -->
                     </div>
                     <div style="clear:both;"></div>
