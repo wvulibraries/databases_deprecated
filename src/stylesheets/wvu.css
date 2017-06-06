@@ -26,6 +26,16 @@ html, body, form, nav, ul {
 video {
   display: block; }
 
+.wvu-skip-nav {
+  position: absolute;
+  z-index: 10;
+  padding: 0.5em;
+  left: -99999em;
+  background: white;
+  border: 2px dashed #004f90; }
+  .wvu-skip-nav:focus {
+    left: 0; }
+
 /* For IE9 */
 a img {
   border: none; }
@@ -52,6 +62,8 @@ a:hover, a:active, a:focus {
     width: 70.14568%; }
   .wvu-header .wvu-masthead__logo--w-signature {
     width: 100%; }
+  .wvu-header .wvu-header-logo .wvu-masthead__logo .wvu-masthead__logo--w-signature:active, .wvu-header .wvu-header-logo .wvu-masthead__logo .wvu-masthead__logo--w-signature:hover, .wvu-header .wvu-header-logo .wvu-masthead__logo .wvu-masthead__logo--w-signature:focus {
+    border-bottom: 1px solid #fff; }
   .wvu-header .imagedesc {
     background: url("../images/wvulogo.png") no-repeat center top 1.2em/300px auto transparent; }
   .wvu-header .wvu-masthead__title--w-signature {
@@ -85,7 +97,7 @@ a:hover, a:active, a:focus {
       border-top-color: #004088;
       border-right: 1px solid #004088;
       border-left: 2px solid #001022;
-      text-decoration: none;
+      text-decoration: underline;
       padding-top: 10px;
       padding-bottom: 15px;
       width: 50%;
@@ -100,7 +112,7 @@ a:hover, a:active, a:focus {
     border-top-width: 1px;
     border-top-style: solid;
     border-top-color: #0079dd;
-    text-decoration: none;
+    text-decoration: underline;
     padding-top: 10px;
     padding-bottom: 15px; }
     .wvu-header .links li {
@@ -134,8 +146,9 @@ footer {
     line-height: 150%; }
   footer a {
     color: #fff;
-    text-decoration: none; }
-    footer a:hover {
+    text-decoration: underline; }
+    footer a:hover, footer a:active, footer a:focus {
+      color: #FC6;
       text-decoration: underline; }
 
 .school-footer {
@@ -147,8 +160,8 @@ footer {
     font-weight: 300;
     display: block;
     color: #FC6; }
-    .school-footer .footerTitle:hover {
-      text-decoration: none; }
+    .school-footer .footerTitle:hover, .school-footer .footerTitle:active, .school-footer .footerTitle:focus {
+      text-decoration: bold; }
 
 .wvu-footer {
   margin: 10px 0px 30px 0px;
@@ -167,8 +180,9 @@ footer {
         font-size: 0.75em;
         border-radius: 30px;
         color: #fff;
-        text-decoration: none; }
-        .wvu-footer .wvuFooterSites li a:hover {
+        text-decoration: underline; }
+        .wvu-footer .wvuFooterSites li a:hover, .wvu-footer .wvuFooterSites li a:active, .wvu-footer .wvuFooterSites li a:focus {
+          color: #FC6;
           text-decoration: underline; }
   .wvu-footer .wvuFooterSocial {
     margin-top: 30px;
@@ -177,10 +191,12 @@ footer {
       display: inline;
       padding: 0 2px; }
       .wvu-footer .wvuFooterSocial li .socmedia {
-        opacity: 1; }
-        .wvu-footer .wvuFooterSocial li .socmedia:hover {
+        opacity: 1;
+        text-decoration: none; }
+        .wvu-footer .wvuFooterSocial li .socmedia:hover, .wvu-footer .wvuFooterSocial li .socmedia:active, .wvu-footer .wvuFooterSocial li .socmedia:focus {
           text-decoration: none;
-          opacity: 0.75; }
+          opacity: 0.75;
+          border-bottom: 1px solid #fff; }
         .wvu-footer .wvuFooterSocial li .socmedia img {
           width: 30px;
           height: auto; }
@@ -221,8 +237,9 @@ footer {
     .wvu-header-mobile-list a {
       margin: 0 0.5em;
       color: white;
-      text-decoration: none; }
-      .wvu-header-mobile-list a:hover {
+      text-decoration: underline; }
+      .wvu-header-mobile-list a:hover, .wvu-header-mobile-list a:active, .wvu-header-mobile-list a:focus {
+        color: #FC6;
         text-decoration: underline; }
 
   /* Footer */
@@ -245,6 +262,8 @@ footer {
       .wvu-footer .wvuFooterSites li a {
         padding: 10px 0 0 0;
         margin-left: 1em; }
+        .wvu-footer .wvuFooterSites li a:hover, .wvu-footer .wvuFooterSites li a:active, .wvu-footer .wvuFooterSites li a:focus {
+          color: #FC6; }
     .wvu-footer .wvuFooterSocial {
       float: right; }
 

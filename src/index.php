@@ -5,14 +5,15 @@ require "engineHeader.php";
 $localvars->set("subjects",lists::subjects());
 
 $localvars = localvars::getInstance();
-$localvars->set("adminDisplay","display:none;");
+//$localvars->set("adminDisplay","display:none;");
 $localvars->set("letters",lists::letters());
 
 $dbObject  = new databases;
 $databases = $dbObject->getByType(array("trialDatabase")); //"newDatabase",
 
 $localvars->set("highlighted_databases",lists::databases($databases,false));
-
+$localvars->set("databaseHeading", "Search Databases"); 
+$localvars->set("databaseHeadingClass", "hidden-text");
 $localvars->set("homepage","true");
 
 templates::display('header');

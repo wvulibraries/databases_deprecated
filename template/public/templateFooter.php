@@ -16,7 +16,7 @@
             </div>
 
         <!-- Footer -->
-        <footer id="footer">
+        <footer id="footer" aria-label="footer informations for university and library">
             <div class="wrap">
                 <div class="school-footer">
                     <p><a href="https://lib.wvu.edu" class="footerTitle">WVU <strong>Libraries</strong></a><br>

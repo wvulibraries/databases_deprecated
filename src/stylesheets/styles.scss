@@ -12,6 +12,16 @@ html, body, form, nav, ul, div {
 	font-family: "Helvetica Neue", "Helvetica","Roboto", Arial, sans-serif;
 }
 
+.hidden-text {
+    text-indent: 100%;
+    white-space: nowrap;
+    /* visibility: hidden; */
+    overflow: hidden;
+    width: 0px;
+    height: 0px;
+    display: block;
+}
+
 .needs-js, .libraryh3lp {
   display: none;
 }
@@ -121,6 +131,9 @@ html, body, form, nav, ul, div {
 	max-width: 480px;
 	width: 99%;
 	float: left;
+	&:hover,&:focus { 
+		border: 1px solid $accent-blue1;
+	}
 	#dbn_form {
 		width: 100%;
 		.hidelabel {
@@ -151,7 +164,7 @@ html, body, form, nav, ul, div {
 			background: $primary-blue;
 			color: #fff;
 			cursor: pointer;
-			&:hover {
+			&:hover, &:focus {
 				background: $accent-blue1;
 			}
 		}
@@ -238,9 +251,12 @@ html, body, form, nav, ul, div {
 		a {
 			color: #fff;
 			text-decoration: none;
+			border-bottom: 1px solid #fff; 
 			text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.75);
-			&:hover {
-				text-decoration: underline;
+			&:hover, &:active, &:focus {
+				color: #FC6;
+				text-decoration: none;
+				border-bottom: 1px solid #fc6; 
 			}
 		}
 	}
@@ -493,9 +509,10 @@ html, body, form, nav, ul, div {
 	width: 100%;
 	float: left;
 	a {
-		color: #0000ff;
-		text-decoration: none;
-		&:hover {
+		color: #0033A0;
+		text-decoration: underline;
+		&:hover, &:active, &:focus {
+			color:#E35205;
 			text-decoration: underline;
 		}
 	}
@@ -729,8 +746,8 @@ html, body, form, nav, ul, div {
 			padding: 4px 0 5px 0;
 			display: block;
 			color: #337AB7;
-			text-decoration: none;
-			&:hover {
+			text-decoration: underline;
+			&:hover, &:active, &:focus {
 				text-decoration: underline;
 			}
 			.fa {

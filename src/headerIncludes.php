@@ -34,6 +34,8 @@ if ($localvars->get("subjectsPage")) {
           required: false,
           submitOnEnter: true
         });
+
+       $('.mp_list').attr('aria-label', 'Suggested Search');
       });
 
 	});
