@@ -5,7 +5,7 @@
     480px or less
 **********************************************************************/
 html, body, form, nav, ul, div {
-    display: block;
+	display: block;
 	margin: 0;
 	padding: 0;
 	text-align: center;
@@ -486,8 +486,8 @@ html, body, form, nav, ul, div {
 	display: none;
 }
 .main-container-alert {
-	background: #edecec;
-	border-top: 1px solid #d3d3d3;
+	background: lighten($neutral-lgray, 20%);
+	border-top: 1px solid darken($neutral-lgray, 10%);
 	#main-container-alert {
 		padding: 0;
 		h2 {
@@ -509,10 +509,10 @@ html, body, form, nav, ul, div {
 	width: 100%;
 	float: left;
 	a {
-		color: #0033A0;
+		color: $accent-blue1;
 		text-decoration: underline;
 		&:hover, &:active, &:focus {
-			color: #983703;
+			color:  darken($accent-orange3, 15%);
 			text-decoration: underline;
 		}
 	}
@@ -876,9 +876,6 @@ html, body, form, nav, ul, div {
 	}
 	#main-container {
  		margin: 0;
- 		.main-container-alert {
-			border-top: 1px solid #d3d3d3;
-		}
 	}
 	.database-content {
 		margin: 20px 0 50px 0;
@@ -977,7 +974,7 @@ html, body, form, nav, ul, div {
 		height: auto;
 		overflow: hidden;
 		a {
-			color: #337AB7;
+			color: $accent-blue1;
 		}
 	}
 	.search-query-form-message-box {
@@ -985,7 +982,10 @@ html, body, form, nav, ul, div {
 		width: 25%;
 		display: block;
 		a {
-			color: #337AB7;
+			color: $accent-blue1;
+			&:hover,&:active,&:focus { 
+				color:darken($accent-orange3, 15%);
+			}
 		}
 	}
 }

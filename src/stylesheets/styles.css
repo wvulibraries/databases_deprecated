@@ -418,8 +418,8 @@ html, body, form, nav, ul, div {
   display: none; }
 
 .main-container-alert {
-  background: #edecec;
-  border-top: 1px solid #d3d3d3; }
+  background: #d8dcdd;
+  border-top: 1px solid #879195; }
   .main-container-alert #main-container-alert {
     padding: 0; }
     .main-container-alert #main-container-alert h2 {
@@ -737,8 +737,6 @@ html, body, form, nav, ul, div {
 
   #main-container {
     margin: 0; }
-    #main-container .main-container-alert {
-      border-top: 1px solid #d3d3d3; }
 
   .database-content {
     margin: 20px 0 50px 0;
@@ -818,14 +816,16 @@ html, body, form, nav, ul, div {
     height: auto;
     overflow: hidden; }
     .search-query-form-message a {
-      color: #337AB7; }
+      color: #0033A0; }
 
   .search-query-form-message-box {
     float: left;
     width: 25%;
     display: block; }
     .search-query-form-message-box a {
-      color: #337AB7; } }
+      color: #0033A0; }
+      .search-query-form-message-box a:hover, .search-query-form-message-box a:active, .search-query-form-message-box a:focus {
+        color: #983703; } }
 /*********************************************************************
 	1024px and up
 **********************************************************************/
