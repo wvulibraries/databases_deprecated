@@ -2,6 +2,8 @@
 
 require "../../engineHeader.php";
 
+$localvars->set("databaseHeading","eResource Error Report Confirmation");
+$localvars->set("databaseHeading","-- Thanks");
 templates::display('header'); 
 
 ?>
@@ -9,9 +11,6 @@ templates::display('header');
 <!-- Page Content Goes Below This Line -->
 
 {local var="letters"}
-
-<h2>eResource Error Report -- Thanks</h2>
-
 <p>
 Thank you for submitting a problem.
 </p>
