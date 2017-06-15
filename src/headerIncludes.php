@@ -21,6 +21,7 @@ if ($localvars->get("subjectsPage")) {
 	$(document).ready(function() {
 
       $(function () {
+        $('#dbn').attr('aria-expanded', 'false');
         $('#dbn').marcoPolo({
           url: "/databases/search/progessive/",
           formatItem: function (data, $item) {
