@@ -82,14 +82,9 @@ templates::display('header');
 <div id="screenshot">
     <p>
         <label class="bold" for="attachment">Screenshot:</label>
-        <input type="file" name="attachment[]" multiple>
+        <input id="attachment" type="file" name="attachment[]" multiple>
     </p>
 </div>
-
-<p>
-	{local var="textCaptcha_question"} <br />
-	<input type="text" name="captchaAnswer"><br />
-</p>
 
 <input type="submit" value="Report Problem" name="submit_report">
 
