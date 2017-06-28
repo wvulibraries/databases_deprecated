@@ -516,6 +516,7 @@ html, body, form, nav, ul, div {
 	a {
 		color: $accent-blue1;
 		text-decoration: underline;
+		padding:5px; 
 		&:hover, &:active, &:focus {
 			text-decoration: underline;
 		}
