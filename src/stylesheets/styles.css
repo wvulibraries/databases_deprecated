@@ -442,10 +442,10 @@ html, body, form, nav, ul, div {
   float: left; }
   .database-content a {
     color: #0033A0;
-    text-decoration: underline; }
+    text-decoration: underline;
+    padding: 5px; }
     .database-content a:hover, .database-content a:active, .database-content a:focus {
-      text-decoration: underline;
-      font-weight: bold; }
+      text-decoration: underline; }
   .database-content hr {
     height: 1px;
     background: #EAAA00;
