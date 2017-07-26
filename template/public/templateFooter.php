@@ -64,7 +64,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="socmedia" href="http://instagram.com/wvulibrarianlinda" target="_blank">
+                            <a class="socmedia" href="http://instagram.com/wvulibraries" target="_blank">
                                 <img src="{local var="databaseHome"}/images/instagram.png" alt="Instagram" title="Instagram">
                             </a>
                         </li>
