@@ -26,8 +26,8 @@ templates::display('header');
 {csrf}
 
 	<input name="emailcgi_to"      type="hidden" value="eresources@mail.wvu.edu" />
-    <input name="emailcgi_server"  type="hidden" value="smtp.wvu.edu" />
-    <input name="emailcgi_subject" type="hidden" value="Databases Problem Report" />
+  <input name="emailcgi_server"  type="hidden" value="smtp.wvu.edu" />
+  <input name="emailcgi_subject" type="hidden" value="Databases Problem Report" />
 
 	<!-- Form fields to include in message -->
 	<input name="emailcgi_fields" type="hidden" value="Database-or-Journal,Problem,Name,Email,Phone,attachment" />
@@ -37,7 +37,7 @@ templates::display('header');
 	<!-- File to display on success -->
 	<input type="hidden" name="emailcgi_rd_url" value="https://lib.wvu.edu/databases/report/thanks/">
 	<!-- File to display on error -->
-	<input type="hidden" name="emailcgi_rd_error_url" value="https://lib.wvu.edu/databases/report/thanks/">
+	<input type="hidden" name="emailcgi_rd_error_url" value="https://lib.wvu.edu/databases/report/error/">
 	<!-- Require emailcgi_email_sndr to be an 'onCampus' email address (as defined by email::internalEmailAddr()) -->
 	<!-- <input type="hidden" name="emailcgi_oncampus" value="yes"> -->
 	<!-- Use HTML formatting for email -->
