@@ -60,10 +60,10 @@ templates::display('header');
 
 			    <div class="contact">
 			      <p class="normal">
-				Linda Blake <br />
-				Downtown Library Reference Department <br />
-				(304) 293-0328 <br />
-				<a href="mailto:linda.blake@mail.wvu.edu">linda.blake@mail.wvu.edu</a>
+				Tim Berge <br />
+				Science Librarian / Research Services<br />
+				(304) 293-9964 <br />
+				<a href="mailto:timothy.berge@mail.wvu.edu">timothy.berge@mail.wvu.edu</a>
 			      </p>
 			    </div>
 
