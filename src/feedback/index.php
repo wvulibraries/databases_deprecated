@@ -36,7 +36,7 @@ templates::display('header');
 	<!-- Form fields to include in message -->
 	<input name="emailcgi_fields" type="hidden" value="Database-or-Journal,Feedback,Name,Email,Phone" />
 	<!-- Form fields with are required -->
-	<input name="emailcgi_req_fields" type="hidden" value="Database-or-Journal,Problem" />
+	<input name="emailcgi_req_fields" type="hidden" value="Database-or-Journal,Feedback" />
 
 	<!-- File to display on success -->
 	<input type="hidden" name="emailcgi_rd_url" value="https://lib.wvu.edu/databases/report/thanks/">
