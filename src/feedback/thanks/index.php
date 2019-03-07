@@ -3,7 +3,7 @@
 require "../../engineHeader.php";
 
 $localvars->set("databaseHeading","eResource Trial Database Feedback");
-$localvars->set("databaseHeading","-- Thanks");
+$localvars->set("databaseHeading","Thank You.");
 
 templates::display('header');
 ?>
